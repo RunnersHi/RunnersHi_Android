@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RivalActivity"></activity>
+        <activity android:name=".FinishRunActivity"></activity>
+        <activity android:name=".RivalActivity" />
         <activity android:name=".GoalActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

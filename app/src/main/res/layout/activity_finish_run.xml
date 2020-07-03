@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="40dp"
+    android:paddingVertical="20dp"
+    android:background="@color/blue"
+    tools:context=".FinishRunActivity">
+
+    <ImageView
+        android:id="@+id/imgvFinishRunTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/finish" />
+
+    <TextView
+        android:id="@+id/tvFinishRunDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="즐겁게 러닝 하셨나요?\n시간이 다 되었어요!"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="305dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnFinishRunConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="결과 확인하기"
+        android:textColor="@color/black"
+        android:background="@drawable/btn_click"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFinishRunDesc" />
+</androidx.constraintlayout.widget.ConstraintLayout>
