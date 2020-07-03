@@ -74,7 +74,7 @@
         android:id="@+id/btnRivalNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:text="다음"
         android:textColor="@color/white"
         android:background="@drawable/btn_next"
