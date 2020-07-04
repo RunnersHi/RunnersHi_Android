@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="20dp"
+    android:background="@color/grey"
+    tools:context=".RecDetailActivity">
+
+    <ImageView
+        android:id="@+id/btnRecDetailBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    <TextView
+        android:id="@+id/tvRecDetailDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="6월 17일의 러닝"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRecDetailBack" />
+
+    <TextView
+        android:id="@+id/tvRecDetailTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="7dp"
+        android:text="오후 6:18 - 6:28"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecDetailDate" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecDetailTime" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingVertical="15dp"
+        android:paddingHorizontal="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="13dp"
+            android:background="@drawable/box_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvRecDetailDistData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="4.43 km"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvRecDetailDistTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="러닝거리"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailDistData" />
+
+            <TextView
+                android:id="@+id/tvRecDetailPaceData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="8'22&quot;"
+                android:layout_marginStart="45dp"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailDistTitle" />
+
+            <TextView
+                android:id="@+id/tvRecDetailPace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:text="페이스"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/tvRecDetailPaceData"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailPaceData" />
+
+            <TextView
+                android:id="@+id/tvRecDetailTimeData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="45dp"
+                android:text="30:00"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailDistTitle" />
+
+            <TextView
+                android:id="@+id/tvRecDetailTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="45dp"
+                android:text="러닝시간"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvRecDetailTimeData"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailTimeData"
+                tools:ignore="DuplicateIds" />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="12dp"
+            android:background="@drawable/box_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+
+            <TextView
+                android:id="@+id/tvRecDetailRivalRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="성북천치타의 기록"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvRecDetailRivalDistDatad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="4.23 km"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalRecord"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
+
+            <TextView
+                android:id="@+id/tvRecDetailRivalDiscTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="러닝 거리"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalDistDatad"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalDistDatad" />
+
+            <TextView
+                android:id="@+id/tvRecDetailRivalPaceData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="00'00&quot;"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toStartOf="@+id/tvRecDetailRivalTimeData"
+                app:layout_constraintStart_toEndOf="@+id/tvRecDetailRivalDistDatad"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
+
+            <TextView
+                android:id="@+id/tvRecDetailRivalPaceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="페이스"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalPaceData"
+                app:layout_constraintStart_toStartOf="@+id/tvRecDetailRivalPaceData"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalPaceData" />
+
+            <TextView
+                android:id="@+id/tvRecDetailRivalTimeData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="30:00"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
+
+            <TextView
+                android:id="@+id/tvRecDetailRivalTimeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="러닝 시간"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalTimeData" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

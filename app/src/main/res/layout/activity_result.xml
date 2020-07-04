@@ -170,8 +170,6 @@
             android:id="@+id/tvResultRivalPaceData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginTop="15dp"
             android:text="6'88&quot;"
             android:textColor="@color/black"
