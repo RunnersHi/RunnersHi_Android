@@ -26,4 +26,25 @@
         <item name="android:textColor">@color/brown_grey</item>
     </style>
 
+    <style name="TextStyle4">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextStyle6">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">70sp</item>
+        <item name="android:lineSpacingExtra">26sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextStyle5">
+        <item name="android:gravity">end</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
 </resources>
