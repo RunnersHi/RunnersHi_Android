@@ -96,7 +96,7 @@
         android:background="@drawable/bg_btn_goal"
         android:gravity="center"
         android:lineSpacingExtra="6sp"
-        android:text="1h 30dmin"
+        android:text="1h 30min"
         android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@id/btn_goal_60"
