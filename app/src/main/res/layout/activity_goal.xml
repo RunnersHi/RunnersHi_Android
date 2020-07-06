@@ -4,102 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="40dp"
-    android:paddingVertical="20dp"
+    android:paddingTop="40dp"
     tools:context=".GoalActivity">
 
-
     <ImageView
-        android:id="@+id/btnGoalBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/actionModeCloseDrawable"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/tvGoalTitle1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="두가지 질문을 할게요!"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/btn_goal_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvGoalTitle2"
+        android:id="@+id/tv_goal_title"
+        style="@style/TextStyle3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="오늘의 러닝 목표시간은?\n(1/2)"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="22sp"
+        android:layout_marginTop="64dp"
+        android:text="오늘의 러닝 목표시간은?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGoalTitle1" />
+        app:layout_constraintTop_toBottomOf="@id/btn_goal_back" />
 
-    <Button
-        android:id="@+id/btnGoal30"
-        android:layout_width="match_parent"
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_goal_left"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="53dp" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="79dp"
+        android:background="@drawable/bg_btn_goal"
         android:text="30min"
-        android:textAllCaps="false"
-        android:background="@drawable/btn_default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGoalTitle2" />
+        app:layout_constraintEnd_toEndOf="@id/gl_goal_right"
+        app:layout_constraintStart_toStartOf="@id/gl_goal_left"
+        app:layout_constraintTop_toBottomOf="@id/tv_goal_title" />
 
-    <Button
-        android:id="@+id/btnGoal45"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+    <TextView
+        android:id="@+id/btn_goal_30"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="79dp"
+        android:background="@drawable/bg_btn_goal"
+        android:gravity="center"
+        android:lineSpacingExtra="6sp"
+        android:text="30min"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/gl_goal_right"
+        app:layout_constraintStart_toStartOf="@id/gl_goal_left"
+        app:layout_constraintTop_toBottomOf="@id/tv_goal_title" />
+
+    <TextView
+        android:id="@+id/btn_goal_45"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_btn_goal"
+        android:gravity="center"
+        android:lineSpacingExtra="6sp"
         android:text="45min"
-        android:textAllCaps="false"
-        android:background="@drawable/btn_default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoal30" />
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/btn_goal_30"
+        app:layout_constraintStart_toStartOf="@id/btn_goal_30"
+        app:layout_constraintTop_toBottomOf="@id/btn_goal_30" />
 
-    <Button
-        android:id="@+id/btnGoal60"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+    <TextView
+        android:id="@+id/btn_goal_60"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_btn_goal"
+        android:gravity="center"
+        android:lineSpacingExtra="6sp"
         android:text="1hour"
-        android:textAllCaps="false"
-        android:background="@drawable/btn_default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoal45" />
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/btn_goal_45"
+        app:layout_constraintStart_toStartOf="@id/btn_goal_45"
+        app:layout_constraintTop_toBottomOf="@id/btn_goal_45" />
 
-    <Button
-        android:id="@+id/btnGoal90"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+    <TextView
+        android:id="@+id/btn_goal_90"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_btn_goal"
+        android:gravity="center"
+        android:lineSpacingExtra="6sp"
         android:text="1h 30min"
-        android:textAllCaps="false"
-        android:background="@drawable/btn_default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoal60" />
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/btn_goal_60"
+        app:layout_constraintStart_toStartOf="@id/btn_goal_60"
+        app:layout_constraintTop_toBottomOf="@id/btn_goal_60" />
 
-    <Button
-        android:id="@+id/btnGoalNext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="다음"
+    <TextView
+        android:id="@+id/btn_goal_next"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="69dp"
+        android:background="@drawable/bg_btn_goal_next"
+        android:gravity="center"
+        android:lineSpacingExtra="9sp"
+        android:text="NEXT"
         android:textColor="@color/white"
-        android:background="@drawable/btn_next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoal90" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/btn_goal_90"
+        app:layout_constraintStart_toStartOf="@id/btn_goal_90"
+        app:layout_constraintTop_toBottomOf="@id/btn_goal_90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_goal_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="53dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
