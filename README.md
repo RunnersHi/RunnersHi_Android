@@ -145,7 +145,7 @@
 - imgvResultProfile 이미지의 경우 해당 이미지보다 큰 요소들이 있어 크기의 기준이 되지않아 디자이너가 제플린에 올려준 크기대로 설정함.
 - View 내에서 가장 큰 요소(이미지뷰, 레이아웃)를 기준으로 최상단의 ConstraintLayout의 padding값을 조절하여 초기 View 구도를 설계함. 
 
-'''
+```
 
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -378,6 +378,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-'''
+
+```
 
 
