@@ -7,5 +7,10 @@
     <color name="white">#FFFFFF</color>
     <color name="grey">#E8EFEBEB</color>
     <color name="lightgreen">#90F693</color>
-    <color name="blue">#1F4DF6</color>
+    <color name="lightish_blue">#3868ff</color>
+    <color name="brownish_grey">#656565</color>
+    <color name="brown_grey">#828282</color>
+    <color name="grapefruit">#fd5555</color>
+    <color name="salmon">#ff7170</color>
+    <color name="pinkish_grey">#d1d1d1</color>
 </resources>

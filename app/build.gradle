@@ -35,6 +35,35 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.wear:wear:1.0.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
+    implementation 'com.airbnb.android:lottie:3.0.7'
+
+    //Retrofit 라이브러리 : https://github.com/square/retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    //Retrofit 라이브러리 응답으로 가짜 객체를 만들기 위해
+    implementation 'com.squareup.retrofit2:retrofit-mock:2.6.2'
+    //객체 시리얼라이즈를 위한 Gson 라이브러리 : https://github.com/google/gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+    //Retrofit 에서 Gson 을 사용하기 위한 라이브러리
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    // Java Scalars Converter : String이나 primitive 타입을 text/plain boides로 컨버팅 하는데 쓴다.
+    implementation 'com.squareup.retrofit2:converter-scalars:2.8.0'
+    //리사이클러뷰
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    //material 디자인 라이브러리
+    implementation "com.google.android.material:material:1.2.0-alpha06"
+    ///이미지 로딩 라이브러리 : glide
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+    //kapt "com.github.bumptech.glide:compiler:4.11.0"
+    // 동그란 이미지 커스텀 뷰 라이브러리 : https://github.com/hdodenhof/CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //CoordinateLayout
+    implementation 'com.google.android.material:material:1.2.0-alpha01'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
