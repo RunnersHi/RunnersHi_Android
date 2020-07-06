@@ -2,10 +2,13 @@ package com.team.runnershi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModel
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_run.*
 
 class RunActivity : AppCompatActivity() {
+    private lateinit var runSelModel: RunSetViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_run)
