@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightish_blue"
+    tools:context=".StartRunActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/ani_run"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="run"
+        android:background="@color/lightish_blue"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="run.json"
+        app:layout_constraintBottom_toBottomOf="@+id/ani_coundown_number"
+        app:layout_constraintEnd_toEndOf="@+id/ani_coundown_number"
+        app:layout_constraintStart_toStartOf="@+id/ani_coundown_number"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
