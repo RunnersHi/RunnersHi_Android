@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.View
 import com.example.semina_3st.data.RequestLogin
 import com.team.runnershi.PrefInit.Companion.prefs
-import com.team.runnershi.extension.showToast
 import com.team.runnershi.network.RequestToServer
 import com.team.runnershi.network.customEnqueue
 import kotlinx.android.synthetic.main.activity_login.*
@@ -26,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
 
         btn_login_confirm.setOnClickListener {
             if (edt_login_id.text.isNullOrBlank() || edt_login_pw.text.isNullOrBlank()) {
-                showToast("아이디 혹은 비밀번호가 빈칸입니다.")
+
             } else {
                 requestToServer.service.requestLogin(
                     RequestLogin(
