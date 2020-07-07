@@ -2,6 +2,8 @@ package com.team.runnershi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.activity_home.*
@@ -12,7 +14,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         val fragmentTransaction : FragmentTransaction = getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.add(R.id.fragment_home, StudyFragment.newInstance()).commit();
+//        fragmentTransaction.add(R.id.vp_home, HomeFragment.newInstance()).commit();
 
 
 
@@ -42,4 +44,12 @@ class HomeActivity : AppCompatActivity() {
             true
         }
     }
+
+    fun replaceFragment(fragment : Fragment) {
+        val fragment_manager : FragmentManager = supportFragmentManager
+        val fragment_transaction : FragmentTransaction = fragment_manager.beginTransaction()
+        fragment_transaction.replace(R.id.vp_home, fragment).commit()
+
+    }
+
 }

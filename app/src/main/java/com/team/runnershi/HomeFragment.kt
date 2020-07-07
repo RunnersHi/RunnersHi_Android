@@ -13,20 +13,28 @@ import android.content.Context as Context1
 import androidx.fragment.app.FragmentManager as FragmentManager1
 
 
+
 class HomeFragment : Fragment() {
-//    private var mBottomSheetListener : BottomSheetListener? = null
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.fragment_home, container, false)
-
-        v.btn_home_runnow.setOnClickListener {
-//            val bottom = BottomSheetFragment()
-//            bottom.show()
-        }
-        return v
+    fun newInstance() : HomeFragment {
+        return HomeFragment()
     }
 
-//    override fun onOptionClick(text: String) {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+//        val bottom_sheet_dialog = BottomSheetDialog(this) 무시하세욤
+
+        val view : View = inflater.inflate(R.layout.fragment_home, null)
+        view.btn_home_runnow.setOnClickListener {
+//            bottom_sheet_dialog.show() 무시하세욤
+//            ((HomeActivity)getActivity()).replaceFragment(HomeFragment.newInstance())
+
+
+        }
+
+//        bottom_sheet_dialog.setContentView(view) 무시하세욤
 //
-//    }
-}
+
+        return view
+        }
+
+    }
+
