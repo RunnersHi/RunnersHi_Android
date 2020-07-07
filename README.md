@@ -4,7 +4,7 @@
 
 <div align="center">
     🏃‍♀️ RUNNER'S HI_ANDRIOD  🏃‍♂️
-<br> 러닝을 게임처럼, 러너스하이:running:
+<br> 러닝을 게임처럼, 러너스하이
 </div>
 
 ---
