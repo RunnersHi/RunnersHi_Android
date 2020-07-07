@@ -13,20 +13,20 @@ import android.content.Context as Context1
 import androidx.fragment.app.FragmentManager as FragmentManager1
 
 
-class HomeFragment : Fragment(), BottomSheetFragment.BottomSheetListener {
+class HomeFragment : Fragment() {
 //    private var mBottomSheetListener : BottomSheetListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_home, container, false)
 
         v.btn_home_runnow.setOnClickListener {
-            val bottom = BottomSheetFragment()
+//            val bottom = BottomSheetFragment()
 //            bottom.show()
         }
         return v
     }
 
-    override fun onOptionClick(text: String) {
-
-    }
+//    override fun onOptionClick(text: String) {
+//
+//    }
 }
