@@ -1,6 +1,142 @@
 ## RunnersHi
 
 ### A-1. ConstraintLayout 사용한 화면 개발
+
+:point_right: activity_login.xml
+- activity_login.xml의 뷰들을 가운데 정렬하기 위해 guideline으로 g_left,g_right를 사용했다. edt_login_id, edt_login_pw, btn_login_confirm에 0dp로 match_constraint속성을 적용하여 guideline 범위내에 꽉차게 맞췄다.
+-아이디/비밀번호 버튼인 tv_login_sign_find는 layout_constraintStart_toEndOf="@id/tv_login_sign_up"으로 회원가입 버튼과 연관성있는 제약조건을 걸어주었다.
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imgv_login_logo"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="146dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/emblem_rh" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="54dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_end="54dp" />
+
+    <EditText
+        android:id="@+id/edt_login_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/grey_round_background"
+        android:paddingVertical="18dp"
+        android:paddingLeft="16dp"
+        android:hint="아이디"
+        android:singleLine="true"
+        android:textColor="@color/brown_grey"
+        app:layout_constraintEnd_toStartOf="@+id/g_right"
+        app:layout_constraintStart_toStartOf="@+id/g_left"
+        app:layout_constraintTop_toBottomOf="@+id/imgv_login_logo" />
+
+    <EditText
+        android:id="@+id/edt_login_pw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/grey_round_background"
+        android:paddingVertical="18dp"
+        android:paddingLeft="16dp"
+        android:hint ="비밀번호"
+        android:singleLine="true"
+        android:inputType="textPassword"
+        android:textColor="@color/brown_grey"
+        app:layout_constraintEnd_toStartOf="@+id/g_right"
+        app:layout_constraintStart_toStartOf="@+id/g_left"
+        app:layout_constraintTop_toBottomOf="@+id/edt_login_id" />
+
+    <TextView
+        android:id="@+id/tv_login_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="12sp"
+        android:layout_marginTop="12dp"
+        android:text="아이디 혹은 비밀번호가 일치하지 않습니다."
+        android:textColor="@color/grapefruit"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/g_right"
+        app:layout_constraintStart_toStartOf="@+id/g_left"
+        app:layout_constraintTop_toBottomOf="@+id/edt_login_pw" />
+
+    <TextView
+        android:id="@+id/btn_login_confirm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:lineSpacingExtra="9sp"
+        android:gravity="center_horizontal"
+        android:text="로그인"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/blue_btn_background"
+        android:paddingHorizontal="98dp"
+        android:paddingVertical="16dp"
+        app:layout_constraintEnd_toEndOf="@id/g_right"
+        app:layout_constraintStart_toStartOf="@id/g_left"
+        app:layout_constraintTop_toBottomOf="@id/edt_login_pw" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        app:layout_constraintEnd_toStartOf="@+id/g_right"
+        app:layout_constraintStart_toStartOf="@id/g_left"
+        app:layout_constraintTop_toBottomOf="@id/btn_login_confirm">
+
+        <TextView
+            android:id="@+id/tv_login_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="12sp"
+            android:text="회원가입"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_login_find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:lineSpacingExtra="12sp"
+            android:text="아이디/비밀번호 찾기"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/tv_login_sign_up"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+---
+
 :point_right: activity_goal.xml
 - activity_goal.xml 버튼 정렬을 맞추기 위해 guideline 2개 사용 
 
