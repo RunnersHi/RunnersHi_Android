@@ -136,7 +136,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
----
+```
 
 :point_right: activity_sign_up.xml
 - activity_sign_up.xml내의 뷰들을 가운데로 정렬하기 위해 margin_vertical 대신 guideLine인 g_left,g_right를 사용했다.
@@ -144,7 +144,7 @@
 - 중복확인버튼인 btn_sign_up_id_confirm에 layout_constraintTop_toTopOf="@+id/edt_sign_up_id" 속성을 주어 아이디입력칸과 연관성있는 제약조건을 걸어주었다.
 - 중복확인버튼인 btn_sign_up_nick_name_confirm에 layout_constraintTop_toTopOf="@+id/edt_sign_up_nick_name" 속성을 주어 닉네임입력칸과 연관성있는 제약조건을 걸어주었다.
 
----
+```
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -605,7 +605,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
----
+```
 
 :point_right: activity_goal.xml
 - activity_goal.xml 버튼 정렬을 맞추기 위해 guideline 2개 사용 
