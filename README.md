@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-    🗣 RUNNER'S HI_ANDRIOD  💻
+    🏃‍♀️ RUNNER'S HI_ANDRIOD  🏃‍♂️
 <br> 러닝을 게임처럼, 러너스하이:running:
 </div>
 
@@ -30,6 +30,9 @@
 
     특정 목표를 달성하면 개성있는 여러 가지 뱃지를 획득할 수 있음과 동시에 다양한 러너 랭킹을 통해 사용자의 즐거움을 도모하고자 합니다. 또, 누구나 사용하기 쉬운 UX 요소는 즐거움을 배로 향상시켜 줄거에요.
 ```
+
+</br>
+</br>
 
 ### A-1. ConstraintLayout 사용한 화면 개발
 
