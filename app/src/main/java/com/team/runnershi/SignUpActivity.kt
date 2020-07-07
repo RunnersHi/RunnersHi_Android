@@ -2,10 +2,12 @@ package com.team.runnershi
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.team.runnershi.PrefInit.Companion.prefs
@@ -13,11 +15,13 @@ import com.team.runnershi.data.RequestConfirm
 import com.team.runnershi.data.RequestRegister
 import com.team.runnershi.extension.textChangeListener
 import com.team.runnershi.network.RequestToServer
-import com.team.runnershi.network.customEnqueue
+import com.team.runnershi.extension.customEnqueue
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import kotlinx.android.synthetic.main.dialog_select_profile.*
 
 
 class SignUpActivity : AppCompatActivity() {
+    private val TAG = SignUpActivity::class.simpleName
     val requestToServer = RequestToServer
     var isValidId = false
     var isConfirmedId = false
@@ -32,6 +36,19 @@ class SignUpActivity : AppCompatActivity() {
     var gender = -1
     var lv = -1
     var revealset: Boolean = false
+    var profile = -1
+    val imgArray: Array<Int> = arrayOf(
+        R.drawable.icon_redman_shorthair,
+        R.drawable.icon_blueman_shorthair,
+        R.drawable.icon_redman_basichair,
+        R.drawable.icon_blueman_permhair,
+        R.drawable.icon_redwomen_ponytail,
+        R.drawable.icon_bluewomen_ponytail,
+        R.drawable.icon_redman_shorthair,
+        R.drawable.icon_redwomen_shortmhair,
+        R.drawable.icon_redwomen_bunhair
+    )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +57,23 @@ class SignUpActivity : AppCompatActivity() {
         addEdtChangeListener()
         addRgChangeListener()
         addBtnOnlickListener()
+
+        imgv_sign_up_profile.setOnClickListener {
+            val dialSelectProfile = DialSelectProfile(this@SignUpActivity)
+            dialSelectProfile.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            dialSelectProfile.show()
+
+            dialSelectProfile.setDialogResult(object : DialSelectProfile.OnMyDialogResult {
+                @Override
+                override fun finish(result: Int) {
+                    profile = result
+                    if (profile != -1) {
+                        imgv_sign_up_profile.setImageResource(imgArray[profile - 1])
+                    }
+                    checkCanSignUp()
+                }
+            })
+        }
     }
 
     //라디오 버튼 유효성 있는지 검사
@@ -52,7 +86,7 @@ class SignUpActivity : AppCompatActivity() {
     //유효성에 따라 가입하기 버튼 활성화
     private fun checkCanSignUp() {
         checkValidRadioGroup()
-        if (isValidId && isConfirmedId && isValidNickName && isConfirmedNickName
+        if (profile != -1 && isValidId && isConfirmedId && isValidNickName && isConfirmedNickName
             && isValidPw && isValidPwConfirm && isValidGender && isValidLv && isValidRevealSet
         ) {
             canSignUp = true
@@ -129,7 +163,12 @@ class SignUpActivity : AppCompatActivity() {
                     && edt_sign_up_pw.editableText.matches(Regex("^.*(?=^.{8,15}\$)(?=.*\\d)(?=.*[a-zA-Z])(?=.*[!@$%^&+=]).*\$"))
 
             if (isValidPw)
-                changeColorAndMessage(isValidPw, edt_sign_up_pw, tv_sign_up_pw_error, "사용가능한 비밀번호입니다.")
+                changeColorAndMessage(
+                    isValidPw,
+                    edt_sign_up_pw,
+                    tv_sign_up_pw_error,
+                    "사용가능한 비밀번호입니다."
+                )
             else
                 changeColorAndMessage(
                     isValidPw,
@@ -221,28 +260,44 @@ class SignUpActivity : AppCompatActivity() {
                     flag = 1 //아이디
                 )
             ).customEnqueue(
-                onError = { Log.e("SignUp", "ConfirmId- 올바르지 못한 요청입니다") },
-                onSuccess = {
-                    if (it.status == 200) {
-                        isConfirmedId = true
-                        changeColorAndMessage(
-                            isValidId && isConfirmedId,
-                            edt_sign_up_id,
-                            tv_sign_up_id_error,
-                            "사용가능한 아이디 입니다."
-                        )
-                    } else if(it.status == 400) {
-                        isConfirmedId = false
-                        changeColorAndMessage(
-                            isValidId && isConfirmedId,
-                            edt_sign_up_id,
-                            tv_sign_up_id_error,
-                            "이미 사용중인 아이디입니다."
+                onFailure = { call, t ->
+                    Log.d(
+                        TAG,
+                        "requestNickNameConfirm onFailure msg = ${t.message}"
+                    )
+                },
+                onResponse = { call, r ->
+                    if (r.isSuccessful) {
+                        val body = r.body()
+                        if (body?.status == 200) {
+                            if (body?.success) {
+                                isConfirmedId = true
+                                changeColorAndMessage(
+                                    isValidId && isConfirmedId,
+                                    edt_sign_up_id,
+                                    tv_sign_up_id_error,
+                                    "사용가능한 아이디 입니다."
+                                )
+                            } else {
+                                isConfirmedId = false
+                                changeColorAndMessage(
+                                    isValidId && isConfirmedId,
+                                    edt_sign_up_id,
+                                    tv_sign_up_id_error,
+                                    "이미 사용중인 아이디입니다."
+                                )
+                            }
+                        }
+                    } else {
+                        Log.d(
+                            "TAG", "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                                    "(status code:${r.code()}) " +
+                                    "(message: ${r.message()})" +
+                                    "(errorBody: ${r.errorBody()})"
                         )
                     }
                 }
             )
-
             checkCanSignUp()
         }
 
@@ -254,28 +309,44 @@ class SignUpActivity : AppCompatActivity() {
                     flag = 2 //닉네임
                 )
             ).customEnqueue(
-                onError = { Log.e("SignUp", "ConfirmNickName- 올바르지 못한 요청입니다") },
-                onSuccess = {
-                    if (it.status == 200) {
-                        isConfirmedNickName = true
-                        changeColorAndMessage(
-                            isValidNickName && isConfirmedNickName,
-                            edt_sign_up_nick_name,
-                            tv_sign_up_nick_name_error,
-                            "사용가능한 닉네임 입니다."
-                        )
-                    } else if(it.status == 400){
-                        isConfirmedNickName = false
-                        changeColorAndMessage(
-                            isValidNickName && isConfirmedNickName,
-                            edt_sign_up_nick_name,
-                            tv_sign_up_nick_name_error,
-                            "이미 사용중인 닉네임입니다."
+                onFailure = { call, t ->
+                    Log.d(
+                        TAG,
+                        "requestNickNameConfirm onFailure msg = ${t.message}"
+                    )
+                },
+                onResponse = { call, r ->
+                    if (r.isSuccessful) {
+                        val body = r.body()
+                        if (body?.status == 200) {
+                            if (body?.success) {
+                                isConfirmedNickName = true
+                                changeColorAndMessage(
+                                    isValidNickName && isConfirmedNickName,
+                                    edt_sign_up_nick_name,
+                                    tv_sign_up_nick_name_error,
+                                    "사용가능한 닉네임 입니다."
+                                )
+                            } else {
+                                isConfirmedNickName = false
+                                changeColorAndMessage(
+                                    isValidNickName && isConfirmedNickName,
+                                    edt_sign_up_nick_name,
+                                    tv_sign_up_nick_name_error,
+                                    "이미 사용중인 닉네임 입니다."
+                                )
+                            }
+                        }
+                    } else {
+                        Log.d(
+                            "TAG", "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                                    "(status code:${r.code()}) " +
+                                    "(message: ${r.message()})" +
+                                    "(errorBody: ${r.errorBody()})"
                         )
                     }
                 }
             )
-
             checkCanSignUp()
         }
 
@@ -290,24 +361,51 @@ class SignUpActivity : AppCompatActivity() {
                         gender = gender,
                         level = lv,
                         log_visibility = revealset,
-                        image = 1 //관련 뷰 준비되지 않아서 임의 값 넘김
+                        image = profile //관련 뷰 준비되지 않아서 임의 값 넘김
                     )
                 ).customEnqueue(
-                    onError = { Log.e("SignUp", "ConfirmSignUp, 올바르지 못한 요청입니다") },
-                    onSuccess = {
-                        if (it.success) {
-                            prefs.setString("token", it.result.token) //Singleton SharedPreferences에 토큰저장
+                    onFailure = { call, t ->
+                        Log.d(
+                            TAG,
+                            "Sign Request onFailure msg = ${t.message}"
+                        )
+                    },
+                    onResponse = { call, r ->
+                        if (r.isSuccessful) {
+                            val body = r.body()
+                            if (body?.status == 200 ) {
+                                if (body?.success) {
+                                    prefs.setString(
+                                        "token",
+                                        body.result.token
+                                    ) //Singleton SharedPreferences에 토큰저장
 
-                            val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
-                            intent.putExtra("id", edt_sign_up_id.text.toString())
-                            intent.putExtra("pw", edt_sign_up_pw.text.toString())
-                            startActivity(intent)
-                            finish()
+                                    val intent =
+                                        Intent(this@SignUpActivity, LoginActivity::class.java)
+                                    intent.putExtra("id", edt_sign_up_id.text.toString())
+                                    intent.putExtra("pw", edt_sign_up_pw.text.toString())
+                                    startActivity(intent)
+                                    finish()
+                                } else {
+                                    Log.e(
+                                        TAG,
+                                        "requestRegister, status= ${body.status}, success= ${body.success}, msg = ${body.message}"
+                                    )
+                                }
+                            }
                         } else {
-                            Log.e("SignUp", "status: false")
+                            Log.d(
+                                "TAG",
+                                "requestRegister onSuccess but response code is not 200 ~ 300 " +
+                                        "(status code:${r.code()}) " +
+                                        "(message: ${r.message()})" +
+                                        "(errorBody: ${r.errorBody()})"
+                            )
+                            //통신코드 400: 중복된 아이디나 닉네임으로 가입했을 때.
                         }
                     }
                 )
+
             } else {
                 Log.e("SignUp", "가입버튼 비활성화")
             }
