@@ -53,5 +53,19 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="TextStyle8">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">10sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextStyle9">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
 
 </resources>
