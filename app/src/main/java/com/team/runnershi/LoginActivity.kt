@@ -45,9 +45,9 @@ class LoginActivity : AppCompatActivity() {
                             if (body?.status == 200) {
                                 if (body?.success) {
                                     prefs.setString("token",body.result.token) //Singleton SharedPreferences에 토큰저장
-                                    /*val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                                     startActivity(intent)
-                                    finish()*/
+                                    finish()
                                     Log.e("Login",prefs.getString("token",null))
                                     Log.d("login","성공")
                                 } else {
