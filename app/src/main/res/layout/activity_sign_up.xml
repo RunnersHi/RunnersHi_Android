@@ -43,7 +43,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_sign_up_back"
-            app:srcCompat="@drawable/icon_defaultpeople" />
+            app:srcCompat="@drawable/icon_defaultpeople"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="24dp"
+            android:paddingLeft="2dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/imgv_sign_up_profile"
+            app:layout_constraintEnd_toEndOf="@+id/imgv_sign_up_profile"
+            app:srcCompat="@drawable/icon_pencil" />
 
         <TextView
             android:id="@+id/tv_sign_up_id"

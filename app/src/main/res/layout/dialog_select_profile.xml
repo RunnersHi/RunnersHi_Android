@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/whitebox_runninglevel">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="30dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="30dp"/>
+
+    <ImageView
+        android:id="@+id/btn_dial_select_profile_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_off" />
+
+    <TextView
+        android:id="@+id/tv_dial_select_profile"
+        style="@style/TextStyle7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="프로필을 선택해 주세요"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_dial_select_profile_back" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_dial_select_profile_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@id/g_right"
+        app:layout_constraintStart_toStartOf="@id/g_left"
+        app:layout_constraintTop_toBottomOf="@id/tv_dial_select_profile">
+
+        <ImageView
+            android:id="@+id/imgv_dial_select_profile_1"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_redman_shorthair" />
+
+        <ImageView
+            android:id="@+id/imgv_dial_select_profile_2"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toEndOf="@id/imgv_dial_select_profile_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_blueman_shorthair" />
+
+        <ImageView
+            android:id="@+id/imgv_dial_select_profile_3"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toEndOf="@id/imgv_dial_select_profile_2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_redman_basichair" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_dial_select_profile_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/g_right"
+        app:layout_constraintStart_toStartOf="@id/g_left"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/cl_dial_select_profile_1">
+
+        <ImageView
+            android:id="@+id/imgv_dial_select_profile_4"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_blueman_permhair" />
+
+        <ImageView
+            android:id="@+id/imgv_dial_select_profile_5"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toEndOf="@id/imgv_dial_select_profile_4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_redwomen_ponytail" />
+
+        <ImageView
+            android:id="@+id/imgv_dial_select_profile_6"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toEndOf="@id/imgv_dial_select_profile_5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_bluewomen_ponytail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_dial_select_profile_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintEnd_toEndOf="@id/g_right"
+        app:layout_constraintStart_toStartOf="@id/g_left"
+        app:layout_constraintTop_toBottomOf="@id/cl_dial_select_profile_2"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/imgv_dial_select_profile_7"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_redman_shorthair" />
+
+        <ImageView
+            android:id="@+id/imgv_dial_select_profile_8"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toEndOf="@id/imgv_dial_select_profile_7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_redwomen_shortmhair" />
+
+        <ImageView
+            android:id="@+id/imgv_dial_select_profile_9"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toEndOf="@id/imgv_dial_select_profile_8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_redwomen_bunhair" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

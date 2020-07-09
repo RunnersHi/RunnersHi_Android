@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    tools:context=".MatchProcActivity">
+
+    <ImageView
+        android:id="@+id/imgv_match_proc_logo"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="178dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/match_logo" />
+
+    <ProgressBar
+        android:id="@+id/progress_match_proc"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="68dp"
+        android:progress="40"
+        android:progressDrawable="@drawable/progressbar_rounded_corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgv_match_proc_logo" />
+
+    <TextView
+        android:id="@+id/tv_match_proc_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="9sp"
+        android:text="같은 레벨의 러너를\n
+5분 안에 찾아서 알림을 드릴게요\n
+러닝 전 준비운동을 해 주세요!"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progress_match_proc" />
+
+    <TextView
+        android:id="@+id/btn_login_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="118dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/blue_btn_background"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="9sp"
+        android:paddingHorizontal="98dp"
+        android:paddingVertical="16dp"
+        android:text="로그인"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_match_proc_title"
+        tools:text="매칭 중단하기" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
