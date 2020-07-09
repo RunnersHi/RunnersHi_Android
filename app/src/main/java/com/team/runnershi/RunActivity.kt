@@ -30,23 +30,32 @@ class RunActivity : AppCompatActivity() {
         runSelModel = RunSetViewModel()
 
         seekbar_run_record.setOnTouchListener { _, _ -> true }
+        seekbar_run_record.progress = 25
+        val width: Int = (seekbar_run_record.getWidth()
+                - seekbar_run_record.getPaddingLeft()
+                - seekbar_run_record.getPaddingRight())
+        val thumbPos: Int = (seekbar_run_record.getPaddingLeft()
+                + width
+                * seekbar_run_record.getProgress()
+                / seekbar_run_record.getMax())
+        ly_run_profile.x = thumbPos.toFloat()
 
         seekbar_run_record.max = runSelModel.runTime.value ?: 30
-        Thread(Runnable {
-            for (i in 1 until seekbar_run_record.max) {
-                Thread.sleep(1000)
-                seekbar_run_record.progress += 1
-                val width: Int = (seekbar_run_record.getWidth()
-                        - seekbar_run_record.getPaddingLeft()
-                        - seekbar_run_record.getPaddingRight())
-                val thumbPos: Int = (seekbar_run_record.getPaddingLeft()
-                        + width
-                        * seekbar_run_record.getProgress()
-                        / seekbar_run_record.getMax())
-                ly_run_profile.x = thumbPos.toFloat()
-
-            }
-        }).start()
+//        Thread(Runnable {
+//            for (i in 1 until seekbar_run_record.max) {
+//                Thread.sleep(1000)
+//                seekbar_run_record.progress += 1
+//                val width: Int = (seekbar_run_record.getWidth()
+//                        - seekbar_run_record.getPaddingLeft()
+//                        - seekbar_run_record.getPaddingRight())
+//                val thumbPos: Int = (seekbar_run_record.getPaddingLeft()
+//                        + width
+//                        * seekbar_run_record.getProgress()
+//                        / seekbar_run_record.getMax())
+//                ly_run_profile.x = thumbPos.toFloat()
+//
+//            }
+//        }).start()
 
 
 //                val seekBarX = seekbar_run_record.thumb.bounds.exactCenterX()
