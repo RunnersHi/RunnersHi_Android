@@ -4,7 +4,9 @@ data class ResponseRegister(
     val status : Int,
     val success : Boolean,
     val message : String,
-    val result : SomeData
+    val result : SomeData,
+    val code : Int?,
+    val description : String?
 )
 
 data class SomeData(

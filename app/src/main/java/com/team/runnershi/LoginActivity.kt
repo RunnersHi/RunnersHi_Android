@@ -9,15 +9,15 @@ import android.view.View
 import com.example.semina_3st.data.RequestLogin
 import com.team.runnershi.PrefInit.Companion.prefs
 import com.team.runnershi.network.RequestToServer
-import com.team.runnershi.network.customEnqueue
+import com.team.runnershi.extension.customEnqueue
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var requestToServer: RequestToServer
+
+    val requestToServer = RequestToServer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         tv_login_sign_up.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivityForResult(intent, 101)
@@ -33,19 +33,40 @@ class LoginActivity : AppCompatActivity() {
                         password = edt_login_pw.text.toString()
                     )
                 ).customEnqueue(
-                    onError = { Log.e("SignUp", "Login- 유효하지 않은 요청") },
-                    onSuccess = {
-                        if (it.success) {
-                            prefs.setString("token",it.token) //Singleton SharedPreferences에 토큰저장
-                            /*val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                            startActivity(intent)
-                            finish()*/
+                    onFailure = { call, t ->
+                        Log.d(
+                            "LoginActivity",
+                            "requestNickNameConfirm onFailure msg = ${t.message}"
+                        )
+                    },
+                    onResponse = { call, r ->
+                        if (r.isSuccessful) {
+                            val body = r.body()
+                            if (body?.status == 200) {
+                                if (body?.success) {
+                                    prefs.setString("token",body.result.token) //Singleton SharedPreferences에 토큰저장
+                                    /*val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                                    startActivity(intent)
+                                    finish()*/
+                                    Log.e("Login",prefs.getString("token",null))
+                                    Log.d("login","성공")
+                                } else {
+                                    tv_login_error.visibility = View.VISIBLE
+                                    edt_login_id.setBackgroundResource(R.drawable.red_round_background)
+                                    edt_login_pw.setBackgroundResource(R.drawable.red_round_background)
+
+                                }
+                            }
                         } else {
-                            tv_login_error.visibility = View.VISIBLE
-                            edt_login_id.setBackgroundResource(R.drawable.red_round_background)
-                            edt_login_pw.setBackgroundResource(R.drawable.red_round_background)
+                            Log.d(
+                                "TAG", "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                                        "(status code:${r.code()}) " +
+                                        "(message: ${r.message()})" +
+                                        "(errorBody: ${r.errorBody()})"
+                            )
                         }
-                    })
+                    }
+                )
             }
 
         }

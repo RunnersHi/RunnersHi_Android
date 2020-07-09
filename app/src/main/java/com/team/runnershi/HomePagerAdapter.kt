@@ -9,8 +9,8 @@ class HomePagerAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR
         return when(position) {
             0 -> HomeFragment()
             1 -> Fragment2()
-            2 -> Fragment3()
-            else -> Fragment4()
+            2 -> RankFragment()
+            else -> MyProfileFragment()
         }
     }
 

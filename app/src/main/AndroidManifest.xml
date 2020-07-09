@@ -14,8 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MatchProcActivity"
-            android:exported="true"></activity>
+
 
         <service
             android:name=".SocketService"
@@ -37,8 +36,13 @@
             android:name=".GoalActivity"
             android:exported="true" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".MatchProcActivity"></activity>
+        <activity android:name=".MatchSucActivity" />
+        <activity android:name=".RunActivity" />
+        <activity android:name=".GoalActivity" />
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".StartRunActivity" />
+        <activity android:name=".StartRunActivity"></activity>
         <activity android:name=".CountDownActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +50,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".HomeActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
         <activity android:name=".ResultActivity" />
         <activity android:name=".CalcWinActivity" />
         <activity android:name=".FinishRunActivity" />
