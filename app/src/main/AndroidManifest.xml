@@ -13,22 +13,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MatchProcActivity"></activity>
+        <service
+            android:name=".SocketService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <!-- naver map cliend id -->
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="@string/naver_id" />
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name=".RunActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".GoalActivity"
+            android:exported="true" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".MatchProcActivity"/>
         <activity android:name=".MatchSucActivity" />
-        <activity android:name=".RunActivity" />
-        <activity android:name=".GoalActivity" />
-        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".StartRunActivity" />
-        <activity android:name=".CountDownActivity" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".StartRunActivity"/>
+        <activity android:name=".CountDownActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".HomeActivity"
+            android:exported="true"/>
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
