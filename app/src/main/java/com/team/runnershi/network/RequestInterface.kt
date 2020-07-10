@@ -11,11 +11,11 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface RequestInterface {
-    @POST("/users/duplicates")
+    @POST("users/duplicates")
     fun requestConfirm(@Body body : RequestConfirm) : Call<ResponseConfirm>
-    @POST("/users/register")
+    @POST("users/register")
     fun requestRegister(@Body body : RequestRegister) : Call<ResponseRegister>
-    @POST("/users/login")
+    @POST("users/login")
     fun requestLogin(@Body body : RequestLogin): Call<ResponseLogin>
 
 }
