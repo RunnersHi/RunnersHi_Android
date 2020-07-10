@@ -53,5 +53,14 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="TabLayout.Theme" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/black</item>
+        <item name="tabIndicator">@color/very_light_pink</item>
+        <item name="tabIndicatorHeight">4dp</item>
+        <item name="android:fontFamily">@font/nanumsquareb</item>
+        <item name="android:textSize">16dp</item>
+        <item name="tabSelectedTextColor">@color/black</item>
+    </style>
+
 
 </resources>

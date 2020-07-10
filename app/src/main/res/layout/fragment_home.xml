@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/fragment_constraint"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grapefruit"
-    tools:context=".HomeFragment">
+    android:background="@color/very_light_pink_two"
+    tools:context=".HomeFragment"
+    tools:ignore="InvalidId">
 
     <ImageView
         android:id="@+id/imgv_home_logo"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/home_logo" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
@@ -26,7 +28,7 @@
         android:layout_marginTop="17dp"
         android:background="@drawable/box_white"
         android:paddingHorizontal="17dp"
-        android:paddingVertical="28dp"
+        android:paddingVertical="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,9 +38,10 @@
             android:id="@+id/tv_home_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquareb"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="9sp"
-            android:text="상쾌한 오전,\n당신의 상대를\n찾아 함께 뛰어 보세요.\n(글씨체 바꿔야함)"
+            android:text="상쾌한 오전,\n당신의 상대를\n찾아 함께 뛰어 보세요."
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,19 +50,19 @@
 
         <ImageView
             android:id="@+id/imgv_home_pic"
-            android:layout_width="270dp"
-            android:layout_height="226dp"
-            android:layout_marginTop="34dp"
+            android:layout_width="192dp"
+            android:layout_height="242dp"
+            android:layout_marginTop="43dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_home_title"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@drawable/sit_down" />
 
         <Button
             android:id="@+id/btn_home_runnow"
             android:layout_width="match_parent"
             android:layout_height="72dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="7dp"
             android:background="@drawable/btn_lightish_blue"
             android:fontFamily="@font/notosans_blackitalic"
             android:lineSpacingExtra="1sp"

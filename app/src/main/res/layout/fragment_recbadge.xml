@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecBadgeFragment">
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabGravity="fill"
+        style="@style/TabLayout.Theme"
+        app:tabMode="fixed">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab_rec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="러닝기록" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="러닝뱃지" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_rec_rec"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#f5f5f5"
+        tools:listitem=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        tools:ignore="MissingClass" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
