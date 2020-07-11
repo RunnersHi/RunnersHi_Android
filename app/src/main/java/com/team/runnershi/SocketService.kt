@@ -130,7 +130,7 @@ class SocketService() : JobIntentService() {
 
     private val onRoomCreated: Emitter.Listener = Emitter.Listener {
         Log.d(TAG, "Socket onRoomCreated")
-        val roomName = it[0] to String
+        val roomName = it[0].toString()
         mSocket.emit("startCount", roomName)
     }
 
