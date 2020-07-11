@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.Window
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -29,10 +30,12 @@ class HomeActivity : AppCompatActivity() {
     )
 
     var bottom_dialog : BottomSheetFragment = BottomSheetFragment()
+
     fun showDialog() {
-//        bottom_dialog.show(supportFragmentManager,"bottomSheet")
+        bottom_dialog.show(supportFragmentManager,"bottomSheet")
         bottom_dialog.showsDialog
         check_permission()
+
     }
 
 //    private lateinit var bottom_sheet_behavior : BottomSheetBehavior<ConstraintLayout>
@@ -48,8 +51,9 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
 //        bottom_dialog.show(supportFragmentManager,"bottomSheet")
-        bottom_dialog.showsDialog
+//        bottom_dialog.showsDialog
 
 //        bottom_sheet_behavior = BottomSheetBehavior.from(bottom_sheet_layout)
 //        bottom_sheet_behavior.state = BottomSheetBehavior.STATE_COLLAPSED

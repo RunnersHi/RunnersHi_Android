@@ -2,20 +2,26 @@ package com.team.runnershi.network
 
 import com.example.semina_3st.data.RequestLogin
 import com.example.semina_3st.data.ResponseLogin
-import com.team.runnershi.data.RequestConfirm
-import com.team.runnershi.data.RequestRegister
-import com.team.runnershi.data.ResponseConfirm
-import com.team.runnershi.data.ResponseRegister
+import com.team.runnershi.data.*
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface RequestInterface {
-    @POST("users/duplicates")
+    @POST("user/duplicates")
     fun requestConfirm(@Body body : RequestConfirm) : Call<ResponseConfirm>
-    @POST("users/register")
+    @POST("user/register")
     fun requestRegister(@Body body : RequestRegister) : Call<ResponseRegister>
-    @POST("users/login")
+    @POST("user/login")
     fun requestLogin(@Body body : RequestLogin): Call<ResponseLogin>
+
+
+    @GET("record/all")
+    fun requestRecord(@Header("token") token : String) : Call<ResponseRecord>
+
+    @GET("record/badge")
+    fun requestBadge(@Header("token") token : String) : Call<ResponseBadge>
 
 }

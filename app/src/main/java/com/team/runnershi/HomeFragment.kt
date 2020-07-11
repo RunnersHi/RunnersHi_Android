@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
         view.btn_home_runnow.setOnClickListener(object : View.OnClickListener {
 //
             override fun onClick(p0: View?) {
-                (activity as HomeActivity).showDialog() //()부분은 HomeActivity가 된다.
+                (activity as HomeActivity).showDialog()    //()부분은 HomeActivity가 된다.
 
             }
         })

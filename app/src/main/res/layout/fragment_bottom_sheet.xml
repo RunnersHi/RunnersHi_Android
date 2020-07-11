@@ -5,14 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".BottomSheetFragment"
     android:background="@drawable/bottom_sheet_custom"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="249dp"
     android:orientation="vertical"
     app:layout_behavior="@string/bottom_sheet_behavior"
     tools:ignore="MissingConstraints">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ly_homebattle_other2"
+        android:id="@+id/ly_homebattle_other"
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:paddingHorizontal="34dp"
@@ -53,7 +53,7 @@
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ly_homebattle_me2"
+        android:id="@+id/ly_homebattle_me"
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:paddingHorizontal="34dp"

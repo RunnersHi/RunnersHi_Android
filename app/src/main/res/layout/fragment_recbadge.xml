@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tabGravity="fill"
-        style="@style/TabLayout.Theme"
+        style="@style/TabLayoutTheme"
         app:tabMode="fixed">
 
         <com.google.android.material.tabs.TabItem

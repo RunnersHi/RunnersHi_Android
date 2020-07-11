@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,13 +9,16 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_badge"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:spanCount="3"
+        tools:ignore="MissingConstraints"
         tools:listitem="@layout/fragment_badge_item">
 
     </androidx.recyclerview.widget.RecyclerView>
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
