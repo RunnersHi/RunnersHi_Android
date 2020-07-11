@@ -152,7 +152,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgv_match_suc_profile"
         android:layout_width="132dp"
         android:layout_height="132dp"
         android:layout_marginTop="45dp"
