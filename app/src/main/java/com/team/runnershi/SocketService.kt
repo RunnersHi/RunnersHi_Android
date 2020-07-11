@@ -12,10 +12,9 @@ import io.socket.emitter.Emitter
 import java.net.URISyntaxException
 
 class SocketService() : JobIntentService() {
-
-    companion object{
+    companion object {
         const val JOB_ID = 1001
-        fun enqueueWork(context: Context, work: Intent){
+        fun enqueueWork(context: Context, work: Intent) {
             enqueueWork(context, SocketService::class.java, JOB_ID, work)
         }
     }
@@ -27,13 +26,21 @@ class SocketService() : JobIntentService() {
     private val mHost = "http://13.125.20.117:3000/matching"
     private val roomName: String = ""
     private var leftTime = -1
-
     private lateinit var handler: Handler
 
+    private val socketBinder = SocketServiceBinder()
+
+    inner class SocketServiceBinder : Binder() {
+        fun getService(): SocketService = this@SocketService
+    }
+
+    override fun onBind(intent: Intent): IBinder? {
+        return socketBinder
+    }
 
 
     override fun onHandleWork(intent: Intent) {
-        if(!isSocketExist){
+        if (!isSocketExist) {
             try {
                 socketConnect()
             } catch (e: URISyntaxException) {
@@ -45,14 +52,16 @@ class SocketService() : JobIntentService() {
             handler = Handler(Looper.getMainLooper())
             isSocketExist = true
         }
-        "onHandleWork 들어왔다.".logDebug(this@SocketService )
+        "onHandleWork 들어왔다.".logDebug(this@SocketService)
         when (intent.getStringExtra("serviceFlag")) {
             "joinRoom" -> {
                 val token = intent.getStringExtra("token")
                 val time = intent.getIntExtra("time", -1)
                 val wantGender = intent.getIntExtra("wantGender", -1)
                 val leftTime = intent.getIntExtra("leftTime", -1)
-                "(token: $token) (time: $time) (wantGender: $wantGender) (leftTime: $leftTime)".logDebug(this@SocketService)
+                "(token: $token) (time: $time) (wantGender: $wantGender) (leftTime: $leftTime)".logDebug(
+                    this@SocketService
+                )
                 mSocket.emit("joinRoom", token, time, wantGender, leftTime)
             }
             "stopMatching" -> {
@@ -137,12 +146,12 @@ class SocketService() : JobIntentService() {
     private val onTimeLeft: Emitter.Listener = Emitter.Listener {
         Log.d(TAG, "Socket onTimeLeft")
         val timeLeft = it[0] as Int
-        val message = Message()
-            .apply {
-                what = 1111
-                arg1 = timeLeft
-            }
-        handler.sendMessage(message)
+//        val message = Message()
+//            .apply {
+//                what = 1111
+//                arg1 = timeLeft
+//            }
+//        handler.sendMessage(message)
     }
 
     private val onTimeOver: Emitter.Listener = Emitter.Listener {
@@ -248,16 +257,15 @@ class SocketService() : JobIntentService() {
     }
 
 
-
     override fun onStopCurrentWork(): Boolean {
         "onStopCurrentWork".logDebug(this@SocketService)
         return super.onStopCurrentWork()
     }
+
     override fun onDestroy() {
         super.onDestroy()
         "SocketService is destroyed".logDebug(SocketService::class)
     }
-
 
 
     inner class SocketThread : Thread() {
