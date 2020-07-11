@@ -21,33 +21,19 @@ class SocketService() : JobIntentService() {
     }
 
     private val TAG = SocketService::class.simpleName
-//    private val socketBinder = LocalBinder()
     lateinit var socketThread: SocketThread
     private lateinit var mSocket: Socket
     private var isSocketExist = false
     private val mHost = "http://13.125.20.117:3000/matching"
     private val roomName: String = ""
-    private val testtoken =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3Q4IiwicGFzc3dvcmQiOiJ0ZXN0IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDE4MTE4NiwiZXhwIjoxNTk0MjE3MTg2fQ.72wmGGKZtK4UYhz16M2GHd8pfHF8hz-BlcFOdjo_634"
-    private lateinit var runSetViewModel: RunSetViewModel
+    private var leftTime = -1
+
     private lateinit var handler: Handler
-
-//    inner class LocalBinder : Binder() {
-//        fun getService(): SocketService = this@SocketService
-//    }
-
-
-//    override fun onBind(intent: Intent): IBinder? {
-////        return socketBinder
-//        return null
-//    }
 
 
 
     override fun onHandleWork(intent: Intent) {
         if(!isSocketExist){
-//            socketThread = SocketThread()
-//            socketThread.start()
             try {
                 socketConnect()
             } catch (e: URISyntaxException) {
@@ -72,8 +58,8 @@ class SocketService() : JobIntentService() {
             "stopMatching" -> {
                 mSocket.emit("stopMatching", roomName)
             }
-            "matchComplete" -> {
-                mSocket.emit("matchComplete", roomName)
+            "matchCount" -> {
+                mSocket.emit("matchCount", roomName)
             }
             "kmPasssed" -> {
                 val km = intent.getIntExtra("km", -1)
@@ -108,10 +94,10 @@ class SocketService() : JobIntentService() {
         mSocket.on("timeLeft", onTimeLeft)
         mSocket.on("timeOver", onTimeOver)
         mSocket.on("leaveRoom", onLeaveRoom)
-        mSocket.on("stopMatching", onStopMatching)
+        mSocket.on("stopCount", onStopCount)
         mSocket.on("matched", onMatched)
-        mSocket.on("matchWaiting", onMatchWaiting)
-        mSocket.on("matchComplete", onMatchComplete)
+        mSocket.on("opponentInfo", onOpponentInfo)
+        mSocket.on("matchComplete", onRoomFull)
         mSocket.on("kmPassed", onKmPassed)
         mSocket.on("opponentStopped", onOpponentStopped)
         mSocket.on("stopRunning", onStopRunning)
@@ -168,6 +154,7 @@ class SocketService() : JobIntentService() {
     private val onLeaveRoom: Emitter.Listener = Emitter.Listener {
         Log.d(TAG, "Socket onLeaveRoom = LeaveConfirm")
         socketDisconnect()
+        // todo 매칭 실패화면으로 가기
     }
 
     private fun socketDisconnect() {
@@ -180,10 +167,9 @@ class SocketService() : JobIntentService() {
         mSocket.off("timeLeft", onTimeLeft)
         mSocket.off("timeOver", onTimeOver)
         mSocket.off("leaveRoom", onLeaveRoom)
-        mSocket.off("stopMatching", onStopMatching)
+        mSocket.off("stopMatching", onStopCount)
         mSocket.off("matched", onMatched)
-        mSocket.off("matchWaiting", onMatchWaiting)
-        mSocket.off("matchComplete", onMatchComplete)
+        mSocket.off("roomFull", onRoomFull)
         mSocket.off("kmPassed", onKmPassed)
         mSocket.off("opponenetStopped", onOpponentStopped)
         mSocket.off("stopRunning", onStopRunning)
@@ -193,30 +179,42 @@ class SocketService() : JobIntentService() {
         mSocket.disconnect()
     }
 
-    private val onStopMatching: Emitter.Listener = Emitter.Listener {
-        Log.d(TAG, "Socket onStopMatching")
-        val roomName = it[0] to String
+    private val onStopCount: Emitter.Listener = Emitter.Listener {
+        Log.d(TAG, "Socket onStopCount")
+
         mSocket.emit("leaveRoom", roomName)
     }
 
     private val onMatched: Emitter.Listener = Emitter.Listener {
         Log.d(TAG, "Socket onMatched")
-        val opponentName = it[0].toString()
-        val opponentLevel = it[0] as Int // 1, 2, 3
-        val opponentGender = it[0] as Int
-        val opponentWins = it[0] as Int
-        val opponentLoses = it[0] as Int
-        val opponentImg = it[0] as Int
-        // todo 액티비티에 정보 보내기 -> 액티비티에서 뷰 넘겨야함
+        val roomName = it[0].toString()
+        mSocket.emit("endCount", roomName)
     }
 
-    private val onMatchWaiting: Emitter.Listener = Emitter.Listener {
-        Log.d(TAG, "Socket onMatchWaiting")
+    private val onRoomFull: Emitter.Listener = Emitter.Listener {
+        Log.d(TAG, "Socket onRoomFull")
+        mSocket.emit("opponentInfo", roomName)
     }
 
-    private val onMatchComplete: Emitter.Listener = Emitter.Listener {
-        Log.d(TAG, "Socket onMatchComplete")
-        // todo 액티비티 카운트 다운으로 넘기기
+    private val onOpponentInfo: Emitter.Listener = Emitter.Listener {
+        Log.d(TAG, "Socket onOpponenetInfo")
+        val name = it[0].toString()
+        val level = it[0] as Int
+        val gender = it[0] as Int
+        val win = it[0] as Int
+        val lose = it[0] as Int
+        val image = it[0] as Int
+
+        handler.post {
+            val intent = Intent(this@SocketService, MatchSucActivity::class.java)
+            intent.putExtra("name", name)
+            intent.putExtra("level", level)
+            intent.putExtra("gender", gender)
+            intent.putExtra("win", win)
+            intent.putExtra("lose", lose)
+            intent.putExtra("image", image)
+            startActivity(intent)
+        }
     }
 
     private val onKmPassed: Emitter.Listener = Emitter.Listener {
