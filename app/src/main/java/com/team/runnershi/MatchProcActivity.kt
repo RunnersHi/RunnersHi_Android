@@ -34,10 +34,6 @@ class MatchProcActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
 
     override fun onStart() {
         super.onStart()
-//        Intent(this, SocketService::class.java).also { intent ->
-//            bindService(intent, connection, Context.BIND_AUTO_CREATE)
-//        }
-
         sendJoinRoom(runtime, rungender)
     }
 
