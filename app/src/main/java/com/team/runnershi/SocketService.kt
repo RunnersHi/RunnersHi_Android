@@ -12,32 +12,13 @@ import io.socket.emitter.Emitter
 import java.net.URISyntaxException
 
 class SocketService() : JobIntentService() {
-    companion object {
-        const val JOB_ID = 1001
-        fun enqueueWork(context: Context, work: Intent) {
-            enqueueWork(context, SocketService::class.java, JOB_ID, work)
-        }
-    }
-
     private val TAG = SocketService::class.simpleName
     lateinit var socketThread: SocketThread
     private lateinit var mSocket: Socket
     private var isSocketExist = false
     private val mHost = "http://13.125.20.117:3000/matching"
     private val roomName: String = ""
-    private var leftTime = -1
-    private lateinit var handler: Handler
-
-    private val socketBinder = SocketServiceBinder()
-
-    inner class SocketServiceBinder : Binder() {
-        fun getService(): SocketService = this@SocketService
-    }
-
-    override fun onBind(intent: Intent): IBinder? {
-        return socketBinder
-    }
-
+    private lateinit var resultReceiver: ResultReceiver
 
     override fun onHandleWork(intent: Intent) {
         if (!isSocketExist) {
@@ -49,12 +30,12 @@ class SocketService() : JobIntentService() {
                     "Socket Connect Reason: ${e.reason} (index: ${e.index}) (message:${e.message}"
                 )
             }
-            handler = Handler(Looper.getMainLooper())
             isSocketExist = true
         }
         "onHandleWork 들어왔다.".logDebug(this@SocketService)
         when (intent.getStringExtra("serviceFlag")) {
             "joinRoom" -> {
+                resultReceiver = intent.getParcelableExtra("receiver")!!
                 val token = intent.getStringExtra("token")
                 val time = intent.getIntExtra("time", -1)
                 val wantGender = intent.getIntExtra("wantGender", -1)
@@ -145,13 +126,10 @@ class SocketService() : JobIntentService() {
 
     private val onTimeLeft: Emitter.Listener = Emitter.Listener {
         Log.d(TAG, "Socket onTimeLeft")
-        val timeLeft = it[0] as Int
-//        val message = Message()
-//            .apply {
-//                what = 1111
-//                arg1 = timeLeft
-//            }
-//        handler.sendMessage(message)
+        val leftTime = it[0] as Int
+        val bundle = Bundle()
+        bundle.putInt("leftTime", leftTime)
+        resultReceiver.send(LEFT_TIME, bundle)
     }
 
     private val onTimeOver: Emitter.Listener = Emitter.Listener {
@@ -213,17 +191,6 @@ class SocketService() : JobIntentService() {
         val win = it[0] as Int
         val lose = it[0] as Int
         val image = it[0] as Int
-
-        handler.post {
-            val intent = Intent(this@SocketService, MatchSucActivity::class.java)
-            intent.putExtra("name", name)
-            intent.putExtra("level", level)
-            intent.putExtra("gender", gender)
-            intent.putExtra("win", win)
-            intent.putExtra("lose", lose)
-            intent.putExtra("image", image)
-            startActivity(intent)
-        }
     }
 
     private val onKmPassed: Emitter.Listener = Emitter.Listener {
@@ -267,6 +234,19 @@ class SocketService() : JobIntentService() {
         "SocketService is destroyed".logDebug(SocketService::class)
     }
 
+    fun getSocket(): Socket {
+        mSocket?.let {
+            return it
+        }
+    }
+
+    companion object {
+        const val JOB_ID = 1001
+        const val LEFT_TIME = 123
+        fun enqueueWork(context: Context, work: Intent) {
+            enqueueWork(context, SocketService::class.java, JOB_ID, work)
+        }
+    }
 
     inner class SocketThread : Thread() {
         override fun run() {
