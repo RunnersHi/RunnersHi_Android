@@ -20,6 +20,7 @@ class SocketService : JobIntentService() {
     private var roomName: String = ""
     private lateinit var resultReceiver: ResultReceiver
 
+
     override fun onHandleWork(intent: Intent) {
         if (!isSocketExist) {
             try {
@@ -57,10 +58,13 @@ class SocketService : JobIntentService() {
                 mSocket.emit("stopMatching", roomName)
             }
             "readyToRun" -> {
-                roomName = intent.getStringExtra("roomName")!!
                 resultReceiver = intent.getParcelableExtra("receiver")!!
+                "OnHandlerWork (Result Receiver: $resultReceiver)".logDebug(this@SocketService)
+                roomName = intent.getStringExtra("roomName")!!
                 mSocket.emit("readyToRun", roomName)
-                "Send Ready to Run (Result Reciever $resultReceiver) (roomName: $roomName)".logDebug(SocketService::class)
+                ("Send Ready to Run (Result Reciever $resultReceiver) (roomName: $roomName)").logDebug(
+                    SocketService::class
+                )
             }
             "kmPasssed" -> {
                 val km = intent.getIntExtra("km", -1)
@@ -92,7 +96,7 @@ class SocketService : JobIntentService() {
         mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError) //
         mSocket.on("start", onStart) //
         mSocket.on("joinRoom", onJoinRoom) //
-        mSocket.on("roomCreated", onRoomCreated) //
+        mSocket.on("roomCreated", onCreatedRoom) //
         mSocket.on("timeLeft", onTimeLeft) //
         mSocket.on("timeOver", onTimeOver) //
         mSocket.on("matched", onMatched) //
@@ -137,22 +141,33 @@ class SocketService : JobIntentService() {
         Log.d(TAG, "Socket onJoinRoom, (token: $token)")
     }
 
-    private val onRoomCreated: Emitter.Listener = Emitter.Listener {
+    private val onCreatedRoom: Emitter.Listener = Emitter.Listener {
         Log.d(TAG, "Socket onRoomCreated")
         roomName = it[0].toString()
         mSocket.emit("startCount", roomName)
 
-        val bundle = Bundle()
-        bundle.putString("roomName", roomName)
-        resultReceiver.send(RESULT_ROOM_NAME, bundle)
+//        val bundle = Bundle()
+//        bundle.putString("roomName", roomName)
+//        resultReceiver.send(RESULT_ROOM_NAME, bundle)
+        Intent().also { intent ->
+            intent.action = "com.team.runnershi.RESULT_ROOM_NAMe"
+            intent.putExtra("roomName", roomName)
+            sendBroadcast(intent)
+        }
     }
 
     private val onTimeLeft: Emitter.Listener = Emitter.Listener {
-        Log.d(TAG, "Socket onTimeLeft")
         val leftTime = it[0] as Int
-        val bundle = Bundle()
-        bundle.putInt("leftTime", leftTime)
-        resultReceiver.send(RESULT_LEFT_TIME, bundle)
+        Log.d(TAG, "Socket onTimeLeft LeftTime: $leftTime")
+//        val bundle = Bundle()
+//        bundle.putInt("leftTime", leftTime)
+//        resultReceiver.send(RESULT_LEFT_TIME, bundle)
+        Intent().also { intent ->
+            intent.action = "com.team.runnershi.RESULT_LEFT_TIME"
+            intent.putExtra("leftTIme", leftTime)
+            sendBroadcast(intent)
+        }
+
     }
 
     private val onEndCount: Emitter.Listener = Emitter.Listener {
@@ -196,18 +211,31 @@ class SocketService : JobIntentService() {
         val win = it[3] as Int
         val lose = it[4] as Int
         val image = it[5] as Int
-        "(roomName: $roomName) (name: $name) (level: $level)  (win: $win) (lose: $lose) (image: $image)".logDebug(this@SocketService)
+        "(roomName: $roomName) (name: $name) (level: $level)  (win: $win) (lose: $lose) (image: $image)".logDebug(
+            this@SocketService
+        )
 
-        val bundle = Bundle()
-        with(bundle){
-            this.putString("roomName", roomName)
-            this.putString("name", name)
-            this.putInt("level", level)
-            this.putInt("win", win)
-            this.putInt("lose", lose)
-            this.putInt("image", image)
+//        val bundle = Bundle()
+//        with(bundle){
+//            this.putString("roomName", roomName)
+//            this.putString("name", name)
+//            this.putInt("level", level)
+//            this.putInt("win", win)
+//            this.putInt("lose", lose)
+//            this.putInt("image", image)
+//        }
+//        resultReceiver.send(RESULT_OPPONENT_INFO, bundle)
+
+        Intent().also { intent ->
+            intent.action = "com.team.runnershi.RESULT_OPPONENT_INFO"
+            intent.putExtra("roomName", roomName)
+            intent.putExtra("name", name)
+            intent.putExtra("level", level)
+            intent.putExtra("win", win)
+            intent.putExtra("lose", lose)
+            intent.putExtra("image", image)
+            sendBroadcast(intent)
         }
-        resultReceiver.send(RESULT_OPPONENT_INFO, bundle)
     }
 
     private val onOpponentNotReady: Emitter.Listener = Emitter.Listener {
@@ -215,8 +243,12 @@ class SocketService : JobIntentService() {
     }
 
     private val onLetsRun: Emitter.Listener = Emitter.Listener {
-        "Socket onLetsRun (Room Name:$roomName )".logDebug(this@SocketService)
-        resultReceiver.send(RESULT_LETS_RUN, Bundle())
+        "Socket onLetsRun (Room Name:$roomName) (Result Reciever: $resultReceiver)".logDebug(this@SocketService)
+//        resultReceiver.send(RESULT_LETS_RUN, Bundle())
+        Intent().also{intent ->
+            intent.action = "com.team.runnershi.RESULT_LETS_RUN"
+            sendBroadcast(intent)
+        }
     }
 
     private val onKmPassed: Emitter.Listener = Emitter.Listener {
@@ -266,7 +298,7 @@ class SocketService : JobIntentService() {
         mSocket.off(Socket.EVENT_CONNECT_TIMEOUT, onConnctTimeOut)
         mSocket.off("start", onStart)
         mSocket.off("joinRoom", onJoinRoom)
-        mSocket.off("roomCreated", onRoomCreated)
+        mSocket.off("roomCreated", onCreatedRoom)
         mSocket.off("timeLeft", onTimeLeft)
         mSocket.off("timeOver", onTimeOver)
         mSocket.off("stopMatching", onStopCount)
