@@ -15,7 +15,7 @@ import com.team.runnershi.SocketService.Companion.RESULT_ROOM_NAME
 import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_match_proc.*
 
-class MatchProcActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
+class MatchProcActivity : AppCompatActivity() {
     private var runtime = -1
     private var rungender = -1
     private lateinit var socketResultReceiver: SocketServiceReceiver
@@ -30,8 +30,6 @@ class MatchProcActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
 
         runtime = intent.getIntExtra("runtime", -1)
         rungender = intent.getIntExtra("rungender", -1)
-        socketResultReceiver = SocketServiceReceiver(Handler(Looper.myLooper()!!))
-        socketResultReceiver.receiver = this
         socketReceiver = MatchProcReciver()
         intentFilter = IntentFilter()
         with(intentFilter){
