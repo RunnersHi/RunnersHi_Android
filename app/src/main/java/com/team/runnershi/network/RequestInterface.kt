@@ -24,4 +24,7 @@ interface RequestInterface {
     @GET("record/badge")
     fun requestBadge(@Header("token") token : String) : Call<ResponseBadge>
 
+    @GET("user/myprofile")
+    fun requestmyProfile(@Header("token") token : String) : Call<ResponsemyProfile>
+
 }

@@ -4,5 +4,5 @@ data class ResponsemyProfile(
     val status : Int,
     val success : Boolean,
     val message : String,
-    val result : MutableList<AllmyProfileContent>?
+    val result : AllmyProfileContent
 )
