@@ -18,6 +18,10 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        //첫 실행여부 false 만듦
+        prefs.setString("isFirstRun","n")
+
         tv_login_sign_up.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
@@ -51,6 +55,9 @@ class LoginActivity : AppCompatActivity() {
                                         "token",
                                         body.result.token
                                     ) //Singleton SharedPreferences에 토큰저장
+
+                                    prefs.setString("id",id)
+                                    prefs.setString("password",password)
 
                                     val intent =
                                         Intent(this@LoginActivity, HomeActivity::class.java)
