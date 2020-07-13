@@ -15,7 +15,7 @@ import com.team.runnershi.SocketService.Companion.RESULT_LETS_RUN
 import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_match_suc.*
 
-class MatchSucActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
+class MatchSucActivity : AppCompatActivity() {
     private lateinit var socketResultReceiver: SocketServiceReceiver
     private var roomName: String? = ""
     private var name: String? = ""
@@ -24,7 +24,6 @@ class MatchSucActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
     private var win = -1
     private var lose = -1
     private var image = -1
-    private lateinit var resultHandler: Handler
     private lateinit var socketReceiver: MatchSucReceiver
     private lateinit var intentFilter: IntentFilter
 
@@ -39,11 +38,6 @@ class MatchSucActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
     }
 
     private fun initServiceReceiver() {
-        resultHandler = Handler(Looper.myLooper()!!)
-        socketResultReceiver = SocketServiceReceiver(resultHandler)
-        socketResultReceiver.receiver = this
-        "initServiceReceiver (Result Receiver: $socketResultReceiver)".logDebug(this@MatchSucActivity)
-
         socketReceiver = MatchSucReceiver()
         intentFilter = IntentFilter()
         intentFilter.addAction("com.team.runnershi.RESULT_LETS_RUN")
@@ -113,25 +107,6 @@ class MatchSucActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
         }
         "MatchSucActivity (Result Reciever: $socketResultReceiver)".logDebug(this@MatchSucActivity)
         SocketService.enqueueWork(this, work)
-    }
-
-    override fun onReceiveResult(resultCode: Int, resultData: Bundle) {
-        when (resultCode) {
-            RESULT_LETS_RUN -> {
-                val runtime = intent.getIntExtra("runtime", -1)
-                val intent = Intent(this, CountDownActivity::class.java)
-                with(intent) {
-                    putExtra("roomName", roomName)
-                    putExtra("name", name)
-                    putExtra("level", level)
-                    putExtra("image", image)
-                    putExtra("win", win)
-                    putExtra("lose", lose)
-                    putExtra("runtime", runtime)
-                }
-                startActivity(intent)
-            }
-        }
     }
 
     override fun onDestroy() {
