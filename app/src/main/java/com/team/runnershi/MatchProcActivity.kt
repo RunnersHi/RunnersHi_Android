@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.team.runnershi.SocketService.Companion.RESULT_LEFT_TIME
 import com.team.runnershi.SocketService.Companion.RESULT_OPPONENT_INFO
 import com.team.runnershi.SocketService.Companion.RESULT_ROOM_NAME
-import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_match_proc.*
 
 class MatchProcActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
@@ -24,7 +23,7 @@ class MatchProcActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
         runtime = intent.getIntExtra("runtime", -1)
         rungender = intent.getIntExtra("rungender", -1)
         socketResultReceiver = SocketServiceReceiver(Handler(Looper.myLooper()!!))
-        socketResultReceiver.reciever = this
+        socketResultReceiver.receiver = this
     }
 
     override fun onStart() {
