@@ -18,7 +18,6 @@ class SocketService : JobIntentService() {
     private var isSocketExist = false
     private val mHost = "http://13.125.20.117:3000/matching"
     private var roomName: String = ""
-    private lateinit var resultReceiver: ResultReceiver
 
 
     override fun onHandleWork(intent: Intent) {
@@ -36,7 +35,6 @@ class SocketService : JobIntentService() {
         "Appear on onHandleWork".logDebug(this@SocketService)
         when (intent.getStringExtra("serviceFlag")) {
             "joinRoom" -> {
-                resultReceiver = intent.getParcelableExtra("receiver")!!
                 val token = intent.getStringExtra("token")
                 val time = intent.getIntExtra("time", -1) * 60
                 val wantGender = intent.getIntExtra("wantGender", -1)
@@ -44,8 +42,8 @@ class SocketService : JobIntentService() {
                 "JoinRoom (token: $token) (time: $time) (wantGender: $wantGender) (leftTime: $leftTime)".logDebug(
                     this@SocketService
                 )
-                "Send JoinRoom Result Receiver :$resultReceiver".logDebug(this@SocketService)
                 mSocket.emit("joinRoom", token, time, wantGender, leftTime)
+                "Send JoinRoom".logDebug(this@SocketService)
             }
             "stopCount" -> {
                 roomName = intent.getStringExtra("roomName")!!
@@ -58,13 +56,10 @@ class SocketService : JobIntentService() {
                 mSocket.emit("stopMatching", roomName)
             }
             "readyToRun" -> {
-                resultReceiver = intent.getParcelableExtra("receiver")!!
-                "OnHandlerWork (Result Receiver: $resultReceiver)".logDebug(this@SocketService)
                 roomName = intent.getStringExtra("roomName")!!
                 mSocket.emit("readyToRun", roomName)
-                ("Send Ready to Run (Result Reciever $resultReceiver) (roomName: $roomName)").logDebug(
-                    SocketService::class
-                )
+                ("Send Ready to Run (roomName: $roomName)").logDebug(SocketService::class)
+
             }
             "kmPasssed" -> {
                 val km = intent.getIntExtra("km", -1)
@@ -94,6 +89,7 @@ class SocketService : JobIntentService() {
         mSocket.on(Socket.EVENT_DISCONNECT, onDisconnect) //
         mSocket.on(Socket.EVENT_CONNECT_TIMEOUT, onConnctTimeOut) //
         mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError) //
+        mSocket.on(Socket.EVENT_ERROR, onEventError) //
         mSocket.on("start", onStart) //
         mSocket.on("joinRoom", onJoinRoom) //
         mSocket.on("roomCreated", onCreatedRoom) //
@@ -134,6 +130,9 @@ class SocketService : JobIntentService() {
 
     private val onConnectError: Emitter.Listener = Emitter.Listener {
         "Socket onConnectError".logDebug(SocketService)
+    }
+    private val onEventError: Emitter.Listener = Emitter.Listener {
+        "Socket AutoMatically onEventError".logDebug(this@SocketService)
     }
 
     private val onJoinRoom: Emitter.Listener = Emitter.Listener {
@@ -227,7 +226,7 @@ class SocketService : JobIntentService() {
     }
 
     private val onLetsRun: Emitter.Listener = Emitter.Listener {
-        "Socket onLetsRun (Room Name:$roomName) (Result Reciever: $resultReceiver)".logDebug(this@SocketService)
+        "Socket onLetsRun (Room Name:$roomName)".logDebug(this@SocketService)
         Intent().also { intent ->
             intent.action = "com.team.runnershi.RESULT_LETS_RUN"
             sendBroadcast(intent)
@@ -261,7 +260,7 @@ class SocketService : JobIntentService() {
 
 
     private val onError: Emitter.Listener = Emitter.Listener {
-        "Socket onError".logDebug(SocketService)
+        "Socket onError".logDebug(this@SocketService)
     }
 
 
