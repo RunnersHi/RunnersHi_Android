@@ -37,8 +37,8 @@ class MatchProcActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
         work.putExtra("serviceFlag", "joinRoom")
         work.putExtra(
             "token",
-//            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NyIsInBhc3N3b3JkIjoidGVzdHRlc3Q3IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDU3Mjc4NywiZXhwIjoxNTk0NjA4Nzg3fQ.RoDk0q4f_eHDdwYm2laYNkr6SlLzJTAnrs-jgqMvwrE" // 7
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NiIsInBhc3N3b3JkIjoidGVzdHRlc3Q2IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDU3Mjc3MSwiZXhwIjoxNTk0NjA4NzcxfQ.FeHNyuOozUdtEm4HUQXsQk5JUTyDNHArfWSQ8uR34gM" // 6
+//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NiIsInBhc3N3b3JkIjoidGVzdHRlc3Q2IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDYxNDU0OSwiZXhwIjoxNTk0NjUwNTQ5fQ.uExmkKAL5iqKK2FZXoaTnf7eWU7juzmNNuJTYa5EZCM" // 6
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NyIsInBhc3N3b3JkIjoidGVzdHRlc3Q3IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDYxNDU4MiwiZXhwIjoxNTk0NjUwNTgyfQ.zYtTFMY6PWMzdRCwlJwPx-mmYse6WRSVTy43JDipfRk" //7
         )
         work.putExtra("time", runtime)
         work.putExtra("wantGender", rungender)
@@ -55,6 +55,7 @@ class MatchProcActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
             }
 
             RESULT_OPPONENT_INFO -> {
+                val roomName = resultData.getString("roomName")
                 val name = resultData.getString("name")
                 val level = resultData.getInt("level")
                 val gender = resultData.getInt("gender")
@@ -64,17 +65,20 @@ class MatchProcActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
 
 
                 val intent = Intent(this, MatchSucActivity::class.java)
-                intent.putExtra("name", name)
-                intent.putExtra("level", level)
-                intent.putExtra("gender", gender)
-                intent.putExtra("win", win)
-                intent.putExtra("lose", lose)
-                intent.putExtra("image", image)
-                intent.putExtra("runtime", runtime)
+                with(intent) {
+                    this.putExtra("roomName", roomName)
+                    this.putExtra("name", name)
+                    this.putExtra("level", level)
+                    this.putExtra("gender", gender)
+                    this.putExtra("win", win)
+                    this.putExtra("lose", lose)
+                    this.putExtra("image", image)
+                    this.putExtra("runtime", runtime)
+                }
                 startActivity(intent)
                 finish()
             }
-            RESULT_ROOM_NAME ->{
+            RESULT_ROOM_NAME -> {
                 roomName = resultData.getString("roomName")!!
             }
             else -> return
