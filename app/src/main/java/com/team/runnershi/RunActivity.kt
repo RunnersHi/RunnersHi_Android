@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraUpdate
@@ -26,6 +28,7 @@ class RunActivity : AppCompatActivity() {
     private lateinit var locationSource: GpsOnlyLocationSource
     private val path = PathOverlay()
     private val pathCoords = mutableListOf<LatLng>()
+    private lateinit var runSetViewModel: RunSetViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +36,7 @@ class RunActivity : AppCompatActivity() {
         setContentView(R.layout.activity_run)
         checkPermission()
         initData()
+        subscribe()
         initUi()
     }
 
@@ -65,12 +69,25 @@ class RunActivity : AppCompatActivity() {
 
     }
 
-    fun initData() {
+    private fun initData() {
         locationSource = GpsOnlyLocationSource(this)
-        
+        runSetViewModel = ViewModelProvider(this).get(RunSetViewModel::class.java)
+
+    }
+
+    private fun subscribe() {
+        val leftTimeObserver = Observer<String>() { leftTimeText ->
+            tv_run_time_data.text = leftTimeText
+        }
+
+        runSetViewModel.runLeftTime.observe(this, leftTimeObserver)
     }
 
     private fun initUi() {
+        runSetViewModel.showRunLeftTime(
+            intent.getIntExtra("runtime", -1)
+        )
+
         roomName = intent.getStringExtra("roomName")!!
         val profileImage = getProfileImage()
         val name = intent.getStringExtra("name")
@@ -83,6 +100,9 @@ class RunActivity : AppCompatActivity() {
         tv_run_nickname.text = name
         tv_run_leve_data.text = getLevelData()
         tv_run_win_data.text = "${win}승 ${lose}패"
+        tv_run_end.text = runtime
+
+        initProgressBar()
 
 
         val fm = supportFragmentManager
@@ -96,8 +116,12 @@ class RunActivity : AppCompatActivity() {
         }
 
         Glide.with(this).load(R.drawable.icon_unlock).into(btn_run_lock)
-        progress_run.progress = 30
     }
+
+    private fun initProgressBar() {
+
+    }
+
 
     private fun getProfileImage(): Int {
         return when (intent.getIntExtra("image", -1)) {
@@ -130,10 +154,10 @@ class RunActivity : AppCompatActivity() {
     }
 
     private fun getRunTime(): String = when (intent.getIntExtra("runtime", -1)) {
-        30 * 60 -> "00:30"
-        45 * 60 -> "00:45"
-        60 * 60 -> "01:00"
-        90 * 60 -> "01:30"
+        30 * 60 -> "30:00"
+        45 * 60 -> "45:00"
+        60 * 60 -> "60:00"
+        90 * 60 -> "1:30:00"
         else -> "--:--"
     }
 
