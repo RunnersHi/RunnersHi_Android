@@ -1,6 +1,10 @@
 package com.team.runnershi
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -16,6 +20,9 @@ class MatchProcActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
     private var rungender = -1
     private lateinit var socketResultReceiver: SocketServiceReceiver
     private var roomName = ""
+    private lateinit var socketReceiver: MatchProcReciver
+    private lateinit var intentFilter: IntentFilter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +31,21 @@ class MatchProcActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
         runtime = intent.getIntExtra("runtime", -1)
         rungender = intent.getIntExtra("rungender", -1)
         socketResultReceiver = SocketServiceReceiver(Handler(Looper.myLooper()!!))
-        socketResultReceiver.reciever = this
+        socketResultReceiver.receiver = this
+        socketReceiver = MatchProcReciver()
+        intentFilter = IntentFilter()
+        with(intentFilter){
+            addAction("com.team.runnershi.RESULT_LEFT_TIME")
+            addAction("com.team.runnershi.RESULT_OPPONENT_INFO")
+            addAction("com.team.runnershi.RESULT_ROOM_NAME")
+        }
+        registerReceiver(socketReceiver, intentFilter)
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(socketReceiver)
     }
 
     override fun onStart() {
@@ -84,5 +105,46 @@ class MatchProcActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
             else -> return
         }
     }
+
+    inner class MatchProcReciver() : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            when (intent?.action) {
+                "com.team.runnershi.RESULT_LEFT_TIME" -> {
+                    val leftTimeFromServer = intent.getIntExtra("leftTIme", -1)
+                    "RESULT_LEFT_TIME $leftTimeFromServer".logDebug(this@MatchProcActivity)
+                    progress_match_proc.progress = 300 - leftTimeFromServer
+                }
+                "com.team.runnershi.RESULT_OPPONENT_INFO" -> {
+                    roomName = intent.getStringExtra("roomName")!!
+                    val name = intent.getStringExtra("name")
+                    val level = intent.getIntExtra("level", -1)
+                    val win = intent.getIntExtra("win", -1)
+                    val lose = intent.getIntExtra("lose", -1)
+                    val image = intent.getIntExtra("image", -1)
+
+                    val intent = Intent(this@MatchProcActivity, MatchSucActivity::class.java)
+                    with(intent) {
+                        putExtra("roomName", roomName)
+                        putExtra("name", name)
+                        putExtra("level", level)
+                        putExtra("win", win)
+                        putExtra("lose", lose)
+                        putExtra("image", image)
+                        putExtra("runtime", runtime)
+                    }
+                    this@MatchProcActivity.startActivity(intent)
+                    this@MatchProcActivity.finish()
+                }
+                "com.team.runnershi.RESULT_ROOM_NAME" -> roomName =
+                    intent.getStringExtra("roomName")!!
+
+                else -> return
+            }
+
+
+        }
+
+    }
+
 
 }
