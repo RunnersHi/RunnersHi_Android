@@ -1,6 +1,7 @@
 package com.team.runnershi
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.fragment_bottom_sheet.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import androidx.fragment.app.Fragment as Fragment
 
@@ -37,6 +39,23 @@ class HomeActivity : AppCompatActivity() {
         check_permission()
 
     }
+
+//    fun click_bottomsheet_other() {
+//        bottom_dialog.ly_homebattle_other.setOnClickListener {
+//            val intent1 = Intent(this@HomeActivity, GoalActivity::class.java)
+//            startActivity(intent)
+//
+//        }
+//    }
+//
+//    fun click_bottomsheet_me() {
+//        bottom_dialog.ly_homebattle_me.setOnClickListener {
+//            val intent2 = Intent(this@HomeActivity, WaitMeActivity::class.java)
+//            startActivity(intent2)
+//        }
+//    }
+
+
 
 //    private lateinit var bottom_sheet_behavior : BottomSheetBehavior<ConstraintLayout>
 //    fun showBottomSheet() {
