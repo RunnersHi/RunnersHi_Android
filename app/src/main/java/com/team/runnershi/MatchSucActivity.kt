@@ -1,6 +1,11 @@
 package com.team.runnershi
 
+import android.app.Activity
+import android.app.ActivityManager
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -19,6 +24,10 @@ class MatchSucActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
     private var win = -1
     private var lose = -1
     private var image = -1
+    private lateinit var resultHandler: Handler
+    private lateinit var socketReceiver: MatchSucReceiver
+    private lateinit var intentFilter: IntentFilter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match_suc)
@@ -26,14 +35,19 @@ class MatchSucActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
         initServiceReceiver()
         initUi()
         wait3Minutes()
-        sendReadyToRun()
-
+//        sendReadyToRun()
     }
 
     private fun initServiceReceiver() {
-        socketResultReceiver = SocketServiceReceiver(Handler(Looper.myLooper()!!))
-        socketResultReceiver.reciever = this
+        resultHandler = Handler(Looper.myLooper()!!)
+        socketResultReceiver = SocketServiceReceiver(resultHandler)
+        socketResultReceiver.receiver = this
         "initServiceReceiver (Result Receiver: $socketResultReceiver)".logDebug(this@MatchSucActivity)
+
+        socketReceiver = MatchSucReceiver()
+        intentFilter = IntentFilter()
+        intentFilter.addAction("com.team.runnershi.RESULT_LETS_RUN")
+        registerReceiver(socketReceiver, intentFilter)
     }
 
     private fun initUi() {
@@ -82,8 +96,12 @@ class MatchSucActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
 
     private fun wait3Minutes() {
         Handler(Looper.getMainLooper())
-            .postDelayed(Runnable { },
-                0)
+            .postDelayed(
+                Runnable {
+                    sendReadyToRun()
+                },
+                3000
+            )
     }
 
     private fun sendReadyToRun() {
@@ -114,6 +132,33 @@ class MatchSucActivity : AppCompatActivity(), SocketServiceReceiver.Receiver {
                 startActivity(intent)
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(socketReceiver)
+    }
+
+    inner class MatchSucReceiver() : BroadcastReceiver() {
+        override fun onReceive(contex: Context?, intent: Intent?) {
+            when (intent?.action) {
+                "com.team.runnershi.RESULT_LETS_RUN" -> {
+                    val runtime = intent.getIntExtra("runtime", -1)
+                    Intent(this@MatchSucActivity, CountDownActivity::class.java)
+                        .also { intent ->
+                            intent.putExtra("roomName", roomName)
+                            intent.putExtra("name", name)
+                            intent.putExtra("level", level)
+                            intent.putExtra("image", image)
+                            intent.putExtra("win", win)
+                            intent.putExtra("lose", lose)
+                            intent.putExtra("runtime", runtime)
+                            startActivity(intent)
+                        }
+                }
+            }
+        }
+
     }
 
 
