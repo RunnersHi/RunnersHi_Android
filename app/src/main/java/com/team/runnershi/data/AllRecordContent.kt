@@ -8,7 +8,7 @@ data class AllRecordContent (
     @SerializedName("distance")
     val distance : Int,
     @SerializedName("time")
-    val time : Int,
+    val time : String,
     @SerializedName("run_idx")
     val run_idx : Int,
     @SerializedName("result")

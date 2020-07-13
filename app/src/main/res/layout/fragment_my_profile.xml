@@ -177,6 +177,34 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="92dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/btn_logout"
+            android:text="로그아웃"
+            android:textSize="14sp"
+            android:fontFamily="@font/nanumsquareb"
+            android:lineSpacingExtra="10sp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout7"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout7"
+            app:layout_constraintTop_toBottomOf="@+id/rv_badge"
+            tools:ignore="MissingConstraints" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#f5f5f5"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout7"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout7"
+            app:layout_constraintTop_toBottomOf="@+id/btn_logout"/>
+
+
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

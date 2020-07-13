@@ -26,14 +26,28 @@ class AllRecordViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         var dateCreateTime = getAllrecordContent.created_time
         var splitItem = dateCreateTime.split("-")
 
+        var resultTime = getAllrecordContent.time
+        var splitTimeItem = resultTime.split(":") //배열 형식임
+        //여기까지 했음! 뷰홀더 수정중임!!!
+
+        //날짜
         tv_rec_date1.text = "${splitItem[0]}.${splitItem[1]}.${splitItem[2]}"
+
+        //시간
+        if(splitTimeItem[0] == "00") {
+            tv_rec_timetitle1.text = "${splitTimeItem[1]}:${splitTimeItem[2]}"
+            }
+        else {
+            tv_rec_timetitle1.text ="${splitTimeItem[0]}:${splitTimeItem[1]}:${splitTimeItem[2]}"
+
+        }
 
         tv_rec_disttitle1.text = (getAllrecordContent.distance/1000).toString()
 
-        val hour = getAllrecordContent.time/3600
-        val minute = (getAllrecordContent.time%3600)/60
-        val seconds = (getAllrecordContent.time)%(60*60*60)
-        tv_rec_timetitle1.text = "${hour}:${minute}:${seconds}"
+//        val hour = getAllrecordContent.time.toInt()
+//        val minute = (getAllrecordContent.time%3600)/60
+//        val seconds = (getAllrecordContent.time)%(60*60*60)
+//        tv_rec_timetitle1.text = "${hour}:${minute}:${seconds}"
 
         if(getAllrecordContent.result == 1) {
             Glide.with(itemView).load(R.drawable.blueline_recbadgefragment_winnerrecord).into(blueLayout)

@@ -27,4 +27,7 @@ interface RequestInterface {
     @GET("user/myprofile")
     fun requestmyProfile(@Header("token") token : String) : Call<ResponsemyProfile>
 
+    @GET("record/recent")
+    fun requestRecordRecent(@Header("token") token : String) : Call<ResponseRecordRecent>
+
 }
