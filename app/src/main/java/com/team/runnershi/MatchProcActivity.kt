@@ -23,7 +23,6 @@ class MatchProcActivity : AppCompatActivity() {
     private lateinit var socketReceiver: MatchProcReciver
     private lateinit var intentFilter: IntentFilter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match_proc)
@@ -41,14 +40,14 @@ class MatchProcActivity : AppCompatActivity() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        unregisterReceiver(socketReceiver)
-    }
-
     override fun onStart() {
         super.onStart()
         sendJoinRoom(runtime, rungender)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(socketReceiver)
     }
 
     private fun sendJoinRoom(runtime: Int, rungender: Int) {
