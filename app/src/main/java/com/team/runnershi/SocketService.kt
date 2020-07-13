@@ -146,9 +146,6 @@ class SocketService : JobIntentService() {
         roomName = it[0].toString()
         mSocket.emit("startCount", roomName)
 
-//        val bundle = Bundle()
-//        bundle.putString("roomName", roomName)
-//        resultReceiver.send(RESULT_ROOM_NAME, bundle)
         Intent().also { intent ->
             intent.action = "com.team.runnershi.RESULT_ROOM_NAMe"
             intent.putExtra("roomName", roomName)
@@ -159,9 +156,7 @@ class SocketService : JobIntentService() {
     private val onTimeLeft: Emitter.Listener = Emitter.Listener {
         val leftTime = it[0] as Int
         Log.d(TAG, "Socket onTimeLeft LeftTime: $leftTime")
-//        val bundle = Bundle()
-//        bundle.putInt("leftTime", leftTime)
-//        resultReceiver.send(RESULT_LEFT_TIME, bundle)
+
         Intent().also { intent ->
             intent.action = "com.team.runnershi.RESULT_LEFT_TIME"
             intent.putExtra("leftTIme", leftTime)
@@ -215,17 +210,6 @@ class SocketService : JobIntentService() {
             this@SocketService
         )
 
-//        val bundle = Bundle()
-//        with(bundle){
-//            this.putString("roomName", roomName)
-//            this.putString("name", name)
-//            this.putInt("level", level)
-//            this.putInt("win", win)
-//            this.putInt("lose", lose)
-//            this.putInt("image", image)
-//        }
-//        resultReceiver.send(RESULT_OPPONENT_INFO, bundle)
-
         Intent().also { intent ->
             intent.action = "com.team.runnershi.RESULT_OPPONENT_INFO"
             intent.putExtra("roomName", roomName)
@@ -244,8 +228,7 @@ class SocketService : JobIntentService() {
 
     private val onLetsRun: Emitter.Listener = Emitter.Listener {
         "Socket onLetsRun (Room Name:$roomName) (Result Reciever: $resultReceiver)".logDebug(this@SocketService)
-//        resultReceiver.send(RESULT_LETS_RUN, Bundle())
-        Intent().also{intent ->
+        Intent().also { intent ->
             intent.action = "com.team.runnershi.RESULT_LETS_RUN"
             sendBroadcast(intent)
         }
