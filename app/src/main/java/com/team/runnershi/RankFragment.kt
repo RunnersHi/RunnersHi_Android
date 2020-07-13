@@ -1,5 +1,6 @@
 package com.team.runnershi
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,30 +8,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.runnershi.util.HorizontalItemDecorator
-import com.team.runnershi.recycle.RankItemClass
-import com.team.runnershi.recycle.RvRankHonorAdapter
-import com.team.runnershi.recycle.RvRankLoseAdapter
-import com.team.runnershi.recycle.RvRankMonthAdapter
+import com.example.semina_3st.data.RequestLogin
+import com.team.runnershi.extension.customEnqueue
+import com.team.runnershi.extension.logDebug
+import com.team.runnershi.network.RequestToServer
+import com.team.runnershi.recycle.*
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_rank.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RankFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RankFragment : Fragment() {
+    val requestToServer = RequestToServer
     lateinit var rvRankMonthAdapter: RvRankMonthAdapter
     lateinit var rvRankHonorAdapter: RvRankHonorAdapter
     lateinit var rvRankLoseAdapter: RvRankLoseAdapter
-    val month_datas = mutableListOf<RankItemClass>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,38 +36,97 @@ class RankFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        //Honor, Lose는 itemclass,viewHolder 수정해야함. (id값, win,lose data)
-        //datas 부분도 서버 통신으로 변경해야함.
-        rvRankMonthAdapter = RvRankMonthAdapter(view!!.context)
-        rvRankHonorAdapter = RvRankHonorAdapter(view!!.context)
-        rvRankLoseAdapter = RvRankLoseAdapter(view!!.context)
-        rv_rank_month.adapter = rvRankMonthAdapter
-        rv_rank_honor.adapter = rvRankHonorAdapter
-        rv_rank_lose.adapter = rvRankLoseAdapter
-        rvRankMonthAdapter.datas = month_datas
-        rvRankHonorAdapter.datas = month_datas
-        rvRankLoseAdapter.datas = month_datas
-        loadMonthDatas()
-        rvRankMonthAdapter.notifyDataSetChanged()
-        rvRankHonorAdapter.notifyDataSetChanged()
-        rvRankLoseAdapter.notifyDataSetChanged()
-
+        loadMonthDatas() //month
+        loadHonorDatas() //honor
+        loadLoseDatas() //lose
 
     }
 
     fun loadMonthDatas() {
-        month_datas.apply {
-            add(RankItemClass(id=1, rank = 1, profile = 1, nickname = "챙챙이", data = "10000" + "km"))
-            add(RankItemClass(id=2, rank = 2, profile = 3, nickname = "바보바보바보", data = "10" + "km"))
-            add(RankItemClass(id=3, rank = 3, profile = 9, nickname = "챙챙이", data = "1032" + "km"))
-            add(RankItemClass(id=4, rank = 4, profile = 1, nickname = "챙챙이", data = "10000" + "km"))
-            add(RankItemClass(id=5, rank = 5, profile = 3, nickname = "챙챙이", data = "10000" + "km"))
-            add(RankItemClass(id=6, rank = 6, profile = 9, nickname = "챙챙이", data = "10000" + "km"))
-            add(RankItemClass(id=7, rank = 7, profile = 1, nickname = "챙챙이", data = "10000" + "km"))
-            add(RankItemClass(id=8, rank = 8, profile = 4, nickname = "챙챙이", data = "10000" + "km"))
-            add(RankItemClass(id=9, rank = 9, profile = 9, nickname = "챙챙이", data = "10000" + "km"))
-            add(RankItemClass(id=10, rank = 10, profile = 9, nickname = "챙챙이", data = "10000" + "km"))
-        }
+        requestToServer.service.requestRunner().customEnqueue(
+            onFailure = { call, t ->
+                context?.let { "requestRunner onFailure msg = ${t.message}".logDebug(it) }
+            },
+            onResponse = { call, r ->
+                if (r.isSuccessful) {
+                    val body = r.body()
+                    if (body?.status == 200) {
+                        if (body?.success) {
+                            rvRankMonthAdapter = RvRankMonthAdapter(view!!.context, body!!.result)
+                            rv_rank_month.adapter = rvRankMonthAdapter
+                            rvRankMonthAdapter.notifyDataSetChanged()
+                        } else {
+                        }
+                    }
+                } else {
+                    Log.d(
+                        "TAG",
+                        "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                                "(status code:${r.code()}) " +
+                                "(message: ${r.message()})" +
+                                "(errorBody: ${r.errorBody()})"
+                    )
+                }
+            }
+        )
+    }
+
+    fun loadHonorDatas() {
+        requestToServer.service.requestWinner().customEnqueue(
+            onFailure = { call, t ->
+                context?.let { "requestHonor onFailure msg = ${t.message}".logDebug(it) }
+            },
+            onResponse = { call, r ->
+                if (r.isSuccessful) {
+                    val body = r.body()
+                    if (body?.status == 200) {
+                        if (body?.success) {
+                            rvRankHonorAdapter = RvRankHonorAdapter(view!!.context, body!!.result)
+                            rv_rank_honor.adapter = rvRankHonorAdapter
+                            rvRankHonorAdapter.notifyDataSetChanged()
+                        } else {
+                        }
+                    }
+                } else {
+                    Log.d(
+                        "TAG",
+                        "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                                "(status code:${r.code()}) " +
+                                "(message: ${r.message()})" +
+                                "(errorBody: ${r.errorBody()})"
+                    )
+                }
+            }
+        )
+    }
+
+    fun loadLoseDatas() {
+        requestToServer.service.requestLoser().customEnqueue(
+            onFailure = { call, t ->
+                context?.let { "requestLoser onFailure msg = ${t.message}".logDebug(it) }
+            },
+            onResponse = { call, r ->
+                if (r.isSuccessful) {
+                    val body = r.body()
+                    if (body?.status == 200) {
+                        if (body?.success) {
+                            rvRankLoseAdapter = RvRankLoseAdapter(view!!.context, body!!.result)
+                            rv_rank_lose.adapter = rvRankLoseAdapter
+                            rvRankLoseAdapter.notifyDataSetChanged()
+                        } else {
+                        }
+                    }
+                } else {
+                    Log.d(
+                        "TAG",
+                        "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                                "(status code:${r.code()}) " +
+                                "(message: ${r.message()})" +
+                                "(errorBody: ${r.errorBody()})"
+                    )
+                }
+            }
+        )
     }
 
 }
