@@ -46,10 +46,18 @@ class SocketService : JobIntentService() {
                 "Send JoinRoom Result Receiver :$resultReceiver".logDebug(this@SocketService)
                 mSocket.emit("joinRoom", token, time, wantGender, leftTime)
             }
+            "stopCount" -> {
+                roomName = intent.getStringExtra("roomName")!!
+                mSocket.emit("stopCount", roomName)
+            }
+            "quit" -> {
+                socketDisconnect()
+            }
             "stopMatching" -> {
                 mSocket.emit("stopMatching", roomName)
             }
             "readyToRun" -> {
+                roomName = intent.getStringExtra("roomName")!!
                 resultReceiver = intent.getParcelableExtra("receiver")!!
                 mSocket.emit("readyToRun", roomName)
                 "Send Ready to Run (Result Reciever $resultReceiver) (roomName: $roomName)".logDebug(SocketService::class)
@@ -78,21 +86,23 @@ class SocketService : JobIntentService() {
 
     private fun socketConnect() {
         mSocket = IO.socket(mHost)
-        mSocket.on(Socket.EVENT_CONNECT, onConnect)
-        mSocket.on(Socket.EVENT_DISCONNECT, onDisconnect)
-        mSocket.on(Socket.EVENT_CONNECT_TIMEOUT, onConnctTimeOut)
-        mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError)
-        mSocket.on("start", onStart)
-        mSocket.on("joinRoom", onJoinRoom)
-        mSocket.on("roomCreated", onRoomCreated)
-        mSocket.on("timeLeft", onTimeLeft)
-        mSocket.on("timeOver", onTimeOver)
-        mSocket.on("stopCount", onStopCount)
+        mSocket.on(Socket.EVENT_CONNECT, onConnect) //
+        mSocket.on(Socket.EVENT_DISCONNECT, onDisconnect) //
+        mSocket.on(Socket.EVENT_CONNECT_TIMEOUT, onConnctTimeOut) //
+        mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError) //
+        mSocket.on("start", onStart) //
+        mSocket.on("joinRoom", onJoinRoom) //
+        mSocket.on("roomCreated", onRoomCreated) //
+        mSocket.on("timeLeft", onTimeLeft) //
+        mSocket.on("timeOver", onTimeOver) //
+        mSocket.on("matched", onMatched) //
+        mSocket.on("endCount", onEndCount) //
+        mSocket.on("stopCount", onStopCount) //
         mSocket.on("leaveRoom", onLeaveRoom)
-        mSocket.on("roomFull", onRoomFull)
-        mSocket.on("opponentInfo", onOpponentInfo)
-        mSocket.on("letsRun", onLetsRun)
-        mSocket.on("opponentNotReady", onOpponentNotReady)
+        mSocket.on("roomFull", onRoomFull) //
+        mSocket.on("opponentInfo", onOpponentInfo) //
+        mSocket.on("opponentNotReady", onOpponentNotReady) //
+        mSocket.on("letsRun", onLetsRun) //
         mSocket.on("kmPassed", onKmPassed)
         mSocket.on("opponentStopped", onOpponentStopped)
         mSocket.on("stopRunning", onStopRunning)
@@ -145,13 +155,19 @@ class SocketService : JobIntentService() {
         resultReceiver.send(RESULT_LEFT_TIME, bundle)
     }
 
+    private val onEndCount: Emitter.Listener = Emitter.Listener {
+        Log.d(TAG, "Socket onEndCount (Room Name :$roomName)")
+        roomName = it[0].toString()
+    }
+
     private val onTimeOver: Emitter.Listener = Emitter.Listener {
         Log.d(TAG, "Socket onTimeOver")
         socketDisconnect()
     }
 
     private val onStopCount: Emitter.Listener = Emitter.Listener {
-        Log.d(TAG, "Socket onStopCount")
+        val leftTime = it[0] as Int
+        Log.d(TAG, "Socket onStopCount (Room Name :$roomName) (leftTime: $leftTime)")
         mSocket.emit("leaveRoom", roomName)
     }
     private val onLeaveRoom: Emitter.Listener = Emitter.Listener {
@@ -159,11 +175,17 @@ class SocketService : JobIntentService() {
         socketDisconnect()
     }
 
-
+    private val onMatched: Emitter.Listener = Emitter.Listener {
+        roomName = it[0].toString()
+        Log.d(TAG, "Socket onMatched (Room Name :$roomName)")
+        mSocket.emit("endCount", roomName)
+        Log.d(TAG, "Send Socket endCount (Room Name :$roomName)")
+    }
     private val onRoomFull: Emitter.Listener = Emitter.Listener {
         roomName = it[0].toString()
         Log.d(TAG, "Socket onRoomFull (roomName: $roomName)")
         mSocket.emit("opponentInfo", roomName)
+        Log.d(TAG, "Send Socket opponentInfo (roomName: $roomName)")
     }
 
     private val onOpponentInfo: Emitter.Listener = Emitter.Listener {
@@ -178,6 +200,7 @@ class SocketService : JobIntentService() {
 
         val bundle = Bundle()
         with(bundle){
+            this.putString("roomName", roomName)
             this.putString("name", name)
             this.putInt("level", level)
             this.putInt("win", win)
@@ -187,13 +210,13 @@ class SocketService : JobIntentService() {
         resultReceiver.send(RESULT_OPPONENT_INFO, bundle)
     }
 
-    private val onLetsRun: Emitter.Listener = Emitter.Listener {
-        "Socket onLetsRun".logDebug(this@SocketService)
-        resultReceiver.send(RESULT_LETS_RUN, Bundle())
-    }
-
     private val onOpponentNotReady: Emitter.Listener = Emitter.Listener {
         "Socket onOpponentNotReady".logDebug(SocketService)
+    }
+
+    private val onLetsRun: Emitter.Listener = Emitter.Listener {
+        "Socket onLetsRun (Room Name:$roomName )".logDebug(this@SocketService)
+        resultReceiver.send(RESULT_LETS_RUN, Bundle())
     }
 
     private val onKmPassed: Emitter.Listener = Emitter.Listener {
