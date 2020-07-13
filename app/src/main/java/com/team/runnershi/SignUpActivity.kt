@@ -63,7 +63,7 @@ class SignUpActivity : AppCompatActivity() {
 
         imgv_sign_up_profile.setOnClickListener {
             val dialSelectProfile = DialSelectProfile(this@SignUpActivity)
-            dialSelectProfile.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            dialSelectProfile.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialSelectProfile.show()
 
             dialSelectProfile.setDialogResult(object : DialSelectProfile.OnMyDialogResult {
