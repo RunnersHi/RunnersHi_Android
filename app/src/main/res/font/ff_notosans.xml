@@ -10,4 +10,5 @@
     <font
         android:font="@font/notosans_extrabolditalic"
         android:fontWeight="400" />
+
 </font-family>
