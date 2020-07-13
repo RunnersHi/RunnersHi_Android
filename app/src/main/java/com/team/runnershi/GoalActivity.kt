@@ -31,7 +31,6 @@ class GoalActivity : AppCompatActivity() {
             val intent = Intent(this, RivalActivity::class.java)
             intent.putExtra("runtime", selectedRunTime)
             startActivity(intent)
-
         }
 
         btn_goal_back.setOnClickListener { finish() }
