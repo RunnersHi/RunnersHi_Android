@@ -2,7 +2,9 @@ package com.team.runnershi
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
@@ -10,6 +12,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -17,6 +20,9 @@ import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.MapFragment
 import com.naver.maps.map.NaverMap
+import com.naver.maps.map.overlay.LocationOverlay
+import com.naver.maps.map.overlay.Overlay
+import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.overlay.PathOverlay
 import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_run.*
@@ -26,10 +32,13 @@ class RunActivity : AppCompatActivity() {
     private var roomName = ""
     private val locationListener: LocationListener = RunLocationListener()
     private var naverMap: NaverMap? = null
+    private val path = PathOverlay()
+    private lateinit var locationOverLay: LocationOverlay
+    private val pathCoords = mutableListOf<LatLng>()
 
     private lateinit var locationSource: GpsOnlyLocationSource
-    private val path = PathOverlay()
-    private val pathCoords = mutableListOf<LatLng>()
+
+
     private lateinit var runSetViewModel: RunSetViewModel
 
 
@@ -109,16 +118,9 @@ class RunActivity : AppCompatActivity() {
         tv_run_end.text = runtimeString
         runSetViewModel.showRunLeftTime(runtime)
 
+        initMap()
 
-        val fm = supportFragmentManager
-        val mapFragment = fm.findFragmentById(R.id.map_run_map) as MapFragment?
-            ?: MapFragment.newInstance().also {
-                fm.beginTransaction().add(R.id.map_run_map, it).commit()
-            }
 
-        mapFragment.getMapAsync {
-            this.naverMap = it
-        }
 
         Glide.with(this).load(R.drawable.icon_unlock).into(btn_run_lock)
     }
@@ -161,6 +163,27 @@ class RunActivity : AppCompatActivity() {
         90 * 60 -> "1:30:00"
         else -> "--:--"
     }
+
+    private fun initMap() {
+        val fm = supportFragmentManager
+        val mapFragment = fm.findFragmentById(R.id.map_run_map) as MapFragment?
+            ?: MapFragment.newInstance().also {
+                fm.beginTransaction().add(R.id.map_run_map, it).commit()
+            }
+        mapFragment.getMapAsync {
+            this.naverMap = it
+            locationOverLay = it.locationOverlay
+            locationOverLay.isVisible = true
+            locationOverLay.icon = OverlayImage.fromResource(R.drawable.icon_location)
+        }
+
+        path.width = 20
+        path.outlineWidth = 0
+        path.color = Color.parseColor("#3868ff")
+
+
+    }
+
 
     private inner class RunLocationListener : LocationListener {
         override fun onLocationChanged(location: Location) {
