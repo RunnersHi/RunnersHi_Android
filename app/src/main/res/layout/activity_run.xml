@@ -156,6 +156,8 @@
                 android:layout_height="4dp"
                 android:layout_marginHorizontal="10dp"
                 android:orientation="horizontal"
+                android:progressDrawable="@drawable/progressbar_run"
+                style="?android:attr/progressBarStyleHorizontal"
                 app:layout_constraintBottom_toBottomOf="@id/tv_run_end"
                 app:layout_constraintEnd_toStartOf="@id/tv_run_end"
                 app:layout_constraintStart_toEndOf="@id/tv_run_start"
@@ -231,7 +233,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="@{viewmodel.leftTimeLiveData}"
+                    android:text=""
                     app:layout_constraintStart_toStartOf="@id/tv_run_time_title"
                     app:layout_constraintTop_toBottomOf="@id/tv_run_dist_data" />
 
