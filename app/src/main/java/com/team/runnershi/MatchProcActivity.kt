@@ -9,16 +9,12 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.team.runnershi.SocketService.Companion.RESULT_LEFT_TIME
-import com.team.runnershi.SocketService.Companion.RESULT_OPPONENT_INFO
-import com.team.runnershi.SocketService.Companion.RESULT_ROOM_NAME
 import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_match_proc.*
 
 class MatchProcActivity : AppCompatActivity() {
     private var runtime = -1
     private var rungender = -1
-    private lateinit var socketResultReceiver: SocketServiceReceiver
     private var roomName = ""
     private lateinit var socketReceiver: MatchProcReciver
     private lateinit var intentFilter: IntentFilter
@@ -61,7 +57,6 @@ class MatchProcActivity : AppCompatActivity() {
         work.putExtra("time", runtime)
         work.putExtra("wantGender", rungender)
         work.putExtra("leftTime", 300)
-        work.putExtra("receiver", socketResultReceiver)
         SocketService.enqueueWork(this, work)
     }
 
@@ -119,6 +114,7 @@ class MatchProcActivity : AppCompatActivity() {
                     val lose = intent.getIntExtra("lose", -1)
                     val image = intent.getIntExtra("image", -1)
 
+                    "RESULT_OPPONENT_INFO : (roomName ${roomName}) (name: $name) (level :$level) (image: $image) (win: $win) (lose: $lose) (runtime: $runtime)".logDebug(this@MatchProcActivity)
                     val intent = Intent(this@MatchProcActivity, MatchSucActivity::class.java)
                     with(intent) {
                         putExtra("roomName", roomName)
