@@ -50,6 +50,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_rank_month_title" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:clipToPadding="true"
                 android:id="@+id/rv_rank_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,6 +91,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_rank_honor" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:clipToPadding="true"
                 android:id="@+id/rv_rank_honor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -130,6 +132,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_rank_lose_title" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:clipToPadding="true"
                 android:id="@+id/rv_rank_lose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
