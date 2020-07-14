@@ -80,10 +80,19 @@ class RunActivity : AppCompatActivity() {
         BoundLocationManager.bindLocationListnerIn(this, locationListener, applicationContext)
     }
 
+    @SuppressLint("MissingPermission")
     private fun initData() {
         locationSource = GpsOnlyLocationSource(this)
-        runSetViewModel = ViewModelProvider(this).get(RunSetViewModel::class.java)
 
+        val currentLocation =
+            BoundLocationManager.boundLocationListener.mLocationManager?.getLastKnownLocation(
+                LocationManager.GPS_PROVIDER
+            )
+        currentLocation?.let {
+            locationOverLay?.position = LatLng(it)
+            runSetViewModel.ldCurrentLocation.postValue(it)
+            runSetViewModel.pathUpdate(currentLocation)
+        }
     }
 
     private fun subscribe() {
