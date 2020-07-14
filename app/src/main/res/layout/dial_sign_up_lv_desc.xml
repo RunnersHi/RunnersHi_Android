@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/whitebox_runninglevel">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="46dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="30dp" />
+
+    <ImageView
+        android:id="@+id/btn_sign_up_dial_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_off" />
+
+    <TextView
+        android:id="@+id/tv_sign_up_dial_title"
+        style="@style/TextStyle7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/nanumsquareb"
+        android:text="러닝레벨이란?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sign_up_dial_back" />
+
+
+    <TextView
+        android:id="@+id/tv_sign_up_dial_title_low_lv"
+        style="@style/TextStyle7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquareb"
+        android:text="초급"
+        app:layout_constraintBottom_toBottomOf="@id/tv_sign_up_dial_desc_low_lv"
+        app:layout_constraintStart_toStartOf="@id/g_left"
+        app:layout_constraintTop_toTopOf="@id/tv_sign_up_dial_desc_low_lv" />
+
+
+    <TextView
+        android:id="@+id/tv_sign_up_dial_desc_low_lv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquarer"
+        android:text="러닝을 가끔만 하는\n5분만 뛰어도 숨이 차는\n러닝 경쟁 쉬엄쉬엄 하고 싶은"
+        app:layout_constraintEnd_toEndOf="@id/g_right"
+        app:layout_constraintStart_toEndOf="@+id/tv_sign_up_dial_title_low_lv"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_dial_title"
+        android:layout_marginTop="30dp"/>
+
+    <View
+        android:id="@+id/vlow"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#d3d3d3"
+        app:layout_constraintEnd_toEndOf="@id/g_right"
+        app:layout_constraintStart_toStartOf="@id/g_left"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_dial_desc_low_lv" />
+
+
+    <TextView
+        android:id="@+id/tv_sign_up_dial_title_mid_lv"
+        style="@style/TextStyle7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquareb"
+        android:text="중급"
+        app:layout_constraintBottom_toBottomOf="@id/tv_sign_up_dial_desc_mid_lv"
+        app:layout_constraintStart_toStartOf="@id/g_left"
+        app:layout_constraintTop_toTopOf="@id/tv_sign_up_dial_desc_mid_lv" />
+
+
+    <TextView
+        android:id="@+id/tv_sign_up_dial_desc_mid_lv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquarer"
+        android:text="러닝을 꽤 해봤다 싶은\n10분 이상 뛰어도 괜찮은\n조금 잘하는 사람과 달리고 싶은"
+        app:layout_constraintEnd_toEndOf="@id/g_right"
+        app:layout_constraintStart_toEndOf="@+id/tv_sign_up_dial_title_mid_lv"
+        app:layout_constraintTop_toBottomOf="@id/vlow"
+        android:layout_marginTop="20dp"/>
+
+    <View
+        android:id="@+id/vmid"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#d3d3d3"
+        app:layout_constraintEnd_toEndOf="@id/g_right"
+        app:layout_constraintStart_toStartOf="@id/g_left"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_dial_desc_mid_lv" />
+
+    <TextView
+        android:id="@+id/tv_sign_up_dial_title_high_lv"
+        style="@style/TextStyle7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquareb"
+        android:text="고급"
+        app:layout_constraintBottom_toBottomOf="@id/tv_sign_up_dial_desc_high_lv"
+        app:layout_constraintStart_toStartOf="@id/g_left"
+        app:layout_constraintTop_toTopOf="@id/tv_sign_up_dial_desc_high_lv" />
+
+
+    <TextView
+        android:id="@+id/tv_sign_up_dial_desc_high_lv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="42dp"
+        android:fontFamily="@font/nanumsquarer"
+        android:text="러닝에 자신 있는\n20분 이상 뛰어도 괜찮은\n러닝 마니아끼리 달려보고 싶은 "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/g_right"
+        app:layout_constraintStart_toEndOf="@+id/tv_sign_up_dial_title_high_lv"
+        app:layout_constraintTop_toBottomOf="@id/vmid" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

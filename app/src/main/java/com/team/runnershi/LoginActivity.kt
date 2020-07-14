@@ -18,19 +18,26 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        //첫 실행여부 false 만듦
+        prefs.setString("isFirstRun","n")
+
         tv_login_sign_up.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
-            startActivityForResult(intent, 101)
+            startActivity(intent)
         }
 
         btn_login_confirm.setOnClickListener {
+            var id = edt_login_id.editableText.toString()
+            var password = edt_login_pw.editableText.toString()
+
             if (edt_login_id.text.isNullOrBlank() || edt_login_pw.text.isNullOrBlank()) {
 
             } else {
                 requestToServer.service.requestLogin(
                     RequestLogin(
-                        id = edt_login_id.text.toString(),
-                        password = edt_login_pw.text.toString()
+                        id = id,
+                        password = password
                     )
                 ).customEnqueue(
                     onFailure = { call, t ->
@@ -44,12 +51,20 @@ class LoginActivity : AppCompatActivity() {
                             val body = r.body()
                             if (body?.status == 200) {
                                 if (body?.success) {
-                                    prefs.setString("token",body.result.token) //Singleton SharedPreferences에 토큰저장
-                                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                                    prefs.setString(
+                                        "token",
+                                        body.result.token
+                                    ) //Singleton SharedPreferences에 토큰저장
+
+                                    prefs.setString("id",id)
+                                    prefs.setString("password",password)
+
+                                    val intent =
+                                        Intent(this@LoginActivity, HomeActivity::class.java)
                                     startActivity(intent)
                                     finish()
-                                    Log.e("Login",prefs.getString("token",null))
-                                    Log.d("login","성공")
+                                    Log.e("Login", prefs.getString("token", null))
+                                    Log.d("login", "성공")
                                 } else {
                                     tv_login_error.visibility = View.VISIBLE
                                     edt_login_id.setBackgroundResource(R.drawable.red_round_background)
@@ -58,8 +73,14 @@ class LoginActivity : AppCompatActivity() {
                                 }
                             }
                         } else {
+                            if (r.code() == 400) {
+                                tv_login_error.visibility = View.VISIBLE
+                                edt_login_id.setBackgroundResource(R.drawable.red_round_background)
+                                edt_login_pw.setBackgroundResource(R.drawable.red_round_background)
+                            }
                             Log.d(
-                                "TAG", "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                                "TAG",
+                                "requestConfirm onSuccess but response code is not 200 ~ 300 " +
                                         "(status code:${r.code()}) " +
                                         "(message: ${r.message()})" +
                                         "(errorBody: ${r.errorBody()})"
@@ -72,16 +93,4 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 101 && resultCode == Activity.RESULT_OK ){
-            val id = data?.getStringExtra("id")
-            val pw = data?.getStringExtra("pw")
-
-            if(!id.isNullOrEmpty() && !pw.isNullOrEmpty()){
-                edt_login_id.setText(id.toString())
-                edt_login_pw.setText(pw.toString())
-            }
-        }
-    }
 }

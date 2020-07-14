@@ -1,59 +1,88 @@
 package com.team.runnershi
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.team.runnershi.PrefInit.Companion.prefs
+import com.team.runnershi.adapter.AllmyProfileAdapter
+import com.team.runnershi.data.AllmyProfileContent
+import com.team.runnershi.extension.customEnqueue
+import com.team.runnershi.extension.logDebug
+import com.team.runnershi.network.RequestToServer
+import com.team.runnershi.viewholder.AllmyProfileViewHolder
+import kotlinx.android.synthetic.main.fragment_my_profile.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MyProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MyProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    val imgv_profile_face1 = R.drawable.icon_redman_shorthair
+    val imgv_profile_face2 = R.drawable.icon_blueman_shorthair
+    val imgv_profile_face3 = R.drawable.icon_redman_basichair
+    val imgv_profile_face4 = R.drawable.icon_blueman_permhair
+    val imgv_profile_face5 = R.drawable.icon_redwomen_ponytail
+    val imgv_profile_face6 = R.drawable.icon_bluewomen_ponytail
+    val imgv_profile_face7 = R.drawable.icon_redwomen_shortmhair
+    val imgv_profile_face8 = R.drawable.icon_bluewomen_permhair
+    val imgv_profile_face9 = R.drawable.icon_redwomen_bunhair
+
+    var imgvProfile : Array<Int> = arrayOf(imgv_profile_face1, imgv_profile_face2, imgv_profile_face3, imgv_profile_face4, imgv_profile_face5, imgv_profile_face6,
+        imgv_profile_face7, imgv_profile_face8, imgv_profile_face9)
+
+    lateinit var allmyProfileAdapter : AllmyProfileAdapter
+//    lateinit var allmyProfileViewHolder : AllmyProfileViewHolder
+    val requestToServer = RequestToServer
+    val token_value = prefs.getString("token", "")
+
+    fun getProfileBadge() {
+        requestToServer.service.requestmyProfile(token_value).customEnqueue(
+            onFailure = {call, t ->
+                context?.let { "requestmyProfile onFailure msg = ${t.message}".logDebug(it)}
+            },
+            onResponse = {call, r ->
+                if(r.isSuccessful) {
+                    val body = r.body()
+                    if(body!!.status == 200) {
+                        if(body.success) {
+                            tv_match_suc_nick_name.text = body.result.nickname
+                            tv_match_suc_lv_data.text = body.result.level.toString()
+                            tv_match_suc_lv_score_data.text = "${body.result.win.toString()}승 ${body.result.lose.toString()}패"
+
+                            imgv_my_profile_img.setImageResource(imgvProfile[body.result.image])
+
+
+                            allmyProfileAdapter = AllmyProfileAdapter(view!!.context)
+                            allmyProfileAdapter.iDatas = body.result.badge!!
+
+                            Log.d("TAGG", allmyProfileAdapter.iDatas.toString())
+                            rv_badge.adapter = allmyProfileAdapter
+
+                            allmyProfileAdapter.notifyDataSetChanged()
+                        }
+
+                    }
+                }
+            }
+        )
     }
 
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         return inflater.inflate(R.layout.fragment_my_profile, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MyProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MyProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        getProfileBadge()
+        //getProfileRecord()
     }
+
+
 }
+
+
