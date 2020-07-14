@@ -77,6 +77,12 @@ class SignUpActivity : AppCompatActivity() {
                 }
             })
         }
+
+        btn_sign_up_lv_desc.setOnClickListener {
+            val dialSignUpLvDesc = DialSignUpLvDesc(this)
+            dialSignUpLvDesc.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialSignUpLvDesc.show()
+        }
     }
 
     //라디오 버튼 유효성 있는지 검사
