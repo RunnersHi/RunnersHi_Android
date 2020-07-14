@@ -96,6 +96,7 @@ class RunActivity : AppCompatActivity() {
     }
 
     private fun subscribe() {
+        runSetViewModel = ViewModelProvider(this).get(RunSetViewModel::class.java)
         val leftTimeObserver = Observer<String>() { leftTimeText ->
             tv_run_time_data.text = leftTimeText
         }
@@ -106,7 +107,21 @@ class RunActivity : AppCompatActivity() {
         }
         runSetViewModel.ldRunProgress.observe(this, progressObserver)
 
-        runSetViewModel.runLeftTime.observe(this, leftTimeObserver)
+        val currentLocationObserver = Observer<Location> { location ->
+            naverMap?.let {
+                it.moveCamera(CameraUpdate.scrollTo(LatLng(location)))
+            }
+        }
+        runSetViewModel.ldCurrentLocation.observe(this, currentLocationObserver)
+
+        val pathObserver = Observer<MutableList<LatLng>> { latLngList ->
+            path.coords = latLngList
+            path.map = naverMap
+        }
+        runSetViewModel.ldPath.observe(this, pathObserver)
+
+//        val sendKmObserver = Observer<> {  }
+
     }
 
     private fun initUi() {
