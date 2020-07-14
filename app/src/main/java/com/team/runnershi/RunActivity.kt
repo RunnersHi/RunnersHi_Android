@@ -1,9 +1,11 @@
 package com.team.runnershi
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -66,7 +68,6 @@ class RunActivity : AppCompatActivity() {
 
     private fun bindLocationListener() {
         BoundLocationManager.bindLocationListnerIn(this, locationListener, applicationContext)
-
     }
 
     private fun initData() {
@@ -79,30 +80,34 @@ class RunActivity : AppCompatActivity() {
         val leftTimeObserver = Observer<String>() { leftTimeText ->
             tv_run_time_data.text = leftTimeText
         }
+        runSetViewModel.ldRunLeftTime.observe(this, leftTimeObserver)
+
+        val progressObserver = Observer<Int> { progress ->
+            progress_run.progress = progress
+        }
+        runSetViewModel.ldRunProgress.observe(this, progressObserver)
 
         runSetViewModel.runLeftTime.observe(this, leftTimeObserver)
     }
 
     private fun initUi() {
-        runSetViewModel.showRunLeftTime(
-            intent.getIntExtra("runtime", -1)
-        )
-
         roomName = intent.getStringExtra("roomName")!!
         val profileImage = getProfileImage()
         val name = intent.getStringExtra("name")
         val level = intent.getIntExtra("level", -1)
         val win = intent.getIntExtra("win", -1)
         val lose = intent.getIntExtra("lose", -1)
-        val runtime = getRunTime()
+        val runtime = intent.getIntExtra("runtime", -1)
+        "ViewModel Update Parameter: $runtime".logDebug(this@RunActivity)
+        val runtimeString = initProgressBarEndTV(runtime)
+        progress_run.max = runtime
 
         Glide.with(this).load(profileImage).into(imgv_run_profile)
         tv_run_nickname.text = name
         tv_run_leve_data.text = getLevelData()
         tv_run_win_data.text = "${win}승 ${lose}패"
-        tv_run_end.text = runtime
-
-        initProgressBar()
+        tv_run_end.text = runtimeString
+        runSetViewModel.showRunLeftTime(runtime)
 
 
         val fm = supportFragmentManager
@@ -116,10 +121,6 @@ class RunActivity : AppCompatActivity() {
         }
 
         Glide.with(this).load(R.drawable.icon_unlock).into(btn_run_lock)
-    }
-
-    private fun initProgressBar() {
-
     }
 
 
@@ -153,7 +154,7 @@ class RunActivity : AppCompatActivity() {
         }
     }
 
-    private fun getRunTime(): String = when (intent.getIntExtra("runtime", -1)) {
+    private fun initProgressBarEndTV(runtime: Int): String = when (runtime) {
         30 * 60 -> "30:00"
         45 * 60 -> "45:00"
         60 * 60 -> "60:00"
