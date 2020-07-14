@@ -19,10 +19,10 @@ class GoalActivity : AppCompatActivity() {
     private fun initUi() {
         radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { _, i ->
             selectedRunTime = when (i) {
-                R.id.btn_goal_30 -> 30
-                R.id.btn_goal_45 -> 45
-                R.id.btn_goal_60 -> 60
-                R.id.btn_goal_90 -> 90
+                R.id.btn_goal_30 -> 30 * 60
+                R.id.btn_goal_45 -> 45 * 60
+                R.id.btn_goal_60 -> 60 * 60
+                R.id.btn_goal_90 -> 90 * 60
                 else -> return@OnCheckedChangeListener
             }
         })
