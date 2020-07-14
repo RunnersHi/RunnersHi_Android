@@ -135,7 +135,7 @@ class RunActivity : AppCompatActivity() {
 
     private fun initUi() {
         roomName = intent.getStringExtra("roomName")!!
-        val profileImage = getProfileImage()
+        val profileImage: Int = getProfileImage()
         val name = intent.getStringExtra("name")
         val level = intent.getIntExtra("level", -1)
         val win = intent.getIntExtra("win", -1)
