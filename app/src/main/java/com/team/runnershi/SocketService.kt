@@ -58,7 +58,7 @@ class SocketService : JobIntentService() {
             "readyToRun" -> {
                 roomName = intent.getStringExtra("roomName")!!
                 mSocket.emit("readyToRun", roomName)
-                ("Send Ready to Run (roomName: $roomName)").logDebug(SocketService::class)
+                ("Send Ready to Run (roomName: $roomName)").logDebug(this@SocketService)
 
             }
             "kmPasssed" -> {
