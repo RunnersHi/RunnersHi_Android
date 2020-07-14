@@ -108,7 +108,6 @@ class SocketService : JobIntentService() {
         mSocket.on("stopRunning", onStopRunning)
         mSocket.on("endRunning", onEndRunning)
         mSocket.on("compareResult", onCompareResult)
-        mSocket.on("error", onError)
         mSocket.connect()
     }
 
@@ -259,9 +258,7 @@ class SocketService : JobIntentService() {
     }
 
 
-    private val onError: Emitter.Listener = Emitter.Listener {
-        "Socket onError".logDebug(this@SocketService)
-    }
+
 
 
     override fun onStopCurrentWork(): Boolean {
@@ -278,6 +275,7 @@ class SocketService : JobIntentService() {
         mSocket.off(Socket.EVENT_CONNECT, onConnect)
         mSocket.off(Socket.EVENT_DISCONNECT, onDisconnect)
         mSocket.off(Socket.EVENT_CONNECT_TIMEOUT, onConnctTimeOut)
+        mSocket.off("opponentInfo", onOpponentInfo)
         mSocket.off("start", onStart)
         mSocket.off("joinRoom", onJoinRoom)
         mSocket.off("roomCreated", onCreatedRoom)
@@ -300,10 +298,6 @@ class SocketService : JobIntentService() {
 
     companion object {
         const val JOB_ID = 1001
-        const val RESULT_LEFT_TIME = 111
-        const val RESULT_OPPONENT_INFO = 222
-        const val RESULT_LETS_RUN = 333
-        const val RESULT_ROOM_NAME = 444
         fun enqueueWork(context: Context, work: Intent) {
             enqueueWork(context, SocketService::class.java, JOB_ID, work)
         }
