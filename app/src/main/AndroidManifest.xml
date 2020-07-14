@@ -14,14 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
+        <activity android:name=".MatchFailActivity"
+            android:exported="true"/>
         <activity
             android:name=".OnBoardActivity"
-            android:label="@string/title_activity_on_board"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true"
-            />
+            android:exported="true" />
 
         <service
             android:name=".SocketService"
@@ -35,8 +35,7 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity
-            android:name=".RunActivity" />
+        <activity android:name=".RunActivity" />
         <activity
             android:name=".GoalActivity"
             android:exported="true" />
@@ -49,7 +48,7 @@
             android:name=".SignUpActivity"
             android:exported="true" />
         <activity android:name=".StartRunActivity" />
-        <activity android:name=".CountDownActivity"/>
+        <activity android:name=".CountDownActivity" />
         <activity
             android:name=".HomeActivity"
             android:exported="true" />
@@ -63,8 +62,9 @@
             android:exported="true" />
         <activity android:name=".FinishRunActivity" />
         <activity android:name=".RivalActivity" />
-        <activity android:name=".RecDetailActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".RecDetailActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
