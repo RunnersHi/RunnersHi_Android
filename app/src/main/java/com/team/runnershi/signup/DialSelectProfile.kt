@@ -1,12 +1,11 @@
-package com.team.runnershi
+package com.team.runnershi.signup
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.Window
-import android.view.WindowManager
 import android.widget.ImageView
+import com.team.runnershi.R
 import kotlinx.android.synthetic.main.dialog_select_profile.*
 
 class DialSelectProfile(context: Context) : Dialog(context) {
@@ -33,7 +32,7 @@ class DialSelectProfile(context: Context) : Dialog(context) {
 
     }
 
-    fun setDialogResult(dialogResult:OnMyDialogResult ){
+    fun setDialogResult(dialogResult: OnMyDialogResult){
         mDialogResult = dialogResult;
 
     }
