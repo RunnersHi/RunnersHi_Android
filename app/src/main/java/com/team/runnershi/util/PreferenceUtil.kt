@@ -1,4 +1,4 @@
-package com.team.runnershi
+package com.team.runnershi.util
 
 import android.content.Context
 import android.content.SharedPreferences
