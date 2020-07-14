@@ -58,7 +58,6 @@
 
     <TextView
         android:id="@+id/tv_sign_up_dial_desc_low_lv"
-        style="@style/TextStyle11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nanumsquarer"
@@ -94,7 +93,6 @@
 
     <TextView
         android:id="@+id/tv_sign_up_dial_desc_mid_lv"
-        style="@style/TextStyle11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nanumsquarer"
@@ -129,7 +127,6 @@
 
     <TextView
         android:id="@+id/tv_sign_up_dial_desc_high_lv"
-        style="@style/TextStyle11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
