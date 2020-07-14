@@ -62,8 +62,10 @@ class SocketService : JobIntentService() {
 
             }
             "kmPasssed" -> {
+                roomName = intent.getStringExtra("roomName")!!
                 val km = intent.getIntExtra("km", -1)
                 mSocket.emit("kmPassed", roomName, km)
+                "Send KmPassed (roomName :$roomName) (km  : $km)".logDebug(this@SocketService)
             }
             "stopRunning" -> {
                 val distance = intent.getIntExtra("distance", -1) // meter
