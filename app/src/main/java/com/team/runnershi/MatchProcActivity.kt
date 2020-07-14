@@ -51,51 +51,16 @@ class MatchProcActivity : AppCompatActivity() {
         work.putExtra("serviceFlag", "joinRoom")
         work.putExtra(
             "token",
-//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NiIsInBhc3N3b3JkIjoidGVzdHRlc3Q2IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDYxNDU0OSwiZXhwIjoxNTk0NjUwNTQ5fQ.uExmkKAL5iqKK2FZXoaTnf7eWU7juzmNNuJTYa5EZCM" // 6
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NyIsInBhc3N3b3JkIjoidGVzdHRlc3Q3IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDYxNDU4MiwiZXhwIjoxNTk0NjUwNTgyfQ.zYtTFMY6PWMzdRCwlJwPx-mmYse6WRSVTy43JDipfRk" //7
+//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NiIsInBhc3N3b3JkIjoidGVzdHRlc3Q2IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDcwNTI0NiwiZXhwIjoxNTk0NzQxMjQ2fQ.cW-a_QUgXDh-XpOK12Zq946GoRSRlAegdiEFBZc40Zw"// 6 // pixel
+//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NyIsInBhc3N3b3JkIjoidGVzdHRlc3Q3IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDcwMTY4NiwiZXhwIjoxNTk0NzM3Njg2fQ.vjMq7B_XouJMJXSXqPQv3vpXZugHAx_zdgfukxAaxnA" // 7
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJlZW56aW5vIiwicGFzc3dvcmQiOiJiZWVuemlubyIsInRva2VuIjoidG9rZW4iLCJpYXQiOjE1OTQ3MTE0NTYsImV4cCI6MTU5NDc0NzQ1Nn0.i5iGYgX7ut-zn0duyApY9FapvukL8-MUf4Q21p8MeQg" //빈지노
+//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0MjEiLCJwYXNzd29yZCI6InRlc3R0ZXN0MjEiLCJ0b2tlbiI6InRva2VuIiwiaWF0IjoxNTk0NzEyMTUxLCJleHAiOjE1OTQ3NDgxNTF9.2VCPVnzmzXUhhRItSpfrj4qYda0L9WTaubezHH5dEh4"
+//        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0MTkiLCJwYXNzd29yZCI6InRlc3R0ZXN0MTkiLCJ0b2tlbiI6InRva2VuIiwiaWF0IjoxNTk0NzEyNDM2LCJleHAiOjE1OTQ3NDg0MzZ9.T-IL605-WLWgFkaU2wI1T37_ccfH1JQZD-CJ-Riq9WA"
         )
         work.putExtra("time", runtime)
         work.putExtra("wantGender", rungender)
         work.putExtra("leftTime", 300)
         SocketService.enqueueWork(this, work)
-    }
-
-    override fun onReceiveResult(resultCode: Int, resultData: Bundle) {
-        when (resultCode) {
-            RESULT_LEFT_TIME -> {
-                val leftTimeFromServer = resultData.getInt("leftTime")
-                progress_match_proc.progress = 300 - leftTimeFromServer
-            }
-
-            RESULT_OPPONENT_INFO -> {
-                val roomName = resultData.getString("roomName")
-                val name = resultData.getString("name")
-                val level = resultData.getInt("level")
-                val gender = resultData.getInt("gender")
-                val win = resultData.getInt("win")
-                val lose = resultData.getInt("lose")
-                val image = resultData.getInt("image")
-
-
-                val intent = Intent(this, MatchSucActivity::class.java)
-                with(intent) {
-                    this.putExtra("roomName", roomName)
-                    this.putExtra("name", name)
-                    this.putExtra("level", level)
-                    this.putExtra("gender", gender)
-                    this.putExtra("win", win)
-                    this.putExtra("lose", lose)
-                    this.putExtra("image", image)
-                    this.putExtra("runtime", runtime)
-                }
-                startActivity(intent)
-                finish()
-            }
-            RESULT_ROOM_NAME -> {
-                roomName = resultData.getString("roomName")!!
-            }
-            else -> return
-        }
     }
 
     inner class MatchProcReciver() : BroadcastReceiver() {
