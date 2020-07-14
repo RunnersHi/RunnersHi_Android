@@ -54,7 +54,6 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
         //마커 세팅
         val marker = Marker()
-        mapCoords[mapCoords.size - 1].toString().logDebug(RecDetailActivity::class.java)
         marker.position = mapCoords[mapCoords.size - 1]
         marker.icon = OverlayImage.fromResource(R.drawable.icon_location)
         marker.map = naverMap
