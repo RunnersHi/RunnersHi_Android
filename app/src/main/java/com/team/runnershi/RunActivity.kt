@@ -164,25 +164,17 @@ class RunActivity : AppCompatActivity() {
 
     private inner class RunLocationListener : LocationListener {
         override fun onLocationChanged(location: Location) {
+            runSetViewModel.ldCurrentLocation.postValue(location)
             naverMap?.let {
-                val coord = LatLng(location)
-                pathCoords.add(coord)
-                if (pathCoords.size >= 2) {
-                    path.coords = pathCoords
-                    path.map = it
-                }
-
-                val locationOverlay = it.locationOverlay
-                locationOverlay.apply {
-                    this.isVisible = false
-                    this.position = coord
+                it.moveCamera(CameraUpdate.scrollTo(LatLng(location)))
+                 runSetViewModel.pathUpdate(location)
+                locationOverLay.apply {
+                    this.position = LatLng(location)
                     this.bearing = location.bearing
                 }
 
-                it.moveCamera(CameraUpdate.scrollTo(coord))
+
             }
-
-
         }
 
         override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
