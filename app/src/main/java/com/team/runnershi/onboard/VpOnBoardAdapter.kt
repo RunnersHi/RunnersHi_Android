@@ -1,4 +1,4 @@
-package com.team.runnershi
+package com.team.runnershi.onboard
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

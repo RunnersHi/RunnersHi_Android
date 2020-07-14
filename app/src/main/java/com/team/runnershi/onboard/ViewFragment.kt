@@ -1,10 +1,11 @@
-package com.team.runnershi
+package com.team.runnershi.onboard
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.team.runnershi.R
 import kotlinx.android.synthetic.main.fragment_view.*
 
 class ViewFragment : Fragment() {

@@ -1,18 +1,22 @@
-package com.team.runnershi
+package com.team.runnershi.onboard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
+import com.team.runnershi.login.LoginActivity
+import com.team.runnershi.R
 import com.team.runnershi.extension.newStartActivity
 import kotlinx.android.synthetic.main.activity_on_board.*
-import kotlinx.android.synthetic.main.fragment_view.*
 
 class OnBoardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_on_board)
 
-        vp_on_board.adapter = VpOnBoardAdapter(supportFragmentManager,4)
+        vp_on_board.adapter = VpOnBoardAdapter(
+            supportFragmentManager,
+            4
+        )
         vp_on_board.offscreenPageLimit = 3
         indicator_on_board.setupWithViewPager(vp_on_board)
 
