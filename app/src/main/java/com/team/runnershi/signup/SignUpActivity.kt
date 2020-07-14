@@ -1,26 +1,24 @@
-package com.team.runnershi
+package com.team.runnershi.signup
 
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.text.InputType
 import android.util.Log
 import android.view.View
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.team.runnershi.HomeActivity
 import com.team.runnershi.PrefInit.Companion.prefs
+import com.team.runnershi.R
 import com.team.runnershi.data.RequestConfirm
 import com.team.runnershi.data.RequestRegister
 import com.team.runnershi.extension.textChangeListener
 import com.team.runnershi.network.RequestToServer
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
-import kotlinx.android.synthetic.main.dialog_select_profile.*
 
 
 class SignUpActivity : AppCompatActivity() {
@@ -62,11 +60,13 @@ class SignUpActivity : AppCompatActivity() {
         addBtnOnlickListener()
 
         imgv_sign_up_profile.setOnClickListener {
-            val dialSelectProfile = DialSelectProfile(this@SignUpActivity)
+            val dialSelectProfile =
+                DialSelectProfile(this@SignUpActivity)
             dialSelectProfile.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialSelectProfile.show()
 
-            dialSelectProfile.setDialogResult(object : DialSelectProfile.OnMyDialogResult {
+            dialSelectProfile.setDialogResult(object :
+                DialSelectProfile.OnMyDialogResult {
                 @Override
                 override fun finish(result: Int) {
                     profile = result
@@ -79,7 +79,8 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         btn_sign_up_lv_desc.setOnClickListener {
-            val dialSignUpLvDesc = DialSignUpLvDesc(this)
+            val dialSignUpLvDesc =
+                DialSignUpLvDesc(this)
             dialSignUpLvDesc.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialSignUpLvDesc.show()
         }
@@ -408,7 +409,8 @@ class SignUpActivity : AppCompatActivity() {
                                     prefs.setString("password",password)
 
                                     prefs.getString("token",null).logDebug(SignUpActivity::class.java)
-                                    ("id:"+ prefs.getString("id",null) + ", " +"pw:"+ prefs.getString("password",null)).logDebug(SignUpActivity::class.java)
+                                    ("id:"+ prefs.getString("id",null) + ", " +"pw:"+ prefs.getString("password",null)).logDebug(
+                                        SignUpActivity::class.java)
 
                                     val intent =
                                         Intent(this@SignUpActivity, HomeActivity::class.java)
