@@ -52,6 +52,26 @@ class RunSetViewModel : ViewModel() {
         }, ONE_SECOND, ONE_SECOND)
     }
 
+    fun pathUpdate(currentLocation: Location) {
+        path.add(LatLng(currentLocation))
+        if (path.size >= 2) {
+            ldPath.postValue(path)
+        }
+    }
+
+    fun calTotalDistance(curLocation: Location) {
+        if (prevLocation == null) {
+            prevLocation = curLocation
+        } else {
+            val distance = prevLocation.distanceTo(curLocation)
+            totalDistance += distance
+            prevLocation = curLocation
+//            ldTotalMeter.postValue()
+
+//            ldTotalDistance.postValue(String.format("%.2f", distanceKm))
+        }
+    }
+
     companion object {
         const val ONE_SECOND = 1000L
     }
