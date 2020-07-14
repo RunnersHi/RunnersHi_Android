@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WaitMeActivity">
+
+    <TextView
+        android:id="@+id/tv_waitme_title"
+        style="@style/TextStyle3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:fontFamily="@font/nanumsquareb"
+        android:text="이전의 나만큼 겨뤄보기\n 좋은 상대는 없죠"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgv_waitme"
+        android:layout_width="179dp"
+        android:layout_height="171dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_waitme_title"
+        app:srcCompat="@drawable/img_waitmeactivity_redbluehands" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgv_waitme">
+
+
+        <ImageView
+            android:id="@+id/imgv_waitme_textbox"
+            android:layout_width="315dp"
+            android:layout_height="140dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/graybox_waitmeactivity_myrecentrecord" />
+
+        <TextView
+            android:id="@+id/tv_waitme_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="6sp"
+            android:text="나의 최근 기록"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imgv_waitme_textbox" />
+
+        <TextView
+            android:id="@+id/tv_waitme_distData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="35dp"
+            android:textSize="26sp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="10sp"
+            android:text="4.23"
+            android:fontFamily="@font/notosans_blackitalic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_waitme_record" />
+
+        <TextView
+            android:id="@+id/tv_waitme_dist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="8sp"
+            android:text="킬로미터"
+            android:fontFamily="@font/nanumsquarer"
+            app:layout_constraintEnd_toEndOf="@+id/tv_waitme_distData"
+            app:layout_constraintStart_toStartOf="@+id/tv_waitme_distData"
+            app:layout_constraintTop_toBottomOf="@+id/tv_waitme_distData" />
+
+        <TextView
+            android:id="@+id/tv_waitme_pacedata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="26sp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="10sp"
+            android:text="6’88’’"
+            android:fontFamily="@font/notosans_blackitalic"
+            app:layout_constraintEnd_toStartOf="@+id/tv_waitme_pacetimedata"
+            app:layout_constraintStart_toEndOf="@+id/tv_waitme_distData"
+            app:layout_constraintTop_toBottomOf="@+id/tv_waitme_record" />
+
+        <TextView
+            android:id="@+id/tv_waitme_pace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="8sp"
+            android:text="페이스"
+            android:fontFamily="@font/nanumsquarer"
+            app:layout_constraintEnd_toEndOf="@+id/tv_waitme_pacedata"
+            app:layout_constraintStart_toStartOf="@+id/tv_waitme_pacedata"
+            app:layout_constraintTop_toBottomOf="@+id/tv_waitme_pacedata" />
+
+        <TextView
+            android:id="@+id/tv_waitme_pacetimedata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="35dp"
+            android:textSize="26sp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="10sp"
+            android:text="30:00"
+            android:fontFamily="@font/notosans_blackitalic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_waitme_record" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="8sp"
+            android:text="러닝시간"
+            android:fontFamily="@font/nanumsquarer"
+            app:layout_constraintEnd_toEndOf="@+id/tv_waitme_pacetimedata"
+            app:layout_constraintStart_toStartOf="@+id/tv_waitme_pacetimedata"
+            app:layout_constraintTop_toBottomOf="@+id/tv_waitme_pacetimedata" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_waitme_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="곧 카운트 다운이 시작됩니다"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:lineSpacingExtra="8sp"
+        android:fontFamily="@font/nanumsquareb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
