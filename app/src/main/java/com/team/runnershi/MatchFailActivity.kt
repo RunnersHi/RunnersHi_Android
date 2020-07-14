@@ -28,10 +28,11 @@ class MatchFailActivity : AppCompatActivity() {
         }
 
         btn_match_fail_good.setOnClickListener {
+            lateinit var newIntent :Intent
             if(matchFailExistRecord==0)
-                val newIntent = Intent(this, MatchDummyActivity::class.java)
+                newIntent = Intent(this, MatchDummyActivity::class.java)
             else
-                val newIntent = Intent(this, MatchMeActivity::class.java)
+                newIntent = Intent(this, WaitMeActivity::class.java)
 
             newIntent.putExtra("existRecord",matchFailExistRecord)
             newIntent.putExtra("time",matchFailTime)
