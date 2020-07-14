@@ -11,7 +11,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.bumptech.glide.Glide
-import com.team.runnershi.SocketService.Companion.RESULT_LETS_RUN
 import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_match_suc.*
 
@@ -24,6 +23,7 @@ class MatchSucActivity : AppCompatActivity() {
     private var win = -1
     private var lose = -1
     private var image = -1
+    private var runtime = -1
     private lateinit var socketReceiver: MatchSucReceiver
     private lateinit var intentFilter: IntentFilter
 
@@ -52,6 +52,7 @@ class MatchSucActivity : AppCompatActivity() {
         win = intent.getIntExtra("win", -1)
         lose = intent.getIntExtra("lose", -1)
         image = intent.getIntExtra("image", -1)
+        runtime = intent.getIntExtra("runtime", -1)
 
         tv_match_suc_nick_name.text = name
 
@@ -103,9 +104,7 @@ class MatchSucActivity : AppCompatActivity() {
         with(work) {
             this.putExtra("roomName", roomName)
             this.putExtra("serviceFlag", "readyToRun")
-            this.putExtra("receiver", socketResultReceiver)
         }
-        "MatchSucActivity (Result Reciever: $socketResultReceiver)".logDebug(this@MatchSucActivity)
         SocketService.enqueueWork(this, work)
     }
 
@@ -118,7 +117,9 @@ class MatchSucActivity : AppCompatActivity() {
         override fun onReceive(contex: Context?, intent: Intent?) {
             when (intent?.action) {
                 "com.team.runnershi.RESULT_LETS_RUN" -> {
-                    val runtime = intent.getIntExtra("runtime", -1)
+                    "RESULT_LETS_RUN : (roomName ${roomName}) (name: $name) (level :$level) (image: $image) (win: $win) (lose: $lose) (runtime: $runtime)".logDebug(
+                        this@MatchSucActivity
+                    )
                     Intent(this@MatchSucActivity, CountDownActivity::class.java)
                         .also { intent ->
                             intent.putExtra("roomName", roomName)
