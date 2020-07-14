@@ -10,6 +10,8 @@ import io.socket.client.IO
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
 import java.net.URISyntaxException
+import java.nio.ByteBuffer
+import java.nio.charset.Charset
 
 class SocketService : JobIntentService() {
     private val TAG = SocketService::class.simpleName
@@ -201,7 +203,12 @@ class SocketService : JobIntentService() {
     private val onOpponentInfo: Emitter.Listener = Emitter.Listener {
         Log.d(TAG, "Socket onOpponenetInfo")
         roomName = it[0].toString()
-        val name = it[1].toString()
+        val byteName = it[1].toString().toByteArray()
+        val euckrCharset = Charset.forName("euc-kr")
+        val charBuffer = euckrCharset.decode(ByteBuffer.wrap(byteName))
+        val name = charBuffer.toString()
+        "(it[1]: ${it[1]}) (it[1].toString : ${it[1].toString()}) (name : $name) ".logDebug(this@SocketService)
+//        val name = it[1].toString()
         val level = it[2] as Int
         val win = it[3] as Int
         val lose = it[4] as Int
