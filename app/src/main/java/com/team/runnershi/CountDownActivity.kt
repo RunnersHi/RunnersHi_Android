@@ -31,13 +31,7 @@ class CountDownActivity : AppCompatActivity() {
                 val lose = intent.getIntExtra("lose", -1)
                 val runtime = intent.getIntExtra("runtime", -1)
 
-                "(roomName ${roomName})" +
-                        " (name: $name)" +
-                        " (level :$level)" +
-                        " (image: $image)" +
-                        " (win: $win)" +
-                        " (lose: $lose)" +
-                        " (runtime: $runtime)".logDebug(this@CountDownActivity)
+                "(roomName ${roomName}) (name: $name) (level :$level) (image: $image) (win: $win) (lose: $lose) (runtime: $runtime)".logDebug(this@CountDownActivity)
 
                 val intent = Intent(this@CountDownActivity, StartRunActivity::class.java)
                 with(intent) {
@@ -50,6 +44,7 @@ class CountDownActivity : AppCompatActivity() {
                     putExtra("runtime", runtime)
                 }
                 startActivity(intent)
+                finish()
             }
 
             override fun onAnimationCancel(p0: Animator?) {}
