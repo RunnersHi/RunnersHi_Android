@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MatchFailActivity">
+
+    <TextView
+        android:id="@+id/tv_match_fail_title"
+        style="@style/TextStyle3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:fontFamily="@font/nanumsquareb"
+        android:text="아쉽게도 지금은\n러너를 찾을 수 없네요"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgv_match_fail"
+        android:layout_width="120dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_match_fail_title"
+        app:srcCompat="@drawable/img_matchfailactivity_grayhands" />
+
+    <TextView
+        android:id="@+id/tv_match_fail_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/nanumsquarer"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="7sp"
+        android:text="대신 나의 기록과 러닝하시겠어요?\n어제의 나를 이겨보세요"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgv_match_fail" />
+
+
+    <TextView
+        android:id="@+id/btn_match_fail_bad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/bg_run_stop"
+        android:fontFamily="@font/nanumsquareb"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="9sp"
+        android:paddingVertical="16dp"
+        android:text="다음에 할래요"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/gl_match_fail_right"
+        app:layout_constraintStart_toStartOf="@id/gl_match_fail_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_match_fail_desc" />
+
+
+    <TextView
+        android:id="@+id/btn_match_fail_good"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/blue_btn_background"
+        android:fontFamily="@font/nanumsquareb"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="9sp"
+        android:paddingVertical="16dp"
+        android:text="좋아요"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/gl_match_fail_right"
+        app:layout_constraintStart_toStartOf="@id/gl_match_fail_left"
+        app:layout_constraintTop_toBottomOf="@+id/btn_match_fail_bad" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_match_fail_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="54dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_match_fail_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="54dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,10 +4,8 @@ import com.example.semina_3st.data.RequestLogin
 import com.example.semina_3st.data.ResponseLogin
 import com.team.runnershi.data.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
+
 
 interface RequestInterface {
     @POST("user/duplicates")
@@ -17,6 +15,22 @@ interface RequestInterface {
     @POST("user/login")
     fun requestLogin(@Body body : RequestLogin): Call<ResponseLogin>
 
+    //랭킹화면
+    @GET("ranking/runner")
+    fun requestRunner():Call<ResponseRunner>
+    @GET("ranking/winner")
+    fun requestWinner():Call<ResponseWinner>
+    @GET("ranking/loser")
+    fun requestLoser():Call<ResponseLoser>
+
+    @GET("/record/detail/{run_idx}")
+    fun requestRecordDetail(@Header("token") token :String, @Path("run_idx") run_idx :Int):Call<ResponseRecordDetail>
+    @GET("/record/run/{run_idx}")
+    fun requestRecordRun(@Header("token") token :String, @Path("run_idx") run_idx :Int):Call<ResponseRecordRun>
+    @GET("/record/opponent/{game_idx}")
+    fun requestRecordOpponent(@Header("token") token :String, @Path("game_idx") game_idx :Int):Call<ResponseRecordOpponent>
+
+    //세곤
     @POST("record/match/opponent")
     fun requestDummyData(@Body body : RequestDummyData) : Call<ResponseDummyData>
 

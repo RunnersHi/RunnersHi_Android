@@ -5,20 +5,21 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.team.runnershi.R
+import com.team.runnershi.data.RunnerData
+import com.team.runnershi.data.WinnerData
 
-class RvRankHonorAdapter(private val context: Context) : RecyclerView.Adapter<RvRankViewHolder>() {
-    var datas = mutableListOf<RankItemClass>()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):  RvRankViewHolder {
+class RvRankHonorAdapter(private val context: Context, val datas: List<WinnerData> ) : RecyclerView.Adapter<RvRankHonorViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):  RvRankHonorViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_rank,parent,false)
-        return RvRankViewHolder(view)
+        return RvRankHonorViewHolder(view)
     }
 
     override fun getItemCount(): Int {
         return datas.size
     }
 
-    override fun onBindViewHolder(holder: RvRankViewHolder, position: Int) {
-        holder.bind(datas[position])
+    override fun onBindViewHolder(holder: RvRankHonorViewHolder, position: Int) {
+        holder.bind(datas.get(position),position+1)
     }
 
 
