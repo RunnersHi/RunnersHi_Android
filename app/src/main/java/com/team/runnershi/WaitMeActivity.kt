@@ -2,15 +2,12 @@ package com.team.runnershi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
-import com.team.runnershi.PrefInit.Companion.prefs
+import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.data.AllRecordRecentContent
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
 import kotlinx.android.synthetic.main.activity_wait_me.*
-import kotlinx.android.synthetic.main.fragment_bottom_sheet.*
 
 class WaitMeActivity : AppCompatActivity() {
 
