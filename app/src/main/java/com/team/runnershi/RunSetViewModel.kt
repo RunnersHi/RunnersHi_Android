@@ -19,7 +19,10 @@ class RunSetViewModel : ViewModel() {
     val ldPath = MutableLiveData<MutableList<LatLng>>()
     val path = mutableListOf<LatLng>()
 
-
+    val ldTotalDistance = MutableLiveData("0.00")
+    val ldTotalMeter = MutableLiveData<Int>(0)
+    private var totalDistance: Float = 0F
+    private lateinit var prevLocation: Location
 
     fun showRunLeftTime(prevLeftTime: Int) {
         "Show Run Left Time (prevLeftTime: $prevLeftTime)".logDebug(
