@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="40dp"
-    tools:context=".GoalActivity">
-
+    tools:context=".RivalActivity">
     <ImageView
         android:id="@+id/btn_rival_back"
         android:layout_width="48dp"
@@ -15,7 +14,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/btn_back"
         />
-
     <TextView
         android:id="@+id/tv_rival_title"
         style="@style/TextStyle3"
@@ -28,23 +26,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_rival_back" />
-
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_rival_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="53dp" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_rival_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="53dp" />
-
-
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="0dp"
@@ -53,25 +46,20 @@
         app:layout_constraintEnd_toEndOf="@id/gl_rival_right"
         app:layout_constraintStart_toStartOf="@id/gl_rival_left"
         app:layout_constraintTop_toBottomOf="@+id/tv_rival_title">
-
         <RadioButton
             android:id="@+id/btn_rival_man"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/match_selector_btn_background"
-
             android:button="@android:color/transparent"
             android:fontFamily="@font/nanumsquarer"
             android:gravity="center_horizontal"
-
             android:lineSpacingExtra="6sp"
             android:paddingVertical="16dp"
             android:text="남"
             android:textColor="@drawable/match_select_text_color"
             android:textSize="14sp" />
-
-
         <RadioButton
             android:id="@+id/btn_rival_woman"
             android:layout_width="match_parent"
@@ -87,7 +75,6 @@
             android:text="여"
             android:textColor="@drawable/match_select_text_color"
             android:textSize="14sp" />
-
         <RadioButton
             android:id="@+id/btn_rival_random"
             android:layout_width="match_parent"
@@ -103,11 +90,9 @@
             android:text="상관없어요"
             android:textColor="@drawable/match_select_text_color"
             android:textSize="14sp" />
-
     </RadioGroup>
-
     <TextView
-        android:id="@+id/btn_goal_next"
+        android:id="@+id/btn_rival_next"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginBottom="154dp"
@@ -122,7 +107,4 @@
         app:layout_constraintEnd_toEndOf="@id/gl_rival_right"
         app:layout_constraintStart_toStartOf="@id/gl_rival_left"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

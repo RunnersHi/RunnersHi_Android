@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:paddingTop="40dp"
     tools:context=".GoalActivity">
-
     <ImageView
         android:id="@+id/btn_goal_back"
         android:layout_width="48dp"
@@ -15,7 +14,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/btn_back"
         />
-
     <TextView
         android:id="@+id/tv_goal_title"
         style="@style/TextStyle3"
@@ -28,23 +26,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_goal_back"
         android:fontFamily="@font/nanumsquareb"/>
-
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_goal_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="53dp" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_goal_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="53dp" />
-
-
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="0dp"
@@ -53,25 +46,20 @@
         app:layout_constraintEnd_toEndOf="@id/gl_goal_right"
         app:layout_constraintStart_toStartOf="@id/gl_goal_left"
         app:layout_constraintTop_toBottomOf="@+id/tv_goal_title">
-
         <RadioButton
             android:id="@+id/btn_goal_30"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/match_selector_btn_background"
-
             android:button="@android:color/transparent"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="6sp"
-
             android:paddingVertical="16dp"
             android:fontFamily="@font/nanumsquarer"
             android:textColor="@drawable/match_select_text_color"
             android:textSize="14sp"
             android:text="30min" />
-
-
         <RadioButton
             android:id="@+id/btn_goal_45"
             android:layout_width="match_parent"
@@ -87,7 +75,6 @@
             android:textColor="@drawable/match_select_text_color"
             android:textSize="14sp"
             android:fontFamily="@font/nanumsquarer"/>
-
         <RadioButton
             android:id="@+id/btn_goal_60"
             android:layout_width="match_parent"
@@ -103,7 +90,6 @@
             android:textColor="@drawable/match_select_text_color"
             android:textSize="14sp"
             android:fontFamily="@font/nanumsquarer"/>
-
         <RadioButton
             android:id="@+id/btn_goal_90"
             android:layout_width="match_parent"
@@ -120,7 +106,6 @@
             android:textSize="14sp"
             android:fontFamily="@font/nanumsquarer"/>
     </RadioGroup>
-
     <TextView
         android:id="@+id/btn_goal_next"
         android:layout_width="0dp"
@@ -137,7 +122,4 @@
         app:layout_constraintEnd_toEndOf="@id/gl_goal_right"
         app:layout_constraintStart_toStartOf="@id/gl_goal_left"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
