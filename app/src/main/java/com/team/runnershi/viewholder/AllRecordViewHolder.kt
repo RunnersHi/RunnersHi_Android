@@ -42,7 +42,7 @@ class AllRecordViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
         }
 
-        tv_rec_disttitle1.text = (getAllrecordContent.distance/1000).toString()
+        tv_rec_disttitle1.text = (getAllrecordContent.distance/1000.000).toString()
 
 //        val hour = getAllrecordContent.time.toInt()
 //        val minute = (getAllrecordContent.time%3600)/60

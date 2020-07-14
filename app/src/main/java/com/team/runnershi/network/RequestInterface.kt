@@ -17,6 +17,9 @@ interface RequestInterface {
     @POST("user/login")
     fun requestLogin(@Body body : RequestLogin): Call<ResponseLogin>
 
+    @POST("record/match/opponent")
+    fun requestDummyData(@Body body : RequestDummyData) : Call<ResponseDummyData>
+
 
     @GET("record/all")
     fun requestRecord(@Header("token") token : String) : Call<ResponseRecord>
