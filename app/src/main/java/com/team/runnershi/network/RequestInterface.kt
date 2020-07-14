@@ -4,10 +4,8 @@ import com.example.semina_3st.data.RequestLogin
 import com.example.semina_3st.data.ResponseLogin
 import com.team.runnershi.data.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
+
 
 interface RequestInterface {
     @POST("user/duplicates")
