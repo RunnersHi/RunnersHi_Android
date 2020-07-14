@@ -1,6 +1,7 @@
 package com.team.runnershi
 
 import android.location.Location
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.naver.maps.geometry.LatLng
@@ -19,7 +20,12 @@ class RunSetViewModel : ViewModel() {
     val ldPath = MutableLiveData<MutableList<LatLng>>()
     val path = mutableListOf<LatLng>()
 
-    val ldTotalDistance = MutableLiveData("0.00")
+    val ldTotalDistance = MutableLiveData(0)
+    val isKmOver = MutableLiveData<Boolean>()
+
+
+
+
     val ldTotalMeter = MutableLiveData<Int>(0)
     private var totalDistance: Float = 0F
     private lateinit var prevLocation: Location
