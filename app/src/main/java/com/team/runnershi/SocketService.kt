@@ -36,7 +36,7 @@ class SocketService : JobIntentService() {
         when (intent.getStringExtra("serviceFlag")) {
             "joinRoom" -> {
                 val token = intent.getStringExtra("token")
-                val time = intent.getIntExtra("time", -1) * 60
+                val time = intent.getIntExtra("time", -1)
                 val wantGender = intent.getIntExtra("wantGender", -1)
                 val leftTime = intent.getIntExtra("leftTime", -1)
                 "JoinRoom (token: $token) (time: $time) (wantGender: $wantGender) (leftTime: $leftTime)".logDebug(
