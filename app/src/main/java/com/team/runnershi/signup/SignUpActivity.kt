@@ -10,7 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.team.runnershi.HomeActivity
-import com.team.runnershi.PrefInit.Companion.prefs
+import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.R
 import com.team.runnershi.data.RequestConfirm
 import com.team.runnershi.data.RequestRegister
