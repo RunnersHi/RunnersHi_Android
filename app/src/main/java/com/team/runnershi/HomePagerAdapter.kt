@@ -8,7 +8,7 @@ class HomePagerAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR
     override fun getItem(position: Int): Fragment {
         return when(position) {
             0 -> HomeFragment()
-            1 -> RankFragment()
+            1 -> RecBadgeFragment()
             2 -> RankFragment()
             else -> MyProfileFragment()
         }

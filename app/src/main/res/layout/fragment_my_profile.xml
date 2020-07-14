@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -164,20 +165,47 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_badge"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:layout_marginHorizontal="30dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout7"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout7"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
             app:spanCount="3"
             tools:listitem="@layout/fragment_badge_item">
 
         </androidx.recyclerview.widget.RecyclerView>
 
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="92dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/btn_logout"
+            android:text="로그아웃"
+            android:textSize="14sp"
+            android:fontFamily="@font/nanumsquareb"
+            android:lineSpacingExtra="10sp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout7"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout7"
+            app:layout_constraintTop_toBottomOf="@+id/rv_badge"
+            tools:ignore="MissingConstraints" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#f5f5f5"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout7"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout7"
+            app:layout_constraintTop_toBottomOf="@+id/btn_logout"/>
+
+
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</FrameLayout>
+</androidx.core.widget.NestedScrollView>

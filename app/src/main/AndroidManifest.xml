@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:name=".PrefInit"
@@ -14,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
+        <activity android:name=".WaitMeActivity"/>
+        <activity android:name=".MatchDummyActivity"
+            android:exported="true"/>
         <activity android:name=".MatchFailActivity"
             android:exported="true"/>
         <activity
@@ -22,7 +28,6 @@
         <activity
             android:name=".SplashActivity"
             android:exported="true" />
-
         <service
             android:name=".SocketService"
             android:enabled="true"
