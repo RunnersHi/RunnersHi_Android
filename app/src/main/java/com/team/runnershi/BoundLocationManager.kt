@@ -1,29 +1,27 @@
 package com.team.runnershi
 
 import android.content.Context
+import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.util.Log
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.*
 
 class BoundLocationManager {
 
     @SuppressWarnings("MissingPermission")
     companion object {
+        lateinit var boundLocationListener: BoundLocationListener
         fun bindLocationListnerIn(
             lifecycleOwner: LifecycleOwner,
             locationListener: LocationListener,
             context: Context
         ) {
-            BoundLocationListener(
+            boundLocationListener = BoundLocationListener(
                 lifecycleOwner,
                 locationListener,
                 context
             )
-
         }
 
         class BoundLocationListener(
@@ -31,8 +29,7 @@ class BoundLocationManager {
             private val mLocationListener: LocationListener,
             private val context: Context
         ) : LifecycleObserver {
-            private var mLocationManager: LocationManager? = null
-
+            var mLocationManager: LocationManager? = null
             init {
                 lifecycleOwner.lifecycle.addObserver(this)
             }
@@ -43,7 +40,7 @@ class BoundLocationManager {
                     context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
                 mLocationManager?.requestLocationUpdates(
                     LocationManager.GPS_PROVIDER,
-                    3000,
+                    5000,
                     0f,
                     mLocationListener
                 )
@@ -52,6 +49,7 @@ class BoundLocationManager {
                 val lastLocation = mLocationManager?.getLastKnownLocation(
                     LocationManager.GPS_PROVIDER
                 )
+
                 if (lastLocation != null) {
                     mLocationListener.onLocationChanged(lastLocation)
                 }
