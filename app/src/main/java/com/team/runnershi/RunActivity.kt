@@ -123,6 +123,15 @@ class RunActivity : AppCompatActivity() {
 //        val sendKmObserver = Observer<> {  }
 
     }
+    private fun sendKmPassed(passedKm: Int){
+        val work = Intent()
+        with(work){
+            putExtra("serviceFlag", "kmPassed")
+            putExtra("roomName", roomName)
+            putExtra("km", passedKm)
+        }
+        SocketService.enqueueWork(this, work)
+    }
 
     private fun initUi() {
         roomName = intent.getStringExtra("roomName")!!
