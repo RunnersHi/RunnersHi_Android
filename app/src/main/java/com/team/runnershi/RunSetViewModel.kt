@@ -3,6 +3,7 @@ package com.team.runnershi
 import android.location.Location
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.naver.maps.geometry.LatLng
 import com.team.runnershi.extension.logDebug
 import java.util.*
 
@@ -15,6 +16,8 @@ class RunSetViewModel : ViewModel() {
     private var leftTime = 0
 
     val ldCurrentLocation = MutableLiveData<Location>()
+    val ldPath = MutableLiveData<MutableList<LatLng>>()
+    val path = mutableListOf<LatLng>()
 
 
 
