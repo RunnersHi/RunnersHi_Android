@@ -6,13 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.team.runnershi.PrefInit.Companion.prefs
+import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.adapter.AllmyProfileAdapter
-import com.team.runnershi.data.AllmyProfileContent
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
-import com.team.runnershi.viewholder.AllmyProfileViewHolder
 import kotlinx.android.synthetic.main.fragment_my_profile.*
 
 

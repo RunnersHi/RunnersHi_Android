@@ -1,4 +1,4 @@
-package com.team.runnershi.recycle
+package com.team.runnershi.rank
 
 import android.graphics.Color
 import android.util.DisplayMetrics
@@ -8,11 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.team.runnershi.R
+import com.team.runnershi.data.LoserData
 import com.team.runnershi.data.RunnerData
+import com.team.runnershi.data.WinnerData
 import org.w3c.dom.Text
-import java.math.RoundingMode
 
-class RvRankMonthViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+class RvRankLoseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     val rank = itemView.findViewById<TextView>(R.id.tv_rank_rank)
     val profile = itemView.findViewById<ImageView>(R.id.imgv_rank_profile)
     val nickname = itemView.findViewById<TextView>(R.id.tv_rank_nick_name)
@@ -29,12 +30,12 @@ class RvRankMonthViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         R.drawable.icon_redwomen_bunhair
     )
 
-    fun bind(runnerData : RunnerData, ranking: Int){
+    fun bind(loserData : LoserData, ranking: Int){
         rank.text =  ranking.toString()
-        profile.setImageResource(imgArray[runnerData.image - 1])
-        nickname.text = runnerData.nickname
+        profile.setImageResource(imgArray[loserData.image - 1])
+        nickname.text = loserData.nickname
         //m-> km변환해서 입력
-        dist.text = (runnerData.sum.toDouble()/1000).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()+"km"
+        dist.text = loserData.win.toString() + "승 " + loserData.lose.toString() +"패"
     }
 
 }

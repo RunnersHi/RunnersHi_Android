@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.team.runnershi.PrefInit.Companion.prefs
+import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.adapter.AllBadgeAdapter
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug

@@ -1,14 +1,10 @@
-package com.team.runnershi
+package com.team.runnershi.recdetail
 
-import android.content.Intent
-import android.graphics.Camera
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import com.naver.maps.geometry.LatLng
-import com.naver.maps.geometry.LatLngBounds
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.MapFragment
 import com.naver.maps.map.NaverMap
@@ -16,11 +12,10 @@ import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.overlay.PathOverlay
-import com.team.runnershi.PrefInit.Companion.prefs
+import com.team.runnershi.R
+import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.extension.customEnqueue
-import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_rec_detail.*
 
 class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {

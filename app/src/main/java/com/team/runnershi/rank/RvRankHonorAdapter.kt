@@ -1,15 +1,14 @@
-package com.team.runnershi.recycle
+package com.team.runnershi.rank
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.team.runnershi.R
-import com.team.runnershi.data.RunnerData
 import com.team.runnershi.data.WinnerData
 
 class RvRankHonorAdapter(private val context: Context, val datas: List<WinnerData> ) : RecyclerView.Adapter<RvRankHonorViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):  RvRankHonorViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RvRankHonorViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_rank,parent,false)
         return RvRankHonorViewHolder(view)
     }

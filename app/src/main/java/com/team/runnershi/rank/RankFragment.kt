@@ -1,23 +1,16 @@
-package com.team.runnershi
+package com.team.runnershi.rank
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.runnershi.util.HorizontalItemDecorator
-import com.example.semina_3st.data.RequestLogin
+import com.team.runnershi.R
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
-import com.team.runnershi.recycle.*
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_rank.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class RankFragment : Fragment() {
     val requestToServer = RequestToServer
@@ -52,7 +45,11 @@ class RankFragment : Fragment() {
                     val body = r.body()
                     if (body?.status == 200) {
                         if (body?.success) {
-                            rvRankMonthAdapter = RvRankMonthAdapter(view!!.context, body!!.result)
+                            rvRankMonthAdapter =
+                                RvRankMonthAdapter(
+                                    view!!.context,
+                                    body!!.result
+                                )
                             rv_rank_month.adapter = rvRankMonthAdapter
                             rvRankMonthAdapter.notifyDataSetChanged()
                         } else {
@@ -81,7 +78,11 @@ class RankFragment : Fragment() {
                     val body = r.body()
                     if (body?.status == 200) {
                         if (body?.success) {
-                            rvRankHonorAdapter = RvRankHonorAdapter(view!!.context, body!!.result)
+                            rvRankHonorAdapter =
+                                RvRankHonorAdapter(
+                                    view!!.context,
+                                    body!!.result
+                                )
                             rv_rank_honor.adapter = rvRankHonorAdapter
                             rvRankHonorAdapter.notifyDataSetChanged()
                         } else {
@@ -110,7 +111,11 @@ class RankFragment : Fragment() {
                     val body = r.body()
                     if (body?.status == 200) {
                         if (body?.success) {
-                            rvRankLoseAdapter = RvRankLoseAdapter(view!!.context, body!!.result)
+                            rvRankLoseAdapter =
+                                RvRankLoseAdapter(
+                                    view!!.context,
+                                    body!!.result
+                                )
                             rv_rank_lose.adapter = rvRankLoseAdapter
                             rvRankLoseAdapter.notifyDataSetChanged()
                         } else {
