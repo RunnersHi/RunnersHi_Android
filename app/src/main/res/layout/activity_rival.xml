@@ -4,81 +4,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="40dp"
-    android:paddingVertical="20dp"
-    tools:context=".GoalActivity">
-
-
+    android:paddingTop="40dp"
+    tools:context=".RivalActivity">
     <ImageView
-        android:id="@+id/btnRivalBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/btn_rival_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/actionModeCloseDrawable"
-        tools:ignore="MissingConstraints" />
-
-
+        app:srcCompat="@drawable/btn_back"
+        />
     <TextView
-        android:id="@+id/tvRivalTitle"
+        android:id="@+id/tv_rival_title"
+        style="@style/TextStyle3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/nanumsquareb"
+        android:text="원하는 상대러너의 성별은?"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_rival_back" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_rival_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="53dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_rival_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="53dp" />
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="111dp"
+        app:layout_constraintEnd_toEndOf="@id/gl_rival_right"
+        app:layout_constraintStart_toStartOf="@id/gl_rival_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_rival_title">
+        <RadioButton
+            android:id="@+id/btn_rival_man"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/match_selector_btn_background"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/nanumsquarer"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6sp"
+            android:paddingVertical="16dp"
+            android:text="남"
+            android:textColor="@drawable/match_select_text_color"
+            android:textSize="14sp" />
+        <RadioButton
+            android:id="@+id/btn_rival_woman"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/match_selector_btn_background"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/nanumsquarer"
+            android:gravity="center"
+            android:lineSpacingExtra="6sp"
+            android:paddingVertical="16dp"
+            android:text="여"
+            android:textColor="@drawable/match_select_text_color"
+            android:textSize="14sp" />
+        <RadioButton
+            android:id="@+id/btn_rival_random"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/match_selector_btn_background"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/nanumsquarer"
+            android:gravity="center"
+            android:lineSpacingExtra="6sp"
+            android:paddingVertical="16dp"
+            android:text="상관없어요"
+            android:textColor="@drawable/match_select_text_color"
+            android:textSize="14sp" />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/btn_rival_next"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="154dp"
+        android:layout_marginTop="111dp"
+        android:background="@drawable/bg_btn_goal_next"
         android:gravity="center"
-        android:text="원하는 상대러너의 성별은?\n(2/2)"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    <Button
-        android:id="@+id/btnRivalWoman"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:text="여"
-        android:textAllCaps="false"
-        android:background="@drawable/btn_default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRivalTitle" />
-
-    <Button
-        android:id="@+id/btnRivalMan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="남"
-        android:textAllCaps="false"
-        android:background="@drawable/btn_default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRivalWoman" />
-
-    <Button
-        android:id="@+id/btnRivalRandom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="상관 없어요"
-        android:textAllCaps="false"
-        android:background="@drawable/btn_default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRivalMan" />
-
-    <Button
-        android:id="@+id/btnRivalNext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="다음"
+        android:lineSpacingExtra="9sp"
+        android:text="START"
         android:textColor="@color/white"
-        android:background="@drawable/btn_next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRivalRandom" />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/gl_rival_right"
+        app:layout_constraintStart_toStartOf="@id/gl_rival_left"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 </androidx.constraintlayout.widget.ConstraintLayout>
