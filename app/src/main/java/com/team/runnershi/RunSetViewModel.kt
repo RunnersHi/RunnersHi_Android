@@ -81,6 +81,11 @@ class RunSetViewModel : ViewModel() {
         }
     }
 
+    fun checkTimerOver(passTime: Int) {
+        ldTimeOver.value = (runTime <= passTime)
+    }
+
+
     companion object {
         const val ONE_SECOND = 1000L
     }
