@@ -1,7 +1,6 @@
 package com.team.runnershi
 
 import android.location.Location
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.naver.maps.geometry.LatLng
@@ -11,8 +10,9 @@ import java.util.*
 class RunSetViewModel : ViewModel() {
     val ldRunLeftTime = MutableLiveData<String>("00:00:00")
     val ldRunProgress = MutableLiveData<Int>()
-    private var timer = Timer()
-    private var prevLeftTime = -1
+    val ldTimeOver = MutableLiveData<Boolean>()
+    var timer = Timer()
+    private var runTime = -1
     private var prevProgress = -1
     private var leftTime = 0
 
