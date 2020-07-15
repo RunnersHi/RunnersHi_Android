@@ -37,8 +37,8 @@ class RunSetViewModel : ViewModel() {
             ldTotalMeter.value?.let {
                 ldTotalMeter.postValue(it + interval)
             }
-            val curTotalMeter = ldTotalMeter.value
 
+            val curTotalMeter = ldTotalMeter.value
             curTotalMeter?.let { totalMeter ->
                 ldTotalMeter.postValue(totalMeter + interval)
             }
