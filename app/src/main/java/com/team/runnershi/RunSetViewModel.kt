@@ -121,17 +121,13 @@ class RunSetViewModel : ViewModel() {
         }
     }
 
-    fun calTotalDistance(curLocation: Location) {
-        if (prevLocation == null) {
-            prevLocation = curLocation
-        } else {
-            val distance = prevLocation.distanceTo(curLocation)
-            totalDistance += distance
-            prevLocation = curLocation
-//            ldTotalMeter.postValue()
-
-//            ldTotalDistance.postValue(String.format("%.2f", distanceKm))
+    fun getFinalCoords(): ArrayList<List<Double>> {
+        val finalPath = path
+        val finalCoords = arrayListOf<List<Double>>()
+        for (point in finalPath) {
+            finalCoords.add(listOf(point.latitude, point.longitude))
         }
+        return finalCoords
     }
 
     fun checkTimerOver(passTime: Int) {
