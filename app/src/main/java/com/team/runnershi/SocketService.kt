@@ -77,10 +77,10 @@ class SocketService : JobIntentService() {
                 mSocket.emit("stopRunning", roomName, distance, time, coordinates)
             }
             "endRunning" -> {
-                val distance = intent.getIntExtra("distance", -1) // meter
-                val time = intent.getIntExtra("time", -1) // 초
-                val coordinates = intent.getSerializableExtra("coordinates") // location
-                mSocket.emit("endRunning", roomName, distance, time, coordinates)
+                roomName = intent.getStringExtra("roomName")!!
+                val distance = intent.getIntExtra("distance", -1)
+                mSocket.emit("endRunning", roomName, distance)
+                "Send EndRuning (roomName : $roomName) (distance : $distance)".logDebug(this@SocketService)
             }
             "runComplete" -> {
                 mSocket.emit("runComplete", roomName)
