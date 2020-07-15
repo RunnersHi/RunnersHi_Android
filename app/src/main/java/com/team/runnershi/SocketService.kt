@@ -281,21 +281,30 @@ class SocketService : JobIntentService() {
     }
 
     private fun socketDisconnect() {
-        mSocket.off(Socket.EVENT_CONNECT, onConnect)
-        mSocket.off(Socket.EVENT_DISCONNECT, onDisconnect)
-        mSocket.off(Socket.EVENT_CONNECT_TIMEOUT, onConnctTimeOut)
-        mSocket.off("opponentInfo", onOpponentInfo)
-        mSocket.off("start", onStart)
-        mSocket.off("joinRoom", onJoinRoom)
-        mSocket.off("roomCreated", onCreatedRoom)
-        mSocket.off("timeLeft", onTimeLeft)
-        mSocket.off("timeOver", onTimeOver)
-        mSocket.off("stopMatching", onStopCount)
-        mSocket.off("roomFull", onRoomFull)
-        mSocket.off("kmPassed", onKmPassed)
-        mSocket.off("opponenetStopped", onOpponentStopped)
-        mSocket.off("stopRunning", onStopRunning)
-        mSocket.off("endRunning", onEndRunning)
+        mSocket.off(Socket.EVENT_CONNECT, onConnect) //
+        mSocket.off(Socket.EVENT_DISCONNECT, onDisconnect) //
+        mSocket.off(Socket.EVENT_CONNECT_TIMEOUT, onConnctTimeOut) //
+        mSocket.off(Socket.EVENT_CONNECT_ERROR, onConnectError) //
+        mSocket.off(Socket.EVENT_ERROR, onEventError) //
+        mSocket.off("start", onStart) //
+        mSocket.off("joinRoom", onJoinRoom) //
+        mSocket.off("roomCreated", onCreatedRoom) //
+        mSocket.off("timeLeft", onTimeLeft) //
+        mSocket.off("timeOver", onTimeOver) //
+        mSocket.off("matched", onMatched) //
+        mSocket.off("endCount", onEndCount) //
+        mSocket.off("stopCount", onStopCount) //
+        mSocket.off("leaveRoom", onLeaveRoom)
+        mSocket.off("roomFull", onRoomFull) //
+        mSocket.off("opponentInfo", onOpponentInfo) //
+        mSocket.off("opponentNotReady", onOpponentNotReady) //
+        mSocket.off("letsRun", onLetsRun) //
+        mSocket.off("kmPassed", onKmPassed) //
+        mSocket.off("endRunning", onEndRunning) //
+        mSocket.off("opponentStopped", onOpponentStopped) //
+        mSocket.off("stopRunning", onStopRunning) //
+        mSocket.off("compareResult", onCompareResult) //
+        mSocket.off(Socket.EVENT_PING, onPing) //
         mSocket.disconnect()
     }
 
