@@ -260,8 +260,13 @@ class SocketService : JobIntentService() {
     }
 
     private val onEndRunning: Emitter.Listener = Emitter.Listener {
-        Log.d(TAG, "Socket onEndRunning")
-        // todo 뷰를 finish 로 넘김
+        Log.d(TAG, "Socket onEndRunning (roomName: ${it[0]}")
+        Intent().also { intent ->
+            intent.action = "com.team.runnershi.RESULT_END_RUNNING"
+            intent.putExtra("roomName", roomName)
+            sendBroadcast(intent)
+        }
+
     }
 
     private val onCompareResult: Emitter.Listener = Emitter.Listener {
