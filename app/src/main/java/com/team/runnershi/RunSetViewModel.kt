@@ -67,7 +67,7 @@ class RunSetViewModel : ViewModel() {
                     (paceMinute - paceMinute.toInt().toFloat()) * 60f
                 }
 
-            if (paceMinute >= 100) {
+            if (paceMinute >= 60) {
                 ldPace.postValue("-'--\"")
                 "Pace PostValue: -'--\"".logDebug(this@RunSetViewModel)
             } else {
