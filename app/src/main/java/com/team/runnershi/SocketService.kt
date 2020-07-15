@@ -270,9 +270,14 @@ class SocketService : JobIntentService() {
     }
 
     private val onCompareResult: Emitter.Listener = Emitter.Listener {
-        Log.d(TAG, "Socket onCompareResult")
+        val result = it[0] as Int
+        Log.d(TAG, "Socket onCompareResult (result: $result)")
+        Intent().also{intent ->
+            intent.action = "com.team.runnershi.RESULT_COMPARE"
+            intent.putExtra("result", result)
+            sendBroadcast(intent)
+        }
         socketDisconnect()
-        // todo 뷰를 finish 로 넘김
     }
 
 
