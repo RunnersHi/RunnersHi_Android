@@ -20,12 +20,8 @@ class RunSetViewModel : ViewModel() {
     val ldPath = MutableLiveData<MutableList<LatLng>>()
     val path = mutableListOf<LatLng>()
 
-    val ldTotalDistance = MutableLiveData(0)
-    val isKmOver = MutableLiveData<Boolean>()
-
-
-
-
+    var prevLocation: Location? = null
+    var distStandard = 1
     val ldTotalMeter = MutableLiveData<Int>(0)
     private var totalDistance: Float = 0F
     private lateinit var prevLocation: Location
