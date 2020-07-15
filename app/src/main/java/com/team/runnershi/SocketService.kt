@@ -91,6 +91,7 @@ class SocketService : JobIntentService() {
     private fun socketConnect() {
         mSocket = IO.socket(mHost)
         mSocket.on(Socket.EVENT_CONNECT, onConnect) //
+        mSocket.on(Socket.EVENT_RECONNECT, onReconnect)
         mSocket.on(Socket.EVENT_DISCONNECT, onDisconnect) //
         mSocket.on(Socket.EVENT_CONNECT_TIMEOUT, onConnctTimeOut) //
         mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError) //
@@ -118,6 +119,10 @@ class SocketService : JobIntentService() {
 
     private val onStart: Emitter.Listener = Emitter.Listener {
         Log.d(TAG, "Socket onStart")
+    }
+
+    private val onReconnect: Emitter.Listener = Emitter.Listener { time ->
+        Log.d(TAG, "Socket onReconnect (time: $time)")
     }
 
     private val onConnect: Emitter.Listener = Emitter.Listener {
