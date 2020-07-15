@@ -210,12 +210,9 @@ class SocketService : JobIntentService() {
     private val onOpponentInfo: Emitter.Listener = Emitter.Listener {
         Log.d(TAG, "Socket onOpponenetInfo")
         roomName = it[0].toString()
-        val byteName = it[1].toString().toByteArray()
-        val euckrCharset = Charset.forName("euc-kr")
-        val charBuffer = euckrCharset.decode(ByteBuffer.wrap(byteName))
-        val name = charBuffer.toString()
-        "(it[1]: ${it[1]}) (it[1].toString : ${it[1].toString()}) (name : $name) ".logDebug(this@SocketService)
-//        val name = it[1].toString()
+
+        val strBase64UrlDecode = Base64.decode(it[1].toString(), Base64.URL_SAFE)
+        val name = String(strBase64UrlDecode)
         val level = it[2] as Int
         val win = it[3] as Int
         val lose = it[4] as Int
