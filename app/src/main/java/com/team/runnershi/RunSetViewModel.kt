@@ -63,22 +63,16 @@ class RunSetViewModel : ViewModel() {
             val paceMinute =
                 if (distIntervalMeter == 0f) {
                     0f
-                } else {
+                }
+                else {
                     (timeIntervalSec / 60f) / (distIntervalMeter / 1000f)
                 }
             val paceSeconds =
-                if (distIntervalMeter == 0f) 0f else {
+                if (distIntervalMeter == 0f) 0f
+                else {
                     (paceMinute - paceMinute.toInt().toFloat()) * 60f
                 }
-//            val paceSec = pace % 60
-//            var paceString =
-//                if (pace >= 100) {
-//                    "-'-\""
-//                } else if (pace == 0) {
-//                    "00'$paceSec\""
-//                } else {
-//                    "$pace\""
-//                }
+
             if (paceMinute >= 100) {
                 ldPace.postValue("-'--\"")
                 "Pace PostValue: -'--\"".logDebug(this@RunSetViewModel)
