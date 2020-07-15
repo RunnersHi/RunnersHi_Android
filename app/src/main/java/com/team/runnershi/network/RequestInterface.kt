@@ -33,4 +33,7 @@ interface RequestInterface {
     @GET("record/recent")
     fun requestRecordRecent(@Header("token") token : String) : Call<ResponseRecordRecent>
 
+    @GET("record/badge/detail/:flag")
+    fun requestBadgeDetail(@Header("token") token : String) : Call<ResponseBadgeDetail>
+
 }

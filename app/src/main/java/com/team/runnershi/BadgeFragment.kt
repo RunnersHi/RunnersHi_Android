@@ -11,6 +11,7 @@ import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
 import kotlinx.android.synthetic.main.fragment_badge.*
+import kotlinx.android.synthetic.main.fragment_badge.view.*
 
 class BadgeFragment : Fragment() {
 
@@ -47,10 +48,13 @@ class BadgeFragment : Fragment() {
 
 
 
-        override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.fragment_badge, container, false)
+        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+            val view = inflater.inflate(R.layout.fragment_badge, container, false)
+
+
+
+
+            return view
         }
 
         override fun onActivityCreated(savedInstanceState: Bundle?) {

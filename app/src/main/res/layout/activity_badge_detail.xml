@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraint_badge_detail"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingVertical="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradation_background"
+    tools:context=".BadgeDetailActivity">
+
+    <TextView
+        android:id="@+id/tv_badge_detail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        style="@style/TextStyle3"
+        android:text="최저 페이스"
+        android:fontFamily="@font/nanumsquareb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_badge_detail_share" />
+
+    <ImageView
+        android:id="@+id/imgv_badge_detail"
+        android:layout_width="170dp"
+        android:layout_height="234dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/badge_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_badge_detail_title" />
+
+    <TextView
+        android:id="@+id/tv_badge_detail_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="최저 페이스를 경신하신\n러너에게 드리는 뱃지입니다"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:lineSpacingExtra="9sp"
+        android:fontFamily="@font/nanumsquareb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgv_badge_detail" />
+
+    <TextView
+        android:id="@+id/tv_badge_detail_content_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="2020.01.01"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:lineSpacingExtra="4sp"
+        android:fontFamily="@font/nanumsquarer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_badge_detail_content" />
+
+    <TextView
+        android:id="@+id/tv_badge_detail_content_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="06’11’’"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:lineSpacingExtra="7sp"
+        android:fontFamily="@font/nanumsquareb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_badge_detail_content_detail" />
+
+    <ImageView
+        android:id="@+id/btn_badge_detail_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/btn_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_badge_detail_share"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/icon_share"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

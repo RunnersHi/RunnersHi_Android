@@ -33,9 +33,9 @@ class MatchDummyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match_dummy)
 
-        val get_level = intent.getStringExtra("level")
-        val get_gender = intent.getStringExtra("wantGender")
-        val get_time = intent.getStringExtra("time")
+        val get_level = intent.getIntExtra("level", 1000000)
+        val get_gender = intent.getIntExtra("wantGender", 123456486)
+        val get_time = intent.getIntExtra("time", 1111111)
 
         requestToServer.service.requestDummyData(
             RequestDummyData(
@@ -52,10 +52,10 @@ class MatchDummyActivity : AppCompatActivity() {
                     val body  = r.body()
                     if(body?.status == 200) {
                         if(body?.success) {
-                            Log.d("TAGG", body.result.toString());
+                            Log.d("TAGG", body.result.toString())
                             tv_match_dummy_nick_name.text = body.result.nickname
                             tv_match_dummy_lv_data.text = body.result.level
-                            Log.d("TAGG" , body.result.win.toString());
+                            Log.d("TAGG" , body.result.win.toString())
                             tv_match_dummy_lv_score_data.text = "${body.result.win}승 ${body.result.lose}패"
                             imageView_dummy.setImageResource(dummy_face[body.result.img])
 

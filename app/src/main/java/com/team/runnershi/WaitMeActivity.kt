@@ -36,14 +36,14 @@ class WaitMeActivity : AppCompatActivity() {
                                 if(splitTimeItem[0] == "00") {
                                     tv_waitme_pacetimedata.text = "${splitTimeItem[1]}:${splitTimeItem[2]}"
                                 }
-                                else {
-                                    tv_waitme_pacetimedata.text = "${splitTimeItem[0]}:${splitTimeItem[1]}:${splitTimeItem}"
+                                else if(splitTimeItem[0] != "00") {
+                                    tv_waitme_pacetimedata.text = "${splitTimeItem[0]}:${splitTimeItem[1]}:${splitTimeItem[2]}"
                                 }
 
                             }
-                            tv_waitme_distData.text = (body.result.distance/1000.000).toString()
+                            tv_waitme_distData.text = (body.result.distance/1000.00).toString()
                             tv_waitme_pacedata.text = body.result.pace.toString()
-                            change_time(body.result).toString()
+                            change_time(body.result)
 
 
 
