@@ -58,8 +58,7 @@ class RunSetViewModel : ViewModel() {
             val paceMinute =
                 if (distIntervalMeter == 0f) {
                     0f
-                }
-                else {
+                } else {
                     (timeIntervalSec / 60f) / (distIntervalMeter / 1000f)
                 }
             val paceSeconds =
