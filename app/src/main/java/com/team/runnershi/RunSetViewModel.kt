@@ -70,7 +70,6 @@ class RunSetViewModel : ViewModel() {
                 if (distIntervalMeter == 0f) 0f else {
                     (paceMinute - paceMinute.toInt().toFloat()) * 60f
                 }
-
 //            val paceSec = pace % 60
 //            var paceString =
 //                if (pace >= 100) {
