@@ -2,16 +2,16 @@ package com.team.runnershi
 
 import android.content.Context
 import android.content.Intent
-import android.os.*
+import android.os.SystemClock
+import android.util.Base64
 import android.util.Log
 import androidx.core.app.JobIntentService
 import com.team.runnershi.extension.logDebug
 import io.socket.client.IO
+import io.socket.client.Manager
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
 import java.net.URISyntaxException
-import java.nio.ByteBuffer
-import java.nio.charset.Charset
 
 class SocketService : JobIntentService() {
     private val TAG = SocketService::class.simpleName
@@ -26,6 +26,7 @@ class SocketService : JobIntentService() {
         if (!isSocketExist) {
             try {
                 socketConnect()
+                "Socket Send Connect".logDebug(this@SocketService)
             } catch (e: URISyntaxException) {
                 Log.d(
                     TAG,
@@ -41,7 +42,7 @@ class SocketService : JobIntentService() {
                 val time = intent.getIntExtra("time", -1)
                 val wantGender = intent.getIntExtra("wantGender", -1)
                 val leftTime = intent.getIntExtra("leftTime", -1)
-                "JoinRoom (token: $token) (time: $time) (wantGender: $wantGender) (leftTime: $leftTime)".logDebug(
+                "JoinRoom (token: $token) (time: $time) (wantGender: $wantGender) (leftTime: $leftTime) (SocketId: ${mSocket.id()})".logDebug(
                     this@SocketService
                 )
                 mSocket.emit("joinRoom", token, time, wantGender, leftTime)
@@ -60,7 +61,7 @@ class SocketService : JobIntentService() {
             "readyToRun" -> {
                 roomName = intent.getStringExtra("roomName")!!
                 mSocket.emit("readyToRun", roomName)
-                ("Send Ready to Run (roomName: $roomName)").logDebug(this@SocketService)
+                ("Send Ready to Run (roomName: $roomName) (SocketId : ${mSocket.id()}").logDebug(this@SocketService)
 
             }
             "kmPasssed" -> {
@@ -132,7 +133,7 @@ class SocketService : JobIntentService() {
     }
 
     private val onConnectError: Emitter.Listener = Emitter.Listener {
-        "Socket onConnectError".logDebug(SocketService)
+        "Socket onConnectError it[0]:${it[0]}".logDebug(SocketService)
     }
     private val onEventError: Emitter.Listener = Emitter.Listener {
         "Socket AutoMatically onEventError".logDebug(this@SocketService)
