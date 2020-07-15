@@ -90,13 +90,13 @@ class RunSetViewModel : ViewModel() {
         "Show Run Left Time (prevLeftTime: $prevLeftTime)".logDebug(
             this@RunSetViewModel
         )
-        this.prevLeftTime = prevLeftTime
+        this.runTime = prevLeftTime
         "initial (prevLeftTime $prevLeftTime) (prevProgress: $prevProgress)".logDebug(this@RunSetViewModel)
 
         timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 leftTime += 1
-                val newLeftTime = this@RunSetViewModel.prevLeftTime - leftTime
+                val newLeftTime = this@RunSetViewModel.runTime - leftTime
                 val hour = newLeftTime / (60 * 60)
                 val minutes = newLeftTime % (60 * 60) / 60
                 val seconds = newLeftTime % (60 * 60) % 60
