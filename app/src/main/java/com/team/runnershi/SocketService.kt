@@ -109,11 +109,12 @@ class SocketService : JobIntentService() {
         mSocket.on("opponentInfo", onOpponentInfo) //
         mSocket.on("opponentNotReady", onOpponentNotReady) //
         mSocket.on("letsRun", onLetsRun) //
-        mSocket.on("kmPassed", onKmPassed)
-        mSocket.on("opponentStopped", onOpponentStopped)
-        mSocket.on("stopRunning", onStopRunning)
-        mSocket.on("endRunning", onEndRunning)
-        mSocket.on("compareResult", onCompareResult)
+        mSocket.on("kmPassed", onKmPassed) //
+        mSocket.on("endRunning", onEndRunning) //
+        mSocket.on("opponentStopped", onOpponentStopped) //
+        mSocket.on("stopRunning", onStopRunning) //
+        mSocket.on("compareResult", onCompareResult) //
+        mSocket.on(Socket.EVENT_PING, onPing) //
         mSocket.connect()
     }
 
@@ -273,7 +274,11 @@ class SocketService : JobIntentService() {
     }
 
 
-
+    private val onPing: Emitter.Listener = Emitter.Listener {
+        "Socket onPing".logDebug(this@SocketService)
+        mSocket.emit(Socket.EVENT_PONG)
+        "Send Pong".logDebug(this@SocketService)
+    }
 
 
     override fun onStopCurrentWork(): Boolean {
