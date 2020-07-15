@@ -34,13 +34,8 @@ class RunSetViewModel : ViewModel() {
             prevLocation = curLocation
         } else {
             val interval = prevLocation!!.distanceTo(curLocation).toInt()
-            ldTotalMeter.value?.let {
-                ldTotalMeter.postValue(it + interval)
-            }
-
-            val curTotalMeter = ldTotalMeter.value
-            curTotalMeter?.let { totalMeter ->
-                ldTotalMeter.postValue(totalMeter + interval)
+            ldTotalMeter.value?.let { curTotalMeter ->
+                ldTotalMeter.postValue(curTotalMeter + interval)
             }
 
             val totalKm = ldTotalMeter.value?.toFloat()?.div(1000)
