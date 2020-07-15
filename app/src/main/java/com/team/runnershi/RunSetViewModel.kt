@@ -23,8 +23,75 @@ class RunSetViewModel : ViewModel() {
     var prevLocation: Location? = null
     var distStandard = 1
     val ldTotalMeter = MutableLiveData<Int>(0)
-    private var totalDistance: Float = 0F
-    private lateinit var prevLocation: Location
+    val ldTotalDistString = MutableLiveData<String>("0.00")
+    val ldPace = MutableLiveData<String>("00\'00\"")
+    val ldIsKmPassed = MutableLiveData<Boolean>().apply {
+        false
+    }
+
+    fun calTotalDistance(curLocation: Location) {
+        if (prevLocation == null) {
+            prevLocation = curLocation
+        } else {
+            val interval = prevLocation!!.distanceTo(curLocation).toInt()
+            ldTotalMeter.value?.let {
+                ldTotalMeter.postValue(it + interval)
+            }
+            val curTotalMeter = ldTotalMeter.value
+
+            curTotalMeter?.let { totalMeter ->
+                ldTotalMeter.postValue(totalMeter + interval)
+            }
+
+            val totalKm = ldTotalMeter.value?.toFloat()?.div(1000)
+            ldTotalDistString.postValue(String.format("%.2f", totalKm))
+        }
+    }
+
+    fun checkKmPassed(totalMeter: Int) {
+        ldIsKmPassed.value = (totalMeter / 1000 >= distStandard)
+    }
+
+    fun incDistStandard() = distStandard.inc()
+    
+    fun calPace(curLocation: Location) {
+        if (prevLocation == null) {
+            prevLocation = curLocation
+        } else {
+            val timeIntervalSec = (curLocation.time - prevLocation!!.time).toFloat() / 1000
+            val distIntervalMeter = prevLocation!!.distanceTo(curLocation)
+            val paceMinute =
+                if (distIntervalMeter == 0f) {
+                    0f
+                } else {
+                    (timeIntervalSec / 60f) / (distIntervalMeter / 1000f)
+                }
+            val paceSeconds =
+                if (distIntervalMeter == 0f) 0f else {
+                    (paceMinute - paceMinute.toInt().toFloat()) * 60f
+                }
+
+//            val paceSec = pace % 60
+//            var paceString =
+//                if (pace >= 100) {
+//                    "-'-\""
+//                } else if (pace == 0) {
+//                    "00'$paceSec\""
+//                } else {
+//                    "$pace\""
+//                }
+            if (paceMinute >= 100) {
+                ldPace.postValue("-'--\"")
+                "Pace PostValue: -'--\"".logDebug(this@RunSetViewModel)
+            } else {
+                ldPace.postValue("${paceMinute.toInt()}'${paceSeconds.toInt()}\"")
+                "Pace PostValue (paceMinute.toInt(): ${paceMinute.toInt()} paceSeconds: ${paceSeconds.toInt()})".logDebug(
+                    this@RunSetViewModel
+                )
+            }
+        }
+    }
+
 
     fun showRunLeftTime(prevLeftTime: Int) {
         "Show Run Left Time (prevLeftTime: $prevLeftTime)".logDebug(
