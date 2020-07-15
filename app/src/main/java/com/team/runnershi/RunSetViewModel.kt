@@ -101,18 +101,15 @@ class RunSetViewModel : ViewModel() {
                 val minutes = newLeftTime % (60 * 60) / 60
                 val seconds = newLeftTime % (60 * 60) % 60
 
-                if (hour == 0) {
-                    ldRunLeftTime.postValue("$minutes:$seconds")
-                    "timer runLeftTime.postValue : ($minutes:$seconds)".logDebug(this@RunSetViewModel)
-                } else {
-                    ldRunLeftTime.postValue("$hour:$minutes:$seconds")
-                    "timer runLeftTime.postValue : ($hour:$minutes:$seconds)".logDebug(this@RunSetViewModel)
-                }
+                val strHour = if (hour == 0) "" else "$hour:"
+                val strMinutes = if (minutes >= 10) "$minutes:" else "0$minutes:"
+                val strSeconds = "$seconds"
+                ldRunLeftTime.postValue("$strHour$strMinutes$strSeconds")
+                "timer runLeftTime.postValue (hour: $hour) (minutes: $minutes) (seconds: $seconds)".logDebug(
+                    this@RunSetViewModel
+                )
 
-
-                "timer runProgress.postValue: $leftTime"
                 ldRunProgress.postValue(leftTime)
-
             }
         }, ONE_SECOND, ONE_SECOND)
     }
