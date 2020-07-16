@@ -16,24 +16,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-
-        <activity android:name=".WaitMeActivity"/>
-        <activity android:name=".MatchDummyActivity"
-            android:exported="true"/>
-        <activity android:name=".matchfail.MatchFailActivity"
-            android:exported="true"/>
+        <activity android:name=".WaitMeActivity" />
+        <activity
+            android:name=".MatchDummyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".matchfail.MatchFailActivity"
+            android:exported="true" />
         <activity
             android:name=".onboard.OnBoardActivity"
             android:exported="true" />
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true" />
+
         <service
             android:name=".SocketService"
             android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-
-        <!-- naver map cliend id -->
+            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- naver map cliend id -->
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="@string/naver_id" />
@@ -46,7 +46,10 @@
             android:exported="true" />
         <activity
             android:name=".GoalActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
+        <activity
+            android:name=".GoalRunMeActivity"
+            android:exported="true" />
         <activity android:name=".login.LoginActivity" />
         <activity
             android:name=".MatchProcActivity"
