@@ -7,8 +7,10 @@ data class RecordRunData(
     val distance: Int,
     @SerializedName("time")
     val time: String,
-    @SerializedName("pace")
-    val pace: Double,
+    @SerializedName("pace_minute")
+    val pace_minute : Int,
+    @SerializedName("pace_second")
+    val pace_second : Int,
     @SerializedName("result")
     val result: Int //승패여부
 )
