@@ -145,7 +145,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun loadMyDatas() {
         var token = prefs.getString("token", null)
-        requestToServer.service.requestRecordRun(token, 69).customEnqueue(
+        requestToServer.service.requestRecordRun(token, 70).customEnqueue(
             onFailure = { call, t ->
                 Log.d(
                     "RecDetailActivity",
@@ -159,15 +159,19 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                         if (body?.success) {
                             //dist
                             tvRecDetailDistData.text = body.result.distance.toString()
-                            var paceArr = body.result.pace.toString()!!.split(".")
                             //pace
-                            tvRecDetailPaceData.text = paceArr[0] + "\'" + paceArr[1] + "\""
+                            if (body.result.pace_minute/1000 > 0)
+                                tvRecDetailPaceData.text = "-\'--\""
+                            else
+                                tvRecDetailPaceData.text =
+                                    body.result.pace_minute.toString() + "\'" + body.result.pace_second.toString() + "\""
                             //time
                             val timeArr = body.result.time!!.split(":")
                             if (timeArr[0].equals("00"))
                                 tvRecDetailTimeData.text = timeArr[1] + ":" + timeArr[2]
                             else
-                                tvRecDetailTimeData.text = body.result.time
+                                tvRecDetailTimeData.text =
+                                    timeArr[0][1] + ":" + timeArr[1] + ":" + timeArr[2]
                             //승패여부
                             if (body.result.result == 1)
                                 cl_my_record.setBackgroundResource(R.drawable.bluebox_recdetailactivity)
@@ -203,18 +207,22 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                     if (body?.status == 200) {
                         if (body?.success) {
                             //nickname
-                            tvRecDetailRivalRecord.text = body.result.nickname+"의 기록"
+                            tvRecDetailRivalRecord.text = body.result.nickname + "의 기록"
                             //dist
                             tvRecDetailRivalDistData.text = body.result.distance.toString()
-                            var paceArr = body.result.pace.toString()!!.split(".")
                             //pace
-                            tvRecDetailRivalPaceData.text = paceArr[0] + "\'" + paceArr[1] + "\""
+                            if (body.result.pace_minute/1000 > 0)
+                                tvRecDetailPaceData.text = "-\'--\""
+                            else
+                                tvRecDetailPaceData.text =
+                                    body.result.pace_minute.toString() + "\'" + body.result.pace_second.toString() + "\""
                             //time
                             val timeArr = body.result.time!!.split(":")
                             if (timeArr[0].equals("00"))
                                 tvRecDetailRivalTimeData.text = timeArr[1] + ":" + timeArr[2]
                             else
-                                tvRecDetailRivalTimeData.text = body.result.time
+                                tvRecDetailRivalTimeData.text =
+                                    timeArr[0][1] + ":" + timeArr[1] + ":" + timeArr[2]
                         }
                     }
                 } else {
