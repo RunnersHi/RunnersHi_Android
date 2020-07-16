@@ -13,6 +13,7 @@ class GoalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goal)
+        selectedRunTime = 2*60 //todo 테스트용임 바꾸어야함
         initUi()
     }
 
@@ -23,7 +24,7 @@ class GoalActivity : AppCompatActivity() {
                 R.id.btn_goal_45 -> 45 * 60
                 R.id.btn_goal_60 -> 60 * 60
                 R.id.btn_goal_90 -> 90 * 60
-                else -> return@OnCheckedChangeListener
+                else -> 2*60
             }
         })
 
