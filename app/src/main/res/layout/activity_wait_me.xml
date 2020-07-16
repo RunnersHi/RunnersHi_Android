@@ -31,43 +31,35 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
+        android:paddingBottom="30dp"
+        android:layout_marginHorizontal="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgv_waitme">
-
-
-        <ImageView
-            android:id="@+id/imgv_waitme_textbox"
-            android:layout_width="315dp"
-            android:layout_height="140dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/graybox_waitmeactivity_myrecentrecord" />
+        app:layout_constraintTop_toBottomOf="@+id/imgv_waitme"
+        android:background="@drawable/graybox_waitmeactivity_myrecentrecord">
 
         <TextView
             android:id="@+id/tv_waitme_record"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:textSize="14sp"
             android:textColor="@color/black"
             android:lineSpacingExtra="6sp"
             android:text="나의 최근 기록"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imgv_waitme_textbox" />
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout6" />
 
         <TextView
             android:id="@+id/tv_waitme_distData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="50dp"
             android:textSize="26sp"
             android:textColor="@color/black"
             android:lineSpacingExtra="10sp"
@@ -80,7 +72,7 @@
             android:id="@+id/tv_waitme_dist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="4dp"
             android:textSize="12sp"
             android:textColor="@color/black"
             android:lineSpacingExtra="8sp"
@@ -100,15 +92,15 @@
             android:lineSpacingExtra="10sp"
             android:text="6’88’’"
             android:fontFamily="@font/notosans_blackitalic"
-            app:layout_constraintEnd_toStartOf="@+id/tv_waitme_pacetimedata"
-            app:layout_constraintStart_toEndOf="@+id/tv_waitme_distData"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_waitme_record" />
 
         <TextView
             android:id="@+id/tv_waitme_pace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="4dp"
             android:textSize="12sp"
             android:textColor="@color/black"
             android:lineSpacingExtra="8sp"
@@ -123,11 +115,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginRight="35dp"
+            android:layout_marginRight="36dp"
             android:textSize="26sp"
             android:textColor="@color/black"
             android:lineSpacingExtra="10sp"
-            android:text="30:00"
+            android:text="1:30:00"
             android:fontFamily="@font/notosans_blackitalic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_waitme_record" />
@@ -136,7 +128,7 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="4dp"
             android:textSize="12sp"
             android:textColor="@color/black"
             android:lineSpacingExtra="8sp"
