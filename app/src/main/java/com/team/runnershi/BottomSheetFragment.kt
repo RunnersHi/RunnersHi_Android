@@ -56,7 +56,7 @@ class BottomSheetFragment : BottomSheetDialogFragment(), View.OnClickListener {
 
 
         activity?.let { ly_homebattle_me.setOnClickListener {
-            val intent2 = Intent(context, WaitMeActivity::class.java)
+            val intent2 = Intent(context, GoalRunMeActivity::class.java)
             startActivity(intent2)
             dismiss()
         } }
