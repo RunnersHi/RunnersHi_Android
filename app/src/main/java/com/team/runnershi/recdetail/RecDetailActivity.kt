@@ -23,12 +23,17 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
     private var naverMap: NaverMap? = null
     lateinit var path: PathOverlay
     val mapCoords = mutableListOf<LatLng>()
+    var runIdx =-1
+    var gameIdx =-1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rec_detail)
 
+        runIdx = intent.getIntExtra("runIdx",-1)
+        gameIdx = intent.getIntExtra("gameIdx",-1)
+
         loadCoordinateDatas()
-        settingMap()
         loadMyDatas()
         loadOpponentDatas()
 
@@ -76,7 +81,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun loadCoordinateDatas() {
         var token = prefs.getString("token", null)
-        requestToServer.service.requestRecordDetail(token, 69).customEnqueue(
+        requestToServer.service.requestRecordDetail(token, runIdx).customEnqueue(
             onFailure = { call, t ->
                 Log.d(
                     "RecDetailActivity",
@@ -127,6 +132,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                                 mapCoords.add(LatLng(coord.latitude, coord.longitude))
                             }
 
+                            settingMap()
                         }
                     }
                 } else {
@@ -145,7 +151,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun loadMyDatas() {
         var token = prefs.getString("token", null)
-        requestToServer.service.requestRecordRun(token, 70).customEnqueue(
+        requestToServer.service.requestRecordRun(token, runIdx).customEnqueue(
             onFailure = { call, t ->
                 Log.d(
                     "RecDetailActivity",
@@ -160,7 +166,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                             //dist
                             tvRecDetailDistData.text = body.result.distance.toString()
                             //pace
-                            if (body.result.pace_minute/1000 > 0)
+                            if (body.result.pace_minute > 60)
                                 tvRecDetailPaceData.text = "-\'--\""
                             else
                                 tvRecDetailPaceData.text =
@@ -194,7 +200,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun loadOpponentDatas() {
         var token = prefs.getString("token", null)
-        requestToServer.service.requestRecordOpponent(token, 2).customEnqueue(
+        requestToServer.service.requestRecordOpponent(token, gameIdx).customEnqueue(
             onFailure = { call, t ->
                 Log.d(
                     "RecDetailActivity",
@@ -211,7 +217,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                             //dist
                             tvRecDetailRivalDistData.text = body.result.distance.toString()
                             //pace
-                            if (body.result.pace_minute/1000 > 0)
+                            if (body.result.pace_minute> 60)
                                 tvRecDetailPaceData.text = "-\'--\""
                             else
                                 tvRecDetailPaceData.text =
