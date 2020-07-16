@@ -208,18 +208,20 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                     if (body?.status == 200) {
                         if (body?.success) {
                             //nickname
-                            tvRecDetailRivalRecord.text = body.result.nickname+"의 기록"
+                            tvRecDetailRivalRecord.text = body.result.nickname +"의 기록"
                             //dist
                             tvRecDetailRivalDistData.text = body.result.distance.toString()
-                            var paceArr = body.result.pace.toString()!!.split(".")
+                            val paceMinute = body.result.paceMinute
+                            val paceSecond = body.result.paceSecond
+//                            var paceArr = body.result?.pace.toString()!!.split(".")
                             //pace
-                            tvRecDetailRivalPaceData.text = paceArr[0] + "\'" + paceArr[1] + "\""
+                            tvRecDetailRivalPaceData.text = "$paceMinute'$paceSecond\""
                             //time
-                            val timeArr = body.result.time!!.split(":")
+                            val timeArr = body.result?.time!!.split(":")
                             if (timeArr[0].equals("00"))
                                 tvRecDetailRivalTimeData.text = timeArr[1] + ":" + timeArr[2]
                             else
-                                tvRecDetailRivalTimeData.text = body.result.time
+                                tvRecDetailRivalTimeData.text = body.result?.time
                         }
                     }
                 } else {
