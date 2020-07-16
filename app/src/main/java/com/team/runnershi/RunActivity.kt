@@ -46,12 +46,11 @@ class RunActivity : AppCompatActivity() {
     private val path = PathOverlay()
     private lateinit var locationOverLay: LocationOverlay
     private val pathCoords = mutableListOf<LatLng>()
-
     private lateinit var locationSource: GpsOnlyLocationSource
-
-
     private lateinit var runSetViewModel: RunSetViewModel
 
+    private lateinit var socketReceiver: RunRecevier
+    private lateinit var intentFilter: IntentFilter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +60,11 @@ class RunActivity : AppCompatActivity() {
         checkPermission()
         initData()
         initUi()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(socketReceiver)
     }
 
     private fun checkPermission() {
@@ -104,6 +108,11 @@ class RunActivity : AppCompatActivity() {
             runSetViewModel.ldCurrentLocation.postValue(it)
             runSetViewModel.pathUpdate(currentLocation)
         }
+
+        socketReceiver = RunRecevier()
+        intentFilter = IntentFilter()
+        intentFilter.addAction("com.team.runnershi.RESULT_END_RUNNING")
+        registerReceiver(socketReceiver, intentFilter)
     }
 
     private fun subscribe() {
