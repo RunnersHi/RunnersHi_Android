@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.WindowManager
 import com.example.semina_3st.data.RequestLogin
 import com.team.runnershi.HomeActivity
 import com.team.runnershi.login.LoginActivity
@@ -17,38 +18,42 @@ import com.team.runnershi.onboard.OnBoardActivity
 
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
-    val DURATION:Long = 3000
+    val DURATION: Long = 3000
     val requestToServer = RequestToServer
     var activity = 0 //0->Onboarding, 1->Login, 2->Home
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
         setContentView(R.layout.activity_splash)
 
         checkFirstRun()
 
         Handler().postDelayed({
-            lateinit var intent : Intent
-            when(activity) {
-                0->  intent = Intent(this, OnBoardActivity::class.java)
-                1-> intent = Intent(this, LoginActivity::class.java)
-                2-> intent = Intent(this, HomeActivity::class.java)
+            lateinit var intent: Intent
+            when (activity) {
+                0 -> intent = Intent(this, OnBoardActivity::class.java)
+                1 -> intent = Intent(this, LoginActivity::class.java)
+                2 -> intent = Intent(this, HomeActivity::class.java)
             }
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivity (intent)
+            startActivity(intent)
 
             finish()
         }, DURATION)
 
     }
 
-    fun checkFirstRun(){
-        var isFirstRun = prefs.getString("isFirstRun","y")
-        if(isFirstRun.equals("y"))
+    fun checkFirstRun() {
+        var isFirstRun = prefs.getString("isFirstRun", "y")
+        if (isFirstRun.equals("y"))
             activity = 0
-        else{
-            var id = prefs.getString("id",null)
-            var password = prefs.getString("password",null)
+        else {
+            var id = prefs.getString("id", null)
+            var password = prefs.getString("password", null)
 
             requestToServer.service.requestLogin(
                 RequestLogin(
