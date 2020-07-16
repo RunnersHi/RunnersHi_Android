@@ -2,7 +2,10 @@ package com.team.runnershi
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.location.Location
@@ -12,7 +15,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -21,11 +23,12 @@ import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.MapFragment
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.overlay.LocationOverlay
-import com.naver.maps.map.overlay.Overlay
 import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.overlay.PathOverlay
 import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_run.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class RunActivity : AppCompatActivity() {
@@ -37,6 +40,8 @@ class RunActivity : AppCompatActivity() {
     private var finalEndTime = ""
 
     private val locationListener: LocationListener = RunLocationListener()
+
+    //    private lateinit var currentLocation: Location
     private var naverMap: NaverMap? = null
     private val path = PathOverlay()
     private lateinit var locationOverLay: LocationOverlay
