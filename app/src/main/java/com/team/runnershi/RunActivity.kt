@@ -30,6 +30,12 @@ import kotlinx.android.synthetic.main.activity_run.*
 
 class RunActivity : AppCompatActivity() {
     private var roomName = ""
+    private var runtime = -1
+    private var finalDist = -1
+    private var finalCoords = ArrayList<List<Double>>()
+    private var finalCreatedTime = ""
+    private var finalEndTime = ""
+
     private val locationListener: LocationListener = RunLocationListener()
     private var naverMap: NaverMap? = null
     private val path = PathOverlay()
