@@ -3,10 +3,10 @@ package com.team.runnershi.matchfail
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.team.runnershi.HomeActivity
-import com.team.runnershi.MatchDummyActivity
+import com.team.runnershi.home.HomeActivity
+import com.team.runnershi.rundummy.MatchDummyActivity
 import com.team.runnershi.R
-import com.team.runnershi.WaitMeActivity
+import com.team.runnershi.runalone.WaitMeActivity
 import com.team.runnershi.extension.newStartActivity
 import kotlinx.android.synthetic.main.activity_match_fail.*
 

@@ -1,17 +1,17 @@
-package com.team.runnershi
+package com.team.runnershi.record_badge
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.adapter.AllBadgeAdapter
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
 import kotlinx.android.synthetic.main.fragment_badge.*
-import kotlinx.android.synthetic.main.fragment_badge.view.*
 
 class BadgeFragment : Fragment() {
 

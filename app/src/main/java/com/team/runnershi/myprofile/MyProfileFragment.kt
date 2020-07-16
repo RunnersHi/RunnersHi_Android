@@ -1,4 +1,4 @@
-package com.team.runnershi
+package com.team.runnershi.myprofile
 
 import android.os.Bundle
 import android.util.Log
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.adapter.AllmyProfileAdapter
 import com.team.runnershi.extension.customEnqueue

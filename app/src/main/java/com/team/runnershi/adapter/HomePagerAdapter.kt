@@ -1,8 +1,11 @@
-package com.team.runnershi
+package com.team.runnershi.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.team.runnershi.myprofile.MyProfileFragment
+import com.team.runnershi.record_badge.RecBadgeFragment
+import com.team.runnershi.home.HomeFragment
 import com.team.runnershi.rank.RankFragment
 
 class HomePagerAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){

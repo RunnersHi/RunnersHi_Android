@@ -11,6 +11,7 @@ import com.team.runnershi.BadgeDetailActivity
 import com.team.runnershi.R
 import com.team.runnershi.data.AllmyProfileContent
 import com.team.runnershi.viewholder.AllmyProfileViewHolder
+import kotlin.arrayOf as arrayOf1
 
 class AllmyProfileAdapter(private var context : Context) : RecyclerView.Adapter<AllmyProfileViewHolder>() {
 
@@ -34,18 +35,10 @@ class AllmyProfileAdapter(private var context : Context) : RecyclerView.Adapter<
         // 뱃지를 프로필 하단에 뿌림
         holder.bind_image(iDatas[position], position)
 
-        // 뱃지가 컬러인 경우에만 클릭이 되도록 함.
-        // 뱃지가 컬러인 경우(true)의 position(index)값을 BadgeDetailActivity로 보냄
-        holder.badge_color_profile.setOnClickListener {
+//        여기서부터 다시 시작!!!!!!!!
 
-            if(iDatas[position] == true) {
-                val intent = Intent(context, BadgeDetailActivity::class.java)
-                intent.putExtra("number", position)
-                Log.d("TAG111" , intent.putExtra("number", position).toString())
-                context.startActivity(Intent(context, BadgeDetailActivity::class.java))
-            }
 
-        }
+
 
     }
 

@@ -7,70 +7,80 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/very_light_pink_two"
-    tools:context=".HomeFragment"
+    tools:context=".home.HomeFragment"
     tools:ignore="InvalidId">
 
     <ImageView
         android:id="@+id/imgv_home_logo"
         android:layout_width="42dp"
         android:layout_height="42dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/home_logo" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="17dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/box_white"
-        android:paddingHorizontal="17dp"
-        android:paddingVertical="20dp"
+        android:padding="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgv_home_logo">
+        app:layout_constraintTop_toBottomOf="@+id/imgv_home_logo"
+        >
 
-        <TextView
-            android:id="@+id/tv_home_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumsquareb"
-            android:gravity="center_horizontal"
-            android:lineSpacingExtra="9sp"
-            android:text="상쾌한 오전,\n당신의 상대를\n찾아 함께 뛰어 보세요."
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imgv_home_pic"
-            android:layout_width="192dp"
-            android:layout_height="242dp"
-            android:layout_marginTop="43dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_home_title"
-            app:srcCompat="@drawable/sit_down" />
-
-        <Button
-            android:id="@+id/btn_home_runnow"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_marginTop="7dp"
-            android:background="@drawable/btn_lightish_blue"
-            android:fontFamily="@font/notosans_blackitalic"
-            android:lineSpacingExtra="1sp"
-            android:text="RUN NOW"
-            android:textColor="@color/white"
-            android:textSize="28sp"
-            app:layout_constraintTop_toBottomOf="@+id/imgv_home_pic"
-            tools:layout_editor_absoluteX="110dp" />
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_home_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquareb"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="9sp"
+                android:text="상쾌한 오전,\n당신의 상대를\n찾아 함께 뛰어 보세요."
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgv_home_pic"
+                android:layout_width="270dp"
+                android:layout_height="226dp"
+                android:layout_marginTop="34dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_home_title"
+                app:srcCompat="@drawable/img_homeactivity_main" />
+
+            <Button
+                android:id="@+id/btn_home_runnow"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/btn_lightish_blue"
+                android:fontFamily="@font/notosans_blackitalic"
+                android:lineSpacingExtra="1sp"
+                android:text="RUN NOW"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                app:layout_constraintTop_toBottomOf="@+id/imgv_home_pic"
+                tools:layout_editor_absoluteX="110dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

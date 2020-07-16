@@ -1,12 +1,12 @@
-package com.team.runnershi
+package com.team.runnershi.countdown
 
 import android.animation.Animator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
+import com.team.runnershi.R
+import com.team.runnershi.StartRunActivity
 import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_count_down.*
-import kotlinx.android.synthetic.main.activity_sign_up.*
 import android.content.Intent as Intent
 
 

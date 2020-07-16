@@ -1,7 +1,8 @@
-package com.team.runnershi
+package com.team.runnershi.runalone
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.data.AllRecordRecentContent
 import com.team.runnershi.extension.customEnqueue
@@ -38,8 +39,21 @@ class WaitMeActivity : AppCompatActivity() {
                                 }
 
                             }
-                            tv_waitme_distData.text = (body.result.distance/1000.00).toString()
-                            tv_waitme_pacedata.text = body.result.pace.toString()
+
+//                            var vvv = (body.result.distance/1000.0).toString()
+
+                            var dist_change = body.result.distance/1000.0
+                            val change_dist = String.format("%.2f", dist_change).toDouble()
+                            tv_waitme_distData.text = change_dist.toString()
+//                                (body.result.distance/1000.0).toString()
+
+                            if(body.result.pace_minute >= 60) {
+                                tv_waitme_pacedata.text = "-’--’’"
+                            }
+                            else {
+                                tv_waitme_pacedata.text = "${body.result.pace_minute.toString()}’${body.result.pace_second.toString()}’’"
+                            }
+
                             change_time(body.result)
 
 
@@ -53,9 +67,6 @@ class WaitMeActivity : AppCompatActivity() {
             }
         )
     }
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

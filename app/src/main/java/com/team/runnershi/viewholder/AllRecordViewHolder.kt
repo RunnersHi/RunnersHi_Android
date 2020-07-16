@@ -41,8 +41,9 @@ class AllRecordViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
             tv_rec_timetitle1.text ="${splitTimeItem[0]}:${splitTimeItem[1]}:${splitTimeItem[2]}"
 
         }
-
-        tv_rec_disttitle1.text = (getAllrecordContent.distance/1000.000).toString()
+        var dist_change = getAllrecordContent.distance/1000.0
+        val change_dist = String.format("%.2f", dist_change).toDouble()
+        tv_rec_disttitle1.text = change_dist.toString()
 
 //        val hour = getAllrecordContent.time.toInt()
 //        val minute = (getAllrecordContent.time%3600)/60
@@ -50,10 +51,10 @@ class AllRecordViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 //        tv_rec_timetitle1.text = "${hour}:${minute}:${seconds}"
 
         if(getAllrecordContent.result == 1) {
-            Glide.with(itemView).load(R.drawable.blueline_recbadgefragment_winnerrecord).into(blueLayout)
+            Glide.with(itemView).load(R.drawable.blueline___recbadgefragment_winnerrecord).into(blueLayout)
         }
         else if(getAllrecordContent.result == 2) {
-            Glide.with(itemView).load(R.drawable.grayline_recbadgefragment_winnerrecord).into(blueLayout)
+            Glide.with(itemView).load(R.drawable.grayline___recbadgefragment_winnerrecord).into(blueLayout)
         }
 
 

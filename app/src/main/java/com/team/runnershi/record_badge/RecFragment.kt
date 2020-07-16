@@ -1,10 +1,13 @@
-package com.team.runnershi
+package com.team.runnershi.record_badge
 
 import android.os.Bundle
+import android.util.TypedValue
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.runnershi.util.HorizontalItemDecorator
+import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.adapter.AllRecordAdapter
 import com.team.runnershi.extension.customEnqueue
@@ -35,6 +38,7 @@ class RecFragment : Fragment() {
                             allRecordAdapter.mDatas = body.result!!
                             rv_record.adapter = allRecordAdapter
                             allRecordAdapter.notifyDataSetChanged()
+//                            rv_record.addItemDecoration(HorizontalItemDecorator(5.dpToPx()))
                         } else {
 
                         }
@@ -50,6 +54,12 @@ class RecFragment : Fragment() {
 
         )
     }
+
+    private fun Int.dpToPx(): Int = TypedValue
+        .applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+            this.toFloat(), resources.displayMetrics).toInt()
+
+
 
 
 

@@ -1,17 +1,15 @@
-package com.team.runnershi
+package com.team.runnershi.home
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.team.runnershi.GoalActivity
+import com.team.runnershi.R
+import com.team.runnershi.runalone.WaitMeActivity
 import kotlinx.android.synthetic.main.fragment_bottom_sheet.*
-import kotlinx.android.synthetic.main.fragment_bottom_sheet.view.*
-import kotlinx.android.synthetic.main.fragment_bottom_sheet.view.ly_homebattle_other
-import kotlinx.android.synthetic.main.fragment_home.view.*
 
 
 class BottomSheetFragment : BottomSheetDialogFragment(), View.OnClickListener {

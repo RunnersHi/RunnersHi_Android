@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.example.semina_3st.data.RequestLogin
-import com.team.runnershi.HomeActivity
+import com.team.runnershi.home.HomeActivity
 import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.network.RequestToServer

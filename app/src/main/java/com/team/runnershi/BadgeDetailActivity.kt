@@ -1,17 +1,19 @@
 package com.team.runnershi
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
+import com.team.runnershi.util.PrefInit.Companion.prefs
 import kotlinx.android.synthetic.main.activity_badge_detail.*
 
 class BadgeDetailActivity : AppCompatActivity() {
 
     var requestToServer = RequestToServer
-    var token_value = PrefInit.prefs.getString("token", "")
+    var token_value = prefs.getString("token", "")
+//    var flag_value = prefs.getInt("flag", 1000000000)
 
     val badge_big1 = R.drawable.img_badge_egglarge
     val badge_big2 = R.drawable.img_badge_chicklarge
@@ -30,10 +32,32 @@ class BadgeDetailActivity : AppCompatActivity() {
         badge_big9, badge_big10, badge_big11, badge_big12)
 
 
-    var get_info = intent.getIntExtra("number", 354364543)
+    var get_info = -1
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_badge_detail)
+
+
+        setOnClick();
+        get_info = intent.getIntExtra("array", -1)
+        matching_bigBadge()
+
+        Log.d("TAG222" , get_info.toString())
+    }
+
+    fun setOnClick() {
+        btn_badge_detail_back.setOnClickListener {
+            finish()
+        }
+
+
+    }
+
 
     fun matching_bigBadge() {
-        requestToServer.service.requestBadgeDetail(token_value).customEnqueue(
+        requestToServer.service.requestBadgeDetail(token_value, get_info).customEnqueue(
             onFailure = {call, t ->
                 this.let { "requestBigBadge onFailure msg = ${t.message}".logDebug(it) }
             },
@@ -56,22 +80,4 @@ class BadgeDetailActivity : AppCompatActivity() {
         )
     }
 
-
-
-
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_badge_detail)
-
-        btn_badge_detail_back.setOnClickListener {
-            finish()
-//            supportFragmentManager.beginTransaction().replace(R.id.constraint_badge_detail, MyProfileFragment()).commit()
-        }
-
-        matching_bigBadge()
-
-
-    }
 }

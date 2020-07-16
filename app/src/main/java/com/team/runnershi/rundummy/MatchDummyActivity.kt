@@ -1,8 +1,9 @@
-package com.team.runnershi
+package com.team.runnershi.rundummy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.team.runnershi.R
 import com.team.runnershi.data.RequestDummyData
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
