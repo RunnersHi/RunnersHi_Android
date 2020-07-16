@@ -1,9 +1,13 @@
 package com.team.runnershi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.SystemClock.sleep
 import android.util.Log
 import com.team.runnershi.data.RequestDummyData
+import com.team.runnershi.data.RecordRunWithmeData
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
@@ -21,8 +25,17 @@ class MatchDummyActivity : AppCompatActivity() {
     val imgv_dummy_face8 = R.drawable.icon_bluewomen_permhair
     val imgv_dummy_face9 = R.drawable.icon_redwomen_bunhair
 
-    val dummy_face = arrayOf(imgv_dummy_face1, imgv_dummy_face2, imgv_dummy_face3, imgv_dummy_face4, imgv_dummy_face5, imgv_dummy_face6,
-    imgv_dummy_face7, imgv_dummy_face8, imgv_dummy_face9)
+    val dummy_face = arrayOf(
+        imgv_dummy_face1,
+        imgv_dummy_face2,
+        imgv_dummy_face3,
+        imgv_dummy_face4,
+        imgv_dummy_face5,
+        imgv_dummy_face6,
+        imgv_dummy_face7,
+        imgv_dummy_face8,
+        imgv_dummy_face9
+    )
 
     val requestToServer = RequestToServer
 
@@ -30,40 +43,23 @@ class MatchDummyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match_dummy)
 
-        val get_level = intent.getStringExtra("level")
-        val get_gender = intent.getStringExtra("wantGender")
-        val get_time = intent.getStringExtra("time")
+        val matchData = intent.getParcelableExtra<RecordRunWithmeData>("matchData")
+        matchData?.let{settingTextView(it)}
 
-        requestToServer.service.requestDummyData(
-            RequestDummyData(
-                level = "2",
-                gender = "1",
-                time = "45"
-            )
-        ).customEnqueue(
-            onFailure = {call, t ->
-                this.let { "requestMatchDummyActivity onFailure msg = ${t.message}".logDebug(it) }
-            },
-            onResponse = {call, r ->
-                if(r.isSuccessful) {
-                    val body  = r.body()
-                    if(body?.status == 200) {
-                        if(body?.success) {
-                            Log.d("TAGG", body.result.toString());
-                            tv_match_dummy_nick_name.text = body.result.nickname
-                            tv_match_dummy_lv_data.text = body.result.level
-                            Log.d("TAGG" , body.result.win.toString());
-                            tv_match_dummy_lv_score_data.text = "${body.result.win}승 ${body.result.lose}패"
-                            imageView_dummy.setImageResource(dummy_face[body.result.img])
+        Handler().postDelayed({
+            val newIntent = Intent(this,CountDownActivity::class.java)
+            newIntent.putExtra("matchData",matchData)
+            startActivity(newIntent)
+            finish()
+        }, 3000)
 
+    }
 
-                        }
-
-                    }
-                }
-            }
-        )
-
+    fun settingTextView(runWithmeData: RecordRunWithmeData ) {
+        tv_match_dummy_nick_name.text = runWithmeData.nickname
+        tv_match_dummy_lv_data.text = runWithmeData.level.toString()
+        tv_match_dummy_lv_score_data.text = "${runWithmeData.win}승 ${runWithmeData.lose}패"
+        imageView_dummy.setImageResource(dummy_face[runWithmeData.image])
     }
 
 }
