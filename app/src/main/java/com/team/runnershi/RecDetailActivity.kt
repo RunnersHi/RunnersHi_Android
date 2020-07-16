@@ -164,9 +164,11 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                         if (body?.success) {
                             //dist
                             tvRecDetailDistData.text = body.result.distance.toString()
-                            var paceArr = body.result.pace.toString()!!.split(".")
+                            val paceMinute = body.result.paceMinute
+                            val paceSecond = body.result.paceSecond
+//                            var paceArr = body.result.pace.toString()!!.split(".")
                             //pace
-                            tvRecDetailPaceData.text = paceArr[0] + "\'" + paceArr[1] + "\""
+                            tvRecDetailPaceData.text = getStringPace(paceMinute, paceSecond)
                             //time
                             val timeArr = body.result.time!!.split(":")
                             if (timeArr[0].equals("00"))
@@ -191,6 +193,15 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
             }
         )
+    }
+
+    private fun getStringPace(minute: Int, second: Int): String{
+        return if(minute == 0){
+            "$second\""
+        }
+        else{
+            "$minute'$second\""
+        }
     }
 
     fun loadOpponentDatas() {
