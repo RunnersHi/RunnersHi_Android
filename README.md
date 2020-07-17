@@ -34,6 +34,7 @@ fun Int.dpToPx(resources: Resources): Int = TypedValue
         TypedValue.COMPLEX_UNIT_DIP,
         this.toFloat(), resources.displayMetrics).toInt()
 ```
+</br>
 
 :point_right: logDebug.kt
 - Log 쉽게 볼 수 있도록 해주는 확장함수
