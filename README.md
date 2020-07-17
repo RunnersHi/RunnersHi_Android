@@ -299,7 +299,12 @@ https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8
 - 기록자세히 보기화면에서 NaverMap사용으로 러닝 경로 불러오기 
 
 #### :fire: 뱃지화면, 마이페이지 화면
-
+<br>
+<div>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87811252-4fa53500-c899-11ea-81ec-a8c34b03112b.png>
+<div>
 
 <br>
 <br>
