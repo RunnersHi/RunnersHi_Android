@@ -28,22 +28,22 @@ class WaitMeActivity : AppCompatActivity() {
                     if(body?.status == 200) {
                         if(body?.success) {
 
-                            fun change_time(getAllRecordRecent : AllRecordRecentContent) {
-
-                                var resultTime = getAllRecordRecent.time
-                                var splitTimeItem = resultTime.split(":")
-
-                                if(splitTimeItem[0] == "00") {
-                                    tv_waitme_pacetimedata.text = "${splitTimeItem[1]}:${splitTimeItem[2]}"
-                                }
-                                else {
-                                    tv_waitme_pacetimedata.text = "${splitTimeItem[0]}:${splitTimeItem[1]}:${splitTimeItem}"
-                                }
-
-                            }
-                            tv_waitme_distData.text = (body.result.distance/1000.000).toString()
-                            tv_waitme_pacedata.text = body.result.pace.toString()
-                            change_time(body.result).toString()
+//                            fun change_time(getAllRecordRecent : AllRecordRecentContent) {
+//
+//                                var resultTime = getAllRecordRecent.time
+//                                var splitTimeItem = resultTime.split(":")
+//
+//                                if(splitTimeItem[0] == "00") {
+//                                    tv_waitme_pacetimedata.text = "${splitTimeItem[1]}:${splitTimeItem[2]}"
+//                                }
+//                                else {
+//                                    tv_waitme_pacetimedata.text = "${splitTimeItem[0]}:${splitTimeItem[1]}:${splitTimeItem}"
+//                                }
+//
+//                            }
+//                            tv_waitme_distData.text = (body.result.distance/1000.000).toString()
+//                            tv_waitme_pacedata.text = body.result.pace.toString()
+//                            change_time(body.result).toString()
 
 
 
