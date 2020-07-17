@@ -204,95 +204,95 @@ class SingleSocket {
                 this.off(
                     Socket.EVENT_CONNECT,
                     onConnect
-                ) //
+                )
                 this.off(
                     Socket.EVENT_DISCONNECT,
                     onDisconnect
-                ) //
+                )
                 this.off(
                     Socket.EVENT_CONNECT_TIMEOUT,
                     onConnctTimeOut
-                ) //
+                )
                 this.off(
                     Socket.EVENT_CONNECT_ERROR,
                     onConnectError
-                ) //
+                )
                 this.off(
                     Socket.EVENT_ERROR,
                     onEventError
-                ) //
+                )
                 this.off(
                     "start",
                     onStart
-                ) //
+                )
                 this.off(
                     "joinRoom",
                     onJoinRoom
-                ) //
+                )
                 this.off(
                     "roomCreated",
                     onCreatedRoom
-                ) //
+                )
                 this.off(
                     "timeLeft",
                     onTimeLeft
-                ) //
+                )
                 this.off(
                     "timeOver",
                     onTimeOver
-                ) //
+                )
                 this.off(
                     "matched",
                     onMatched
-                ) //
+                )
                 this.off(
                     "endCount",
                     onEndCount
-                ) //
+                )
                 this.off(
                     "stopCount",
                     onStopCount
-                ) //
+                )
                 this.off(
                     "roomFull",
                     onRoomFull
-                ) //
+                )
                 this.off(
                     "opponentInfo",
                     onOpponentInfo
-                ) //
+                )
                 this.off(
                     "opponentNotReady",
                     onOpponentNotReady
-                ) //
+                )
                 this.off(
                     "letsRun",
                     onLetsRun
-                ) //
+                )
                 this.off(
                     "kmPassed",
                     onKmPassed
-                ) //
+                )
                 this.off(
                     "endRunning",
                     onEndRunning
-                ) //
+                )
                 this.off(
                     "opponentStopped",
                     onOpponentStopped
-                ) //
+                )
                 this.off(
                     "stopRunning",
                     onStopRunning
-                ) //
+                )
                 this.off(
                     "compareResult",
                     onCompareResult
-                ) //
+                )
                 this.off(
                     Socket.EVENT_PING,
                     onPing
-                ) //
+                )
                 instance = null
                 this.disconnect()
 

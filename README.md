@@ -1,9 +1,13 @@
 
+
 <div align="center" style="display:flex;">
-       <img src="https://user-images.githubusercontent.com/57262833/86694398-8764df00-c046-11ea-8afb-5b8b7087dc1b.png" width="300"/>
+       <img src=https://user-images.githubusercontent.com/57262833/87799675-7c048580-c888-11ea-8bbb-ec6c4e5c769e.png alt="drawing" width="600"/> 
+       <img src="https://user-images.githubusercontent.com/57262833/87800520-73f91580-c889-11ea-9a2f-ef43cf60a361.png" width="300"/>
 </div>
 
+#  러닝을 게임처럼, 러너스하이
 
+우리는 '함께' 뛸 때 더 많은 시너지를 만들어냅니다. 요즘 세대들은 러닝 크루에 소속되어 러닝을 즐기곤 하지만, Offline 러닝크루는 고정된 시간과 장소라는 한계점을 가지고 있습니다.  우리는 **같이 달리고 싶지만, 달릴 수 없는 순간들이 존재한다는 점**에 집중하고자 합니다.  우리의 서비스를 통해 시공간의 제약없이 다양한 사람들과 함께 달림으로써 건강한 라이프 스타일을 만들어나가길 바랍니다.
 
 ```
 ✨  기존 러닝 어플리케이션과의 확실한 차별화 요소를 적용했습니다.    
@@ -26,11 +30,13 @@
 </br>
 </br>
 
-## A-1. ConstraintLayout 사용한 화면 개발
+
+
+## :pig: A-1. ConstraintLayout 사용한 화면 개발
 
 </br>
 
-:point_right: activity_login.xml
+#### :point_right: activity_login.xml
 - activity_login.xml의 뷰들을 가운데 정렬하기 위해 guideline으로 g_left,g_right를 사용했다
 - edt_login_id, edt_login_pw, btn_login_confirm에 0dp로 match_constraint속성을 적용하여 guideline 범위내에 꽉차게 맞췄다.
 - 아이디/비밀번호 버튼인 tv_login_sign_find는 layout_constraintStart_toEndOf="@id/tv_login_sign_up"으로 회원가입 버튼과 연관성있는 제약조건을 걸어주었다.
@@ -53,7 +59,7 @@
 
 </br>
 
-:point_right: activity_sign_up.xml
+#### :point_right: activity_sign_up.xml
 - activity_sign_up.xml내의 뷰들을 가운데로 정렬하기 위해 margin_vertical 대신 guideLine인 g_left,g_right를 사용했다.
 - edt_sign_up_id,edt_sign_up_nick_name,edt_sign_up_pw,edt_sign_up_pw_confirm에 android:layout_width="0dp"으로 guideLine에 꽉차도록 match_constraint속성을 걸어주었다.
 - 중복확인버튼인 btn_sign_up_id_confirm에 layout_constraintTop_toTopOf="@+id/edt_sign_up_id" 속성을 주어 아이디입력칸과 연관성있는 제약조건을 걸어주었다.
@@ -79,7 +85,7 @@
 
 </br>
 
-:point_right: activity_on_board.xml4
+#### :point_right: activity_on_board.xml4
 - 화면의 중앙에 위치한 4단계로 분류된 온보딩 뷰를 좌, 우로 넘겨보기 위해 ViewPager를 활용하여 각 화면들을 fragment로 구성했다.
 - Fragment가 들어갈 ViewPager를 dot indicator가 있는 상단의 ConstraintLayout과 textView Button이 있는 하단 ConstraintLayout와 연동한뒤, layout_width는 match_parent로, layout_height는 0dp로 줌으로서 match_contraint를 준다.
 
@@ -115,7 +121,10 @@
 ```
 
 
-## :pig: A-2. 코틀린으로 안드로이드 개발
+
+
+
+## :pig: A-2. Kotlin을 이용한 프로그래밍
 ### :running: Kotlin Collection 확장함수 사용
 - 서버와 위도, 경도 데이터를 소켓통신하기 위하여, 기존의 ArrayList를 JSONArray로 변환하는 함수
 ~~~
@@ -131,10 +140,9 @@
  }
 ~~~
 
+### :runing: Custom 확장함수 
 
-### A-2. custom 확장 함수
-
-:point_right: dpToPx.kt
+#### :point_right: dpToPx.kt
 - xml코드와 달리 kotlin source code에서는 px단위를 사용, dp를 px로 변환해주는 확장함수
 ```
 fun Int.dpToPx(resources: Resources): Int = TypedValue
@@ -144,7 +152,7 @@ fun Int.dpToPx(resources: Resources): Int = TypedValue
 ```
 </br>
 
-:point_right: logDebug.kt
+#### :point_right: logDebug.kt
 - Log 쉽게 볼 수 있도록 해주는 확장함수
 ```
 fun String.logDebug(any: Any) {
@@ -161,7 +169,6 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 }
 
 ```
-
 
 
 ## :pig: A-3. 프로젝트 설명
@@ -248,23 +255,23 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 | `splash` | SplashActivity | 스플래시 화면 |
 
 
-## 핵심기능 및 구현화면 정리
+### :running: 핵심기능 및 구현화면 정리
 
-### 스플래쉬, 온보딩, 회원가입, 로그인 화면
+#### 스플래쉬, 온보딩, 회원가입, 로그인 화면
+
 - 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
-
 <br>
 <div>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809124-ccceab00-c895-11ea-8dd0-be8d5585c50b.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809129-cfc99b80-c895-11ea-9729-6ed4e04e29a5.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809139-d2c48c00-c895-11ea-805c-a96e082e3669.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809146-d48e4f80-c895-11ea-8a2d-4034611cdb98.png>
+<img width="230" src=https://user-images.githubusercontent.com/63635840/87809124-ccceab00-c895-11ea-8dd0-be8d5585c50b.png>
+<img width="230" src=https://user-images.githubusercontent.com/63635840/87809129-cfc99b80-c895-11ea-9729-6ed4e04e29a5.png>
+<img width="230" src=https://user-images.githubusercontent.com/63635840/87809139-d2c48c00-c895-11ea-805c-a96e082e3669.png>
+<img width="230" src=https://user-images.githubusercontent.com/63635840/87809146-d48e4f80-c895-11ea-8a2d-4034611cdb98.png>
 <div>
 <br>
 <br>
 <div>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809182-e7088900-c895-11ea-9e9c-278edffeedba.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87809182-e7088900-c895-11ea-9e9c-278edffeedba.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png>
 <div>
 <br>
 <br>
@@ -272,25 +279,56 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 <br>
 <br>
 <div>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87810040-529f2600-c897-11ea-9ede-dbfe3a1d0c84.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87810058-56cb4380-c897-11ea-87a0-1a096e193a6e.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87810066-592d9d80-c897-11ea-84e0-e3ccc2632f63.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87810040-529f2600-c897-11ea-9ede-dbfe3a1d0c84.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87810058-56cb4380-c897-11ea-87a0-1a096e193a6e.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87810066-592d9d80-c897-11ea-84e0-e3ccc2632f63.png>
 <div>
-### 홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
 
+
+
+
+
+#### :point_right:  홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
+<div align="center" style="display:flex;">
+       <img src=https://user-images.githubusercontent.com/57262833/87808693-1e2a6a80-c895-11ea-8534-65c65cad4e7b.png alt="drawing" width="300"/> 
+       <img src="https://user-images.githubusercontent.com/57262833/87808723-2e424a00-c895-11ea-8bf8-b8035b5cc351.png" width="300"/>
+              <img src="https://user-images.githubusercontent.com/57262833/87809035-ab6dbf00-c895-11ea-9072-77b27d10866f.png" width="300"/>
+       <img src="https://user-images.githubusercontent.com/57262833/87809063-b1fc3680-c895-11ea-865b-6028a4af1a20.png" width="300"/>
+              <img src="https://user-images.githubusercontent.com/57262833/87809193-f12a8780-c895-11ea-8080-2faf92af5aea.png" width="300"/>
+</div>
 - 홈화면에서 BottomSheetNavigation 사용
-- 매칭화면에서 Socket통신으로 사용자 매칭
-- 러닝화면에서 Socket통신
-- 러닝화면에서 NaverMap 사용으로 지도 기능 구현
+- 매칭화면에서 Socket.io를 이용한 실시간 통신으로 사용자와 매칭함
+- 러닝화면에서 Socket.io를 이용하여 서버로 러닝 기록 전송, 매칭 상대방의 러닝 기록 받음
+- 러닝화면에서 NaverMap API를 이용하여 사용자의 이동거리 기록
+- 러닝화면에서 실시간으로 이동시간, 러닝거리, 페이스 보여줌
 - 나와 경쟁하기 화면에서 TextToSpeeach와 Timer로 음성피드백 기능 구현
 
-### 기록화면, 기록 자세히보기 화면
+#### :point_right: 기록화면, 기록 자세히보기 화면
+<div align="center" style="display:flex;" >
+       <img src=https://user-images.githubusercontent.com/57262833/87809342-35b62300-c896-11ea-9b03-4a22b25458f0.png alt="drawing" width="150"/> 
+       <img src=https://user-images.githubusercontent.com/57262833/87809345-36e75000-c896-11ea-881e-13690eeb4895.png alt="drawing" width="150"/> 
+       <img src=https://user-images.githubusercontent.com/57262833/87811322-72374e00-c899-11ea-8618-a510611fc2fe.png akt="drawing" width="150"/> 
+       <img src=https://user-images.githubusercontent.com/57262833/87811327-76fc0200-c899-11ea-8bc7-48b9384c8e5d.png alt="drawing" width="150"/> 
+</div>
 
+- 기록화면에서 매칭상대방과 러닝 기록 비교 가능 및 승패 여부 보여줌
 - 기록자세히 보기화면에서 NaverMap사용으로 러닝 경로 불러오기 
 
-### 뱃지화면, 마이페이지 화면
-
+#### :fire: 뱃지화면, 마이페이지 화면
+<br>
+<div>
+<img width="270" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
+<img width="270" src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
+<img width="270" src=https://user-images.githubusercontent.com/63635840/87811252-4fa53500-c899-11ea-81ec-a8c34b03112b.png>
+<div>
+<br>
+       
+ - 탭 레이아웃의 오른쪽에 있는 뱃지화면에서 자신이 얻은 모든 뱃지들을 조회할 수 있다.
+ - 바텀네비게이션의 마지막에 위치한 마이프로필에서 자신의 레벨, 전적, 배지를 조회할 수 있으며, 최하단에서 로그아웃버튼이 있고, 원할시 클릭을 통해 로그아웃을 할 수 있다.
 
 <br>
 <br>
+
+
+
 
