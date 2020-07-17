@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFinishRunDesc"
-        app:srcCompat="@drawable/img_fnishrunactivity_finish" />
+        app:srcCompat="@drawable/finish_run_activity_illust" />
 
     <Button
         android:id="@+id/btn_finishrun_confirm"
