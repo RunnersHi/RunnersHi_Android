@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.team.runnershi.MatchDummyActivity
+import com.team.runnershi.rundummy.MatchDummyActivity
 import com.team.runnershi.R
 import com.team.runnershi.data.RecordRunWithmeData
 import com.team.runnershi.data.RequestRecordRunWithme
@@ -77,7 +77,7 @@ class MatchFailActivity : AppCompatActivity() {
         btn_match_fail_good.setOnClickListener {
             lateinit var newIntent : Intent
             if(isDummy)
-                newIntent = Intent(this,MatchDummyActivity::class.java)
+                newIntent = Intent(this, MatchDummyActivity::class.java)
             else
                 newIntent = Intent(this, WaitMeActivity::class.java)
 
