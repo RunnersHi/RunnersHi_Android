@@ -120,17 +120,24 @@ class SocketService : JobIntentService() {
     }
 
     fun getCoorsJSONArr(coordsArr: ArrayList<LatLng>): JSONArray {
-        val jsonArr = JSONArray()
-        for(coords in coordsArr){
+        return JSONArray(coordsArr.map {
             try{
-                val jsonObj = JSONObject().apply {
-                    this.put("latitude", coords.latitude)
-                    this.put("longitude", coords.longitude)
+                JSONObject().apply {
+                    this.put("latitude", it.latitude)
+                    this.put("longitude", it.longitude)
                 }
-                jsonArr.put(jsonObj)
             }catch (e: JSONException){e.printStackTrace()}
-        }
-        return jsonArr
+        })
+//        for(coords in coordsArr){
+//            try{
+//                val jsonObj = JSONObject().apply {
+//                    this.put("latitude", coords.latitude)
+//                    this.put("longitude", coords.longitude)
+//                }
+//                jsonArr.put(jsonObj)
+//            }catch (e: JSONException){e.printStackTrace()}
+//        }
+//        return jsonArr
     }
 //
 //    private fun socketConnect() {
