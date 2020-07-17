@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/icon_share" />
 
     <TextView
-        android:id="@+id/tvResultTitle"
+        android:id="@+id/tv_result_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="42sp"
@@ -40,10 +40,10 @@
         android:background="@drawable/whitebox_resultactivity_myrecord"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvResultTitle">
+        app:layout_constraintTop_toBottomOf="@id/tv_result_title">
 
         <TextView
-            android:id="@+id/tvResultDetailDistData"
+            android:id="@+id/tv_resultdetail_distdata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
@@ -71,10 +71,10 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultDetailDistData" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_resultdetail_distdata" />
 
         <TextView
-            android:id="@+id/tvResultDetailPaceData"
+            android:id="@+id/tv_resultdetail_pacedata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="42dp"
@@ -99,13 +99,13 @@
             android:lineSpacingExtra="6sp"
             android:gravity="center_horizontal"
             android:fontFamily="@font/nanumsquarer"
-            app:layout_constraintEnd_toEndOf="@+id/tvResultDetailPaceData"
-            app:layout_constraintStart_toStartOf="@+id/tvResultDetailPaceData"
+            app:layout_constraintEnd_toEndOf="@+id/tv_resultdetail_pacedata"
+            app:layout_constraintStart_toStartOf="@+id/tv_resultdetail_pacedata"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultDetailPaceData" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_resultdetail_pacedata" />
 
         <TextView
-            android:id="@+id/tvResultDetailTimeData"
+            android:id="@+id/tv_resultdetail_timedata"
             android:layout_marginEnd="38dp"
             android:text="30:00"
             android:layout_width="wrap_content"
@@ -130,8 +130,8 @@
             android:gravity="center_horizontal"
             android:fontFamily="@font/nanumsquarer"
             app:layout_constraintEnd_toEndOf="@+id/tvRecDetailTimeData"
-            app:layout_constraintStart_toStartOf="@+id/tvResultDetailTimeData"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultDetailTimeData"
+            app:layout_constraintStart_toStartOf="@+id/tv_resultdetail_timedata"
+            app:layout_constraintTop_toBottomOf="@+id/tv_resultdetail_timedata"
             tools:ignore="DuplicateIds" />
 
 
@@ -148,7 +148,7 @@
 
 
         <TextView
-            android:id="@+id/tvResultRivalRec"
+            android:id="@+id/tv_resultrival_rec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -163,7 +163,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvResultRivalDistData"
+            android:id="@+id/tv_resultrival_distdata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="42dp"
@@ -175,7 +175,7 @@
             android:textColor="@color/black"
             android:textSize="26sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalRec" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_resultrival_rec" />
 
         <TextView
             android:id="@+id/tvResultRivalDistDataTitle"
@@ -188,12 +188,12 @@
             android:textColor="@color/brownish_grey"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tvResultRivalDistData"
-            app:layout_constraintStart_toStartOf="@+id/tvResultRivalDistData"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalDistData" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_resultrival_distdata"
+            app:layout_constraintStart_toStartOf="@+id/tv_resultrival_distdata"
+            app:layout_constraintTop_toBottomOf="@+id/tv_resultrival_distdata" />
 
         <TextView
-            android:id="@+id/tvResultRivalPaceData"
+            android:id="@+id/tv_resultrival_pacedata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -205,7 +205,7 @@
             android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalRec" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_resultrival_rec" />
 
         <TextView
             android:id="@+id/tvRecDetailRivalPaceTitle"
@@ -218,12 +218,12 @@
             android:textColor="@color/brownish_grey"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tvResultRivalPaceData"
-            app:layout_constraintStart_toStartOf="@+id/tvResultRivalPaceData"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalPaceData" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_resultrival_pacedata"
+            app:layout_constraintStart_toStartOf="@+id/tv_resultrival_pacedata"
+            app:layout_constraintTop_toBottomOf="@+id/tv_resultrival_pacedata" />
 
         <TextView
-            android:id="@+id/tvResultRivalTimeData"
+            android:id="@+id/tv_resultrival_timedata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -235,7 +235,7 @@
             android:textColor="@color/black"
             android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalRec" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_resultrival_rec" />
 
         <TextView
             android:id="@+id/tvResultRivalTimeTitle"
@@ -244,25 +244,25 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="26dp"
             android:fontFamily="@font/nanumsquarer"
-            android:text="페이스"
+            android:text="러닝시간"
             android:textColor="@color/brownish_grey"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tvResultRivalTimeData"
-            app:layout_constraintStart_toStartOf="@+id/tvResultRivalTimeData"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalTimeData" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_resultrival_timedata"
+            app:layout_constraintStart_toStartOf="@+id/tv_resultrival_timedata"
+            app:layout_constraintTop_toBottomOf="@+id/tv_resultrival_timedata" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/imgvResultProfile"
+        android:id="@+id/imgv_result_profile"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_marginTop="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvResultTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_title"
         app:srcCompat="@drawable/icon_redwomen_bunhair" />
 
 
