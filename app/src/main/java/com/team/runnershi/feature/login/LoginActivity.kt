@@ -1,4 +1,4 @@
-package com.team.runnershi.login
+package com.team.runnershi.feature.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.example.semina_3st.data.RequestLogin
-import com.team.runnershi.home.HomeActivity
+import com.team.runnershi.feature.home.HomeActivity
 import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.network.RequestToServer
 import com.team.runnershi.extension.customEnqueue
-import com.team.runnershi.signup.SignUpActivity
+import com.team.runnershi.feature.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.team.runnershi.finishrun
+package com.team.runnershi.feature.finishrun
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -9,10 +9,10 @@ import android.os.Bundle
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.team.runnershi.FinishRunViewHolder
+import com.team.runnershi.feature.run.FinishRunViewHolder
 import com.team.runnershi.R
-import com.team.runnershi.SocketService
-import com.team.runnershi.result.ResultActivity
+import com.team.runnershi.socket.SocketService
+import com.team.runnershi.feature.result.ResultActivity
 import kotlinx.android.synthetic.main.activity_finish_run.*
 
 class FinishRunActivity : AppCompatActivity() {

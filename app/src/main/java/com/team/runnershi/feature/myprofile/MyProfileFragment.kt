@@ -1,4 +1,4 @@
-package com.team.runnershi.myprofile
+package com.team.runnershi.feature.myprofile
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,10 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
-import com.team.runnershi.adapter.AllmyProfileAdapter
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
-import com.team.runnershi.login.LoginActivity
+import com.team.runnershi.feature.login.LoginActivity
 import com.team.runnershi.network.RequestToServer
 import kotlinx.android.synthetic.main.fragment_my_profile.*
 
@@ -54,7 +53,10 @@ class MyProfileFragment : Fragment() {
                             imgv_my_profile_img.setImageResource(imgvProfile[body.result.image])
 
 
-                            allmyProfileAdapter = AllmyProfileAdapter(view!!.context)
+                            allmyProfileAdapter =
+                                AllmyProfileAdapter(
+                                    view!!.context
+                                )
                             allmyProfileAdapter.iDatas = body.result.badge!!
 
                             Log.d("TAGG", allmyProfileAdapter.iDatas.toString())

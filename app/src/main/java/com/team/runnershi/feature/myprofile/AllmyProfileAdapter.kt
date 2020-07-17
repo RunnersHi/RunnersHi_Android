@@ -1,17 +1,11 @@
-package com.team.runnershi.adapter
+package com.team.runnershi.feature.myprofile
 
 import android.content.Context
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.team.runnershi.BadgeDetailActivity
 import com.team.runnershi.R
-import com.team.runnershi.data.AllmyProfileContent
-import com.team.runnershi.viewholder.AllmyProfileViewHolder
-import kotlin.arrayOf as arrayOf1
 
 class AllmyProfileAdapter(private var context : Context) : RecyclerView.Adapter<AllmyProfileViewHolder>() {
 

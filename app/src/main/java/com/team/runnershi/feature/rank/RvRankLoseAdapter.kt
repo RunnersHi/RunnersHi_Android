@@ -1,4 +1,4 @@
-package com.team.runnershi.rank
+package com.team.runnershi.feature.rank
 
 import android.content.Context
 import android.view.LayoutInflater

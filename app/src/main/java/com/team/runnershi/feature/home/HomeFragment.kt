@@ -1,4 +1,4 @@
-package com.team.runnershi.home
+package com.team.runnershi.feature.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

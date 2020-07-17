@@ -1,4 +1,4 @@
-package com.team.runnershi.home
+package com.team.runnershi.feature.home
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -7,7 +7,6 @@ import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
-import com.team.runnershi.adapter.HomePagerAdapter
 import com.team.runnershi.R
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -40,7 +39,9 @@ class HomeActivity : AppCompatActivity() {
 
 
         vp_home.adapter =
-            HomePagerAdapter(supportFragmentManager)
+            HomePagerAdapter(
+                supportFragmentManager
+            )
         vp_home.offscreenPageLimit = 3
         vp_home.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
             override fun onPageScrollStateChanged(state: Int) {

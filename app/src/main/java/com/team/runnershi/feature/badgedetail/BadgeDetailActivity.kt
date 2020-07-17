@@ -1,8 +1,9 @@
-package com.team.runnershi
+package com.team.runnershi.feature.badgedetail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.team.runnershi.R
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer

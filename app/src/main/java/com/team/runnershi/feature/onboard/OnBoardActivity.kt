@@ -1,9 +1,9 @@
-package com.team.runnershi.onboard
+package com.team.runnershi.feature.onboard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
-import com.team.runnershi.login.LoginActivity
+import com.team.runnershi.feature.login.LoginActivity
 import com.team.runnershi.R
 import com.team.runnershi.extension.newStartActivity
 import kotlinx.android.synthetic.main.activity_on_board.*

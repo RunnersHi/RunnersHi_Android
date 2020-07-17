@@ -1,4 +1,4 @@
-package com.team.runnershi.rank
+package com.team.runnershi.feature.rank
 
 import android.os.Bundle
 import android.util.Log

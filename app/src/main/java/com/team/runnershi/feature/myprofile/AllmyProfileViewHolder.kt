@@ -1,17 +1,12 @@
-package com.team.runnershi.viewholder
+package com.team.runnershi.feature.myprofile
 
-import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.team.runnershi.BadgeDetailActivity
 import com.team.runnershi.R
-import com.team.runnershi.data.AllmyProfileContent
-import com.team.runnershi.data.ResponsemyProfile
 
 
 class AllmyProfileViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {

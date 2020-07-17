@@ -1,4 +1,4 @@
-package com.team.runnershi.onboard
+package com.team.runnershi.feature.onboard
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
