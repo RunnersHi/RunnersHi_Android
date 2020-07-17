@@ -288,11 +288,11 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 
 #### :point_right:  홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
 <div align="center" style="display:flex;">
-       <img src=https://user-images.githubusercontent.com/57262833/87808693-1e2a6a80-c895-11ea-8534-65c65cad4e7b.png alt="drawing" width="300"/> 
-       <img src="https://user-images.githubusercontent.com/57262833/87808723-2e424a00-c895-11ea-8bf8-b8035b5cc351.png" width="300"/>
-              <img src="https://user-images.githubusercontent.com/57262833/87809035-ab6dbf00-c895-11ea-9072-77b27d10866f.png" width="300"/>
-       <img src="https://user-images.githubusercontent.com/57262833/87809063-b1fc3680-c895-11ea-865b-6028a4af1a20.png" width="300"/>
-              <img src="https://user-images.githubusercontent.com/57262833/87809193-f12a8780-c895-11ea-8080-2faf92af5aea.png" width="300"/>
+       <img src=https://user-images.githubusercontent.com/57262833/87808693-1e2a6a80-c895-11ea-8534-65c65cad4e7b.png alt="drawing" width="150"/> 
+       <img src="https://user-images.githubusercontent.com/57262833/87808723-2e424a00-c895-11ea-8bf8-b8035b5cc351.png" width="150"/>
+              <img src="https://user-images.githubusercontent.com/57262833/87809035-ab6dbf00-c895-11ea-9072-77b27d10866f.png" width="150"/>
+       <img src="https://user-images.githubusercontent.com/57262833/87809063-b1fc3680-c895-11ea-865b-6028a4af1a20.png" width="150"/>
+              <img src="https://user-images.githubusercontent.com/57262833/87809193-f12a8780-c895-11ea-8080-2faf92af5aea.png" width="150"/>
 </div>
 - 홈화면에서 BottomSheetNavigation 사용
 - 매칭화면에서 Socket.io를 이용한 실시간 통신으로 사용자와 매칭함
