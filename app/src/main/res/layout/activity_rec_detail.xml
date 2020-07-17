@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingVertical="16dp"
     android:background="@color/white"
-    tools:context=".recdetail.RecDetailActivity">
+    tools:context=".feature.recdetail.RecDetailActivity">
 
     <ImageView
         android:id="@+id/btnRecDetailBack"

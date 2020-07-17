@@ -7,7 +7,7 @@
 
         <variable
             name="viewmodel"
-            type="com.team.runnershi.RunSetViewModel" />
+            type="com.team.runnershi.feature.run.RunSetViewModel" />
     </data>
 
     <ScrollView
@@ -18,7 +18,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".RunActivity"
+            tools:context=".feature.run.RunActivity"
             android:paddingBottom="75dp">
 
             <ImageView

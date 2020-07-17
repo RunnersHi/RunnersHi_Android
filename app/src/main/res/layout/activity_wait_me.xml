@@ -5,7 +5,7 @@
     android:paddingHorizontal="30dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".runalone.WaitMeActivity">
+    tools:context=".feature.runalone.WaitMeActivity">
 
     <TextView
         android:id="@+id/tv_waitme_title"
