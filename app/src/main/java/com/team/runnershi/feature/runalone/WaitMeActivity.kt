@@ -1,22 +1,13 @@
-package com.team.runnershi.runalone
+package com.team.runnershi.feature.runalone
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.team.runnershi.R
-import com.team.runnershi.countdown.CountDownActivity
-import com.team.runnershi.util.PrefInit.Companion.prefs
-import com.team.runnershi.data.AllRecordRecentContent
+import com.team.runnershi.feature.runcountdown.CountDownActivity
 import com.team.runnershi.data.RecordRunWithmeData
-import com.team.runnershi.extension.customEnqueue
-import com.team.runnershi.extension.logDebug
-import com.team.runnershi.login.LoginActivity
-import com.team.runnershi.network.RequestToServer
-import com.team.runnershi.onboard.OnBoardActivity
-import kotlinx.android.synthetic.main.activity_rec_detail.*
 import kotlinx.android.synthetic.main.activity_wait_me.*
-import java.lang.Thread.sleep
 
 @Suppress("DEPRECATION")
 class WaitMeActivity : AppCompatActivity() {
@@ -51,7 +42,7 @@ class WaitMeActivity : AppCompatActivity() {
         val change_dist = String.format("%.2f", dist_change).toDouble()
         tv_waitme_distData.text = change_dist.toString()
 
-        if (runWithmeData.pace_minute > 60)
+        if (runWithmeData.pace_minute >= 60)
             tv_waitme_pacedata.text = "-\'--\""
         else
             tv_waitme_pacedata.text =
