@@ -12,6 +12,7 @@ import com.team.runnershi.extension.logDebug
 import com.team.runnershi.login.LoginActivity
 import com.team.runnershi.network.RequestToServer
 import com.team.runnershi.onboard.OnBoardActivity
+import kotlinx.android.synthetic.main.activity_rec_detail.*
 import kotlinx.android.synthetic.main.activity_wait_me.*
 import java.lang.Thread.sleep
 
@@ -45,7 +46,12 @@ class WaitMeActivity : AppCompatActivity() {
         }
 
         tv_waitme_distData.text = (runWithmeData.distance/1000).toString()
-        tv_waitme_pacedata.text = runWithmeData.pace_minute.toString()+"\'"+runWithmeData.pace_second.toString()+"\""
+
+        if (runWithmeData.pace_minute > 60)
+            tv_waitme_pacedata.text = "-\'--\""
+        else
+            tv_waitme_pacedata.text =
+                runWithmeData.pace_minute.toString() + "\'" + runWithmeData.pace_second.toString() + "\""
 
     }
 }
