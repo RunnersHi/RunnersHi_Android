@@ -20,10 +20,10 @@ class AllmyProfileViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView
         "100시간 달성", "150시간 달성", "10일 연속 러닝", "연속 5승", "연속 10승")
 
     // 프로필 사진, 닉네임, 레벨, 전적 데이터
-    val imgv_my_profile_img = itemView.findViewById<ImageView>(R.id.imgv_my_profile_img)
-    val tv_match_suc_nick_name = itemView.findViewById<TextView>(R.id.tv_match_suc_nick_name)
-    val tv_match_suc_lv_data = itemView.findViewById<TextView>(R.id.tv_match_suc_lv_data)
-    val tv_match_suc_lv_score_data = itemView.findViewById<TextView>(R.id.tv_match_suc_lv_score_data)
+//    val imgv_my_profile_img = itemView.findViewById<ImageView>(R.id.imgv_my_profile_img)
+//    val tv_match_suc_nick_name = itemView.findViewById<TextView>(R.id.tv_match_suc_nick_name)
+//    val tv_match_suc_lv_data = itemView.findViewById<TextView>(R.id.tv_match_suc_lv_data)
+//    val tv_match_suc_lv_score_data = itemView.findViewById<TextView>(R.id.tv_match_suc_lv_score_data)
 
 
 
@@ -73,35 +73,22 @@ class AllmyProfileViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView
 
 
 
-//    fun inject_imgv_profile() {
-//        val allmyProfileContent = AllmyProfileContent().image
-//        val get_image_number = allmyProfileContent.image
-//        imgv_my_profile_img.setImageResource(imgvProfile[allmyProfileContent.image])
-//
-//    }
 
-//    lateinit var please : ResponsemyProfile
+
     fun bind_image(badgeBool: Boolean, index: Int) {
 
-//        imgv_my_profile_img.setImageResource(imgvFalse_profile[please.result.image])
 
         if(badgeBool == true) {
             Log.v("TAGG", imgvTrue_profile[index].toString())
             Glide.with(itemView).load(imgvTrue_profile[index]).into(badge_color_profile)
             badge_text_profile.text = tvBadgeName_profile[index]
-//            badge_color_profile.setOnClickListener {
-//
-//                val intent = Intent(Context, BadgeDetailActivity::class.java)
-//
-//
-//            }
-//
+
         }
 
         else {
             Glide.with(itemView).load(imgvFalse_profile[index]).into(badge_color_profile)
             badge_text_profile.text = tvBadgeName_profile[index]
-//            imgv_my_profile_img.setImageResource(imgvProfile[imgvNum.image])
+
         }
 
     }
