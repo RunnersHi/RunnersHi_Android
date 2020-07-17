@@ -50,7 +50,7 @@ class MyProfileFragment : Fragment() {
                             tv_match_suc_lv_data.text = body.result.level.toString()
                             tv_match_suc_lv_score_data.text = "${body.result.win.toString()}승 ${body.result.lose.toString()}패"
 
-                            imgv_my_profile_img.setImageResource(imgvProfile[body.result.image])
+                            imgv_my_profile_img.setImageResource(imgvProfile[body.result.image-1])
 
 
                             allmyProfileAdapter =
