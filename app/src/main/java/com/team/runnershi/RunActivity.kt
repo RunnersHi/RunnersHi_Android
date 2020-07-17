@@ -119,30 +119,49 @@ class RunActivity : AppCompatActivity() {
 
     private fun subscribe() {
         runSetViewModel = ViewModelProvider(this).get(RunSetViewModel::class.java)
-        val leftTimeObserver = Observer<String>() { leftTimeText ->
-            tv_run_time_data.text = leftTimeText
-        }
-        runSetViewModel.ldRunLeftTime.observe(this, leftTimeObserver)
+            .apply {
+                ldRunLeftTime.observe(this@RunActivity, Observer { leftTimeText ->
+                    tv_run_time_data.text = leftTimeText
+                })
+                ldRunProgress.observe(this@RunActivity, Observer { progress ->
+                    progress_run.progress = progress
+                    checkTimerOver(progress)
+                })
+                ldCurrentLocation.observe(this@RunActivity, Observer { location ->
+                    naverMap?.let {
+                        it.moveCamera(CameraUpdate.scrollTo(LatLng(location)))
+                    }
+                })
+                ldTotalMeter.observe(this@RunActivity, Observer {
+                    checkKmPassed(it)
+                    if (ldIsKmPassed.value!!) {
+                        sendKmPassed(distStandard)
+                        incDistStandard()
+                    }
+                })
+                ldTimeOver.observe(this@RunActivity, Observer {
+                    if (it == true) {
+                        timer.cancel()
+                        finalDist = ldTotalMeter.value!!
+//                        finalCoords = getFinalCoords()
+                        finalCoords.addAll(path)
+                        finalEndTime =
+                            SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().time)
+                        sendEndRunning(roomName, ldTotalMeter.value!!)
+                    }
+                })
+                ldTotalDistString.observe(this@RunActivity, Observer {
+                    tv_run_dist_data.text = it
+                })
+                ldPace.observe(this@RunActivity, Observer {
+                    tv_run_pace_data.text = it
+                })
 
-        val progressObserver = Observer<Int> { progress ->
-            progress_run.progress = progress
-        }
-        runSetViewModel.ldRunProgress.observe(this, progressObserver)
-
-        val currentLocationObserver = Observer<Location> { location ->
-            naverMap?.let {
-                it.moveCamera(CameraUpdate.scrollTo(LatLng(location)))
             }
-        }
-        runSetViewModel.ldCurrentLocation.observe(this, currentLocationObserver)
-
-        val pathObserver = Observer<MutableList<LatLng>> { latLngList ->
+        runSetViewModel.ldPath.observe(this, Observer { latLngList ->
             path.coords = latLngList
             path.map = naverMap
-        }
-        runSetViewModel.ldPath.observe(this, pathObserver)
-
-//        val sendKmObserver = Observer<> {  }
+        })
 
     }
     private fun sendKmPassed(passedKm: Int){
@@ -162,7 +181,7 @@ class RunActivity : AppCompatActivity() {
         val level = intent.getIntExtra("level", -1)
         val win = intent.getIntExtra("win", -1)
         val lose = intent.getIntExtra("lose", -1)
-        val runtime = intent.getIntExtra("runtime", -1)
+        runtime = intent.getIntExtra("runtime", -1)
         "ViewModel Update Parameter: $runtime".logDebug(this@RunActivity)
         val runtimeString = initProgressBarEndTV(runtime)
         progress_run.max = runtime
