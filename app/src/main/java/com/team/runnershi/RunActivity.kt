@@ -318,6 +318,8 @@ class RunActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {}
+
     companion object {
         val REQUEST_LOCATION_PERMISSION_CODE = 1000;
     }
