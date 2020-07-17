@@ -13,7 +13,7 @@ class GoalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goal)
-        selectedRunTime = 60 //todo 테스트용임 바꾸어야함
+        selectedRunTime = 30 //todo 테스트용임 바꾸어야함
         initUi()
     }
 
