@@ -167,9 +167,10 @@ class RunActivity : AppCompatActivity() {
         })
 
     }
-    private fun sendKmPassed(passedKm: Int){
+
+    private fun sendKmPassed(passedKm: Int) {
         val work = Intent()
-        with(work){
+        with(work) {
             putExtra("serviceFlag", "kmPassed")
             putExtra("roomName", roomName)
             putExtra("km", passedKm)
