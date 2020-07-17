@@ -20,7 +20,7 @@ import com.team.runnershi.onboard.OnBoardActivity
 class SplashActivity : AppCompatActivity() {
     val DURATION: Long = 3000
     val requestToServer = RequestToServer
-    var activity = 0 //0->Onboarding, 1->Login, 2->Home
+    var activity = 1 //0->Onboarding, 1->Login, 2->Home
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +46,7 @@ class SplashActivity : AppCompatActivity() {
         }, DURATION)
 
     }
+
 
     fun checkFirstRun() {
         var isFirstRun = prefs.getString("isFirstRun", "y")
@@ -76,13 +77,10 @@ class SplashActivity : AppCompatActivity() {
                                     "token",
                                     body.result.token
                                 ) //Singleton SharedPreferences에 토큰저장
-
                                 activity = 2
-
                                 Log.e("Login", prefs.getString("token", null))
-                                Log.d("login", "성공")
                             } else {
-
+                                activity = 1
                             }
                         }
                     } else {
