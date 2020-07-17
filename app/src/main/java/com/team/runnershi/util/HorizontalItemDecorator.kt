@@ -12,4 +12,6 @@ class HorizontalItemDecorator(private val divHeight : Int) : RecyclerView.ItemDe
         outRect.left = divHeight
         outRect.right = divHeight
     }
+
+
 }
