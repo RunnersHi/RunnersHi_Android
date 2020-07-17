@@ -6,11 +6,15 @@ import android.os.SystemClock
 import android.util.Base64
 import android.util.Log
 import androidx.core.app.JobIntentService
+import com.naver.maps.geometry.LatLng
 import com.team.runnershi.extension.logDebug
 import io.socket.client.IO
 import io.socket.client.Manager
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 import java.net.URISyntaxException
 
 class SocketService : JobIntentService() {
@@ -59,7 +63,9 @@ class SocketService : JobIntentService() {
             "readyToRun" -> {
                 roomName = intent.getStringExtra("roomName")!!
                 mSocket.emit("readyToRun", roomName)
-                ("Send Ready to Run (roomName: $roomName) (SocketId : ${mSocket.id()}").logDebug(this@SocketService)
+                ("Send Ready to Run (roomName: $roomName) (SocketId : ${mSocket.id()}").logDebug(
+                    this@SocketService
+                )
 
             }
             "kmPasssed" -> {
@@ -116,7 +122,8 @@ class SocketService : JobIntentService() {
         mSocket.connect()
     }
 
-    private val onStart: Emitter.Listener = Emitter.Listener {
+
+    val onStart: Emitter.Listener = Emitter.Listener {
         Log.d(TAG, "Socket onStart")
     }
 
