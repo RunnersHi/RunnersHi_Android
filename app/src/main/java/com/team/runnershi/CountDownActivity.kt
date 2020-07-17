@@ -4,6 +4,7 @@ import android.animation.Animator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.WindowManager
 import com.team.runnershi.data.RecordRunWithmeData
 import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_count_down.*
@@ -14,6 +15,10 @@ import android.content.Intent as Intent
 class CountDownActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
         setContentView(R.layout.activity_count_down)
 
         initUi()
