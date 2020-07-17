@@ -89,8 +89,49 @@ class SocketService : JobIntentService() {
             }
             "runComplete" -> {
                 mSocket.emit("runComplete", roomName)
+                "Send RunComplete (roomName: $roomName)".logDebug(this@SocketService)
+            }
+            "compareResult" -> {
+                val roomName = intent.getStringExtra("roomName")
+                val distance = intent.getIntExtra("distance", -1)
+                val runtime = intent.getIntExtra("runtime", -1)
+                val coordinates = intent.getSerializableExtra("coordinates")
+                val coordsArr = getCoorsJSONArr(coordinates as ArrayList<LatLng>)
+                val createdTime = intent.getStringExtra("createdTime")
+                val endTime = intent.getStringExtra("endTime")
+
+                mSocket.emit(
+                    "compareResult",
+                    roomName,
+                    distance,
+                    runtime,
+                    coordsArr,
+                    createdTime,
+                    endTime
+                )
+
+                "Send Compare Result (roomName: $roomName) (distance: $distance) (runtime: $runtime)".logDebug(
+                    this@SocketService
+                )
+                "Send Compare Result  (coordinates: $coordinates) (createdTime: $createdTime) (endTime: $endTime)".logDebug(
+                    this@SocketService
+                )
             }
         }
+    }
+
+    fun getCoorsJSONArr(coordsArr: ArrayList<LatLng>): JSONArray {
+        val jsonArr = JSONArray()
+        for(coords in coordsArr){
+            try{
+                val jsonObj = JSONObject().apply {
+                    this.put("latitude", coords.latitude)
+                    this.put("longitude", coords.longitude)
+                }
+                jsonArr.put(jsonObj)
+            }catch (e: JSONException){e.printStackTrace()}
+        }
+        return jsonArr
     }
 
     private fun socketConnect() {
