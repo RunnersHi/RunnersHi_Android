@@ -14,5 +14,5 @@ data class AllRecordContent (
     @SerializedName("result")
     val result : Int,
     @SerializedName("game_idx")
-    val gmae_idx : Int
+    val game_idx : Int
 )

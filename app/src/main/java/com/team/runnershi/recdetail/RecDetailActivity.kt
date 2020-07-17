@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.MapFragment
@@ -15,6 +16,7 @@ import com.naver.maps.map.overlay.PathOverlay
 import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.extension.customEnqueue
+import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
 import kotlinx.android.synthetic.main.activity_rec_detail.*
 
@@ -23,14 +25,20 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
     private var naverMap: NaverMap? = null
     lateinit var path: PathOverlay
     val mapCoords = mutableListOf<LatLng>()
+    var runIdx =-1
+    var gameIdx =-1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rec_detail)
 
+        runIdx = intent.getIntExtra("runIdx",-1)
+        gameIdx = intent.getIntExtra("gameIdx",-1)
+
         loadCoordinateDatas()
-        settingMap()
         loadMyDatas()
         loadOpponentDatas()
+        btnRecDetailBack.setOnClickListener{ finish() }
 
     }
 
@@ -47,19 +55,19 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(p0: NaverMap) {
         this.naverMap = p0
 
-
         //지도에 경로 뿌리기
         if (mapCoords.size >= 2) {
             //경로객체 만들기
             path = PathOverlay()
             path.coords = mapCoords
 
+
             naverMap?.let {
                 path.map = it
 
                 //마커 세팅
                 val marker = Marker()
-                marker.position = mapCoords[mapCoords.size - 1]
+                marker.position = path.coords[path.coords.size-1]
                 marker.icon = OverlayImage.fromResource(R.drawable.icon_location)
                 marker.map = naverMap
 
@@ -77,7 +85,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun loadCoordinateDatas() {
         var token = prefs.getString("token", null)
-        requestToServer.service.requestRecordDetail(token, 69).customEnqueue(
+        requestToServer.service.requestRecordDetail(token, runIdx).customEnqueue(
             onFailure = { call, t ->
                 Log.d(
                     "RecDetailActivity",
@@ -128,12 +136,13 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                                 mapCoords.add(LatLng(coord.latitude, coord.longitude))
                             }
 
+                            settingMap()
                         }
                     }
                 } else {
                     Log.d(
                         "TAG",
-                        "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                        "requestRecordDetail onSuccess but response code is not 200 ~ 300 " +
                                 "(status code:${r.code()}) " +
                                 "(message: ${r.message()})" +
                                 "(errorBody: ${r.errorBody()})"
@@ -146,7 +155,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun loadMyDatas() {
         var token = prefs.getString("token", null)
-        requestToServer.service.requestRecordRun(token, 69).customEnqueue(
+        requestToServer.service.requestRecordRun(token, runIdx).customEnqueue(
             onFailure = { call, t ->
                 Log.d(
                     "RecDetailActivity",
@@ -159,18 +168,23 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                     if (body?.status == 200) {
                         if (body?.success) {
                             //dist
-                            tvRecDetailDistData.text = body.result.distance.toString()
-                            val paceMinute = body.result.paceMinute
-                            val paceSecond = body.result.paceSecond
-//                            var paceArr = body.result.pace.toString()!!.split(".")
+                            var dist_change = body.result.distance/1000.0
+                            val change_dist = String.format("%.2f", dist_change).toDouble()
+                            tvRecDetailDistData.text = change_dist.toString()
+
                             //pace
-                            tvRecDetailPaceData.text = getStringPace(paceMinute, paceSecond)
+                            if (body.result.pace_minute > 60)
+                                tvRecDetailPaceData.text = "-\'--\""
+                            else
+                                tvRecDetailPaceData.text =
+                                    body.result.pace_minute.toString() + "\'" + body.result.pace_second.toString() + "\""
                             //time
                             val timeArr = body.result.time!!.split(":")
                             if (timeArr[0].equals("00"))
                                 tvRecDetailTimeData.text = timeArr[1] + ":" + timeArr[2]
                             else
-                                tvRecDetailTimeData.text = body.result.time
+                                tvRecDetailTimeData.text =
+                                    timeArr[0][1] + ":" + timeArr[1] + ":" + timeArr[2]
                             //승패여부
                             if (body.result.result == 1)
                                 cl_my_record.setBackgroundResource(R.drawable.bluebox_recdetailactivity)
@@ -181,7 +195,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                 } else {
                     Log.d(
                         "TAG",
-                        "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                        "requestRecordRun onSuccess but response code is not 200 ~ 300 " +
                                 "(status code:${r.code()}) " +
                                 "(message: ${r.message()})" +
                                 "(errorBody: ${r.errorBody()})"
@@ -191,18 +205,9 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
         )
     }
 
-    private fun getStringPace(minute: Int, second: Int): String{
-        return if(minute == 0){
-            "$second\""
-        }
-        else{
-            "$minute'$second\""
-        }
-    }
-
     fun loadOpponentDatas() {
         var token = prefs.getString("token", null)
-        requestToServer.service.requestRecordOpponent(token, 2).customEnqueue(
+        requestToServer.service.requestRecordOpponent(token, gameIdx).customEnqueue(
             onFailure = { call, t ->
                 Log.d(
                     "RecDetailActivity",
@@ -215,26 +220,33 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                     if (body?.status == 200) {
                         if (body?.success) {
                             //nickname
-                            tvRecDetailRivalRecord.text = body.result.nickname +"의 기록"
+                            tvRecDetailRivalRecord.text = body.result.nickname + "의 기록"
+                            body.result.nickname.logDebug(RecDetailActivity::class.java)
                             //dist
-                            tvRecDetailRivalDistData.text = body.result.distance.toString()
-                            val paceMinute = body.result.paceMinute
-                            val paceSecond = body.result.paceSecond
-//                            var paceArr = body.result?.pace.toString()!!.split(".")
+                            var dist_change = body.result.distance/1000.0
+                            val change_dist = String.format("%.2f", dist_change).toDouble()
+                            tvRecDetailRivalDistData.text = change_dist.toString()
                             //pace
-                            tvRecDetailRivalPaceData.text = "$paceMinute'$paceSecond\""
+                            if (body.result.pace_minute> 60){
+                                tvRecDetailRivalPaceData.text = "-\'--\""}
+                            else {
+                                tvRecDetailRivalPaceData.text =
+                                    body.result.pace_minute.toString() + "\'" + body.result.pace_second.toString() + "\""
+                            }
                             //time
-                            val timeArr = body.result?.time!!.split(":")
+                            val timeArr = body.result.time!!.split(":")
                             if (timeArr[0].equals("00"))
                                 tvRecDetailRivalTimeData.text = timeArr[1] + ":" + timeArr[2]
                             else
-                                tvRecDetailRivalTimeData.text = body.result?.time
+                                tvRecDetailRivalTimeData.text = timeArr[0][1] + ":" + timeArr[1] + ":" + timeArr[2]
+                        }else{ //나와 경쟁하기 일시 success= false
+                            cl_rival_record.visibility = View.GONE
                         }
                     }
                 } else {
                     Log.d(
                         "TAG",
-                        "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                        "requestRecordOpponent onSuccess but response code is not 200 ~ 300 " +
                                 "(status code:${r.code()}) " +
                                 "(message: ${r.message()})" +
                                 "(errorBody: ${r.errorBody()})"

@@ -43,23 +43,24 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="6dp"
                 android:lineSpacingExtra="6sp"
-                android:text="5월 한 달 가장 많이 달린 러너"
+                android:text="7월 한 달 가장 많이 달린 러너"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@id/g_left"
                 app:layout_constraintTop_toBottomOf="@id/tv_rank_month_title" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:clipToPadding="true"
+                android:clipToPadding="false"
                 android:id="@+id/rv_rank_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
+                android:paddingLeft="24dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@id/g_left"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_rank_month_desc"
                 tools:listitem="@layout/item_rank" />
 
@@ -84,23 +85,24 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="6dp"
                 android:lineSpacingExtra="6sp"
-                android:text="5월 한 달 가장 많은 승리를 거둔 러너"
+                android:text="7월 한 달 가장 많은 승리를 거둔 러너"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@id/g_left"
                 app:layout_constraintTop_toBottomOf="@id/tv_rank_honor" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:clipToPadding="true"
+                android:clipToPadding="false"
                 android:id="@+id/rv_rank_honor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
+                android:paddingLeft="24dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@id/g_left"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_rank_honor_desc"
                 tools:listitem="@layout/item_rank" />
 
@@ -125,23 +127,24 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="6dp"
                 android:lineSpacingExtra="6sp"
-                android:text="5월 한 달 아쉽게 졌지만 열심히 러닝한 러너"
+                android:text="7월 한 달 아쉽게 졌지만 열심히 러닝한 러너"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@id/g_left"
                 app:layout_constraintTop_toBottomOf="@id/tv_rank_lose_title" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:clipToPadding="true"
+                android:clipToPadding="false"
                 android:id="@+id/rv_rank_lose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
+                android:paddingLeft="24dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@id/g_left"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_rank_lose_desc"
                 tools:listitem="@layout/item_rank" />
 

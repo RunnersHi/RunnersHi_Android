@@ -10,6 +10,7 @@ import com.team.runnershi.R
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
+import com.team.runnershi.util.PrefInit.Companion.prefs
 import kotlinx.android.synthetic.main.fragment_rank.*
 
 class RankFragment : Fragment() {
@@ -36,7 +37,8 @@ class RankFragment : Fragment() {
     }
 
     fun loadMonthDatas() {
-        requestToServer.service.requestRunner().customEnqueue(
+        val token = prefs.getString("token",null)
+        requestToServer.service.requestRunner(token).customEnqueue(
             onFailure = { call, t ->
                 context?.let { "requestRunner onFailure msg = ${t.message}".logDebug(it) }
             },
@@ -69,7 +71,8 @@ class RankFragment : Fragment() {
     }
 
     fun loadHonorDatas() {
-        requestToServer.service.requestWinner().customEnqueue(
+        val token = prefs.getString("token",null)
+        requestToServer.service.requestWinner(token).customEnqueue(
             onFailure = { call, t ->
                 context?.let { "requestHonor onFailure msg = ${t.message}".logDebug(it) }
             },
@@ -102,7 +105,8 @@ class RankFragment : Fragment() {
     }
 
     fun loadLoseDatas() {
-        requestToServer.service.requestLoser().customEnqueue(
+        val token = prefs.getString("token",null)
+        requestToServer.service.requestLoser(token).customEnqueue(
             onFailure = { call, t ->
                 context?.let { "requestLoser onFailure msg = ${t.message}".logDebug(it) }
             },

@@ -60,6 +60,7 @@
         android:id="@+id/tv_sign_up_dial_desc_low_lv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/TextStyle11"
         android:layout_marginLeft="24dp"
         android:fontFamily="@font/nanumsquarer"
         android:text="러닝을 가끔만 하는\n5분만 뛰어도 숨이 차는\n러닝 경쟁 쉬엄쉬엄 하고 싶은"
@@ -94,6 +95,7 @@
 
     <TextView
         android:id="@+id/tv_sign_up_dial_desc_mid_lv"
+        style="@style/TextStyle11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nanumsquarer"
@@ -131,6 +133,7 @@
         android:id="@+id/tv_sign_up_dial_desc_high_lv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/TextStyle11"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="42dp"
         android:layout_marginLeft="24dp"

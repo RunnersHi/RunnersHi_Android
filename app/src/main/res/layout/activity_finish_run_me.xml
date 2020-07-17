@@ -53,18 +53,18 @@
         app:srcCompat="@drawable/finish_run_activity_illust" />
 
     <Button
-        android:id="@+id/btn_finishrun_confirm"
+        android:id="@+id/btnFinishRunConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:layout_marginHorizontal="54dp"
+        android:layout_marginHorizontal="54dp"
         android:layout_marginTop="28dp"
-        android:background="@drawable/lightgrey_btn_background"
+        android:fontFamily="@font/nanumsquareb"
+        android:background="@drawable/btn_lightish_blue"
         android:text="결과 보러가기"
         android:textSize="16sp"
         android:textColor="@color/white"
-        android:clickable="false"
-        android:fontFamily="@font/nanumsquareb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.team.runnershi.myprofile
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.adapter.AllmyProfileAdapter
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
+import com.team.runnershi.login.LoginActivity
 import com.team.runnershi.network.RequestToServer
 import kotlinx.android.synthetic.main.fragment_my_profile.*
 
@@ -79,6 +81,15 @@ class MyProfileFragment : Fragment() {
 
         getProfileBadge()
         //getProfileRecord()
+
+        btn_logout.setOnClickListener{
+            prefs.setString("id","")
+            prefs.setString("password","")
+            prefs.setString("token","")
+            val intent = Intent(activity,LoginActivity::class.java)
+            startActivity(intent)
+            activity!!.finish()
+        }
     }
 
 
