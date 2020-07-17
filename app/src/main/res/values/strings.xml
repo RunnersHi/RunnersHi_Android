@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RunnersHi</string>
+    <string name="app_name">RUNNERS&apos;S Hi</string>
     <string name="title_activity_rec_detail">RecDetailActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
