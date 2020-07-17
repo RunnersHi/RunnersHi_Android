@@ -130,6 +130,7 @@ class MatchSucActivity : AppCompatActivity() {
                             intent.putExtra("lose", lose)
                             intent.putExtra("runtime", runtime)
                             startActivity(intent)
+                            finish()
                         }
                 }
             }
