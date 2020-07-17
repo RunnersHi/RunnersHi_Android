@@ -42,7 +42,8 @@ class RunSetViewModel : ViewModel() {
     }
 
     fun checkKmPassed(totalMeter: Int) {
-        ldIsKmPassed.value = (totalMeter / 1000 >= distStandard)
+//        ldIsKmPassed.value = (totalMeter / 1000 >= distStandard)
+        ldIsKmPassed.value = (totalMeter/5 >= distStandard)
     }
 
     fun incDistStandard() {
@@ -114,6 +115,7 @@ class RunSetViewModel : ViewModel() {
             ldPath.postValue(path)
         }
     }
+
 
     fun getFinalCoords(): ArrayList<List<Double>> {
         val finalPath = path
