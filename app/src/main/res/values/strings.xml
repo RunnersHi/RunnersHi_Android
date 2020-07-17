@@ -19,5 +19,6 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="what_is_running_level"><u>러닝레벨이 무엇인가요?</u></string>
     <string name="naver_id">6t807pncgs</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,11 +1,14 @@
 package com.team.runnershi.viewholder
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.team.runnershi.BadgeDetailActivity
 import com.team.runnershi.R
 import com.team.runnershi.data.AllmyProfileContent
 import com.team.runnershi.data.ResponsemyProfile
@@ -82,7 +85,7 @@ class AllmyProfileViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView
 //
 //    }
 
-    lateinit var please : ResponsemyProfile
+//    lateinit var please : ResponsemyProfile
     fun bind_image(badgeBool: Boolean, index: Int) {
 
 //        imgv_my_profile_img.setImageResource(imgvFalse_profile[please.result.image])
@@ -91,6 +94,12 @@ class AllmyProfileViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView
             Log.v("TAGG", imgvTrue_profile[index].toString())
             Glide.with(itemView).load(imgvTrue_profile[index]).into(badge_color_profile)
             badge_text_profile.text = tvBadgeName_profile[index]
+//            badge_color_profile.setOnClickListener {
+//
+//                val intent = Intent(Context, BadgeDetailActivity::class.java)
+//
+//
+//            }
 //
         }
 

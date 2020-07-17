@@ -5,8 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import com.airbnb.lottie.LottieDrawable
 import com.example.semina_3st.data.RequestLogin
-import com.team.runnershi.HomeActivity
+import com.team.runnershi.home.HomeActivity
 import com.team.runnershi.login.LoginActivity
 import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
@@ -14,6 +15,7 @@ import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
 import com.team.runnershi.onboard.OnBoardActivity
+import kotlinx.android.synthetic.main.activity_splash.*
 
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
@@ -24,6 +26,9 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
+//        val lottie = splash_start
+//        lottie.repeatMode = LottieDrawable.RESTART
 
         checkFirstRun()
 

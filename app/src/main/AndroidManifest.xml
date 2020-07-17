@@ -17,8 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
-        <activity android:name=".WaitMeActivity"/>
-        <activity android:name=".MatchDummyActivity"
+        <activity android:name=".runalone.WaitMeActivity"/>
+        <activity android:name=".rundummy.MatchDummyActivity"
             android:exported="true"/>
         <activity android:name=".matchfail.MatchFailActivity"
             android:exported="true"/>
@@ -27,7 +27,13 @@
             android:exported="true" />
         <activity
             android:name=".splash.SplashActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <service
             android:name=".SocketService"
             android:exported="false"
@@ -47,7 +53,10 @@
         <activity
             android:name=".GoalActivity"
             android:exported="true"></activity>
-        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".login.LoginActivity"
+            android:exported="true">
+        </activity>
+
         <activity
             android:name=".MatchProcActivity"
             android:exported="true" />
@@ -56,15 +65,12 @@
             android:name=".signup.SignUpActivity"
             android:exported="true" />
         <activity android:name=".StartRunActivity" />
-        <activity android:name=".CountDownActivity" />
+        <activity android:name=".countdown.CountDownActivity"
+            android:exported="true"/>
         <activity
-            android:name=".HomeActivity"
+            android:name=".home.HomeActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -79,6 +85,8 @@
         <activity
             android:name=".recdetail.RecDetailActivity"
             android:exported="true" />
+
+        <activity android:name=".BadgeDetailActivity"></activity>
     </application>
 
 </manifest>
