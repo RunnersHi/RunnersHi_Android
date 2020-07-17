@@ -315,14 +315,24 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 #### :fire: 나의 러닝 기록 화면, 뱃지화면
 <br>
 <div>
+<img width="270" src=https://user-images.githubusercontent.com/63635840/87827843-a836fb00-c8b6-11ea-9552-9eb459b5c2bc.png>
 <img width="270" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
 <img width="270" src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
-
 <div>
 <br>
-       
- - 탭 레이아웃 fragment의 좌, 우측에 위치한 러닝
- - 바텀네비게이션의 마지막에 위치한 마이프로필에서 자신의 레벨, 전적, 배지를 조회할 수 있으며, 최하단에서 로그아웃버튼이 있고, 원할시 클릭을 통해 로그아웃을 할 수 있다.
+      
+ - 탭 레이아웃 fragment의 좌, 우측에 위치한 러닝기록, 러닝배지 뷰이다.
+ - 나의 모든 기록과 승패, 기록을 볼 수 있으며 클릭시 기록 상세보기 뷰를 볼 수 있다.
+ - 러닝배지는 자신이 보유한 모든 배지를 볼 수 있으며, 배지 클릭시 배지 상세보기를 할 수 있다.
+
+<br>
+ 
+
+
+https://user-images.githubusercontent.com/63635840/87827938-de747a80-c8b6-11ea-9dc8-a86c9fef7517.png - 랭킹 뷰
+
+
+https://user-images.githubusercontent.com/63635840/87827911-cac91400-c8b6-11ea-8d61-71cba39189bd.png - 마이 프로필
 
 <br>
 <br>
