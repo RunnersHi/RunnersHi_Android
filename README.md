@@ -258,8 +258,6 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 ### :running: 핵심기능 및 구현화면 정리
 
 #### 스플래쉬, 온보딩, 회원가입, 로그인 화면, 홈화면
-
-- 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
 <br>
 <div>
 <img width="200" src=https://user-images.githubusercontent.com/63635840/87809124-ccceab00-c895-11ea-8dd0-be8d5585c50b.png>
@@ -275,7 +273,7 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 <div>
 <br>
 <br>
-- 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화
+
 <br>
 <br>
 <div>
@@ -287,10 +285,12 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87808693-1e2a6a80-c895-11ea-8534-65c65cad4e7b.png alt="drawing"/> 
 <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87808723-2e424a00-c895-11ea-8bf8-b8035b5cc351.png />
 <div>
+- 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
+- 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화
 - 홈화면에서 BottomSheetNavigation 사용
        
        
-
+<br><br>
 
 #### :point_right:  목표선택화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기, 결과화면 :point_left: 핵심기능!!  
 <div>
@@ -308,28 +308,31 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 - 나와 경쟁하기 화면에서 TextToSpeeach와 Timer로 음성피드백 기능 구현
 - 결과화면에서 매칭상대방과 러닝 기록 비교 가능 및 승패 여부 보여줌
 
+<br><br>
+
 #### :point_right: 기록 자세히보기 화면, 기록 모아보기화면, 랭킹화면
 <div>
 <img width="200"  src=https://user-images.githubusercontent.com/57262833/87809342-35b62300-c896-11ea-9b03-4a22b25458f0.png alt="drawing" width="300"/> 
 <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809345-36e75000-c896-11ea-881e-13690eeb4895.png alt="drawing" width="300"/> 
 <div>
-      
+ <br>     
 - 기록 모아보기화면에서 사용자의 이전 기록들 확인 가능
 - 기록자세히 보기화면에서 NaverMapAPI를 이용하여 기록된 이전 러닝 경로를 지도에 그림
 - 랭킹화면에서 가장 많이 달린 러너, 가장 많이 이긴 러너, 가장 많이 진 러너를 조회 가능
+<br>
+<br>
 
 #### :fire: 뱃지화면, 마이페이지 화면
 <br>
 <div>
 <img width="200" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
 <img  width="200"  src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
+<br>
 <img  width="200"  src=https://user-images.githubusercontent.com/63635840/87811252-4fa53500-c899-11ea-81ec-a8c34b03112b.png>
 <div>
 <br>
-       
 - 탭 레이아웃의 오른쪽에 있는 뱃지화면에서 자신이 얻은 모든 뱃지들을 조회할 수 있다.
 - 바텀네비게이션의 마지막에 위치한 마이프로필에서 자신의 레벨, 전적, 배지를 조회할 수 있으며, 최하단에서 로그아웃버튼이 있고, 원할시 클릭을 통해 로그아웃을 할 수 있다.
-
 <br>
 <br>
 
