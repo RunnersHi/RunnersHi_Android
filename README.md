@@ -1,14 +1,8 @@
+<img src=https://user-images.githubusercontent.com/57262833/87799675-7c048580-c888-11ea-8bbb-ec6c4e5c769e.png alt="drawing" width="600"/> 
 
 <div align="center" style="display:flex;">
        <img src="https://user-images.githubusercontent.com/57262833/86694398-8764df00-c046-11ea-8afb-5b8b7087dc1b.png" width="300"/>
 </div>
-
-## 핵심기능 및 구현화면 정리
-
-### 스플래쉬, 온보딩, 회원가입, 로그인 화면
-- 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
-- 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화\
-
 
 ```
 ✨  기존 러닝 어플리케이션과의 확실한 차별화 요소를 적용했습니다.    
@@ -119,7 +113,6 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 
 
 ### :running: 핵심기능 및 구현화면 정리
-
 #### 스플래쉬, 온보딩, 회원가입, 로그인 화면
 - 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
 - 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화\
