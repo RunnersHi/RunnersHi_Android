@@ -7,12 +7,12 @@ import android.os.Handler
 import android.util.Log
 import android.view.WindowManager
 import com.example.semina_3st.data.RequestLogin
-import com.team.runnershi.HomeActivity
 import com.team.runnershi.login.LoginActivity
 import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
+import com.team.runnershi.home.HomeActivity
 import com.team.runnershi.network.RequestToServer
 import com.team.runnershi.onboard.OnBoardActivity
 

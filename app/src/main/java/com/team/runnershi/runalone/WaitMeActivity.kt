@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.team.runnershi.R
+import com.team.runnershi.countdown.CountDownActivity
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.data.AllRecordRecentContent
 import com.team.runnershi.data.RecordRunWithmeData
@@ -27,7 +29,7 @@ class WaitMeActivity : AppCompatActivity() {
         matchData?.let{settingTextView(it)}
 
         Handler().postDelayed({
-            val newIntent = Intent(this,CountDownActivity::class.java)
+            val newIntent = Intent(this, CountDownActivity::class.java)
             newIntent.putExtra("matchData",matchData)
             startActivity(newIntent)
             finish()

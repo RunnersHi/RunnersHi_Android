@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock.sleep
 import android.util.Log
+import com.team.runnershi.countdown.CountDownActivity
 import com.team.runnershi.data.RequestDummyData
 import com.team.runnershi.data.RecordRunWithmeData
 import com.team.runnershi.extension.customEnqueue
@@ -47,7 +48,7 @@ class MatchDummyActivity : AppCompatActivity() {
         matchData?.let{settingTextView(it)}
 
         Handler().postDelayed({
-            val newIntent = Intent(this,CountDownActivity::class.java)
+            val newIntent = Intent(this, CountDownActivity::class.java)
             newIntent.putExtra("matchData",matchData)
             startActivity(newIntent)
             finish()

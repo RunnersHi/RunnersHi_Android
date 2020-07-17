@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.team.runnershi.HomeActivity
 import com.team.runnershi.R
 import com.team.runnershi.data.AllRecordContent
 import com.team.runnershi.data.ResponseRecord

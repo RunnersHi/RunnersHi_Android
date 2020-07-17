@@ -4,17 +4,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.team.runnershi.HomeActivity
 import com.team.runnershi.MatchDummyActivity
 import com.team.runnershi.R
-import com.team.runnershi.WaitMeActivity
 import com.team.runnershi.data.RecordRunWithmeData
 import com.team.runnershi.data.RequestRecordRunWithme
 import com.team.runnershi.data.RequestRecordRunWithmeAlone
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.extension.newStartActivity
+import com.team.runnershi.home.HomeActivity
 import com.team.runnershi.network.RequestToServer
+import com.team.runnershi.runalone.WaitMeActivity
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import kotlinx.android.synthetic.main.activity_match_fail.*
 
@@ -79,7 +79,7 @@ class MatchFailActivity : AppCompatActivity() {
             if(isDummy)
                 newIntent = Intent(this,MatchDummyActivity::class.java)
             else
-                newIntent = Intent(this,WaitMeActivity::class.java)
+                newIntent = Intent(this, WaitMeActivity::class.java)
 
             newIntent.putExtra("matchData",matchData)
             startActivity(newIntent)

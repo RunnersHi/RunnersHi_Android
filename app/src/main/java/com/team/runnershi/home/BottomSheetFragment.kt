@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.team.runnershi.GoalActivity
+import com.team.runnershi.GoalRunMeActivity
 import com.team.runnershi.R
 import com.team.runnershi.runalone.WaitMeActivity
 import kotlinx.android.synthetic.main.fragment_bottom_sheet.*

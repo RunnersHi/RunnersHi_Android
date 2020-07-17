@@ -11,6 +11,7 @@ import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.matchfail.MatchFailActivity
 import com.team.runnershi.network.RequestToServer
+import com.team.runnershi.runalone.WaitMeActivity
 import com.team.runnershi.util.PrefInit
 import kotlinx.android.synthetic.main.activity_goal_run_me.*
 import kotlinx.android.synthetic.main.activity_goal.radioGroup
