@@ -129,7 +129,7 @@
             android:lineSpacingExtra="6sp"
             android:gravity="center_horizontal"
             android:fontFamily="@font/nanumsquarer"
-            app:layout_constraintEnd_toEndOf="@+id/tvRecDetailTimeData"
+            app:layout_constraintEnd_toEndOf="@+id/tv_resultdetail_timedata"
             app:layout_constraintStart_toStartOf="@+id/tv_resultdetail_timedata"
             app:layout_constraintTop_toBottomOf="@+id/tv_resultdetail_timedata"
             tools:ignore="DuplicateIds" />
