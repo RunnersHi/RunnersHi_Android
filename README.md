@@ -312,16 +312,16 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 - 기록화면에서 매칭상대방과 러닝 기록 비교 가능 및 승패 여부 보여줌
 - 기록자세히 보기화면에서 NaverMap사용으로 러닝 경로 불러오기 
 
-#### :fire: 뱃지화면, 마이페이지 화면
+#### :fire: 나의 러닝 기록 화면, 뱃지화면
 <br>
 <div>
 <img width="270" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
 <img width="270" src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
-<img width="270" src=https://user-images.githubusercontent.com/63635840/87811252-4fa53500-c899-11ea-81ec-a8c34b03112b.png>
+
 <div>
 <br>
        
- - 탭 레이아웃의 오른쪽에 있는 뱃지화면에서 자신이 얻은 모든 뱃지들을 조회할 수 있다.
+ - 탭 레이아웃 fragment의 좌, 우측에 위치한 러닝
  - 바텀네비게이션의 마지막에 위치한 마이프로필에서 자신의 레벨, 전적, 배지를 조회할 수 있으며, 최하단에서 로그아웃버튼이 있고, 원할시 클릭을 통해 로그아웃을 할 수 있다.
 
 <br>
