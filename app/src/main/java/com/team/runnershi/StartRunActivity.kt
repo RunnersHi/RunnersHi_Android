@@ -49,6 +49,7 @@ class StartRunActivity : AppCompatActivity() {
                     putExtra("runtime", runtime)
                 }
                 startActivity(intent)
+                finish()
             }
 
             override fun onAnimationCancel(p0: Animator?) {}
