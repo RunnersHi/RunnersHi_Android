@@ -97,6 +97,8 @@ class RunActivity : AppCompatActivity() {
 
     @SuppressLint("MissingPermission")
     private fun initData() {
+        finalCreatedTime =
+            SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().time)
         locationSource = GpsOnlyLocationSource(this)
 
         val currentLocation =
