@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.MapFragment
@@ -15,6 +16,7 @@ import com.naver.maps.map.overlay.PathOverlay
 import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.extension.customEnqueue
+import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
 import kotlinx.android.synthetic.main.activity_rec_detail.*
 
@@ -36,6 +38,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
         loadCoordinateDatas()
         loadMyDatas()
         loadOpponentDatas()
+        btnRecDetailBack.setOnClickListener{ finish() }
 
     }
 
@@ -54,7 +57,6 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
         //마커 세팅
         val marker = Marker()
-        marker.position = mapCoords[mapCoords.size - 1]
         marker.icon = OverlayImage.fromResource(R.drawable.icon_location)
         marker.map = naverMap
 
@@ -62,6 +64,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
         if (mapCoords.size >= 2) {
             //경로객체 만들기
             path = PathOverlay()
+            marker.position = mapCoords[mapCoords.size - 1]
             path.coords = mapCoords
 
             naverMap?.let {
@@ -138,7 +141,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                 } else {
                     Log.d(
                         "TAG",
-                        "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                        "requestRecordDetail onSuccess but response code is not 200 ~ 300 " +
                                 "(status code:${r.code()}) " +
                                 "(message: ${r.message()})" +
                                 "(errorBody: ${r.errorBody()})"
@@ -188,7 +191,7 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                 } else {
                     Log.d(
                         "TAG",
-                        "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                        "requestRecordRun onSuccess but response code is not 200 ~ 300 " +
                                 "(status code:${r.code()}) " +
                                 "(message: ${r.message()})" +
                                 "(errorBody: ${r.errorBody()})"
@@ -214,27 +217,30 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                         if (body?.success) {
                             //nickname
                             tvRecDetailRivalRecord.text = body.result.nickname + "의 기록"
+                            body.result.nickname.logDebug(RecDetailActivity::class.java)
                             //dist
                             tvRecDetailRivalDistData.text = body.result.distance.toString()
                             //pace
-                            if (body.result.pace_minute> 60)
-                                tvRecDetailPaceData.text = "-\'--\""
-                            else
-                                tvRecDetailPaceData.text =
+                            if (body.result.pace_minute> 60){
+                                tvRecDetailRivalPaceData.text = "-\'--\""}
+                            else {
+                                tvRecDetailRivalPaceData.text =
                                     body.result.pace_minute.toString() + "\'" + body.result.pace_second.toString() + "\""
+                            }
                             //time
                             val timeArr = body.result.time!!.split(":")
                             if (timeArr[0].equals("00"))
                                 tvRecDetailRivalTimeData.text = timeArr[1] + ":" + timeArr[2]
                             else
-                                tvRecDetailRivalTimeData.text =
-                                    timeArr[0][1] + ":" + timeArr[1] + ":" + timeArr[2]
+                                tvRecDetailRivalTimeData.text = timeArr[0][1] + ":" + timeArr[1] + ":" + timeArr[2]
+                        }else{ //나와 경쟁하기 일시 success= false
+                            cl_rival_record.visibility = View.GONE
                         }
                     }
                 } else {
                     Log.d(
                         "TAG",
-                        "requestConfirm onSuccess but response code is not 200 ~ 300 " +
+                        "requestRecordOpponent onSuccess but response code is not 200 ~ 300 " +
                                 "(status code:${r.code()}) " +
                                 "(message: ${r.message()})" +
                                 "(errorBody: ${r.errorBody()})"
