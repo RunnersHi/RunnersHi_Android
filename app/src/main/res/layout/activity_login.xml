@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginActivity">
+    tools:context=".login.LoginActivity"
+    android:background="@color/white"
+    android:fontFamily="@font/nanumsquarer"
+    >
 
     <ImageView
         android:id="@+id/imgv_login_logo"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="146dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/emblem_rh" />
+        app:srcCompat="@drawable/login_logo" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/g_left"
@@ -35,11 +38,12 @@
         android:id="@+id/edt_login_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/grey_round_background"
         android:paddingVertical="18dp"
         android:paddingLeft="16dp"
         android:hint="아이디"
+        android:fontFamily="@font/nanumsquarer"
         android:singleLine="true"
         android:textColor="@color/brown_grey"
         app:layout_constraintEnd_toStartOf="@+id/g_right"
@@ -55,6 +59,8 @@
         android:paddingVertical="18dp"
         android:paddingLeft="16dp"
         android:hint ="비밀번호"
+        android:fontFamily="@font/nanumsquarer"
+
         android:singleLine="true"
         android:inputType="textPassword"
         android:textColor="@color/brown_grey"
@@ -70,6 +76,8 @@
         android:layout_marginTop="12dp"
         android:text="아이디 혹은 비밀번호가 일치하지 않습니다."
         android:textColor="@color/grapefruit"
+        android:fontFamily="@font/nanumsquarer"
+
         android:textSize="12sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/g_right"
@@ -89,6 +97,7 @@
         android:background="@drawable/blue_btn_background"
         android:paddingHorizontal="98dp"
         android:paddingVertical="16dp"
+        android:fontFamily="@font/nanumsquareb"
         app:layout_constraintEnd_toEndOf="@id/g_right"
         app:layout_constraintStart_toStartOf="@id/g_left"
         app:layout_constraintTop_toBottomOf="@id/edt_login_pw" />
@@ -107,6 +116,7 @@
             android:layout_height="wrap_content"
             android:lineSpacingExtra="12sp"
             android:text="회원가입"
+            android:fontFamily="@font/nanumsquarer"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,6 +129,8 @@
             android:layout_marginLeft="30dp"
             android:lineSpacingExtra="12sp"
             android:text="아이디/비밀번호 찾기"
+            android:fontFamily="@font/nanumsquarer"
+
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/tv_login_sign_up"
