@@ -319,7 +319,7 @@ class SocketService : JobIntentService() {
     private val onCompareResult: Emitter.Listener = Emitter.Listener {
         val result = it[0] as Int
         Log.d(TAG, "Socket onCompareResult (result: $result)")
-        Intent().also{intent ->
+        Intent().also { intent ->
             intent.action = "com.team.runnershi.RESULT_COMPARE"
             intent.putExtra("result", result)
             sendBroadcast(intent)
@@ -384,20 +384,5 @@ class SocketService : JobIntentService() {
         fun enqueueWork(context: Context, work: Intent) {
             enqueueWork(context, SocketService::class.java, JOB_ID, work)
         }
-    }
-
-    inner class SocketThread : Thread() {
-        override fun run() {
-            super.run()
-            try {
-//                socketConnect()
-            } catch (e: URISyntaxException) {
-                Log.d(
-                    TAG,
-                    "Socket Connect Reason: ${e.reason} (index: ${e.index}) (message:${e.message}"
-                )
-            }
-        }
-
     }
 }
