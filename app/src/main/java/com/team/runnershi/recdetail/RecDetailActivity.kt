@@ -168,7 +168,10 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                     if (body?.status == 200) {
                         if (body?.success) {
                             //dist
-                            tvRecDetailDistData.text = body.result.distance.toString()
+                            var dist_change = body.result.distance/1000.0
+                            val change_dist = String.format("%.2f", dist_change).toDouble()
+                            tvRecDetailDistData.text = change_dist.toString()
+
                             //pace
                             if (body.result.pace_minute > 60)
                                 tvRecDetailPaceData.text = "-\'--\""
@@ -220,7 +223,9 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                             tvRecDetailRivalRecord.text = body.result.nickname + "의 기록"
                             body.result.nickname.logDebug(RecDetailActivity::class.java)
                             //dist
-                            tvRecDetailRivalDistData.text = body.result.distance.toString()
+                            var dist_change = body.result.distance/1000.0
+                            val change_dist = String.format("%.2f", dist_change).toDouble()
+                            tvRecDetailRivalDistData.text = change_dist.toString()
                             //pace
                             if (body.result.pace_minute> 60){
                                 tvRecDetailRivalPaceData.text = "-\'--\""}
