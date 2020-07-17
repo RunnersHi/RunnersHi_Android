@@ -55,20 +55,21 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(p0: NaverMap) {
         this.naverMap = p0
 
-        //마커 세팅
-        val marker = Marker()
-        marker.icon = OverlayImage.fromResource(R.drawable.icon_location)
-        marker.map = naverMap
-
         //지도에 경로 뿌리기
         if (mapCoords.size >= 2) {
             //경로객체 만들기
             path = PathOverlay()
-            marker.position = mapCoords[mapCoords.size - 1]
             path.coords = mapCoords
+
 
             naverMap?.let {
                 path.map = it
+
+                //마커 세팅
+                val marker = Marker()
+                marker.position = path.coords[path.coords.size-1]
+                marker.icon = OverlayImage.fromResource(R.drawable.icon_location)
+                marker.map = naverMap
 
                 //경로선 커스텀
                 path.width = 20
