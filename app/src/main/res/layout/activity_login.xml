@@ -39,6 +39,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
+        android:textSize="14sp"
         android:background="@drawable/grey_round_background"
         android:paddingVertical="18dp"
         android:paddingLeft="16dp"
@@ -53,6 +54,7 @@
     <EditText
         android:id="@+id/edt_login_pw"
         android:layout_width="0dp"
+        android:textSize="14sp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:background="@drawable/grey_round_background"
@@ -60,7 +62,6 @@
         android:paddingLeft="16dp"
         android:hint ="비밀번호"
         android:fontFamily="@font/nanumsquarer"
-
         android:singleLine="true"
         android:inputType="textPassword"
         android:textColor="@color/brown_grey"
