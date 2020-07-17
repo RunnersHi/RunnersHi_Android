@@ -16,6 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".FinishRunMeActivity"></activity>
+        <activity android:name=".RunMeActivity" />
         <activity android:name=".WaitMeActivity" />
         <activity
             android:name=".MatchDummyActivity"
@@ -28,7 +30,12 @@
             android:exported="true" />
         <activity
             android:name=".splash.SplashActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".SocketService"
@@ -62,13 +69,7 @@
         <activity android:name=".CountDownActivity" />
         <activity
             android:name=".HomeActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"/>
 
         <meta-data
             android:name="com.google.android.wearable.standalone"
