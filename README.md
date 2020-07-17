@@ -89,7 +89,7 @@
             app:layout_constraintGuide_end="30dp" />
 ```
 
-:point_right : activity_on_board.xml4
+:point_right: activity_on_board.xml4
 - 화면의 중앙에 위치한 4단계로 분류된 온보딩 뷰를 좌, 우로 넘겨보기 위해 ViewPager를 활용하여 각 화면들을 fragment로 구성했다.
 - Fragment가 들어갈 ViewPager를 dot indicator가 있는 상단의 ConstraintLayout과 textView Button이 있는 하단 ConstraintLayout와 연동한뒤, layout_width는 match_parent로, layout_height는 0dp로 줌으로서 match_contraint를 준다.
 
@@ -109,7 +109,7 @@
 
 
 
-:point_right : fragment_my_profile.xml4
+:point_right: fragment_my_profile.xml4
 - 마이 프로필의 프로필 사진의 경우 제플린에 올린 이미지의 기본값(wrap_content)과 적용값의 차이가 있어 적용값을 기입하여 뷰를 만들었다.
 ```
 <ImageView
