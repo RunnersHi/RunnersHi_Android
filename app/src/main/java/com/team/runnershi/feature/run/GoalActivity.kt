@@ -24,7 +24,6 @@ class GoalActivity : AppCompatActivity() {
 
 
     private fun initUi() {
-
         radioGroup.setOnCheckedChangeListener { _, i ->
             clickable = true
             btn_goal_next.isClickable = true
@@ -32,10 +31,10 @@ class GoalActivity : AppCompatActivity() {
                 ContextCompat.getDrawable(this@GoalActivity, R.drawable.bg_btn_goal_next)
             btn_goal_next.setTextColor(ContextCompat.getColor(this@GoalActivity, R.color.white))
             selectedRunTime = when (i) {
-                R.id.btn_goal_30 -> 30 * 60
+                R.id.btn_goal_30 -> 30 //todo 30초로 바꾸어놓]
                 R.id.btn_goal_45 -> 45 * 60
-                R.id.btn_goal_60 -> 60 * 60 //todo 시연 대비로 막음
-                R.id.btn_goal_90 -> 90 * 60 //todo 시연 대비로 막음
+                R.id.btn_goal_60 -> 30 * 60 //todo 시연 대비로 막음
+                R.id.btn_goal_90 -> 45 * 60 //todo 시연 대비로 막음
                 else -> 30 * 60
             }
         }
