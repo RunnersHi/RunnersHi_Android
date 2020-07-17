@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="40dp"
-    tools:context=".RivalActivity">
+    tools:context=".feature.run.RivalActivity">
     <ImageView
         android:id="@+id/btn_rival_back"
         android:layout_width="48dp"

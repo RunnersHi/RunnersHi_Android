@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/very_light_pink_two"
-    tools:context=".home.HomeFragment"
+    tools:context=".feature.home.HomeFragment"
     tools:ignore="InvalidId">
 
     <ImageView

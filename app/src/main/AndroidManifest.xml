@@ -16,18 +16,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".FinishRunMeActivity"></activity>
-        <activity android:name=".RunMeActivity" />
-        <activity android:name=".runalone.WaitMeActivity"/>
-        <activity android:name=".rundummy.MatchDummyActivity"
+        <activity android:name="com.team.runnershi.feature.runalone.FinishRunMeActivity"></activity>
+        <activity android:name="com.team.runnershi.feature.runalone.RunMeActivity" />
+        <activity android:name="com.team.runnershi.feature.runalone.WaitMeActivity"/>
+        <activity android:name="com.team.runnershi.feature.rundummy.MatchDummyActivity"
             android:exported="true"/>
-        <activity android:name=".matchfail.MatchFailActivity"
+        <activity android:name="com.team.runnershi.feature.matchfail.MatchFailActivity"
             android:exported="true"/>
         <activity
-            android:name=".onboard.OnBoardActivity"
+            android:name="com.team.runnershi.feature.onboard.OnBoardActivity"
             android:exported="true" />
         <activity
-            android:name=".splash.SplashActivity"
+            android:name="com.team.runnershi.feature.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
         </activity>
 
         <service
-            android:name=".SocketService"
+            android:name=".socket.SocketService"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- naver map cliend id -->
         <meta-data
@@ -47,30 +47,30 @@
             android:value="true" />
 
         <activity
-            android:name=".RunActivity"
+            android:name=".feature.run.RunActivity"
             android:exported="true" />
         <activity
-            android:name=".GoalActivity"
+            android:name=".feature.run.GoalActivity"
             android:exported="true"></activity>
-        <activity android:name=".login.LoginActivity"
+        <activity android:name="com.team.runnershi.feature.login.LoginActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".GoalRunMeActivity"
+            android:name="com.team.runnershi.feature.runalone.GoalRunMeActivity"
             android:exported="true" />
 
         <activity
-            android:name=".MatchProcActivity"
+            android:name=".feature.run.MatchProcActivity"
             android:exported="true" />
-        <activity android:name=".MatchSucActivity" />
+        <activity android:name=".feature.run.MatchSucActivity" />
         <activity
-            android:name=".signup.SignUpActivity"
+            android:name="com.team.runnershi.feature.signup.SignUpActivity"
             android:exported="true" />
-        <activity android:name=".StartRunActivity" />
-        <activity android:name=".countdown.CountDownActivity"
+        <activity android:name=".feature.runcountdown.StartRunActivity" />
+        <activity android:name="com.team.runnershi.feature.runcountdown.CountDownActivity"
             android:exported="true"/>
         <activity
-            android:name=".home.HomeActivity"
+            android:name="com.team.runnershi.feature.home.HomeActivity"
             android:exported="true">
 
         </activity>
@@ -80,15 +80,15 @@
             android:value="true" />
 
         <activity
-            android:name=".result.ResultActivity"
+            android:name="com.team.runnershi.feature.result.ResultActivity"
             android:exported="true" />
-        <activity android:name=".finishrun.FinishRunActivity" />
-        <activity android:name=".RivalActivity" />
+        <activity android:name="com.team.runnershi.feature.finishrun.FinishRunActivity" />
+        <activity android:name=".feature.run.RivalActivity" />
         <activity
-            android:name=".recdetail.RecDetailActivity"
+            android:name="com.team.runnershi.feature.recdetail.RecDetailActivity"
             android:exported="true" />
 
-        <activity android:name=".BadgeDetailActivity"></activity>
+        <activity android:name=".feature.badgedetail.BadgeDetailActivity"></activity>
     </application>
 
 </manifest>

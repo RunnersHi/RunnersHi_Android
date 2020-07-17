@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="40dp"
-    tools:context=".GoalRunMeActivity">
+    tools:context=".feature.runalone.GoalRunMeActivity">
     <ImageView
         android:id="@+id/btn_goal_run_me_back"
         android:layout_width="48dp"

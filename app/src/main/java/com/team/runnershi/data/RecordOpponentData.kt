@@ -10,7 +10,7 @@ data class RecordOpponentData(
     @SerializedName("time")
     val time: String,
     @SerializedName("pace_minute")
-    val pace_minute : Int,
+    val paceMinute: Int,
     @SerializedName("pace_second")
-    val pace_second : Int
+    val paceSecond: Int
 )

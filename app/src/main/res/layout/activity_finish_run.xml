@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".finishrun.FinishRunActivity">
+    tools:context=".feature.finishrun.FinishRunActivity">
 
     <TextView
         android:id="@+id/tv_finishrun_title"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/notosans_blackitalic"
         android:text="FINISH!"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="50sp"
@@ -54,7 +53,7 @@
         app:srcCompat="@drawable/finish_run_activity_illust" />
 
     <Button
-        android:id="@+id/btnFinishRunConfirm"
+        android:id="@+id/btn_finishrun_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
        android:layout_marginHorizontal="54dp"
@@ -63,6 +62,7 @@
         android:text="결과 보러가기"
         android:textSize="16sp"
         android:textColor="@color/white"
+        android:clickable="false"
         android:fontFamily="@font/nanumsquareb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
