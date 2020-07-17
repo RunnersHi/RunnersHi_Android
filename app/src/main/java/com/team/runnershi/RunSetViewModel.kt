@@ -25,9 +25,7 @@ class RunSetViewModel : ViewModel() {
     val ldTotalMeter = MutableLiveData<Int>(0)
     val ldTotalDistString = MutableLiveData<String>("0.00")
     val ldPace = MutableLiveData<String>("00\'00\"")
-    val ldIsKmPassed = MutableLiveData<Boolean>().apply {
-        false
-    }
+    val ldIsKmPassed = MutableLiveData<Boolean>(false)
 
     fun calTotalDistance(curLocation: Location) {
         if (prevLocation == null) {
