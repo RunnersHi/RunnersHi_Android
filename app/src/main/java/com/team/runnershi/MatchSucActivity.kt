@@ -1,7 +1,5 @@
 package com.team.runnershi
 
-import android.app.Activity
-import android.app.ActivityManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -11,6 +9,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.bumptech.glide.Glide
+import com.team.runnershi.countdown.CountDownActivity
 import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_match_suc.*
 

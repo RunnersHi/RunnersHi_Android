@@ -47,6 +47,9 @@ interface RequestInterface {
     @GET("record/recent")
     fun requestRecordRecent(@Header("token") token : String) : Call<ResponseRecordRecent>
 
+    @GET("record/badge/detail/{flag}")
+    fun requestBadgeDetail(@Header("token") token : String, @Path("flag") flag : Int) : Call<ResponseBadgeDetail>
+
     //나와 경쟁하기 관련
     @POST("record/run/post")
     fun requestRecordRunPost(@Header("token") token : String, @Body body : RequestRecordRunPost) : Call<ResponseRecordRunPost>
@@ -54,6 +57,5 @@ interface RequestInterface {
     fun requestRecordRunWithme(@Header("token") token : String, @Body body : RequestRecordRunWithme) : Call<ResponseRecordRunWithme>
     @POST("record/run/withme")
     fun requestRecordRunWithmeAlone(@Header("token") token : String, @Body body : RequestRecordRunWithmeAlone) : Call<ResponseRecordRunWithme>
-
 
 }

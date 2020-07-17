@@ -42,23 +42,23 @@ class AllRecordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         if (splitTimeItem[0] == "00") {
             tv_rec_timetitle1.text = "${splitTimeItem[1]}:${splitTimeItem[2]}"
         } else {
-            tv_rec_timetitle1.text = "${splitTimeItem[0]}:${splitTimeItem[1]}:${splitTimeItem[2]}"
+            tv_rec_timetitle1.text = "${splitTimeItem[0][1]}:${splitTimeItem[1]}:${splitTimeItem[2]}"
 
         }
-
-        tv_rec_disttitle1.text = (getAllrecordContent.distance / 1000.000).toString()
+        var dist_change = getAllrecordContent.distance/1000.0
+        val change_dist = String.format("%.2f", dist_change).toDouble()
+        tv_rec_disttitle1.text = change_dist.toString()
 
 //        val hour = getAllrecordContent.time.toInt()
 //        val minute = (getAllrecordContent.time%3600)/60
 //        val seconds = (getAllrecordContent.time)%(60*60*60)
 //        tv_rec_timetitle1.text = "${hour}:${minute}:${seconds}"
 
-        if (getAllrecordContent.result == 1) {
-            Glide.with(itemView).load(R.drawable.blueline_recbadgefragment_winnerrecord)
-                .into(blueLayout)
-        } else if (getAllrecordContent.result == 2) {
-            Glide.with(itemView).load(R.drawable.grayline_recbadgefragment_winnerrecord)
-                .into(blueLayout)
+        if(getAllrecordContent.result == 1) {
+            Glide.with(itemView).load(R.drawable.blueline___recbadgefragment_winnerrecord).into(blueLayout)
+        }
+        else if(getAllrecordContent.result == 2) {
+            Glide.with(itemView).load(R.drawable.grayline___recbadgefragment_winnerrecord).into(blueLayout)
         }
 
         val runIdx = getAllrecordContent.run_idx
