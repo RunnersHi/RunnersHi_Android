@@ -2,7 +2,10 @@ package com.team.runnershi
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.naver.maps.geometry.LatLng
 import com.team.runnershi.extension.logDebug
+import org.json.JSONArray
+import org.json.JSONObject
 
 class FinishRunViewHolder : ViewModel() {
     val lvIfComeResult = MutableLiveData(false)
