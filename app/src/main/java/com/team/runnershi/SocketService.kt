@@ -15,8 +15,7 @@ import java.net.URISyntaxException
 
 class SocketService : JobIntentService() {
     private val TAG = SocketService::class.simpleName
-    lateinit var socketThread: SocketThread
-    private lateinit var mSocket: Socket
+    private var mSocket: Socket = SingleSocket.getInstance(this@SocketService)
     private var isSocketExist = false
     private val mHost = "http://13.125.20.117:3000/matching"
     private var roomName: String = ""
@@ -25,8 +24,7 @@ class SocketService : JobIntentService() {
     override fun onHandleWork(intent: Intent) {
         if (!isSocketExist) {
             try {
-                socketConnect()
-                "Socket Send Connect".logDebug(this@SocketService)
+//                socketConnect()
             } catch (e: URISyntaxException) {
                 Log.d(
                     TAG,
