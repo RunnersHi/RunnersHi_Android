@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.team.runnershi.R
+import com.team.runnershi.data.RecordRunWithmeData
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
@@ -31,7 +32,17 @@ class ResultActivity : AppCompatActivity() {
         gameIdx = intent.getIntExtra("gameIdx", -1)
         runIdx = intent.getIntExtra("runIdx", -1)
 
-        requestOpponenRecord()
+        if(!intent.hasExtra("matchData")) {
+            requestOpponenRecord()
+        }
+        else{
+            val matchData = intent.getParcelableExtra<RecordRunWithmeData>("matchData")
+            tv_resultrival_rec.text = "${matchData!!.nickname}의 기록"
+            tv_resultrival_distdata.text = convertMtoKm(matchData?.distance!!)
+            tv_resultrival_pacedata.text =
+                convertPace(matchData!!.pace_minute, matchData!!.pace_second)
+            tv_resultrival_timedata.text = convertTime(matchData?.time!!)
+        }
         requestMyRecentRecord()
     }
 
