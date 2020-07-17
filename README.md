@@ -1,17 +1,14 @@
+
 <div align="center" style="display:flex;">
        <img src="https://user-images.githubusercontent.com/57262833/86694398-8764df00-c046-11ea-8afb-5b8b7087dc1b.png" width="300"/>
 </div>
 
-<div align="center">
-    🏃‍♀️ RUNNER'S HI_ANDRIOD  🏃‍♂️
-<br> 러닝을 게임처럼, 러너스하이
-</div>
+## 핵심기능 및 구현화면 정리
 
----
-우리는 '함께' 뛸 때 더 많은 시너지를 만들어냅니다.  
-요즘 세대들은 러닝 크루에 소속되어 러닝을 즐기곤 하지만, Offline 러닝크루는 고정된 시간과 장소라는 한계점을 가지고 있습니다.  
-우리는 **같이 달리고 싶지만, 달릴 수 없는 순간들이 존재한다는 점**에 집중하고자 합니다.  
-우리의 서비스를 통해 시공간의 제약없이 다양한 사람들과 함께 달림으로써 건강한 라이프 스타일을 만들어나가길 바랍니다.   
+### 스플래쉬, 온보딩, 회원가입, 로그인 화면
+- 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
+- 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화\
+
 
 ```
 ✨  기존 러닝 어플리케이션과의 확실한 차별화 요소를 적용했습니다.    
@@ -89,3 +86,60 @@
 | `rundummy` | MatchDummyActivity | 더미데이터와 달리기 매칭 화면 |
 | `signup` | SignUpActivity | 회원가입 화면 | 
 | `splash` | SplashActivity | 스플래시 화면 |
+
+
+## 핵심기능 및 구현화면 정리
+
+### 스플래쉬, 온보딩, 회원가입, 로그인 화면
+- 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
+- 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화\
+
+### 홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
+
+- 홈화면에서 BottomSheetNavigation 사용
+- 매칭화면에서 Socket통신으로 사용자 매칭
+- 러닝화면에서 Socket통신
+- 러닝화면에서 NaverMap 사용으로 지도 기능 구현
+- 나와 경쟁하기 화면에서 TextToSpeeach와 Timer로 음성피드백 기능 구현
+
+### 기록화면, 기록 자세히보기 화면
+
+- 기록자세히 보기화면에서 NaverMap사용으로 러닝 경로 불러오기 
+
+### 뱃지화면, 마이페이지 화면
+
+
+<br>
+<br>
+
+
+### A-2. custom 확장 함수
+
+:point_right: dpToPx.kt
+- xml코드와 달리 kotlin source code에서는 px단위를 사용, dp를 px로 변환해주는 확장함수
+```
+fun Int.dpToPx(resources: Resources): Int = TypedValue
+    .applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this.toFloat(), resources.displayMetrics).toInt()
+```
+</br>
+
+:point_right: logDebug.kt
+- Log 쉽게 볼 수 있도록 해주는 확장함수
+```
+fun String.logDebug(any: Any) {
+    Log.d(any::class.java.simpleName, this)
+}
+
+```
+:point_right: newStartActivity.kt
+- 액티비티 전환 확장함수
+```
+fun <T> Context.newStartActivity(toClass: Class<T>){
+    val intent = Intent(this, toClass)
+    startActivity(intent)
+}
+
+```
+
