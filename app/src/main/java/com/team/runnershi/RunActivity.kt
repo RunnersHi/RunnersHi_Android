@@ -26,6 +26,7 @@ import com.naver.maps.map.overlay.LocationOverlay
 import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.overlay.PathOverlay
 import com.team.runnershi.extension.logDebug
+import com.team.runnershi.finishrun.FinishRunActivity
 import kotlinx.android.synthetic.main.activity_run.*
 import java.text.SimpleDateFormat
 import java.util.*
