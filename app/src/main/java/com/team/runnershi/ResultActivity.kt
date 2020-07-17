@@ -1,5 +1,6 @@
 package com.team.runnershi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
@@ -19,8 +20,8 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
-
         requestResult()
+        initButton()
     }
 
 
@@ -181,6 +182,18 @@ class ResultActivity : AppCompatActivity() {
                     )
                 }
             })
+    }
+
+    private fun initButton(){
+        btn_detail_rec.setOnClickListener {
+            "From ResultActivity to RecDetail (runIdx :$runIdx) (gameIdx: $gameIdx)".logDebug(this@ResultActivity)
+            Intent(this@ResultActivity, RecDetailActivity::class.java)
+                .also {intent ->
+                    intent.putExtra("runIdx", runIdx)
+                    intent.putExtra("gameIdx", gameIdx)
+                    startActivity(intent)
+                }
+        }
     }
 
 
