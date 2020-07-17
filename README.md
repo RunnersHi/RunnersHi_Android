@@ -37,16 +37,16 @@
 ### A-2. custom 확장 함수
 
 :point_right: dpToPx.kt
+::xml코드와 kotlin source code에서는 px단위를 사용, dp를 px로 변환해주는 확장함수
 ```
 fun Int.dpToPx(resources: Resources): Int = TypedValue
     .applyDimension(
         TypedValue.COMPLEX_UNIT_DIP,
         this.toFloat(), resources.displayMetrics).toInt()
-        
 ```
 
 :point_right: logDebug.kt
-
+Log 쉽게 볼 수 있도록 해주는 확장함수 사용
 ```
 fun String.logDebug(any: Any) {
     Log.d(any::class.java.simpleName, this)
@@ -54,6 +54,7 @@ fun String.logDebug(any: Any) {
 
 ```
 :point_right: newStartActivity.kt
+액티비티 전환 확장함수
 ```
 fun <T> Context.newStartActivity(toClass: Class<T>){
     val intent = Intent(this, toClass)
