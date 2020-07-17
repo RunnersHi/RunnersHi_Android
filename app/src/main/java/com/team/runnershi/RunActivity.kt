@@ -108,7 +108,10 @@ class RunActivity : AppCompatActivity() {
         currentLocation?.let {
             locationOverLay?.position = LatLng(it)
             runSetViewModel.ldCurrentLocation.postValue(it)
-            runSetViewModel.pathUpdate(currentLocation)
+            runSetViewModel.pathUpdate(it)
+            runSetViewModel.calTotalDistance(it)
+            runSetViewModel.calPace(it)
+            runSetViewModel.prevLocation = it
         }
 
         socketReceiver = RunRecevier()
@@ -195,8 +198,6 @@ class RunActivity : AppCompatActivity() {
 
         initMap()
 
-
-
         Glide.with(this).load(R.drawable.icon_unlock).into(btn_run_lock)
     }
 
@@ -236,6 +237,7 @@ class RunActivity : AppCompatActivity() {
         45 * 60 -> "45:00"
         60 * 60 -> "60:00"
         90 * 60 -> "1:30:00"
+        2 * 60 -> "02:00"
         else -> "--:--"
     }
 
@@ -262,17 +264,19 @@ class RunActivity : AppCompatActivity() {
 
     private inner class RunLocationListener : LocationListener {
         override fun onLocationChanged(location: Location) {
+            "OnLocationChanged".logDebug(this@RunActivity)
             runSetViewModel.ldCurrentLocation.postValue(location)
+            runSetViewModel.calTotalDistance(location)
+            runSetViewModel.calPace(location)
             naverMap?.let {
                 it.moveCamera(CameraUpdate.scrollTo(LatLng(location)))
-                 runSetViewModel.pathUpdate(location)
+                runSetViewModel.pathUpdate(location)
                 locationOverLay.apply {
                     this.position = LatLng(location)
                     this.bearing = location.bearing
                 }
-
-
             }
+            runSetViewModel.prevLocation = location
         }
 
         override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
