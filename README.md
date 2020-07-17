@@ -32,13 +32,11 @@
 
 
 
-
-
 ## :pig: A-1. ConstraintLayout 사용한 화면 개발
 
 </br>
 
-:point_right: activity_login.xml
+#### :point_right: activity_login.xml
 - activity_login.xml의 뷰들을 가운데 정렬하기 위해 guideline으로 g_left,g_right를 사용했다
 - edt_login_id, edt_login_pw, btn_login_confirm에 0dp로 match_constraint속성을 적용하여 guideline 범위내에 꽉차게 맞췄다.
 - 아이디/비밀번호 버튼인 tv_login_sign_find는 layout_constraintStart_toEndOf="@id/tv_login_sign_up"으로 회원가입 버튼과 연관성있는 제약조건을 걸어주었다.
@@ -61,7 +59,7 @@
 
 </br>
 
-:point_right: activity_sign_up.xml
+#### :point_right: activity_sign_up.xml
 - activity_sign_up.xml내의 뷰들을 가운데로 정렬하기 위해 margin_vertical 대신 guideLine인 g_left,g_right를 사용했다.
 - edt_sign_up_id,edt_sign_up_nick_name,edt_sign_up_pw,edt_sign_up_pw_confirm에 android:layout_width="0dp"으로 guideLine에 꽉차도록 match_constraint속성을 걸어주었다.
 - 중복확인버튼인 btn_sign_up_id_confirm에 layout_constraintTop_toTopOf="@+id/edt_sign_up_id" 속성을 주어 아이디입력칸과 연관성있는 제약조건을 걸어주었다.
@@ -87,7 +85,7 @@
 
 </br>
 
-:point_right: activity_on_board.xml4
+#### :point_right: activity_on_board.xml4
 - 화면의 중앙에 위치한 4단계로 분류된 온보딩 뷰를 좌, 우로 넘겨보기 위해 ViewPager를 활용하여 각 화면들을 fragment로 구성했다.
 - Fragment가 들어갈 ViewPager를 dot indicator가 있는 상단의 ConstraintLayout과 textView Button이 있는 하단 ConstraintLayout와 연동한뒤, layout_width는 match_parent로, layout_height는 0dp로 줌으로서 match_contraint를 준다.
 
@@ -124,6 +122,9 @@
 
 
 
+
+
+## :pig: A-2. Kotlin을 이용한 프로그래밍
 ### :running: Kotlin Collection 확장함수 사용
 - 서버와 위도, 경도 데이터를 소켓통신하기 위하여, 기존의 ArrayList를 JSONArray로 변환하는 함수
 ~~~
@@ -139,8 +140,7 @@
  }
 ~~~
 
-## :pig: A-3. Custom 확장 함수 
-:point_right: dpToPx.kt
+#### :point_right: dpToPx.kt
 - xml코드와 달리 kotlin source code에서는 px단위를 사용, dp를 px로 변환해주는 확장함수
 ```
 fun Int.dpToPx(resources: Resources): Int = TypedValue
@@ -150,7 +150,7 @@ fun Int.dpToPx(resources: Resources): Int = TypedValue
 ```
 </br>
 
-:point_right: logDebug.kt
+#### :point_right: logDebug.kt
 - Log 쉽게 볼 수 있도록 해주는 확장함수
 ```
 fun String.logDebug(any: Any) {
@@ -272,7 +272,7 @@ https://user-images.githubusercontent.com/63635840/87809182-e7088900-c895-11ea-9
 https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png
 <div>
 
-#### 홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
+#### :point_right:  홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
 <div align="center" style="display:flex;">
        <img src=https://user-images.githubusercontent.com/57262833/87808693-1e2a6a80-c895-11ea-8534-65c65cad4e7b.png alt="drawing" width="300"/> 
        <img src="https://user-images.githubusercontent.com/57262833/87808723-2e424a00-c895-11ea-8bf8-b8035b5cc351.png" width="300"/>
@@ -287,7 +287,7 @@ https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8
 - 러닝화면에서 실시간으로 이동시간, 러닝거리, 페이스 보여줌
 - 나와 경쟁하기 화면에서 TextToSpeeach와 Timer로 음성피드백 기능 구현
 
-#### 기록화면, 기록 자세히보기 화면
+#### :point_right: 기록화면, 기록 자세히보기 화면
 <div align="center" style="display:flex;" >
        <img src=https://user-images.githubusercontent.com/57262833/87809342-35b62300-c896-11ea-9b03-4a22b25458f0.png alt="drawing" width="300"/> 
        <img src=https://user-images.githubusercontent.com/57262833/87809345-36e75000-c896-11ea-881e-13690eeb4895.png alt="drawing" width="300"/> 
@@ -296,7 +296,7 @@ https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8
 - 기록화면에서 매칭상대방과 러닝 기록 비교 가능 및 승패 여부 보여줌
 - 기록자세히 보기화면에서 NaverMap사용으로 러닝 경로 불러오기 
 
-#### 뱃지화면, 마이페이지 화면
+#### :fire: 뱃지화면, 마이페이지 화면
 
 
 <br>
