@@ -1,4 +1,4 @@
-package com.team.runnershi
+package com.team.runnershi.socket
 
 import android.content.Context
 import android.content.Intent
@@ -9,7 +9,6 @@ import androidx.core.app.JobIntentService
 import com.naver.maps.geometry.LatLng
 import com.team.runnershi.extension.logDebug
 import io.socket.client.IO
-import io.socket.client.Manager
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
 import org.json.JSONArray
@@ -382,7 +381,8 @@ class SocketService : JobIntentService() {
     companion object {
         const val JOB_ID = 1001
         fun enqueueWork(context: Context, work: Intent) {
-            enqueueWork(context, SocketService::class.java, JOB_ID, work)
+            enqueueWork(context, SocketService::class.java,
+                JOB_ID, work)
         }
     }
 }

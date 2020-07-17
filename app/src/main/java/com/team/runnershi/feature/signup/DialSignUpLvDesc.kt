@@ -1,4 +1,4 @@
-package com.team.runnershi.signup
+package com.team.runnershi.feature.signup
 
 import android.app.Dialog
 import android.content.Context

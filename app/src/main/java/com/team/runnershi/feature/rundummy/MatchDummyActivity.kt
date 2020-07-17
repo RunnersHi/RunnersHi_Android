@@ -1,17 +1,12 @@
-package com.team.runnershi.rundummy
+package com.team.runnershi.feature.rundummy
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.SystemClock.sleep
-import android.util.Log
 import com.team.runnershi.R
-import com.team.runnershi.countdown.CountDownActivity
-import com.team.runnershi.data.RequestDummyData
+import com.team.runnershi.feature.runcountdown.CountDownActivity
 import com.team.runnershi.data.RecordRunWithmeData
-import com.team.runnershi.extension.customEnqueue
-import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
 import kotlinx.android.synthetic.main.activity_match_dummy.*
 

@@ -1,12 +1,10 @@
-package com.team.runnershi.countdown
+package com.team.runnershi.feature.runcountdown
 
 import android.animation.Animator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.view.WindowManager
 import com.team.runnershi.R
-import com.team.runnershi.StartRunActivity
 import com.team.runnershi.data.RecordRunWithmeData
 import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_count_down.*

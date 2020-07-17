@@ -1,4 +1,4 @@
-package com.team.runnershi.signup
+package com.team.runnershi.feature.signup
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.team.runnershi.home.HomeActivity
+import com.team.runnershi.feature.home.HomeActivity
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.R
 import com.team.runnershi.data.RequestConfirm
@@ -18,7 +18,6 @@ import com.team.runnershi.extension.textChangeListener
 import com.team.runnershi.network.RequestToServer
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
-import kotlinx.android.synthetic.main.activity_goal.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 
