@@ -258,24 +258,24 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 #### 스플래쉬, 온보딩, 회원가입, 로그인 화면
 
 - 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
-<br>
+</br>
 <div>
 <img width="230" src=https://user-images.githubusercontent.com/63635840/87809124-ccceab00-c895-11ea-8dd0-be8d5585c50b.png>
 <img width="230" src=https://user-images.githubusercontent.com/63635840/87809129-cfc99b80-c895-11ea-9729-6ed4e04e29a5.png>
 <img width="230" src=https://user-images.githubusercontent.com/63635840/87809139-d2c48c00-c895-11ea-805c-a96e082e3669.png>
 <img width="230" src=https://user-images.githubusercontent.com/63635840/87809146-d48e4f80-c895-11ea-8a2d-4034611cdb98.png>
 <div>
-<br>
-<br>
+</br>
+</br>
 <div>
 <img width="250" src=https://user-images.githubusercontent.com/63635840/87809182-e7088900-c895-11ea-9e9c-278edffeedba.png>
 <img width="250" src=https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png>
 <div>
-<br>
-<br>
+</br>
+</br>
 - 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화
-<br>
-<br>
+</br>
+</br>
 <div>
 <img width="250" src=https://user-images.githubusercontent.com/63635840/87810040-529f2600-c897-11ea-9ede-dbfe3a1d0c84.png>
 <img width="250" src=https://user-images.githubusercontent.com/63635840/87810058-56cb4380-c897-11ea-87a0-1a096e193a6e.png>
@@ -313,27 +313,29 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 - 기록자세히 보기화면에서 NaverMap사용으로 러닝 경로 불러오기 
 
 #### :fire: 나의 러닝 기록 화면, 뱃지화면
-<br>
+</br>
 <div>
 <img width="150" src=https://user-images.githubusercontent.com/63635840/87827843-a836fb00-c8b6-11ea-9552-9eb459b5c2bc.png>
 <img width="150" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
 <img width="150" src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
 <img width="150" src=https://user-images.githubusercontent.com/63635840/87828264-85f1ad00-c8b7-11ea-96c1-dd42b9717c36.png>
 <div>
-<br>
+</br>
       
  - 탭 레이아웃 fragment의 좌, 우측에 위치한 러닝기록, 러닝배지 뷰이다.
  - 나의 모든 기록과 승패, 기록을 볼 수 있으며 클릭시 기록 상세보기 뷰를 볼 수 있다.
  - 러닝배지는 자신이 보유한 모든 배지를 볼 수 있으며, 배지 클릭시 배지 상세보기를 할 수 있다.
 
-<br>
-<br>
+</br>
+</br>
 
 #### :fire: 랭킹, 마이 프로필 뷰
-<br>
+</br>
 <div>
 <img width="270" src=https://user-images.githubusercontent.com/63635840/87827938-de747a80-c8b6-11ea-9dc8-a86c9fef7517.png>
 <img width="270" src=https://user-images.githubusercontent.com/63635840/87827911-cac91400-c8b6-11ea-8d61-71cba39189bd.png>
 <div>
-<br>
- - 랭킹뷰에서 이달의 러너, 명예의 전당, 졌잘싸에 대한 상대방의 랭킹을 확인해볼 수 있으며, 마이 프로필에서 나의 레벨, 전적, 배지들을 확인할 수 있으며 아래로 스크롤하여 로그아웃 버튼을 통해 로그 아웃을 할 수 있다.
+</br>
+       
+ - 랭킹뷰에서 이달의 러너, 명예의 전당, 졌잘싸에 대한 상대방의 랭킹을 확인해볼 수 있다.
+ - 마이 프로필에서 나의 레벨, 전적, 배지들을 확인할 수 있으며 아래로 스크롤하여 로그아웃 버튼을 통해 로그 아웃을 할 수 있다.
