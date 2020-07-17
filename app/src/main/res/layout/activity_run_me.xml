@@ -170,11 +170,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ly_run_me_rec"
             android:layout_width="0dp"
-            android:layout_height="353dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="29dp"
             android:background="@drawable/bg_run_rec"
             android:elevation="12dp"
             android:paddingStart="30dp"
+            android:paddingBottom="24dp"
             app:layout_constraintEnd_toEndOf="@id/tv_run_me_end"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@id/tv_run_me_start"
@@ -248,13 +249,10 @@
                 android:fontFamily="@font/ff_notosans"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="12sp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="24dp"
                 android:text="00&apos;00&quot;"
                 android:textColor="@color/black"
                 android:textFontWeight="400"
                 android:textSize="35sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_run_me_pace_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_run_me_pace_title" />
 
