@@ -178,6 +178,16 @@ class RunActivity : AppCompatActivity() {
         SocketService.enqueueWork(this, work)
     }
 
+    private fun sendEndRunning(roomName: String, distance: Int) {
+        val work = Intent()
+            .apply {
+                putExtra("serviceFlag", "endRunning")
+                putExtra("roomName", roomName)
+                putExtra("distance", distance)
+            }
+        SocketService.enqueueWork(this, work)
+    }
+
     private fun initUi() {
         roomName = intent.getStringExtra("roomName")!!
         val profileImage: Int = getProfileImage()
