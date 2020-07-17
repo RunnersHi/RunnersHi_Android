@@ -252,7 +252,7 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 
 ### 스플래쉬, 온보딩, 회원가입, 로그인 화면
 - 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
-- 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화
+
 <br>
 <div>
 <img width="200" src=https://user-images.githubusercontent.com/63635840/87809124-ccceab00-c895-11ea-8dd0-be8d5585c50b.png>
@@ -266,6 +266,13 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 <img width="200" src=https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png>
 <div>
 
+- 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화
+<br>
+<div>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87810040-529f2600-c897-11ea-9ede-dbfe3a1d0c84.png>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87810058-56cb4380-c897-11ea-87a0-1a096e193a6e.png>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87810066-592d9d80-c897-11ea-84e0-e3ccc2632f63.png>
+<div>
 ### 홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
 
 - 홈화면에서 BottomSheetNavigation 사용
