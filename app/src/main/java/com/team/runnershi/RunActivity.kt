@@ -35,7 +35,7 @@ class RunActivity : AppCompatActivity() {
     private var roomName = ""
     private var runtime = -1
     private var finalDist = -1
-    private var finalCoords = ArrayList<List<Double>>()
+    private var finalCoords = arrayListOf<LatLng>()
     private var finalCreatedTime = ""
     private var finalEndTime = ""
 
@@ -287,4 +287,21 @@ class RunActivity : AppCompatActivity() {
     }
 
 
+                    Intent(
+                        this@RunActivity,
+                        FinishRunActivity::class.java
+                    ).also { intent ->
+                        intent.putExtra("roomName", roomName)
+                        intent.putExtra("distance", finalDist)
+                        intent.putExtra("runtime", runtime)
+                        intent.putExtra("coordinates", finalCoords)
+                        intent.putExtra("createdTime", finalCreatedTime)
+                        intent.putExtra("endTime", finalEndTime)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+            }
+        }
+    }
 }
