@@ -1,19 +1,21 @@
 package com.team.runnershi
 
 import android.animation.Animator
-import android.animation.ValueAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.airbnb.lottie.LottieOnCompositionLoadedListener
+import android.view.WindowManager
 import com.team.runnershi.data.RecordRunWithmeData
 import com.team.runnershi.extension.logDebug
-import com.team.runnershi.runme.RunMeFragment
 import kotlinx.android.synthetic.main.activity_start_run.*
 
 class StartRunActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
         setContentView(R.layout.activity_start_run)
 
         initUi()
@@ -69,7 +71,7 @@ class StartRunActivity : AppCompatActivity() {
 
     fun runWithMe() {
         val matchData = intent.getParcelableExtra<RecordRunWithmeData>("matchData")
-        val intent = Intent(this@StartRunActivity, RunMeFragment::class.java)
+        val intent = Intent(this@StartRunActivity, RunMeActivity::class.java)
         intent.putExtra("matchData", matchData)
         startActivity(intent)
     }
