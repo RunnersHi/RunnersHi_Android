@@ -50,8 +50,9 @@ class FinishRunActivity : AppCompatActivity() {
                 ResultActivity::class.java
             ).also { intent ->
                 intent.putExtra("gameIdx", gameIdx)
-                intent.putExtra("rundIdx", runIdx)
+                intent.putExtra("runIdx", runIdx)
                 startActivity(intent)
+                finish()
             }
         }
     }
@@ -68,7 +69,7 @@ class FinishRunActivity : AppCompatActivity() {
         val roomName = intent.getStringExtra("roomName")
         val distance = intent.getIntExtra("distance", -1)
         val runtime = intent.getIntExtra("runtime", -1)
-        val coordinates = intent.getSerializableExtra("coordinates")
+        val coordinates  = intent.getSerializableExtra("coordinates")
         val createdTime = intent.getStringExtra("createdTime")
         val endTime = intent.getStringExtra("endTime")
 
