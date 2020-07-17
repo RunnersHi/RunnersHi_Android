@@ -96,6 +96,7 @@
             android:ems="10"
             android:inputType="textPersonName|textNoSuggestions"
             android:hint= "아이디를 입력하세요"
+            android:fontFamily="@font/nanumsquarer"
             android:textColor="@color/brown_grey"
             android:singleLine="true"
             android:background="@drawable/grey_round_background"
@@ -153,6 +154,7 @@
             android:layout_marginTop="6dp"
             android:layout_marginRight="8dp"
             android:textSize="14sp"
+            android:fontFamily="@font/nanumsquarer"
             android:background="@drawable/grey_round_background"
             android:ems="10"
             android:inputType="textPersonName|textNoSuggestions"
@@ -172,6 +174,8 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="6dp"
             android:lineSpacingExtra="13sp"
+
+            android:fontFamily="@font/nanumsquarer"
             android:text="2-6자 한글, 영문, 숫자를 사용하세요. "
             android:visibility="invisible"
             android:textColor="@color/grapefruit"
@@ -200,6 +204,8 @@
             android:layout_marginTop="6dp"
             android:background="@drawable/grey_round_background"
             android:ems="10"
+
+            android:fontFamily="@font/nanumsquarer"
             android:inputType="textPassword|textNoSuggestions"
             android:paddingVertical="14dp"
             android:paddingLeft="12dp"
@@ -216,6 +222,8 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="6dp"
             android:lineSpacingExtra="13sp"
+
+            android:fontFamily="@font/nanumsquarer"
             android:text="8-16자 영문 대/소문자, 숫자, 특수문자를 사용하세요"
             android:textColor="@color/grapefruit"
             android:textSize="12sp"
@@ -244,6 +252,8 @@
             android:layout_marginTop="6dp"
             android:background="@drawable/grey_round_background"
             android:ems="10"
+
+            android:fontFamily="@font/nanumsquarer"
             android:inputType="textPassword|textNoSuggestions"
             android:paddingVertical="14dp"
             android:paddingLeft="12dp"
@@ -262,6 +272,7 @@
             android:lineSpacingExtra="13sp"
             android:text="설정하신 비밀번호와 다릅니다. "
             android:textColor="@color/grapefruit"
+            android:fontFamily="@font/nanumsquarer"
             android:textSize="12sp"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@id/g_left"
@@ -302,7 +313,8 @@
                 android:gravity="center"
                 android:paddingVertical="18dp"
                 android:text="남성"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquareb"/>
 
             <RadioButton
                 android:id="@+id/btn_sign_up_woman"
@@ -314,7 +326,8 @@
                 android:gravity="center"
                 android:paddingVertical="18dp"
                 android:text="여성"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquareb"/>
         </RadioGroup>
 
         <TextView
@@ -339,6 +352,7 @@
             android:textColor="#656565"
             android:lineSpacingExtra="11sp"
             android:text="@string/what_is_running_level"
+            android:fontFamily="@font/nanumsquarer"
             app:layout_constraintStart_toStartOf="@id/g_left"
             app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_lv"
             />
@@ -364,7 +378,8 @@
                 android:gravity="center"
                 android:paddingVertical="18dp"
                 android:text="초급"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquareb" />
 
             <RadioButton
                 android:id="@+id/btn_sign_up_mid_lv"
@@ -377,7 +392,8 @@
                 android:gravity="center"
                 android:paddingVertical="18dp"
                 android:text="중급"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquareb" />
 
             <RadioButton
                 android:id="@+id/btn_sign_up_high_lv"
@@ -389,7 +405,8 @@
                 android:gravity="center"
                 android:paddingVertical="18dp"
                 android:text="고급"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquareb" />
         </RadioGroup>
 
         <TextView
@@ -413,6 +430,7 @@
             android:textSize="12sp"
             android:textColor="#656565"
             android:lineSpacingExtra="11sp"
+            android:fontFamily="@font/nanumsquarer"
             android:text="'공개'를 선택해야 나의 러너 랭킹을 확인할 수 있어요."
             app:layout_constraintStart_toStartOf="@id/g_left"
             app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_reveal_set"
@@ -439,7 +457,8 @@
                 android:gravity="center"
                 android:paddingVertical="18dp"
                 android:text="공개"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquareb" />
 
             <RadioButton
                 android:id="@+id/btn_sign_up_un_reveal"
@@ -451,7 +470,8 @@
                 android:gravity="center"
                 android:paddingVertical="18dp"
                 android:text="비공개"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquareb" />
         </RadioGroup>
 
         <TextView
@@ -468,6 +488,7 @@
             android:text="가입하기"
             android:textColor="#ffffff"
             android:textSize="16sp"
+            android:fontFamily="@font/nanumsquareb"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
