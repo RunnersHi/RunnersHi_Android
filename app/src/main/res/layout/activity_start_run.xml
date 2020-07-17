@@ -11,14 +11,14 @@
         android:id="@+id/ani_run"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="run"
         android:background="@color/lightish_blue"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="run.json"
+        android:contentDescription="run"
         app:layout_constraintBottom_toBottomOf="@+id/ani_coundown_number"
         app:layout_constraintEnd_toEndOf="@+id/ani_coundown_number"
         app:layout_constraintStart_toStartOf="@+id/ani_coundown_number"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="run.json" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
