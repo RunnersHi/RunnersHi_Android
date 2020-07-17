@@ -322,6 +322,11 @@ class RunActivity : AppCompatActivity() {
         val REQUEST_LOCATION_PERMISSION_CODE = 1000;
     }
 
+    inner class RunRecevier() : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            when (intent?.action) {
+                "com.team.runnershi.RESULT_END_RUNNING" -> {
+                    roomName = intent.getStringExtra("roomName")!!
 
                     Intent(
                         this@RunActivity,
