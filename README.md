@@ -261,12 +261,15 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 <img width="200" src=https://user-images.githubusercontent.com/63635840/87809146-d48e4f80-c895-11ea-8a2d-4034611cdb98.png>
 <div>
 <br>
+<br>
 <div>
 <img width="200" src=https://user-images.githubusercontent.com/63635840/87809182-e7088900-c895-11ea-9e9c-278edffeedba.png>
 <img width="200" src=https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png>
 <div>
-
+<br>
+<br>
 - 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화
+<br>
 <br>
 <div>
 <img width="200" src=https://user-images.githubusercontent.com/63635840/87810040-529f2600-c897-11ea-9ede-dbfe3a1d0c84.png>
