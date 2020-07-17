@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:paddingVertical="16dp"
+    android:background="@color/white"
     tools:context=".feature.recdetail.RecDetailActivity">
 
     <ImageView
@@ -22,10 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/nanumsquareb"
         android:text="6월 17일의 러닝"
         android:textColor="@color/black"
         android:textSize="18sp"
+        android:fontFamily="@font/nanumsquareb"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRecDetailBack" />
 
@@ -35,11 +39,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
-        android:fontFamily="@font/nanumsquarer"
-        android:lineSpacingExtra="10sp"
         android:text="오후 6:18 - 6:28"
         android:textColor="@color/brownish_grey"
+        android:lineSpacingExtra="10sp"
         android:textSize="14sp"
+        android:fontFamily="@font/nanumsquarer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRecDetailBack" />
 
@@ -49,8 +53,8 @@
         android:layout_height="256dp"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_marginHorizontal="18dp"
-        android:layout_marginTop="10dp"
         app:cardCornerRadius="12dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRecDetailDate">
@@ -58,25 +62,12 @@
         <fragment
             android:id="@+id/mapv_rec_detail"
             android:name="com.naver.maps.map.MapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>
 
     </androidx.cardview.widget.CardView>
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:paddingHorizontal="18dp"
-        android:paddingVertical="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cv_rec_detail">
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_my_record"
@@ -85,7 +76,7 @@
             android:background="@drawable/bluebox_recdetailactivity"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/cv_rec_detail">
 
             <TextView
                 android:id="@+id/tvRecDetailDistData"
@@ -108,10 +99,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:fontFamily="@font/nanumsquarer"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="6sp"
                 android:text="킬로미터"
+                android:fontFamily="@font/nanumsquarer"
                 android:textColor="@color/brownish_grey"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -124,58 +115,58 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="42dp"
                 android:layout_marginTop="4dp"
-                android:fontFamily="@font/notosans_extrabolditalic"
-                android:gravity="center_horizontal"
                 android:lineSpacingExtra="12sp"
+                android:gravity="center_horizontal"
                 android:text="8’22”"
                 android:textColor="@color/black"
                 android:textSize="34sp"
+                android:fontFamily="@font/notosans_extrabolditalic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvRecDetailDistTitle" />
 
             <TextView
                 android:id="@+id/tvRecDetailPace"
+                android:layout_marginTop="2dp"
+                android:text="평균 페이스"
+                android:layout_marginBottom="28dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="28dp"
-                android:fontFamily="@font/nanumsquarer"
-                android:gravity="center_horizontal"
-                android:lineSpacingExtra="6sp"
-                android:text="평균 페이스"
-                android:textColor="@color/brownish_grey"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/brownish_grey"
+                android:lineSpacingExtra="6sp"
+                android:gravity="center_horizontal"
+                android:fontFamily="@font/nanumsquarer"
                 app:layout_constraintEnd_toEndOf="@+id/tvRecDetailPaceData"
                 app:layout_constraintStart_toStartOf="@+id/tvRecDetailPaceData"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvRecDetailPaceData" />
 
             <TextView
                 android:id="@+id/tvRecDetailTimeData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="40dp"
-                android:fontFamily="@font/notosans_extrabolditalic"
-                android:gravity="center_horizontal"
-                android:lineSpacingExtra="12sp"
                 android:text="30:00"
-                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textSize="34sp"
+                android:textColor="@color/black"
+                android:lineSpacingExtra="12sp"
+                android:gravity="center_horizontal"
+                android:fontFamily="@font/notosans_extrabolditalic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvRecDetailDistTitle" />
 
             <TextView
                 android:id="@+id/tvRecDetailTimeTitle"
+                android:layout_marginTop="2dp"
+                android:text="러닝시간"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/nanumsquarer"
-                android:gravity="center_horizontal"
-                android:lineSpacingExtra="6sp"
-                android:text="러닝시간"
-                android:textColor="@color/brownish_grey"
                 android:textSize="14sp"
+                android:textColor="@color/brownish_grey"
+                android:lineSpacingExtra="6sp"
+                android:gravity="center_horizontal"
+                android:fontFamily="@font/nanumsquarer"
                 app:layout_constraintEnd_toEndOf="@+id/tvRecDetailTimeData"
                 app:layout_constraintStart_toStartOf="@+id/tvRecDetailTimeData"
                 app:layout_constraintTop_toBottomOf="@+id/tvRecDetailTimeData"
@@ -185,124 +176,122 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_rival_record"
-            android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_rival_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/smallwhitebox_recdetailactivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_my_record">
+
+
+        <TextView
+            android:id="@+id/tvRecDetailRivalRecord"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/smallwhitebox_recdetailactivity"
+            android:layout_marginTop="26dp"
+            android:fontFamily="@font/nanumsquarer"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6sp"
+            android:text="성북천치타의 기록"
+            android:textColor="@color/black"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cl_my_record">
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tvRecDetailRivalDistData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/notosans_extrabolditalic"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="10sp"
+            android:text="4.23"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
 
-            <TextView
-                android:id="@+id/tvRecDetailRivalRecord"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
-                android:fontFamily="@font/nanumsquarer"
-                android:gravity="center_horizontal"
-                android:lineSpacingExtra="6sp"
-                android:text="성북천치타의 기록"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvRecDetailRivalDiscTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="26dp"
+            android:fontFamily="@font/nanumsquarer"
+            android:text="킬로미터"
+            android:textColor="@color/brownish_grey"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalDistData"
+            app:layout_constraintStart_toStartOf="@+id/tvRecDetailRivalDistData"
+            app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalDistData" />
 
-            <TextView
-                android:id="@+id/tvRecDetailRivalDistData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/notosans_extrabolditalic"
-                android:gravity="center_horizontal"
-                android:lineSpacingExtra="10sp"
-                android:text="4.23"
-                android:textColor="@color/black"
-                android:textSize="26sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
+        <TextView
+            android:id="@+id/tvRecDetailRivalPaceData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/notosans_extrabolditalic"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="10sp"
+            android:text="6’88’’"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
 
-            <TextView
-                android:id="@+id/tvRecDetailRivalDiscTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="26dp"
-                android:fontFamily="@font/nanumsquarer"
-                android:text="킬로미터"
-                android:textColor="@color/brownish_grey"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalDistData"
-                app:layout_constraintStart_toStartOf="@+id/tvRecDetailRivalDistData"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalDistData" />
+        <TextView
+            android:id="@+id/tvRecDetailRivalPaceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="26dp"
+            android:fontFamily="@font/nanumsquarer"
+            android:text="페이스"
+            android:textColor="@color/brownish_grey"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalPaceData"
+            app:layout_constraintStart_toStartOf="@+id/tvRecDetailRivalPaceData"
+            app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalPaceData" />
 
-            <TextView
-                android:id="@+id/tvRecDetailRivalPaceData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/notosans_extrabolditalic"
-                android:gravity="center_horizontal"
-                android:lineSpacingExtra="10sp"
-                android:text="6’88’’"
-                android:textColor="@color/black"
-                android:textSize="26sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
+        <TextView
+            android:id="@+id/tvRecDetailRivalTimeData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="36dp"
+            android:fontFamily="@font/notosans_extrabolditalic"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="10sp"
+            android:text="1:30:00"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
 
-            <TextView
-                android:id="@+id/tvRecDetailRivalPaceTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="26dp"
-                android:fontFamily="@font/nanumsquarer"
-                android:text="페이스"
-                android:textColor="@color/brownish_grey"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalPaceData"
-                app:layout_constraintStart_toStartOf="@+id/tvRecDetailRivalPaceData"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalPaceData" />
+        <TextView
+            android:id="@+id/tvRecDetailRivalTimeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="26dp"
+            android:fontFamily="@font/nanumsquarer"
+            android:text="러닝시간"
+            android:textColor="@color/brownish_grey"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalTimeData"
+            app:layout_constraintStart_toStartOf="@+id/tvRecDetailRivalTimeData"
+            app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalTimeData" />
 
-            <TextView
-                android:id="@+id/tvRecDetailRivalTimeData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="36dp"
-                android:fontFamily="@font/notosans_extrabolditalic"
-                android:gravity="center_horizontal"
-                android:lineSpacingExtra="10sp"
-                android:text="1:30:00"
-                android:textColor="@color/black"
-                android:textSize="26sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
-
-            <TextView
-                android:id="@+id/tvRecDetailRivalTimeTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="26dp"
-                android:fontFamily="@font/nanumsquarer"
-                android:text="러닝시간"
-                android:textColor="@color/brownish_grey"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalTimeData"
-                app:layout_constraintStart_toStartOf="@+id/tvRecDetailRivalTimeData"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalTimeData" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

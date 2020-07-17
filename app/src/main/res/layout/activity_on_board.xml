@@ -17,6 +17,7 @@
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp" />
 
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_on_board"
         android:layout_width="match_parent"
@@ -24,9 +25,10 @@
         android:layout_marginTop="26dp"
         app:layout_constraintBottom_toTopOf="@+id/constraint_id"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/indicator_on_board" />
-
+        app:layout_constraintTop_toBottomOf="@id/indicator_on_board"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_id"

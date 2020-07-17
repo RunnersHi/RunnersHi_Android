@@ -1,5 +1,3 @@
-
-
 <div align="center" style="display:flex;">
        <img src=https://user-images.githubusercontent.com/57262833/87799675-7c048580-c888-11ea-8bbb-ec6c4e5c769e.png alt="drawing" width="600"/> 
        <img src="https://user-images.githubusercontent.com/57262833/87800520-73f91580-c889-11ea-9a2f-ef43cf60a361.png" width="300"/>
@@ -260,24 +258,24 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 #### 스플래쉬, 온보딩, 회원가입, 로그인 화면
 
 - 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
-<br>
+</br>
 <div>
 <img width="230" src=https://user-images.githubusercontent.com/63635840/87809124-ccceab00-c895-11ea-8dd0-be8d5585c50b.png>
 <img width="230" src=https://user-images.githubusercontent.com/63635840/87809129-cfc99b80-c895-11ea-9729-6ed4e04e29a5.png>
 <img width="230" src=https://user-images.githubusercontent.com/63635840/87809139-d2c48c00-c895-11ea-805c-a96e082e3669.png>
 <img width="230" src=https://user-images.githubusercontent.com/63635840/87809146-d48e4f80-c895-11ea-8a2d-4034611cdb98.png>
 <div>
-<br>
-<br>
+</br>
+</br>
 <div>
 <img width="250" src=https://user-images.githubusercontent.com/63635840/87809182-e7088900-c895-11ea-9e9c-278edffeedba.png>
 <img width="250" src=https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png>
 <div>
-<br>
-<br>
+</br>
+</br>
 - 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화
-<br>
-<br>
+</br>
+</br>
 <div>
 <img width="250" src=https://user-images.githubusercontent.com/63635840/87810040-529f2600-c897-11ea-9ede-dbfe3a1d0c84.png>
 <img width="250" src=https://user-images.githubusercontent.com/63635840/87810058-56cb4380-c897-11ea-87a0-1a096e193a6e.png>
@@ -290,11 +288,11 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 
 #### :point_right:  홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
 <div align="center" style="display:flex;">
-       <img src=https://user-images.githubusercontent.com/57262833/87808693-1e2a6a80-c895-11ea-8534-65c65cad4e7b.png alt="drawing" width="300"/> 
-       <img src="https://user-images.githubusercontent.com/57262833/87808723-2e424a00-c895-11ea-8bf8-b8035b5cc351.png" width="300"/>
-              <img src="https://user-images.githubusercontent.com/57262833/87809035-ab6dbf00-c895-11ea-9072-77b27d10866f.png" width="300"/>
-       <img src="https://user-images.githubusercontent.com/57262833/87809063-b1fc3680-c895-11ea-865b-6028a4af1a20.png" width="300"/>
-              <img src="https://user-images.githubusercontent.com/57262833/87809193-f12a8780-c895-11ea-8080-2faf92af5aea.png" width="300"/>
+       <img src=https://user-images.githubusercontent.com/57262833/87808693-1e2a6a80-c895-11ea-8534-65c65cad4e7b.png alt="drawing" width="150"/> 
+       <img src="https://user-images.githubusercontent.com/57262833/87808723-2e424a00-c895-11ea-8bf8-b8035b5cc351.png" width="150"/>
+              <img src="https://user-images.githubusercontent.com/57262833/87809035-ab6dbf00-c895-11ea-9072-77b27d10866f.png" width="150"/>
+       <img src="https://user-images.githubusercontent.com/57262833/87809063-b1fc3680-c895-11ea-865b-6028a4af1a20.png" width="150"/>
+              <img src="https://user-images.githubusercontent.com/57262833/87809193-f12a8780-c895-11ea-8080-2faf92af5aea.png" width="150"/>
 </div>
 - 홈화면에서 BottomSheetNavigation 사용
 - 매칭화면에서 Socket.io를 이용한 실시간 통신으로 사용자와 매칭함
@@ -314,21 +312,30 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 - 기록화면에서 매칭상대방과 러닝 기록 비교 가능 및 승패 여부 보여줌
 - 기록자세히 보기화면에서 NaverMap사용으로 러닝 경로 불러오기 
 
-#### :fire: 뱃지화면, 마이페이지 화면
-<br>
+#### :fire: 나의 러닝 기록 화면, 뱃지화면
+</br>
 <div>
-<img width="270" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
-<img width="270" src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
-<img width="270" src=https://user-images.githubusercontent.com/63635840/87811252-4fa53500-c899-11ea-81ec-a8c34b03112b.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87827843-a836fb00-c8b6-11ea-9552-9eb459b5c2bc.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87828264-85f1ad00-c8b7-11ea-96c1-dd42b9717c36.png>
 <div>
-<br>
+</br>
+      
+ - 탭 레이아웃 fragment의 좌, 우측에 위치한 러닝기록, 러닝배지 뷰이다.
+ - 나의 모든 기록과 승패, 기록을 볼 수 있으며 클릭시 기록 상세보기 뷰를 볼 수 있다.
+ - 러닝배지는 자신이 보유한 모든 배지를 볼 수 있으며, 배지 클릭시 배지 상세보기를 할 수 있다.
+
+</br>
+</br>
+
+#### :fire: 랭킹, 마이 프로필 뷰
+</br>
+<div>
+<img width="270" src=https://user-images.githubusercontent.com/63635840/87827938-de747a80-c8b6-11ea-9dc8-a86c9fef7517.png>
+<img width="270" src=https://user-images.githubusercontent.com/63635840/87827911-cac91400-c8b6-11ea-8d61-71cba39189bd.png>
+<div>
+</br>
        
- - 탭 레이아웃의 오른쪽에 있는 뱃지화면에서 자신이 얻은 모든 뱃지들을 조회할 수 있다.
- - 바텀네비게이션의 마지막에 위치한 마이프로필에서 자신의 레벨, 전적, 배지를 조회할 수 있으며, 최하단에서 로그아웃버튼이 있고, 원할시 클릭을 통해 로그아웃을 할 수 있다.
-
-<br>
-<br>
-
-
-
-
+ - 랭킹뷰에서 이달의 러너, 명예의 전당, 졌잘싸에 대한 상대방의 랭킹을 확인해볼 수 있다.
+ - 마이 프로필에서 나의 레벨, 전적, 배지들을 확인할 수 있으며 아래로 스크롤하여 로그아웃 버튼을 통해 로그 아웃을 할 수 있다.
