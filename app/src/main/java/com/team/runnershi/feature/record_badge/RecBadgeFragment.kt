@@ -1,4 +1,4 @@
-package com.team.runnershi.record_badge
+package com.team.runnershi.feature.record_badge
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

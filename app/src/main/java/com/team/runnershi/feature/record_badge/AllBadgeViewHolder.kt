@@ -1,4 +1,4 @@
-package com.team.runnershi.viewholder
+package com.team.runnershi.feature.record_badge
 
 import android.view.View
 import android.widget.ImageView

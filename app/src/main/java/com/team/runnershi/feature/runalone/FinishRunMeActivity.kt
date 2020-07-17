@@ -1,10 +1,11 @@
-package com.team.runnershi
+package com.team.runnershi.feature.runalone
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.team.runnershi.result.ResultActivity
-import kotlinx.android.synthetic.main.activity_finish_run.*
+import com.team.runnershi.R
+import com.team.runnershi.feature.result.ResultActivity
+import kotlinx.android.synthetic.main.activity_finish_run_me.*
 
 class FinishRunMeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +19,7 @@ class FinishRunMeActivity : AppCompatActivity() {
         newIntent.putExtra("runIdx", runIdx)
         newIntent.putExtra("gameIdx", gameIdx)
 
-        btnFinishRunConfirm.setOnClickListener {
+        btnFinishRunMeConfirm.setOnClickListener {
             startActivity(newIntent)
             finish()
         }

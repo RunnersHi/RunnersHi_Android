@@ -1,4 +1,4 @@
-package com.team.runnershi
+package com.team.runnershi.feature.run
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -9,7 +9,10 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.bumptech.glide.Glide
-import com.team.runnershi.countdown.CountDownActivity
+import com.team.runnershi.R
+import com.team.runnershi.socket.SocketService
+import com.team.runnershi.socket.SocketServiceReceiver
+import com.team.runnershi.feature.runcountdown.CountDownActivity
 import com.team.runnershi.extension.logDebug
 import kotlinx.android.synthetic.main.activity_match_suc.*
 

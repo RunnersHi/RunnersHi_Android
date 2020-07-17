@@ -1,4 +1,4 @@
-package com.team.runnershi.record_badge
+package com.team.runnershi.feature.record_badge
 
 import android.os.Bundle
 import android.util.TypedValue
@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.runnershi.util.HorizontalItemDecorator
 import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
-import com.team.runnershi.adapter.AllRecordAdapter
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
@@ -34,7 +32,10 @@ class RecFragment : Fragment() {
                     if(body?.status == 200) { //body에 있는 status가 200인지 한번 더 확인함
                         if(body?.success) {
                          "Request My All Record Success (Body : $body)".logDebug(this@RecFragment)
-                            allRecordAdapter = AllRecordAdapter(view!!.context) //난 멤버변수로 받아옴
+                            allRecordAdapter =
+                                AllRecordAdapter(
+                                    view!!.context
+                                ) //난 멤버변수로 받아옴
                             allRecordAdapter.mDatas = body.result!!
                             rv_record.adapter = allRecordAdapter
                             allRecordAdapter.notifyDataSetChanged()

@@ -1,4 +1,4 @@
-package com.team.runnershi
+package com.team.runnershi.feature.run
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -25,8 +25,10 @@ import com.naver.maps.map.NaverMap
 import com.naver.maps.map.overlay.LocationOverlay
 import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.overlay.PathOverlay
+import com.team.runnershi.R
+import com.team.runnershi.socket.SocketService
 import com.team.runnershi.extension.logDebug
-import com.team.runnershi.finishrun.FinishRunActivity
+import com.team.runnershi.feature.finishrun.FinishRunActivity
 import kotlinx.android.synthetic.main.activity_run.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -93,14 +95,19 @@ class RunActivity : AppCompatActivity() {
     }
 
     private fun bindLocationAndService() {
-        BoundLocationManager.bindLocationListnerIn(this, locationListener, applicationContext)
+        BoundLocationManager.bindLocationListnerIn(
+            this,
+            locationListener,
+            applicationContext
+        )
     }
 
     @SuppressLint("MissingPermission")
     private fun initData() {
         finalCreatedTime =
             SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().time)
-        locationSource = GpsOnlyLocationSource(this)
+        locationSource =
+            GpsOnlyLocationSource(this)
 
         val currentLocation =
             BoundLocationManager.boundLocationListener.mLocationManager?.getLastKnownLocation(

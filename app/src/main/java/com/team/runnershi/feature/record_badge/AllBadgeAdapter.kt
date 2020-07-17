@@ -1,4 +1,4 @@
-package com.team.runnershi.adapter
+package com.team.runnershi.feature.record_badge
 
 import android.content.Context
 import android.content.Intent
@@ -7,11 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.team.runnershi.BadgeDetailActivity
+import com.team.runnershi.feature.badgedetail.BadgeDetailActivity
 import com.team.runnershi.R
-import com.team.runnershi.data.AllBadgeContent
-import com.team.runnershi.viewholder.AllBadgeViewHolder
-import com.team.runnershi.viewholder.AllRecordViewHolder
 
 class AllBadgeAdapter(private var context : Context) : RecyclerView.Adapter<AllBadgeViewHolder>() {
 

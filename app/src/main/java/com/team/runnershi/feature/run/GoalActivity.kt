@@ -1,10 +1,10 @@
-package com.team.runnershi
+package com.team.runnershi.feature.run
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RadioGroup
-import androidx.lifecycle.ViewModelProvider
+import com.team.runnershi.R
 import kotlinx.android.synthetic.main.activity_goal.*
 import kotlinx.android.synthetic.main.activity_goal.radioGroup
 

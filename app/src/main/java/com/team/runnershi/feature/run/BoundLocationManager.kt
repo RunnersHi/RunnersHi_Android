@@ -1,7 +1,6 @@
-package com.team.runnershi
+package com.team.runnershi.feature.run
 
 import android.content.Context
-import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.util.Log
@@ -17,11 +16,12 @@ class BoundLocationManager {
             locationListener: LocationListener,
             context: Context
         ) {
-            boundLocationListener = BoundLocationListener(
-                lifecycleOwner,
-                locationListener,
-                context
-            )
+            boundLocationListener =
+                BoundLocationListener(
+                    lifecycleOwner,
+                    locationListener,
+                    context
+                )
         }
 
         class BoundLocationListener(

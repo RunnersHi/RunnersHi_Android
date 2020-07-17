@@ -1,16 +1,15 @@
-package com.team.runnershi
+package com.team.runnershi.feature.run
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.net.ConnectivityManager
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.team.runnershi.R
+import com.team.runnershi.socket.SocketService
 import com.team.runnershi.extension.logDebug
-import com.team.runnershi.matchfail.MatchFailActivity
+import com.team.runnershi.feature.matchfail.MatchFailActivity
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import kotlinx.android.synthetic.main.activity_match_proc.*
 

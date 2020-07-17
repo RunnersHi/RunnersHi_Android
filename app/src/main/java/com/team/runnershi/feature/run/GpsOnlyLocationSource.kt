@@ -1,4 +1,4 @@
-package com.team.runnershi
+package com.team.runnershi.feature.run
 
 import android.Manifest
 import android.app.Activity

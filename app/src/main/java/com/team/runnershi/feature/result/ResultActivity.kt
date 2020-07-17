@@ -1,4 +1,4 @@
-package com.team.runnershi.result
+package com.team.runnershi.feature.result
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,7 @@ import com.team.runnershi.R
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
-import com.team.runnershi.recdetail.RecDetailActivity
+import com.team.runnershi.feature.recdetail.RecDetailActivity
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import kotlinx.android.synthetic.main.activity_result.*
 

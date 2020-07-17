@@ -1,4 +1,4 @@
-package com.team.runnershi
+package com.team.runnershi.feature.run
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

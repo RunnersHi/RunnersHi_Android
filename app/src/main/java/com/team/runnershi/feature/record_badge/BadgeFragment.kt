@@ -1,4 +1,4 @@
-package com.team.runnershi.record_badge
+package com.team.runnershi.feature.record_badge
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
-import com.team.runnershi.adapter.AllBadgeAdapter
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
@@ -29,7 +28,10 @@ class BadgeFragment : Fragment() {
                         val body = r.body()
                         if(body?.status == 200) {
                             if(body?.success) {
-                                allBadgeAdapter = AllBadgeAdapter(view!!.context)
+                                allBadgeAdapter =
+                                    AllBadgeAdapter(
+                                        view!!.context
+                                    )
                                 allBadgeAdapter.bDatas = body.result.badge!!
                                 rv_badge.adapter = allBadgeAdapter
                                 allBadgeAdapter.notifyDataSetChanged()

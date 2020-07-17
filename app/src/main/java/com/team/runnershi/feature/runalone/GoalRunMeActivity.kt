@@ -1,17 +1,16 @@
-package com.team.runnershi
+package com.team.runnershi.feature.runalone
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.RadioGroup
-import com.team.runnershi.data.RecordRunWithmeData
+import com.team.runnershi.R
 import com.team.runnershi.data.RequestRecordRunWithmeAlone
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
-import com.team.runnershi.matchfail.MatchFailActivity
+import com.team.runnershi.feature.matchfail.MatchFailActivity
 import com.team.runnershi.network.RequestToServer
-import com.team.runnershi.runalone.WaitMeActivity
 import com.team.runnershi.util.PrefInit
 import kotlinx.android.synthetic.main.activity_goal_run_me.*
 import kotlinx.android.synthetic.main.activity_goal.radioGroup
