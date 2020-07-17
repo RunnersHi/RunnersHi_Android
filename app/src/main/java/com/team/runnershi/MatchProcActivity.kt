@@ -9,8 +9,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.team.runnershi.PrefInit.Companion.prefs
 import com.team.runnershi.extension.logDebug
+import com.team.runnershi.matchfail.MatchFailActivity
+import com.team.runnershi.util.PrefInit.Companion.prefs
 import kotlinx.android.synthetic.main.activity_match_proc.*
 
 class MatchProcActivity : AppCompatActivity() {
