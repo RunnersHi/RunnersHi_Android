@@ -1,17 +1,9 @@
+
 <div align="center" style="display:flex;">
-       <img src="https://user-images.githubusercontent.com/57262833/86694398-8764df00-c046-11ea-8afb-5b8b7087dc1b.png">
+       <img src="https://user-images.githubusercontent.com/57262833/86694398-8764df00-c046-11ea-8afb-5b8b7087dc1b.png" width="300"/>
 </div>
 
-<div align="center">
-    🏃‍♀️ RUNNER'S HI_ANDRIOD  🏃‍♂️
-<br> 러닝을 게임처럼, 러너스하이
-</div>
 
----
-우리는 '함께' 뛸 때 더 많은 시너지를 만들어냅니다.  
-요즘 세대들은 러닝 크루에 소속되어 러닝을 즐기곤 하지만, Offline 러닝크루는 고정된 시간과 장소라는 한계점을 가지고 있습니다.  
-우리는 **같이 달리고 싶지만, 달릴 수 없는 순간들이 존재한다는 점**에 집중하고자 합니다.  
-우리의 서비스를 통해 시공간의 제약없이 다양한 사람들과 함께 달림으로써 건강한 라이프 스타일을 만들어나가길 바랍니다.   
 
 ```
 ✨  기존 러닝 어플리케이션과의 확실한 차별화 요소를 적용했습니다.    
@@ -34,7 +26,9 @@
 </br>
 </br>
 
-### A-1. ConstraintLayout 사용한 화면 개발
+## A-1. ConstraintLayout 사용한 화면 개발
+
+</br>
 
 :point_right: activity_login.xml
 - activity_login.xml의 뷰들을 가운데 정렬하기 위해 guideline으로 g_left,g_right를 사용했다
@@ -42,31 +36,12 @@
 - 아이디/비밀번호 버튼인 tv_login_sign_find는 layout_constraintStart_toEndOf="@id/tv_login_sign_up"으로 회원가입 버튼과 연관성있는 제약조건을 걸어주었다.
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LoginActivity">
-
-    <ImageView
-        android:id="@+id/imgv_login_logo"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="146dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/emblem_rh" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/g_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="54dp" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/g_right"
         android:layout_width="wrap_content"
@@ -74,103 +49,9 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_end="54dp" />
-
-    <EditText
-        android:id="@+id/edt_login_id"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/grey_round_background"
-        android:paddingVertical="18dp"
-        android:paddingLeft="16dp"
-        android:hint="아이디"
-        android:singleLine="true"
-        android:textColor="@color/brown_grey"
-        app:layout_constraintEnd_toStartOf="@+id/g_right"
-        app:layout_constraintStart_toStartOf="@+id/g_left"
-        app:layout_constraintTop_toBottomOf="@+id/imgv_login_logo" />
-
-    <EditText
-        android:id="@+id/edt_login_pw"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/grey_round_background"
-        android:paddingVertical="18dp"
-        android:paddingLeft="16dp"
-        android:hint ="비밀번호"
-        android:singleLine="true"
-        android:inputType="textPassword"
-        android:textColor="@color/brown_grey"
-        app:layout_constraintEnd_toStartOf="@+id/g_right"
-        app:layout_constraintStart_toStartOf="@+id/g_left"
-        app:layout_constraintTop_toBottomOf="@+id/edt_login_id" />
-
-    <TextView
-        android:id="@+id/tv_login_error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:lineSpacingExtra="12sp"
-        android:layout_marginTop="12dp"
-        android:text="아이디 혹은 비밀번호가 일치하지 않습니다."
-        android:textColor="@color/grapefruit"
-        android:textSize="12sp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/g_right"
-        app:layout_constraintStart_toStartOf="@+id/g_left"
-        app:layout_constraintTop_toBottomOf="@+id/edt_login_pw" />
-
-    <TextView
-        android:id="@+id/btn_login_confirm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:lineSpacingExtra="9sp"
-        android:gravity="center_horizontal"
-        android:text="로그인"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/blue_btn_background"
-        android:paddingHorizontal="98dp"
-        android:paddingVertical="16dp"
-        app:layout_constraintEnd_toEndOf="@id/g_right"
-        app:layout_constraintStart_toStartOf="@id/g_left"
-        app:layout_constraintTop_toBottomOf="@id/edt_login_pw" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        app:layout_constraintEnd_toStartOf="@+id/g_right"
-        app:layout_constraintStart_toStartOf="@id/g_left"
-        app:layout_constraintTop_toBottomOf="@id/btn_login_confirm">
-
-        <TextView
-            android:id="@+id/tv_login_sign_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:lineSpacingExtra="12sp"
-            android:text="회원가입"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_login_find"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:lineSpacingExtra="12sp"
-            android:text="아이디/비밀번호 찾기"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/tv_login_sign_up"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 ```
+
+</br>
 
 :point_right: activity_sign_up.xml
 - activity_sign_up.xml내의 뷰들을 가운데로 정렬하기 위해 margin_vertical 대신 guideLine인 g_left,g_right를 사용했다.
@@ -180,18 +61,6 @@
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".SignUpActivity">
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/g_left"
             android:layout_width="wrap_content"
@@ -200,1089 +69,228 @@
             android:orientation="vertical"
             app:layout_constraintGuide_begin="30dp"
             app:layout_constraintStart_toStartOf="parent" />
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/g_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_end="30dp" />
-
-        <ImageView
-            android:id="@+id/btn_sign_up_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/btn_back" />
-
-        <ImageView
-            android:id="@+id/imgv_sign_up_profile"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_sign_up_back"
-            app:srcCompat="@drawable/icon_defaultpeople" />
-
-        <TextView
-            android:id="@+id/tv_sign_up_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:lineSpacingExtra="11sp"
-            android:text="아이디"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/edt_sign_up_id"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/imgv_sign_up_profile" />
-
-        <TextView
-            android:id="@+id/btn_sign_up_id_confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:background="@drawable/blue_btn_background"
-            android:lineSpacingExtra="11sp"
-            android:paddingHorizontal="14dp"
-            android:paddingVertical="14dp"
-            android:text="중복확인"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@id/g_right"
-            app:layout_constraintTop_toTopOf="@+id/edt_sign_up_id" />
-
-
-        <EditText
-            android:id="@+id/edt_sign_up_id"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginRight="8dp"
-            android:textSize="14sp"
-            android:paddingLeft="10dp"
-            android:paddingVertical="12dp"
-            android:ems="10"
-            android:inputType="textPersonName|textNoSuggestions"
-            android:hint= "아이디를 입력하세요"
-            android:textColor="@color/brown_grey"
-            android:singleLine="true"
-            android:background="@drawable/grey_round_background"
-            app:layout_constraintEnd_toStartOf="@+id/btn_sign_up_id_confirm"
-            app:layout_constraintStart_toStartOf="@+id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_id" />
-
-        <TextView
-            android:id="@+id/tv_sign_up_id_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="6dp"
-            android:lineSpacingExtra="13sp"
-            android:text="4-15자 영문, 숫자를 사용하세요."
-            android:textColor="@color/grapefruit"
-            android:visibility="invisible"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/edt_sign_up_id" />
-
-        <TextView
-            android:id="@+id/tv_sign_up_nick_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:lineSpacingExtra="11sp"
-            android:text="닉네임"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/edt_sign_up_nick_name"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_id_error" />
-
-        <TextView
-            android:id="@+id/btn_sign_up_nick_name_confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:background="@drawable/blue_btn_background"
-            android:lineSpacingExtra="11sp"
-            android:paddingHorizontal="14dp"
-            android:paddingVertical="14dp"
-            android:text="중복확인"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@id/g_right"
-            app:layout_constraintTop_toTopOf="@+id/edt_sign_up_nick_name" />
-
-        <EditText
-            android:id="@+id/edt_sign_up_nick_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginRight="8dp"
-            android:textSize="14sp"
-            android:background="@drawable/grey_round_background"
-            android:ems="10"
-            android:inputType="textPersonName|textNoSuggestions"
-            android:paddingVertical="14dp"
-            android:paddingLeft="12dp"
-            android:singleLine="true"
-            android:hint="닉네임을 입력하세요"
-            android:textColor="@color/brown_grey"
-            app:layout_constraintEnd_toStartOf="@+id/btn_sign_up_nick_name_confirm"
-            app:layout_constraintStart_toStartOf="@+id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_nick_name" />
-
-        <TextView
-            android:id="@+id/tv_sign_up_nick_name_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="6dp"
-            android:lineSpacingExtra="13sp"
-            android:text="2-6자 한글, 영문, 숫자를 사용하세요. "
-            android:visibility="invisible"
-            android:textColor="@color/grapefruit"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/edt_sign_up_nick_name" />
-
-
-        <TextView
-            android:id="@+id/tv_sign_up_pw"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:lineSpacingExtra="11sp"
-            android:text="비밀번호"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_nick_name_error" />
-
-        <EditText
-            android:id="@+id/edt_sign_up_pw"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:background="@drawable/grey_round_background"
-            android:ems="10"
-            android:inputType="textPassword|textNoSuggestions"
-            android:paddingVertical="14dp"
-            android:paddingLeft="12dp"
-            android:singleLine="true"
-            android:textColor="@color/brown_grey"
-            app:layout_constraintEnd_toStartOf="@+id/g_right"
-            app:layout_constraintStart_toStartOf="@+id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_pw" />
-
-        <TextView
-            android:id="@+id/tv_sign_up_pw_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="6dp"
-            android:lineSpacingExtra="13sp"
-            android:text="8-16자 영문 대/소문자, 숫자, 특수문자를 사용하세요"
-            android:textColor="@color/grapefruit"
-            android:textSize="12sp"
-            android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/edt_sign_up_pw" />
-
-        <TextView
-            android:id="@+id/tv_sign_up_pw_confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:lineSpacingExtra="11sp"
-            android:text="비밀번호 확인"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_pw_error" />
-
-        <EditText
-            android:id="@+id/edt_sign_up_pw_confirm"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:background="@drawable/grey_round_background"
-            android:ems="10"
-            android:inputType="textPassword|textNoSuggestions"
-            android:paddingVertical="14dp"
-            android:paddingLeft="12dp"
-            android:singleLine="true"
-            android:textColor="@color/brown_grey"
-            app:layout_constraintEnd_toStartOf="@+id/g_right"
-            app:layout_constraintStart_toStartOf="@+id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_pw_confirm" />
-
-        <TextView
-            android:id="@+id/tv_sign_up_pw_confirm_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="6dp"
-            android:lineSpacingExtra="13sp"
-            android:text="설정하신 비밀번호와 다릅니다. "
-            android:textColor="@color/grapefruit"
-            android:textSize="12sp"
-            android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/edt_sign_up_pw_confirm" />
-
-        <TextView
-            android:id="@+id/tv_sign_up_gender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:lineSpacingExtra="11sp"
-            android:text="당신의 성별은?"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_pw_confirm_error" />
-
-        <RadioGroup
-            android:id="@+id/rg_sign_up_gender"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@id/g_right"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@id/tv_sign_up_gender">
-
-            <RadioButton
-                android:id="@+id/btn_sign_up_man"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="12dp"
-                android:layout_weight="1"
-                android:background="@drawable/selector_btn_background"
-                android:button="@android:color/transparent"
-                android:gravity="center"
-                android:paddingVertical="18dp"
-                android:text="남성"
-                android:textColor="#ffffff" />
-
-            <RadioButton
-                android:id="@+id/btn_sign_up_woman"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/selector_btn_background"
-                android:button="@android:color/transparent"
-                android:gravity="center"
-                android:paddingVertical="18dp"
-                android:text="여성"
-                android:textColor="#ffffff" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/tv_sign_up_lv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:lineSpacingExtra="11sp"
-            android:text="자신이 생각하는 본인의 러닝 레벨은?"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/rg_sign_up_gender" />
-
-        <TextView
-            android:id="@+id/btn_sign_up_lv_desc"
-            android:layout_marginTop="6dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="#656565"
-            android:lineSpacingExtra="11sp"
-            android:text="@string/what_is_running_level"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_lv"
-            />
-
-        <RadioGroup
-            android:id="@+id/rg_sign_up_lv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@id/g_right"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@id/btn_sign_up_lv_desc">
-
-            <RadioButton
-                android:id="@+id/btn_sign_up_low_lv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="12dp"
-                android:background="@drawable/selector_btn_background"
-                android:button="@android:color/transparent"
-                android:gravity="center"
-                android:paddingVertical="18dp"
-                android:text="초급"
-                android:textColor="#ffffff" />
-
-            <RadioButton
-                android:id="@+id/btn_sign_up_mid_lv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="12dp"
-                android:background="@drawable/selector_btn_background"
-                android:button="@android:color/transparent"
-                android:gravity="center"
-                android:paddingVertical="18dp"
-                android:text="중급"
-                android:textColor="#ffffff" />
-
-            <RadioButton
-                android:id="@+id/btn_sign_up_high_lv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/selector_btn_background"
-                android:button="@android:color/transparent"
-                android:gravity="center"
-                android:paddingVertical="18dp"
-                android:text="고급"
-                android:textColor="#ffffff" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/tv_sign_up_reveal_set"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:lineSpacingExtra="11sp"
-            android:text="프로필 / 러닝 기록 공개설정"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/rg_sign_up_lv" />
-
-        <TextView
-            android:id="@+id/tv_sign_up_reveal_set_desc"
-            android:layout_marginTop="6dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="#656565"
-            android:lineSpacingExtra="11sp"
-            android:text="'공개'를 선택해야 나의 러너 랭킹을 확인할 수 있어요."
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_reveal_set"
-            />
-
-        <RadioGroup
-            android:id="@+id/rg_sign_up_reveal_set"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@id/g_right"
-            app:layout_constraintStart_toStartOf="@id/g_left"
-            app:layout_constraintTop_toBottomOf="@id/tv_sign_up_reveal_set_desc">
-
-            <RadioButton
-                android:id="@+id/btn_sign_up_reveal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="12dp"
-                android:background="@drawable/selector_btn_background"
-                android:button="@android:color/transparent"
-                android:gravity="center"
-                android:paddingVertical="18dp"
-                android:text="공개"
-                android:textColor="#ffffff" />
-
-            <RadioButton
-                android:id="@+id/btn_sign_up_un_reveal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/selector_btn_background"
-                android:button="@android:color/transparent"
-                android:gravity="center"
-                android:paddingVertical="18dp"
-                android:text="비공개"
-                android:textColor="#ffffff" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/btn_sign_up_confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:layout_marginBottom="48dp"
-            android:background="@drawable/lightgrey_btn_background"
-            android:gravity="center_horizontal"
-            android:lineSpacingExtra="9sp"
-            android:paddingHorizontal="98dp"
-            android:paddingVertical="16dp"
-            android:text="가입하기"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rg_sign_up_reveal_set" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
 ```
 
-:point_right: activity_goal.xml
-- activity_goal.xml 버튼 정렬을 맞추기 위해 guideline 2개 사용 
+</br>
+
+:point_right: activity_on_board.xml4
+- 화면의 중앙에 위치한 4단계로 분류된 온보딩 뷰를 좌, 우로 넘겨보기 위해 ViewPager를 활용하여 각 화면들을 fragment로 구성했다.
+- Fragment가 들어갈 ViewPager를 dot indicator가 있는 상단의 ConstraintLayout과 textView Button이 있는 하단 ConstraintLayout와 연동한뒤, layout_width는 match_parent로, layout_height는 0dp로 줌으로서 match_contraint를 준다.
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="40dp"
-    tools:context=".GoalActivity">
-
-    <ImageView
-        android:id="@+id/btn_goal_back"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_goal_title"
-        style="@style/TextStyle3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="오늘의 러닝 목표시간은?"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_goal_back" />
-
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_goal_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="53dp" />
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="79dp"
-        android:background="@drawable/bg_btn_goal"
-        android:text="30min"
-        app:layout_constraintEnd_toEndOf="@id/gl_goal_right"
-        app:layout_constraintStart_toStartOf="@id/gl_goal_left"
-        app:layout_constraintTop_toBottomOf="@id/tv_goal_title" />
-
-    <TextView
-        android:id="@+id/btn_goal_30"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="79dp"
-        android:background="@drawable/bg_btn_goal"
-        android:gravity="center"
-        android:lineSpacingExtra="6sp"
-        android:text="30min"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/gl_goal_right"
-        app:layout_constraintStart_toStartOf="@id/gl_goal_left"
-        app:layout_constraintTop_toBottomOf="@id/tv_goal_title" />
-
-    <TextView
-        android:id="@+id/btn_goal_45"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_btn_goal"
-        android:gravity="center"
-        android:lineSpacingExtra="6sp"
-        android:text="45min"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/btn_goal_30"
-        app:layout_constraintStart_toStartOf="@id/btn_goal_30"
-        app:layout_constraintTop_toBottomOf="@id/btn_goal_30" />
-
-    <TextView
-        android:id="@+id/btn_goal_60"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_btn_goal"
-        android:gravity="center"
-        android:lineSpacingExtra="6sp"
-        android:text="1hour"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/btn_goal_45"
-        app:layout_constraintStart_toStartOf="@id/btn_goal_45"
-        app:layout_constraintTop_toBottomOf="@id/btn_goal_45" />
-
-    <TextView
-        android:id="@+id/btn_goal_90"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_btn_goal"
-        android:gravity="center"
-        android:lineSpacingExtra="6sp"
-        android:text="1h 30min"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/btn_goal_60"
-        app:layout_constraintStart_toStartOf="@id/btn_goal_60"
-        app:layout_constraintTop_toBottomOf="@id/btn_goal_60" />
-
-    <TextView
-        android:id="@+id/btn_goal_next"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="69dp"
-        android:background="@drawable/bg_btn_goal_next"
-        android:gravity="center"
-        android:lineSpacingExtra="9sp"
-        android:text="NEXT"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@id/btn_goal_90"
-        app:layout_constraintStart_toStartOf="@id/btn_goal_90"
-        app:layout_constraintTop_toBottomOf="@id/btn_goal_90" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_goal_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="53dp" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-```
-
-
-:point_right: activity_result.xml
-
-- tvResultTitle의 경우 View의 최상단에 위치하므로 parent에 Constraint, marginTop 적용
-- 그 이하의 요소들은 주변의 요소들과 제약조건을 맺음
-- imgvResultProfile 이미지의 경우 해당 이미지보다 큰 요소들이 있어 크기의 기준이 되지않아 디자이너가 제플린에 올려준 크기대로 설정함.
-- View 내에서 가장 큰 요소(이미지뷰, 레이아웃)를 기준으로 최상단의 ConstraintLayout의 padding값을 조절하여 초기 View 구도를 설계함. 
-
-```
-
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp"
-    tools:context=".ResultActivity">
-
-    <TextView
-        android:id="@+id/tvResultTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="WINNER"
-        android:textColor="@color/lightish_blue"
-        android:textSize="40sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imgvResultProfile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvResultTitle"
-        app:srcCompat="@drawable/smile" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/layout_lightgreen"
-        android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgvResultProfile">
-
-        <TextView
-            android:id="@+id/tvResultDistData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4.43 km"
-            android:textColor="@color/black"
-            android:textSize="35sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvResultDistTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="러닝거리"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultDistData" />
-
-        <TextView
-            android:id="@+id/tvResultPaceData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="8'22&quot;"
-            android:layout_marginStart="45dp"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultDistTitle" />
-
-        <TextView
-            android:id="@+id/tvResultPaceTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="5dp"
-            android:text="평균 페이스"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvResultPaceData"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultPaceData" />
-
-        <TextView
-            android:id="@+id/tvResultTimeData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="45dp"
-            android:text="30:00"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultDistTitle" />
-
-        <TextView
-            android:id="@+id/tvResultRunTimeTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="45dp"
-            android:text="러닝시간"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvResultTimeData"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultTimeData" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/layout_grey"
-        android:paddingHorizontal="15dp"
-        android:paddingVertical="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
-
-
-        <TextView
-            android:id="@+id/tvResultRivalRec"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="성북천치타의 기록"
-            android:textColor="@color/black"
-            android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvResultRivalDistData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="4.23 km"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalRec" />
-
-        <TextView
-            android:id="@+id/tvResultRivalDistTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="러닝 거리"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvResultRivalDistData"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalDistData" />
-
-        <TextView
-            android:id="@+id/tvResultRivalPaceData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="6'88&quot;"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toStartOf="@+id/tvResultRivalTimeData"
-            app:layout_constraintStart_toEndOf="@+id/tvResultRivalDistData"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalRec" />
-
-        <TextView
-            android:id="@+id/tvResultRivalPaceTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="페이스"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvResultRivalPaceData"
-            app:layout_constraintStart_toStartOf="@+id/tvResultRivalPaceData"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalPaceData" />
-
-        <TextView
-            android:id="@+id/tvResultRivalTimeData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="30:00"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalRec" />
-
-        <TextView
-            android:id="@+id/tvResultRivalTimeTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="러닝 시간"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvResultRivalTimeData"
-            app:layout_constraintTop_toBottomOf="@+id/tvResultRivalTimeData" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/btnDetailRec"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/btn_next"
-        android:text="기록 자세히 보기"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-```
-
-
-:point_right: activity_rec_detail.xml
-
-- activity_result.xml와 거의 유사하게 코딩함.
-- View의 최하단러닝시간, 페이스, 러닝거리 textView는 3개가 나열되어있으므로 가운데에 있는 tvRecDetailRivalPaceData는 양 옆에 있는 
-textView와 제약조건을 맺고, tvRecDetailRivalPaceTitle는 tvRecDetailRivalPaceData 하단에 위치하면서 양 옆의 textView의 가운데에 위치해야 하므로
-상단의 tvRecDetailRivalPaceData와 제약조건을 맺음.
-
-```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingVertical="20dp"
-    android:background="@color/grey"
-    tools:context=".RecDetailActivity">
-
-    <ImageView
-        android:id="@+id/btnRecDetailBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/actionModeCloseDrawable" />
-
-    <TextView
-        android:id="@+id/tvRecDetailDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="6월 17일의 러닝"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRecDetailBack" />
-
-    <TextView
-        android:id="@+id/tvRecDetailTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="7dp"
-        android:text="오후 6:18 - 6:28"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRecDetailDate" />
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRecDetailTime" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+<androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_on_board"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingVertical="15dp"
-        android:paddingHorizontal="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraint_id"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapView">
+        app:layout_constraintTop_toBottomOf="@id/indicator_on_board"
+        app:layout_constraintVertical_bias="1.0" />
+```
 
+</br>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="13dp"
-            android:background="@drawable/box_blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tvRecDetailDistData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="4.43 km"
-                android:textColor="@color/black"
-                android:textSize="35sp"
-                android:textStyle="bold|italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvRecDetailDistTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="러닝거리"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailDistData" />
-
-            <TextView
-                android:id="@+id/tvRecDetailPaceData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="8'22&quot;"
-                android:layout_marginStart="45dp"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold|italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailDistTitle" />
-
-            <TextView
-                android:id="@+id/tvRecDetailPace"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="5dp"
-                android:text="페이스"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/tvRecDetailPaceData"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailPaceData" />
-
-            <TextView
-                android:id="@+id/tvRecDetailTimeData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="45dp"
-                android:text="30:00"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold|italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailDistTitle" />
-
-            <TextView
-                android:id="@+id/tvRecDetailTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="45dp"
-                android:text="러닝시간"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tvRecDetailTimeData"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailTimeData"
-                tools:ignore="DuplicateIds" />
-
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="12dp"
-            android:background="@drawable/box_white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
-
-
-            <TextView
-                android:id="@+id/tvRecDetailRivalRecord"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="성북천치타의 기록"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvRecDetailRivalDistDatad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="4.23 km"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold|italic"
-                app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalRecord"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
-
-            <TextView
-                android:id="@+id/tvRecDetailRivalDiscTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="러닝 거리"
-                android:textSize="13sp"
-                app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalDistDatad"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalDistDatad" />
-
-            <TextView
-                android:id="@+id/tvRecDetailRivalPaceData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="00'00&quot;"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold|italic"
-                app:layout_constraintEnd_toStartOf="@+id/tvRecDetailRivalTimeData"
-                app:layout_constraintStart_toEndOf="@+id/tvRecDetailRivalDistDatad"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
-
-            <TextView
-                android:id="@+id/tvRecDetailRivalPaceTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="페이스"
-                android:textSize="13sp"
-                app:layout_constraintEnd_toEndOf="@+id/tvRecDetailRivalPaceData"
-                app:layout_constraintStart_toStartOf="@+id/tvRecDetailRivalPaceData"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalPaceData" />
-
-            <TextView
-                android:id="@+id/tvRecDetailRivalTimeData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="30:00"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold|italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalRecord" />
-
-            <TextView
-                android:id="@+id/tvRecDetailRivalTimeTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="러닝 시간"
-                android:textSize="13sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRecDetailRivalTimeData" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+:point_right: fragment_my_profile.xml4
+- 마이 프로필의 프로필 사진의 경우 제플린에 올린 이미지의 기본값(wrap_content)과 적용값의 차이가 있어 적용값을 기입하여 뷰를 만들었다.
 
 ```
+<ImageView
+            android:id="@+id/imgv_my_profile_img"
+            android:layout_width="132dp"
+            android:layout_height="132dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgv_my_profile_setting"
+            app:srcCompat="@drawable/icon_redman_shorthair" />
+```
+
+
+## :pig: A-2. 코틀린으로 안드로이드 개발
+### :running: Kotlin Collection 확장함수 사용
+- 서버와 위도, 경도 데이터를 소켓통신하기 위하여, 기존의 ArrayList를 JSONArray로 변환하는 함수
+~~~
+ fun getCoorsJSONArr(coordsArr: ArrayList<LatLng>): JSONArray {
+        return JSONArray(coordsArr.map {
+            try{
+                JSONObject().apply {
+                    this.put("latitude", it.latitude)
+                    this.put("longitude", it.longitude)
+                }
+            }catch (e: JSONException){e.printStackTrace()}
+        })
+ }
+~~~
+
+
+### A-2. custom 확장 함수
+
+:point_right: dpToPx.kt
+- xml코드와 달리 kotlin source code에서는 px단위를 사용, dp를 px로 변환해주는 확장함수
+```
+fun Int.dpToPx(resources: Resources): Int = TypedValue
+    .applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this.toFloat(), resources.displayMetrics).toInt()
+```
+</br>
+
+:point_right: logDebug.kt
+- Log 쉽게 볼 수 있도록 해주는 확장함수
+```
+fun String.logDebug(any: Any) {
+    Log.d(any::class.java.simpleName, this)
+}
+
+```
+:point_right: newStartActivity.kt
+- 액티비티 전환 확장함수
+```
+fun <T> Context.newStartActivity(toClass: Class<T>){
+    val intent = Intent(this, toClass)
+    startActivity(intent)
+}
+
+```
+
+
+
+## :pig: A-3. 프로젝트 설명
+
+### 프로젝트 사용 라이브러리
+</br>
+- lottie 사용, 앱 실행시 나오는 splash, 상대방 또는 자신과의 대결시 나오는 10초 카운트 및 RUN! 화면 처리를 위함. </br>
+-> implementation 'com.airbnb.android:lottie:3.4.1'
+
+- 네이버지도 SDK, RUNNER'S HI 앱의 핵심기능으로 자신의 현재위치 및 이동경로, 게임 후 결과를 보여주기 위해 필요한 지도로 네이버사의 SDK를 사용함. </br>
+-> implementation 'com.naver.maps:map-sdk:3.8.0'
+
+- Retrofit 라이브러리, 서버통신을 위함 : https://github.com/square/retrofit </br>
+-> implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+
+- Retrofit 라이브러리 응답으로 가짜 객체를 만들기 위해 </br>
+-> implementation 'com.squareup.retrofit2:retrofit-mock:2.6.2'
+
+- 객체 시리얼라이즈를 위한 Gson 라이브러리 : https://github.com/google/gson </br>
+-> implementation 'com.google.code.gson:gson:2.8.6'
+
+- Retrofit 에서 Gson 을 사용하기 위한 라이브러리 </br>
+-> implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+
+- Java Scalars Converter : String이나 primitive 타입을 text/plain boides로 컨버팅 하는데 쓴다. </br>
+-> implementation 'com.squareup.retrofit2:converter-scalars:2.8.0'
+
+- 리사이클러뷰 </br>
+-> implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+- material 디자인 라이브러리 </br>
+-> implementation "com.google.android.material:material:1.2.0-alpha06"
+
+- 이미지 로딩 라이브러리 : glide </br>
+-> implementation "com.github.bumptech.glide:glide:4.11.0"
+   annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+   kapt "com.github.bumptech.glide:compiler:4.11.0"
+   
+- 동그란 이미지 커스텀 뷰 라이브러리 : https://github.com/hdodenhof/CircleImageView </br>
+-> implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+- CoordinateLayout 라이브러리 </br>
+-> implementation 'com.google.android.material:material:1.2.0-alpha01'
+-> implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+-> implementation 'androidx.recyclerview:recyclerview:1.1.0'
+-> testImplementation 'junit:junit:4.12'
+</br>
+
+### :running:프로젝트 구조
+<img src=https://user-images.githubusercontent.com/57262833/87794364-78213500-c881-11ea-88eb-a13454fbdf83.png alt="drawing" width="300"/> 
+
+- 패키지 설명
+
+| package | 설명 |  
+|:---:|:---|
+| `data` | 프로젝트 내에서 쓰는 데이터관련 클래스 | 
+| `extension` | 확장함수관련 파일 |
+| `feature` | 기능별 폴더들 |
+| `network` | Retrofit을 사용한 http 통신시 사용하는 인터페이스 및 클래스 | 
+| `socket` | Socket.io를 사용한 소켓 통신시 사용하는 클래스 및 서비스 |
+| `util` | SharePrererence 및 기타 사용 클래스 | 
+
+
+- feature내 하위 패키지 설명
+
+| feature내 하위 패키지 | 해당 액티비티 및 프레그먼트 | 설명 | 
+|:---:|:---|:---|
+| `badgedetail` | BadgeDetailActivity | 뱃지 상세보기 화면 | 
+| `finishrun` | FinishRunActivity | 러닝완료 후 화면 |
+| `home` | HomeActivity, HomeFragment, BottomSheetFragment | 홈 화면 |
+| `login` | LoginActivity | 로그인 화면 |
+| `matchfail` | MatchFailActivity | 매칭 실패 화면 |
+| `myprofile` | MyProfileFragment | 마이프로필 화면 |
+| `onboard` | OnBoardActivity | 온보딩 화면 |
+| `rank` | RankFragment | 랭킹 화면 |
+| `recdetail` | RecDetailActivity | 기록상세보기 화면 |
+| `record_badge` | BadgeFragment, RecBadgeFragment, RecFragment | 뱃지 모아보기 화면, 기록 모아보기 화면 |
+| `result` | ResultActivity | 러닝 결과 화면 |
+| `run` | GoalActivity, RivalActivity, MatchProcActivity, MatchSucActivity, RunActivity | 매칭상대선택 화면, 매칭 화면, 달리기 화면 |
+| `runalone` | WaitMeActivity, GoalRunMeActivity, FinishRunActivity | 나와 달리기 화면, 더미와 달리기 화면, 나와 달리기 결과 화면 |
+| `runcountdown` | CountDownActivity, StartRunActivity | 달리기전 카운트 다운 화면, 달리기 시작 알림 화면 |
+| `rundummy` | MatchDummyActivity | 더미데이터와 달리기 매칭 화면 |
+| `signup` | SignUpActivity | 회원가입 화면 | 
+| `splash` | SplashActivity | 스플래시 화면 |
+
+
+## 핵심기능 및 구현화면 정리
+
+### 스플래쉬, 온보딩, 회원가입, 로그인 화면
+- 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
+
+<br>
+<div>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87809124-ccceab00-c895-11ea-8dd0-be8d5585c50b.png>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87809129-cfc99b80-c895-11ea-9729-6ed4e04e29a5.png>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87809139-d2c48c00-c895-11ea-805c-a96e082e3669.png>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87809146-d48e4f80-c895-11ea-8a2d-4034611cdb98.png>
+<div>
+<br>
+<br>
+<div>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87809182-e7088900-c895-11ea-9e9c-278edffeedba.png>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png>
+<div>
+<br>
+<br>
+- 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화
+<br>
+<br>
+<div>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87810040-529f2600-c897-11ea-9ede-dbfe3a1d0c84.png>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87810058-56cb4380-c897-11ea-87a0-1a096e193a6e.png>
+<img width="200" src=https://user-images.githubusercontent.com/63635840/87810066-592d9d80-c897-11ea-84e0-e3ccc2632f63.png>
+<div>
+### 홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
+
+- 홈화면에서 BottomSheetNavigation 사용
+- 매칭화면에서 Socket통신으로 사용자 매칭
+- 러닝화면에서 Socket통신
+- 러닝화면에서 NaverMap 사용으로 지도 기능 구현
+- 나와 경쟁하기 화면에서 TextToSpeeach와 Timer로 음성피드백 기능 구현
+
+### 기록화면, 기록 자세히보기 화면
+
+- 기록자세히 보기화면에서 NaverMap사용으로 러닝 경로 불러오기 
+
+### 뱃지화면, 마이페이지 화면
+
+
+<br>
+<br>
 

@@ -339,9 +339,10 @@ class RunMeActivity : AppCompatActivity() {
                             "requestRecordRunPost success, run_idx = (${runIdx}), game_idx = (${gameIdx}) "
 
                             val intent = Intent(this, FinishRunMeActivity::class.java)
-                            intent.putExtra("run_idx", runIdx)
-                            intent.putExtra("game_idx", gameIdx)
+                            intent.putExtra("runIdx", runIdx)
+                            intent.putExtra("gameIdx", gameIdx)
                             intent.putExtra("activityFlag", 2)
+                            intent.putExtra("matchData",matchData)
                             startActivity(intent)
                             finish()
                         }
@@ -383,8 +384,8 @@ class RunMeActivity : AppCompatActivity() {
 
     fun setSpeakTimer() {
         var km = 0
-        val opponentPaceTime = (matchData.pace_minute * 60 * 1000).toLong() //**test**//
-        val timer = object : CountDownTimer(runtime * 1000L, opponentPaceTime) {  //**test**//
+        val opponentPaceTime = (matchData.pace_minute * 60 * 1000).toLong()
+        val timer = object : CountDownTimer(runtime * 1000L, opponentPaceTime) {
             override fun onTick(millisUntilFinished: Long) {
                 speakKmPassed(km++)
                 "onTick(), countDownInterval= (${(matchData.pace_minute * 60 * 1000 + matchData.pace_second * 1000).toLong()}), call speakKmPassed(${km}) "

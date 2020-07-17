@@ -276,8 +276,6 @@ class RunActivity : AppCompatActivity() {
         path.width = 20
         path.outlineWidth = 0
         path.color = Color.parseColor("#3868ff")
-
-
     }
 
 
