@@ -139,36 +139,37 @@
 - 네이버지도 SDK, RUNNER'S HI 앱의 핵심기능으로 자신의 현재위치 및 이동경로, 게임 후 결과를 보여주기 위해 필요한 지도로 네이버사의 SDK를 사용함.</br>
 -> implementation 'com.naver.maps:map-sdk:3.8.0'
 
-- Retrofit 라이브러리, 서버통신을 위함 : https://github.com/square/retrofit
+- Retrofit 라이브러리, 서버통신을 위함 : https://github.com/square/retrofit </br>
 -> implementation 'com.squareup.retrofit2:retrofit:2.6.2'
 
-- Retrofit 라이브러리 응답으로 가짜 객체를 만들기 위해
+- Retrofit 라이브러리 응답으로 가짜 객체를 만들기 위해 </br>
 -> implementation 'com.squareup.retrofit2:retrofit-mock:2.6.2'
 
-- 객체 시리얼라이즈를 위한 Gson 라이브러리 : https://github.com/google/gson
+- 객체 시리얼라이즈를 위한 Gson 라이브러리 : https://github.com/google/gson </br>
 -> implementation 'com.google.code.gson:gson:2.8.6'
 
-- Retrofit 에서 Gson 을 사용하기 위한 라이브러리
+- Retrofit 에서 Gson 을 사용하기 위한 라이브러리 </br>
 -> implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
 
-- Java Scalars Converter : String이나 primitive 타입을 text/plain boides로 컨버팅 하는데 쓴다.
+- Java Scalars Converter : String이나 primitive 타입을 text/plain boides로 컨버팅 하는데 쓴다. </br>
 -> implementation 'com.squareup.retrofit2:converter-scalars:2.8.0'
 
-- 리사이클러뷰
+- 리사이클러뷰 </br>
 -> implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
-- material 디자인 라이브러리
+- material 디자인 라이브러리 </br>
 -> implementation "com.google.android.material:material:1.2.0-alpha06"
 
-- 이미지 로딩 라이브러리 : glide
+- 이미지 로딩 라이브러리 : glide </br>
 -> implementation "com.github.bumptech.glide:glide:4.11.0"
    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
    kapt "com.github.bumptech.glide:compiler:4.11.0"
    
-- 동그란 이미지 커스텀 뷰 라이브러리 : https://github.com/hdodenhof/CircleImageView
+- 동그란 이미지 커스텀 뷰 라이브러리 : https://github.com/hdodenhof/CircleImageView </br>
 -> implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    //CoordinateLayout
-    implementation 'com.google.android.material:material:1.2.0-alpha01'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+- CoordinateLayout 라이브러리 </br>
+-> implementation 'com.google.android.material:material:1.2.0-alpha01'
+-> implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+-> implementation 'androidx.recyclerview:recyclerview:1.1.0'
+-> testImplementation 'junit:junit:4.12'
