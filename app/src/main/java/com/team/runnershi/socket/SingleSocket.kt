@@ -12,7 +12,7 @@ import io.socket.emitter.Emitter
 import java.lang.RuntimeException
 import java.net.URISyntaxException
 
-class SingleSocket{
+class SingleSocket {
     companion object {
         private val TAG = SingleSocket::class.java.simpleName
         private var instance: Socket? = null
@@ -20,92 +20,116 @@ class SingleSocket{
 
         fun getInstance(context: Context): Socket = instance
             ?: synchronized(this) {
-            instance ?: try{
-                IO.socket("http://13.125.20.117:3000/matching")
-            }
-            catch(e:URISyntaxException) {
-                throw RuntimeException(e)
-            }.also {
-                Companion.context = context
-                instance = it
-                instance.apply {
-                    this?.on(Socket.EVENT_CONNECT,
-                        onConnect
-                    ) //
-                    this?.on(Socket.EVENT_RECONNECT,
-                        onReconnect
-                    )
-                    this?.on(Socket.EVENT_DISCONNECT,
-                        onDisconnect
-                    ) //
-                    this?.on(Socket.EVENT_CONNECT_TIMEOUT,
-                        onConnctTimeOut
-                    ) //
-                    this?.on(Socket.EVENT_CONNECT_ERROR,
-                        onConnectError
-                    ) //
-                    this?.on(Socket.EVENT_ERROR,
-                        onEventError
-                    ) //
-                    this?.on("start",
-                        onStart
-                    ) //
-                    this?.on("joinRoom",
-                        onJoinRoom
-                    ) //
-                    this?.on("roomCreated",
-                        onCreatedRoom
-                    ) //
-                    this?.on("timeLeft",
-                        onTimeLeft
-                    ) //
-                    this?.on("timeOver",
-                        onTimeOver
-                    ) //
-                    this?.on("matched",
-                        onMatched
-                    ) //
-                    this?.on("endCount",
-                        onEndCount
-                    ) //
-                    this?.on("stopCount",
-                        onStopCount
-                    ) //
-                    this?.on("roomFull",
-                        onRoomFull
-                    ) //
-                    this?.on("opponentInfo",
-                        onOpponentInfo
-                    ) //
-                    this?.on("opponentNotReady",
-                        onOpponentNotReady
-                    ) //
-                    this?.on("letsRun",
-                        onLetsRun
-                    ) //
-                    this?.on("kmPassed",
-                        onKmPassed
-                    ) //
-                    this?.on("endRunning",
-                        onEndRunning
-                    ) //
-                    this?.on("opponentStopped",
-                        onOpponentStopped
-                    ) //
-                    this?.on("stopRunning",
-                        onStopRunning
-                    ) //
-                    this?.on("compareResult",
-                        onCompareResult
-                    ) //
-                    this?.on(Socket.EVENT_PING,
-                        onPing
-                    ) //
-                    instance?.connect()
-                    Log.d(TAG, "Socket Send Connect")
+                instance ?: try {
+                    IO.socket("http://13.125.20.117:3000/matching")
+                } catch (e: URISyntaxException) {
+                    throw RuntimeException(e)
+                }.also {
+                    Companion.context = context
+                    instance = it
+                    instance.apply {
+                        this?.on(
+                            Socket.EVENT_CONNECT,
+                            onConnect
+                        )
+                        this?.on(
+                            Socket.EVENT_RECONNECT,
+                            onReconnect
+                        )
+                        this?.on(
+                            Socket.EVENT_DISCONNECT,
+                            onDisconnect
+                        ) //
+                        this?.on(
+                            Socket.EVENT_CONNECT_TIMEOUT,
+                            onConnctTimeOut
+                        ) //
+                        this?.on(
+                            Socket.EVENT_CONNECT_ERROR,
+                            onConnectError
+                        ) //
+                        this?.on(
+                            Socket.EVENT_ERROR,
+                            onEventError
+                        ) //
+                        this?.on(
+                            "start",
+                            onStart
+                        ) //
+                        this?.on(
+                            "joinRoom",
+                            onJoinRoom
+                        ) //
+                        this?.on(
+                            "roomCreated",
+                            onCreatedRoom
+                        ) //
+                        this?.on(
+                            "timeLeft",
+                            onTimeLeft
+                        ) //
+                        this?.on(
+                            "timeOver",
+                            onTimeOver
+                        ) //
+                        this?.on(
+                            "matched",
+                            onMatched
+                        ) //
+                        this?.on(
+                            "endCount",
+                            onEndCount
+                        ) //
+                        this?.on(
+                            "stopCount",
+                            onStopCount
+                        ) //
+                        this?.on(
+                            "roomFull",
+                            onRoomFull
+                        ) //
+                        this?.on(
+                            "opponentInfo",
+                            onOpponentInfo
+                        ) //
+                        this?.on(
+                            "opponentNotReady",
+                            onOpponentNotReady
+                        ) //
+                        this?.on(
+                            "letsRun",
+                            onLetsRun
+                        ) //
+                        this?.on(
+                            "kmPassed",
+                            onKmPassed
+                        ) //
+                        this?.on(
+                            "endRunning",
+                            onEndRunning
+                        ) //
+                        this?.on(
+                            "opponentStopped",
+                            onOpponentStopped
+                        ) //
+                        this?.on(
+                            "stopRunning",
+                            onStopRunning
+                        ) //
+                        this?.on(
+                            "compareResult",
+                            onCompareResult
+                        ) //
+                        this?.on(
+                            Socket.EVENT_PING,
+                            onPing
+                        ) //
+                        instance?.connect()
+                        Log.d(TAG, "Socket Send Connect")
+                    }
                 }
             }
-        }
+
         private val onStart: Emitter.Listener = Emitter.Listener {
             Log.d(TAG, "Socket onStart")
         }
@@ -118,8 +142,11 @@ class SingleSocket{
             Log.d(TAG, "Socket onConnect")
             Log.d(TAG, "Connect Time = ${SystemClock.elapsedRealtime()}")
         }
-        private val onDisconnect: Emitter.Listener = Emitter.Listener {reason ->
-            val d = Log.d(TAG, "Socket onDisconnect (reason: ${reason[0]}) (code: ${reason[0].hashCode()}")
+        private val onDisconnect: Emitter.Listener = Emitter.Listener { reason ->
+            val d = Log.d(
+                TAG,
+                "Socket onDisconnect (reason: ${reason[0]}) (code: ${reason[0].hashCode()}"
+            )
             Log.d(TAG, "Connect Time = ${SystemClock.elapsedRealtime()}")
         }
         private val onConnctTimeOut: Emitter.Listener = Emitter.Listener {
@@ -129,8 +156,8 @@ class SingleSocket{
         private val onConnectError: Emitter.Listener = Emitter.Listener {
             Log.d(TAG, "Socket onConnectError it[0]:${it[0]}")
         }
-        private val onEventError: Emitter.Listener = Emitter.Listener { error->
-            Log.d(TAG,"Socket AutoMatically onEventError (error: ${error})")
+        private val onEventError: Emitter.Listener = Emitter.Listener { error ->
+            Log.d(TAG, "Socket AutoMatically onEventError (error: ${error})")
         }
 
         private val onJoinRoom: Emitter.Listener = Emitter.Listener {
@@ -172,78 +199,103 @@ class SingleSocket{
             socketDisconnect()
         }
 
-        private fun socketDisconnect() {
+        fun socketDisconnect() {
             instance?.apply {
-                this.off(Socket.EVENT_CONNECT,
+                this.off(
+                    Socket.EVENT_CONNECT,
                     onConnect
                 ) //
-                this.off(Socket.EVENT_DISCONNECT,
+                this.off(
+                    Socket.EVENT_DISCONNECT,
                     onDisconnect
                 ) //
-                this.off(Socket.EVENT_CONNECT_TIMEOUT,
+                this.off(
+                    Socket.EVENT_CONNECT_TIMEOUT,
                     onConnctTimeOut
                 ) //
-                this.off(Socket.EVENT_CONNECT_ERROR,
+                this.off(
+                    Socket.EVENT_CONNECT_ERROR,
                     onConnectError
                 ) //
-                this.off(Socket.EVENT_ERROR,
+                this.off(
+                    Socket.EVENT_ERROR,
                     onEventError
                 ) //
-                this.off("start",
+                this.off(
+                    "start",
                     onStart
                 ) //
-                this.off("joinRoom",
+                this.off(
+                    "joinRoom",
                     onJoinRoom
                 ) //
-                this.off("roomCreated",
+                this.off(
+                    "roomCreated",
                     onCreatedRoom
                 ) //
-                this.off("timeLeft",
+                this.off(
+                    "timeLeft",
                     onTimeLeft
                 ) //
-                this.off("timeOver",
+                this.off(
+                    "timeOver",
                     onTimeOver
                 ) //
-                this.off("matched",
+                this.off(
+                    "matched",
                     onMatched
                 ) //
-                this.off("endCount",
+                this.off(
+                    "endCount",
                     onEndCount
                 ) //
-                this.off("stopCount",
+                this.off(
+                    "stopCount",
                     onStopCount
                 ) //
-                this.off("roomFull",
+                this.off(
+                    "roomFull",
                     onRoomFull
                 ) //
-                this.off("opponentInfo",
+                this.off(
+                    "opponentInfo",
                     onOpponentInfo
                 ) //
-                this.off("opponentNotReady",
+                this.off(
+                    "opponentNotReady",
                     onOpponentNotReady
                 ) //
-                this.off("letsRun",
+                this.off(
+                    "letsRun",
                     onLetsRun
                 ) //
-                this.off("kmPassed",
+                this.off(
+                    "kmPassed",
                     onKmPassed
                 ) //
-                this.off("endRunning",
+                this.off(
+                    "endRunning",
                     onEndRunning
                 ) //
-                this.off("opponentStopped",
+                this.off(
+                    "opponentStopped",
                     onOpponentStopped
                 ) //
-                this.off("stopRunning",
+                this.off(
+                    "stopRunning",
                     onStopRunning
                 ) //
-                this.off("compareResult",
+                this.off(
+                    "compareResult",
                     onCompareResult
                 ) //
-                this.off(Socket.EVENT_PING,
+                this.off(
+                    Socket.EVENT_PING,
                     onPing
                 ) //
+                instance = null
                 this.disconnect()
+
             }
         }
 
@@ -275,7 +327,10 @@ class SingleSocket{
             val win = it[3] as Int
             val lose = it[4] as Int
             val image = it[5] as Int
-            Log.d(TAG, "(roomName: $roomName) (name: $name) (level: $level)  (win: $win) (lose: $lose) (image: $image)")
+            Log.d(
+                TAG,
+                "(roomName: $roomName) (name: $name) (level: $level)  (win: $win) (lose: $lose) (image: $image)"
+            )
 
             Intent().also { intent ->
                 intent.action = "com.team.runnershi.RESULT_OPPONENT_INFO"
@@ -330,7 +385,7 @@ class SingleSocket{
             val gameIdx = it[0] as Int
             val runIdx = it[1] as Int
             Log.d(TAG, "Socket onCompareResult (gameIdx: $gameIdx) (runIdx: $runIdx)")
-            Intent().also{ intent ->
+            Intent().also { intent ->
                 intent.action = "com.team.runnershi.RESULT_COMPARE"
                 intent.putExtra("gameIdx", gameIdx)
                 intent.putExtra("runIdx", runIdx)
