@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_goal.*
 
 class GoalActivity : AppCompatActivity() {
     private var selectedRunTime: Int = 0
+    private var clickable = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,8 @@ class GoalActivity : AppCompatActivity() {
     private fun initUi() {
 
         radioGroup.setOnCheckedChangeListener { _, i ->
+            clickable = true
+            btn_goal_next.isClickable = true
             btn_goal_next.background =
                 ContextCompat.getDrawable(this@GoalActivity, R.drawable.bg_btn_goal_next)
             btn_goal_next.setTextColor(ContextCompat.getColor(this@GoalActivity, R.color.white))
@@ -38,9 +41,11 @@ class GoalActivity : AppCompatActivity() {
         }
 
         btn_goal_next.setOnClickListener {
-            val intent = Intent(this, RivalActivity::class.java)
-            intent.putExtra("runtime", selectedRunTime)
-            startActivity(intent)
+            if(clickable){
+                val intent = Intent(this, RivalActivity::class.java)
+                intent.putExtra("runtime", selectedRunTime)
+                startActivity(intent)
+            }
         }
 
         btn_goal_back.setOnClickListener { finish() }
