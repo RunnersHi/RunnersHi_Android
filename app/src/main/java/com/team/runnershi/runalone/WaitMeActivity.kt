@@ -42,16 +42,16 @@ class WaitMeActivity : AppCompatActivity() {
 
 //                            var vvv = (body.result.distance/1000.0).toString()
 
-                            var dist_change = body.result.distance/1000.0
+                            var dist_change = body.result?.distance!! / 1000.0
                             val change_dist = String.format("%.2f", dist_change).toDouble()
                             tv_waitme_distData.text = change_dist.toString()
 //                                (body.result.distance/1000.0).toString()
 
-                            if(body.result.pace_minute >= 60) {
+                            if(body.result?.paceMinute!! >= 60) {
                                 tv_waitme_pacedata.text = "-’--’’"
                             }
                             else {
-                                tv_waitme_pacedata.text = "${body.result.pace_minute.toString()}’${body.result.pace_second.toString()}’’"
+                                tv_waitme_pacedata.text = "${body.result?.paceMinute}’${body.result?.paceSecond}’’"
                             }
 
                             change_time(body.result)
