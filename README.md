@@ -59,6 +59,7 @@
         app:layout_constraintGuide_end="54dp" />
  
 ```
+/br
 
 :point_right: activity_sign_up.xml
 - activity_sign_up.xml내의 뷰들을 가운데로 정렬하기 위해 margin_vertical 대신 guideLine인 g_left,g_right를 사용했다.
@@ -88,6 +89,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="30dp" />
 ```
+/br
 
 :point_right: activity_on_board.xml4
 - 화면의 중앙에 위치한 4단계로 분류된 온보딩 뷰를 좌, 우로 넘겨보기 위해 ViewPager를 활용하여 각 화면들을 fragment로 구성했다.
@@ -107,7 +109,7 @@
         app:layout_constraintVertical_bias="1.0" />
 ```
 
-
+/br
 
 :point_right: fragment_my_profile.xml4
 - 마이 프로필의 프로필 사진의 경우 제플린에 올린 이미지의 기본값(wrap_content)과 적용값의 차이가 있어 적용값을 기입하여 뷰를 만들었다.
