@@ -70,6 +70,9 @@ class MatchProcActivity : AppCompatActivity() {
                     val leftTimeFromServer = intent.getIntExtra("leftTIme", -1)
                     "RESULT_LEFT_TIME $leftTimeFromServer".logDebug(this@MatchProcActivity)
                     progress_match_proc.progress = 300 - leftTimeFromServer
+                    if(progress_match_proc.progress == 300){
+                        goMatchFail()
+                    }
                 }
                 "com.team.runnershi.RESULT_OPPONENT_INFO" -> {
                     roomName = intent.getStringExtra("roomName")!!
@@ -98,6 +101,17 @@ class MatchProcActivity : AppCompatActivity() {
 
                 else -> return
             }
+
+
+        }
+
+        private fun goMatchFail(){
+            Intent(this@MatchProcActivity, MatchFailActivity::class.java)
+                .apply {
+                    putExtra("activityFlag", 1)
+                    startActivity(this)
+                    finish()
+                }
 
 
         }
