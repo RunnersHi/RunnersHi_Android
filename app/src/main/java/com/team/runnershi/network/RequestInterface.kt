@@ -17,11 +17,11 @@ interface RequestInterface {
 
     //랭킹화면
     @GET("ranking/runner")
-    fun requestRunner():Call<ResponseRunner>
+    fun requestRunner(@Header("token") token :String):Call<ResponseRunner>
     @GET("ranking/winner")
-    fun requestWinner():Call<ResponseWinner>
+    fun requestWinner(@Header("token") token :String):Call<ResponseWinner>
     @GET("ranking/loser")
-    fun requestLoser():Call<ResponseLoser>
+    fun requestLoser(@Header("token") token :String):Call<ResponseLoser>
 
     @GET("/record/detail/{run_idx}")
     fun requestRecordDetail(@Header("token") token :String, @Path("run_idx") run_idx :Int):Call<ResponseRecordDetail>
@@ -49,5 +49,13 @@ interface RequestInterface {
 
     @GET("record/badge/detail/{flag}")
     fun requestBadgeDetail(@Header("token") token : String, @Path("flag") flag : Int) : Call<ResponseBadgeDetail>
+
+    //나와 경쟁하기 관련
+    @POST("record/run/post")
+    fun requestRecordRunPost(@Header("token") token : String, @Body body : RequestRecordRunPost) : Call<ResponseRecordRunPost>
+    @POST("record/run/withme")
+    fun requestRecordRunWithme(@Header("token") token : String, @Body body : RequestRecordRunWithme) : Call<ResponseRecordRunWithme>
+    @POST("record/run/withme")
+    fun requestRecordRunWithmeAlone(@Header("token") token : String, @Body body : RequestRecordRunWithmeAlone) : Call<ResponseRecordRunWithme>
 
 }

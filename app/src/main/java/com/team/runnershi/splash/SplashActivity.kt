@@ -5,55 +5,56 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import com.airbnb.lottie.LottieDrawable
+import android.view.WindowManager
 import com.example.semina_3st.data.RequestLogin
-import com.team.runnershi.home.HomeActivity
 import com.team.runnershi.login.LoginActivity
 import com.team.runnershi.R
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
+import com.team.runnershi.home.HomeActivity
 import com.team.runnershi.network.RequestToServer
 import com.team.runnershi.onboard.OnBoardActivity
-import kotlinx.android.synthetic.main.activity_splash.*
 
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
-    val DURATION:Long = 3000
+    val DURATION: Long = 3000
     val requestToServer = RequestToServer
-    var activity = 0 //0->Onboarding, 1->Login, 2->Home
+    var activity = 1 //0->Onboarding, 1->Login, 2->Home
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
         setContentView(R.layout.activity_splash)
-
-//        val lottie = splash_start
-//        lottie.repeatMode = LottieDrawable.RESTART
 
         checkFirstRun()
 
         Handler().postDelayed({
-            lateinit var intent : Intent
-            when(activity) {
-                0->  intent = Intent(this, OnBoardActivity::class.java)
-                1-> intent = Intent(this, LoginActivity::class.java)
-                2-> intent = Intent(this, HomeActivity::class.java)
+            lateinit var intent: Intent
+            when (activity) {
+                0 -> intent = Intent(this, OnBoardActivity::class.java)
+                1 -> intent = Intent(this, LoginActivity::class.java)
+                2 -> intent = Intent(this, HomeActivity::class.java)
             }
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivity (intent)
+            startActivity(intent)
 
             finish()
         }, DURATION)
 
     }
 
-    fun checkFirstRun(){
-        var isFirstRun = prefs.getString("isFirstRun","y")
-        if(isFirstRun.equals("y"))
+
+    fun checkFirstRun() {
+        var isFirstRun = prefs.getString("isFirstRun", "y")
+        if (isFirstRun.equals("y"))
             activity = 0
-        else{
-            var id = prefs.getString("id",null)
-            var password = prefs.getString("password",null)
+        else {
+            var id = prefs.getString("id", null)
+            var password = prefs.getString("password", null)
 
             requestToServer.service.requestLogin(
                 RequestLogin(
@@ -76,13 +77,10 @@ class SplashActivity : AppCompatActivity() {
                                     "token",
                                     body.result.token
                                 ) //Singleton SharedPreferences에 토큰저장
-
                                 activity = 2
-
                                 Log.e("Login", prefs.getString("token", null))
-                                Log.d("login", "성공")
                             } else {
-
+                                activity = 1
                             }
                         }
                     } else {

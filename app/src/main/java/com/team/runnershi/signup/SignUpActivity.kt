@@ -18,6 +18,7 @@ import com.team.runnershi.extension.textChangeListener
 import com.team.runnershi.network.RequestToServer
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
+import kotlinx.android.synthetic.main.activity_goal.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 
@@ -76,6 +77,8 @@ class SignUpActivity : AppCompatActivity() {
                     checkCanSignUp()
                 }
             })
+
+            btn_sign_up_back.setOnClickListener { finish() }
         }
 
         btn_sign_up_lv_desc.setOnClickListener {

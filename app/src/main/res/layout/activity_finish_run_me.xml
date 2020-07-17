@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".finishrun.FinishRunActivity">
+
+    <TextView
+        android:id="@+id/tv_finishrun_title"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/notosans_blackitalic"
+        android:text="FINISH!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:textColor="@color/lightish_blue"
+        android:lineSpacingExtra="18sp"
+        android:gravity="center_horizontal"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFinishRunDesc"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/nanumsquareb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_finishrun_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:lineSpacingExtra="9sp"
+        android:gravity="center_horizontal"
+        android:text="재밌게 달리셨나요?\n
+    누가 더 많이 뛰었는지 비교 중이에요"
+        />
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFinishRunDesc"
+        app:srcCompat="@drawable/finish_run_activity_illust" />
+
+    <Button
+        android:id="@+id/btnFinishRunConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="54dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/nanumsquareb"
+        android:background="@drawable/btn_lightish_blue"
+        android:text="결과 보러가기"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

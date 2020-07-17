@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".onboard.OnBoardActivity">
+    tools:context=".onboard.OnBoardActivity"
+    android:background="@color/white">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/indicator_on_board"
@@ -19,27 +20,38 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_on_board"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraint_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/indicator_on_board" />
 
-    <TextView
-        android:id="@+id/btn_on_board_next"
-        android:layout_width="0dp"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_id"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_marginHorizontal="90dp"
-        android:layout_marginBottom="70dp"
-        android:background="@drawable/bg_btn_goal_next"
-        android:text="NEXT"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:lineSpacingExtra="15sp"
-        android:gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/btn_on_board_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="90dp"
+            android:layout_marginBottom="90dp"
+            android:background="@drawable/bg_btn_goal_next"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="15sp"
+            android:padding="16dp"
+            android:text="NEXT"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

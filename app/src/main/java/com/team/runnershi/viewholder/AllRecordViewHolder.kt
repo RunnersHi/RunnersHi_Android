@@ -1,5 +1,7 @@
 package com.team.runnershi.viewholder
 
+import android.app.PendingIntent.getActivity
+import android.content.Intent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,8 +11,10 @@ import com.bumptech.glide.Glide
 import com.team.runnershi.R
 import com.team.runnershi.data.AllRecordContent
 import com.team.runnershi.data.ResponseRecord
+import com.team.runnershi.extension.logDebug
+import com.team.runnershi.recdetail.RecDetailActivity
 
-class AllRecordViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+class AllRecordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     //Record 요소들이 들어감
 
     val blueLayout = itemView.findViewById<ImageView>(R.id.imgv_background)
@@ -34,11 +38,10 @@ class AllRecordViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         tv_rec_date1.text = "${splitItem[0]}.${splitItem[1]}.${splitItem[2]}"
 
         //시간
-        if(splitTimeItem[0] == "00") {
+        if (splitTimeItem[0] == "00") {
             tv_rec_timetitle1.text = "${splitTimeItem[1]}:${splitTimeItem[2]}"
-            }
-        else {
-            tv_rec_timetitle1.text ="${splitTimeItem[0]}:${splitTimeItem[1]}:${splitTimeItem[2]}"
+        } else {
+            tv_rec_timetitle1.text = "${splitTimeItem[0][1]}:${splitTimeItem[1]}:${splitTimeItem[2]}"
 
         }
         var dist_change = getAllrecordContent.distance/1000.0
@@ -57,8 +60,14 @@ class AllRecordViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
             Glide.with(itemView).load(R.drawable.grayline___recbadgefragment_winnerrecord).into(blueLayout)
         }
 
-
-
+        val runIdx = getAllrecordContent.run_idx
+        val gameIdx = getAllrecordContent.game_idx
+        itemView.setOnClickListener{
+            val intent = Intent(it.context, RecDetailActivity::class.java)
+            intent.putExtra("runIdx", runIdx)
+            intent.putExtra("gameIdx", gameIdx)
+            it.context.startActivity(intent)
+        }
     }
 
 }
