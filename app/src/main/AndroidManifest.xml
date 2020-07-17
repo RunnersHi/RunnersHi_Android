@@ -83,7 +83,8 @@
             android:name="com.team.runnershi.feature.result.ResultActivity"
             android:exported="true" />
         <activity android:name="com.team.runnershi.feature.finishrun.FinishRunActivity" />
-        <activity android:name=".feature.run.RivalActivity" />
+        <activity android:name=".feature.run.RivalActivity"
+            android:exported="true"/>
         <activity
             android:name="com.team.runnershi.feature.recdetail.RecDetailActivity"
             android:exported="true" />
