@@ -299,6 +299,8 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
        <img  width="200"  src=https://user-images.githubusercontent.com/60434971/87799497-419ae880-c888-11ea-9829-af160026c259.png />
        <img  width="200"  src=https://user-images.githubusercontent.com/60434971/87799571-5a0b0300-c888-11ea-9fd2-2bf1dcb9faa0.png />
        <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809193-f12a8780-c895-11ea-8080-2faf92af5aea.png />
+       <img width="200"  src=https://user-images.githubusercontent.com/57262833/87809342-35b62300-c896-11ea-9b03-4a22b25458f0.png alt="drawing" width="300"/> 
+       <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809345-36e75000-c896-11ea-881e-13690eeb4895.png alt="drawing" width="300"/> 
 <div>
 
 - 매칭화면에서 Socket.io를 이용한 실시간 통신으로 사용자와 매칭함
@@ -312,8 +314,7 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 
 #### :point_right: 기록 자세히보기 화면, 기록 모아보기화면, 랭킹화면
 <div>
-<img width="200"  src=https://user-images.githubusercontent.com/57262833/87809342-35b62300-c896-11ea-9b03-4a22b25458f0.png alt="drawing" width="300"/> 
-<img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809345-36e75000-c896-11ea-881e-13690eeb4895.png alt="drawing" width="300"/> 
+
 <div>
  <br>     
 - 기록 모아보기화면에서 사용자의 이전 기록들 확인 가능
