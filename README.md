@@ -283,17 +283,24 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 <img width="200" src=https://user-images.githubusercontent.com/63635840/87810058-56cb4380-c897-11ea-87a0-1a096e193a6e.png>
 <img width="200" src=https://user-images.githubusercontent.com/63635840/87810066-592d9d80-c897-11ea-84e0-e3ccc2632f63.png>
 <div>
-
-
-#### :point_right:  홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기, 결과화면:point_left: 핵심기능 
 <div>
-       <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87808693-1e2a6a80-c895-11ea-8534-65c65cad4e7b.png alt="drawing"/> 
-       <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87808723-2e424a00-c895-11ea-8bf8-b8035b5cc351.png/>
-       <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809035-ab6dbf00-c895-11ea-9072-77b27d10866f.png/>
-       <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809063-b1fc3680-c895-11ea-865b-6028a4af1a20.png/>
-       <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809193-f12a8780-c895-11ea-8080-2faf92af5aea.png/>
+<img  width="200"  src=https://user-images.githubusercontent.com/57262833/87808693-1e2a6a80-c895-11ea-8534-65c65cad4e7b.png alt="drawing"/> 
+<img  width="200"  src=https://user-images.githubusercontent.com/57262833/87808723-2e424a00-c895-11ea-8bf8-b8035b5cc351.png />
 <div>
 - 홈화면에서 BottomSheetNavigation 사용
+       
+       
+
+
+#### :point_right:  목표선택화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기, 결과화면 :point_left: 핵심기능!!  
+<div>
+       <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809035-ab6dbf00-c895-11ea-9072-77b27d10866f.png />
+       <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809063-b1fc3680-c895-11ea-865b-6028a4af1a20.png />
+       <img  width="200"  src=https://user-images.githubusercontent.com/60434971/87799497-419ae880-c888-11ea-9829-af160026c259.png />
+       <img  width="200"  src=https://user-images.githubusercontent.com/60434971/87799571-5a0b0300-c888-11ea-9fd2-2bf1dcb9faa0.png />
+       <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809193-f12a8780-c895-11ea-8080-2faf92af5aea.png />
+<div>
+
 - 매칭화면에서 Socket.io를 이용한 실시간 통신으로 사용자와 매칭함
 - 러닝화면에서 Socket.io를 이용하여 서버로 러닝 기록 전송, 매칭 상대방의 러닝 기록 받음
 - 러닝화면에서 NaverMap API를 이용하여 사용자의 이동거리 기록
@@ -303,8 +310,8 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 
 #### :point_right: 기록 자세히보기 화면, 기록 모아보기화면, 랭킹화면
 <div>
-       <img width="200"  src=https://user-images.githubusercontent.com/57262833/87809342-35b62300-c896-11ea-9b03-4a22b25458f0.png alt="drawing" width="300"/> 
-       <img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809345-36e75000-c896-11ea-881e-13690eeb4895.png alt="drawing" width="300"/> 
+<img width="200"  src=https://user-images.githubusercontent.com/57262833/87809342-35b62300-c896-11ea-9b03-4a22b25458f0.png alt="drawing" width="300"/> 
+<img  width="200"  src=https://user-images.githubusercontent.com/57262833/87809345-36e75000-c896-11ea-881e-13690eeb4895.png alt="drawing" width="300"/> 
 <div>
       
 - 기록 모아보기화면에서 사용자의 이전 기록들 확인 가능
