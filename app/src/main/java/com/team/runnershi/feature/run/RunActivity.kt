@@ -257,6 +257,7 @@ class RunActivity : AppCompatActivity() {
         60 * 60 -> "60:00"
         90 * 60 -> "1:30:00"
         2 * 60 -> "02:00"
+        30 -> "00:30"
         else -> "--:--"
     }
 
