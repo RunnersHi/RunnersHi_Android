@@ -87,11 +87,11 @@ class RunActivity : AppCompatActivity() {
                 REQUEST_LOCATION_PERMISSION_CODE
             )
         } else {
-            bindLocationListener()
+            bindLocationAndService()
         }
     }
 
-    private fun bindLocationListener() {
+    private fun bindLocationAndService() {
         BoundLocationManager.bindLocationListnerIn(this, locationListener, applicationContext)
     }
 
