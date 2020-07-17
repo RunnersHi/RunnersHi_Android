@@ -133,10 +133,10 @@
 </br>
 ## 1. 프로젝트 사용 라이브러리
 
-- lottie 사용, 앱 실행시 나오는 splash, 상대방 또는 자신과의 대결시 나오는 10초 카운트 및 RUN! 화면 처리를 위함.
+- lottie 사용, 앱 실행시 나오는 splash, 상대방 또는 자신과의 대결시 나오는 10초 카운트 및 RUN! 화면 처리를 위함.</br>
 -> implementation 'com.airbnb.android:lottie:3.4.1'
     
-- 네이버지도 SDK, RUNNER'S HI 앱의 핵심기능으로 자신의 현재위치 및 이동경로, 게임 후 결과를 보여주기 위해 필요한 지도로 네이버사의 SDK를 사용함.
+- 네이버지도 SDK, RUNNER'S HI 앱의 핵심기능으로 자신의 현재위치 및 이동경로, 게임 후 결과를 보여주기 위해 필요한 지도로 네이버사의 SDK를 사용함.</br>
 -> implementation 'com.naver.maps:map-sdk:3.8.0'
 
 - Retrofit 라이브러리, 서버통신을 위함 : https://github.com/square/retrofit
