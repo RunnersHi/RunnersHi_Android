@@ -1,4 +1,4 @@
-package com.team.runnershi.recdetail
+package com.team.runnershi.feature.recdetail
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -173,11 +173,11 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                             tvRecDetailDistData.text = change_dist.toString()
 
                             //pace
-                            if (body.result.pace_minute > 60)
+                            if (body.result.paceMinute > 60)
                                 tvRecDetailPaceData.text = "-\'--\""
                             else
                                 tvRecDetailPaceData.text =
-                                    body.result.pace_minute.toString() + "\'" + body.result.pace_second.toString() + "\""
+                                    body.result.paceMinute.toString() + "\'" + body.result.paceSecond.toString() + "\""
                             //time
                             val timeArr = body.result.time!!.split(":")
                             if (timeArr[0].equals("00"))
@@ -227,11 +227,11 @@ class RecDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                             val change_dist = String.format("%.2f", dist_change).toDouble()
                             tvRecDetailRivalDistData.text = change_dist.toString()
                             //pace
-                            if (body.result.pace_minute> 60){
+                            if (body.result.paceMinute> 60){
                                 tvRecDetailRivalPaceData.text = "-\'--\""}
                             else {
                                 tvRecDetailRivalPaceData.text =
-                                    body.result.pace_minute.toString() + "\'" + body.result.pace_second.toString() + "\""
+                                    body.result.paceMinute.toString() + "\'" + body.result.paceSecond.toString() + "\""
                             }
                             //time
                             val timeArr = body.result.time!!.split(":")
