@@ -10,15 +10,28 @@ import com.team.runnershi.extension.logDebug
 import io.socket.client.IO
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
+import okhttp3.HttpUrl
+import okhttp3.OkHttpClient
+import okhttp3.WebSocket
+import org.json.JSONArray
+import org.json.JSONObject
+import java.lang.RuntimeException
+import java.net.URISyntaxException
+import kotlin.reflect.typeOf
 
-class SingleSocket: Application() {
+class SingleSocket{
     companion object {
         private val TAG = SingleSocket::class.java.simpleName
         private var instance: Socket? = null
         private lateinit var context: Context
 
         fun getInstance(context: Context): Socket = instance ?: synchronized(this) {
-            instance ?: IO.socket("http://13.125.20.117:3000/matching").also {
+            instance ?: try{
+                IO.socket("http://13.125.20.117:3000/matching")
+            }
+            catch(e:URISyntaxException) {
+                throw RuntimeException(e)
+            }.also {
                 this.context = context
                 instance = it
                 instance.apply {
@@ -47,7 +60,7 @@ class SingleSocket: Application() {
                     this?.on("compareResult", onCompareResult) //
                     this?.on(Socket.EVENT_PING, onPing) //
                     instance?.connect()
-
+                    Log.d(TAG, "Socket Send Connect")
                 }
             }
         }
@@ -63,8 +76,8 @@ class SingleSocket: Application() {
             Log.d(TAG, "Socket onConnect")
             Log.d(TAG, "Connect Time = ${SystemClock.elapsedRealtime()}")
         }
-        private val onDisconnect: Emitter.Listener = Emitter.Listener {
-            Log.d(TAG, "Socket onDisconnect")
+        private val onDisconnect: Emitter.Listener = Emitter.Listener {reason ->
+            val d = Log.d(TAG, "Socket onDisconnect (reason: ${reason[0]}) (code: ${reason[0].hashCode()}")
             Log.d(TAG, "Connect Time = ${SystemClock.elapsedRealtime()}")
         }
         private val onConnctTimeOut: Emitter.Listener = Emitter.Listener {
@@ -74,8 +87,8 @@ class SingleSocket: Application() {
         private val onConnectError: Emitter.Listener = Emitter.Listener {
             Log.d(TAG, "Socket onConnectError it[0]:${it[0]}")
         }
-        private val onEventError: Emitter.Listener = Emitter.Listener {
-            Log.d(TAG,"Socket AutoMatically onEventError")
+        private val onEventError: Emitter.Listener = Emitter.Listener { error->
+            Log.d(TAG,"Socket AutoMatically onEventError (error: ${error})")
         }
 
         private val onJoinRoom: Emitter.Listener = Emitter.Listener {
@@ -201,7 +214,8 @@ class SingleSocket: Application() {
         }
 
         private val onKmPassed: Emitter.Listener = Emitter.Listener {
-            Log.d(TAG, "Socket onKmPassed")
+            val opponentKm = it[0] as Int
+            Log.d(TAG, "Socket onKmPassed (Opponent Km: $opponentKm")
             // todo 음성 알림 보내기 = TTS
         }
 
