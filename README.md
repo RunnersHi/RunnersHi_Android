@@ -1,5 +1,5 @@
 <div align="center" style="display:flex;">
-       <img src="https://user-images.githubusercontent.com/57262833/86694398-8764df00-c046-11ea-8afb-5b8b7087dc1b.png">
+       <img src="https://user-images.githubusercontent.com/57262833/86694398-8764df00-c046-11ea-8afb-5b8b7087dc1b.png" width="300"/>
 </div>
 
 <div align="center">
@@ -36,7 +36,9 @@
 
 ### A-1. ConstraintLayout 사용한 화면 개발
 
-### :pig: A-2. Kotlin Collection 확장함수 사용
+## :pig: A-2. 코틀린으로 안드로이드 개발
+### :running: Kotlin Collection 확장함수 사용
+- 서버와 위도, 경도 데이터를 소켓통신하기 위하여, 기존의 ArrayList를 JSONArray로 변환하는 함수
 ~~~
  fun getCoorsJSONArr(coordsArr: ArrayList<LatLng>): JSONArray {
         return JSONArray(coordsArr.map {
@@ -49,3 +51,41 @@
         })
  }
 ~~~
+
+## :pig: A-3. 프로젝트 설명
+### :running:프로젝트 구조
+<img src=https://user-images.githubusercontent.com/57262833/87794364-78213500-c881-11ea-88eb-a13454fbdf83.png alt="drawing" width="300"/> 
+
+- 패키지 설명
+
+| package | 설명 |  
+|:---:|:---|
+| `data` | 프로젝트 내에서 쓰는 데이터관련 클래스 | 
+| `extension` | 확장함수관련 파일 |
+| `feature` | 기능별 폴더들 |
+| `network` | Retrofit을 사용한 http 통신시 사용하는 인터페이스 및 클래스 | 
+| `socket` | Socket.io를 사용한 소켓 통신시 사용하는 클래스 및 서비스 |
+| `util` | SharePrererence 및 기타 사용 클래스 | 
+
+
+- feature내 하위 패키지 설명
+
+| feature내 하위 패키지 | 해당 액티비티 및 프레그먼트 | 설명 | 
+|:---:|:---|:---|
+| `badgedetail` | BadgeDetailActivity | 뱃지 상세보기 화면 | 
+| `finishrun` | FinishRunActivity | 러닝완료 후 화면 |
+| `home` | HomeActivity, HomeFragment, BottomSheetFragment | 홈 화면 |
+| `login` | LoginActivity | 로그인 화면 |
+| `matchfail` | MatchFailActivity | 매칭 실패 화면 |
+| `myprofile` | MyProfileFragment | 마이프로필 화면 |
+| `onboard` | OnBoardActivity | 온보딩 화면 |
+| `rank` | RankFragment | 랭킹 화면 |
+| `recdetail` | RecDetailActivity | 기록상세보기 화면 |
+| `record_badge` | BadgeFragment, RecBadgeFragment, RecFragment | 뱃지 모아보기 화면, 기록 모아보기 화면 |
+| `result` | ResultActivity | 러닝 결과 화면 |
+| `run` | GoalActivity, RivalActivity, MatchProcActivity, MatchSucActivity, RunActivity | 매칭상대선택 화면, 매칭 화면, 달리기 화면 |
+| `runalone` | WaitMeActivity, GoalRunMeActivity, FinishRunActivity | 나와 달리기 화면, 더미와 달리기 화면, 나와 달리기 결과 화면 |
+| `runcountdown` | CountDownActivity, StartRunActivity | 달리기전 카운트 다운 화면, 달리기 시작 알림 화면 |
+| `rundummy` | MatchDummyActivity | 더미데이터와 달리기 매칭 화면 |
+| `signup` | SignUpActivity | 회원가입 화면 | 
+| `splash` | SplashActivity | 스플래시 화면 |
