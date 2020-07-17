@@ -300,7 +300,7 @@ class RunActivity : AppCompatActivity() {
             && grantResults[1] == PackageManager.PERMISSION_GRANTED
         ) {
 
-            bindLocationListener()
+            bindLocationAndService()
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
             Toast.makeText(this, "This sample requires Location access", Toast.LENGTH_LONG).show()
