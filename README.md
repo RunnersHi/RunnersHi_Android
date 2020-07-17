@@ -305,8 +305,10 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 
 #### :point_right: 기록화면, 기록 자세히보기 화면
 <div align="center" style="display:flex;" >
-       <img src=https://user-images.githubusercontent.com/57262833/87809342-35b62300-c896-11ea-9b03-4a22b25458f0.png alt="drawing" width="300"/> 
-       <img src=https://user-images.githubusercontent.com/57262833/87809345-36e75000-c896-11ea-881e-13690eeb4895.png alt="drawing" width="300"/> 
+       <img src=https://user-images.githubusercontent.com/57262833/87809342-35b62300-c896-11ea-9b03-4a22b25458f0.png alt="drawing" width="150"/> 
+       <img src=https://user-images.githubusercontent.com/57262833/87809345-36e75000-c896-11ea-881e-13690eeb4895.png alt="drawing" width="150"/> 
+       <img src=https://user-images.githubusercontent.com/57262833/87811322-72374e00-c899-11ea-8618-a510611fc2fe.png akt="drawing" width="150"/> 
+       <img src=https://user-images.githubusercontent.com/57262833/87811327-76fc0200-c899-11ea-8bc7-48b9384c8e5d.png alt="drawing" width="150"/> 
 </div>
 
 - 기록화면에서 매칭상대방과 러닝 기록 비교 가능 및 승패 여부 보여줌

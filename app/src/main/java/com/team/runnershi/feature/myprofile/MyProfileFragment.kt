@@ -47,10 +47,19 @@ class MyProfileFragment : Fragment() {
                     if(body!!.status == 200) {
                         if(body.success) {
                             tv_match_suc_nick_name.text = body.result.nickname
-                            tv_match_suc_lv_data.text = body.result.level.toString()
+//                            tv_match_suc_lv_data.text = body.result.level.toString()
                             tv_match_suc_lv_score_data.text = "${body.result.win.toString()}승 ${body.result.lose.toString()}패"
-
                             imgv_my_profile_img.setImageResource(imgvProfile[body.result.image-1])
+
+                            if(body.result.level == 1) {
+                                tv_match_suc_lv_data.text = "초급"
+                            }
+                            else if(body.result.level == 2) {
+                                tv_match_suc_lv_data.text = "중급"
+                            }
+                            else {
+                                tv_match_suc_lv_data.text = "고급"
+                            }
 
 
                             allmyProfileAdapter =
