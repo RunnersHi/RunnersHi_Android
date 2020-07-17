@@ -71,7 +71,14 @@ class RunSetViewModel : ViewModel() {
             if (paceMinute >= 60) {
                 ldPace.postValue("-'--\"")
                 "Pace PostValue: -'--\"".logDebug(this@RunSetViewModel)
-            } else {
+            }
+            else if(paceSeconds < 10){
+                ldPace.postValue("${paceMinute.toInt()}'0${paceSeconds.toInt()}\"")
+                "Pace PostValue (paceMinute.toInt(): ${paceMinute.toInt()} paceSeconds: ${paceSeconds.toInt()})".logDebug(
+                    this@RunSetViewModel
+                )
+            }
+            else {
                 ldPace.postValue("${paceMinute.toInt()}'${paceSeconds.toInt()}\"")
                 "Pace PostValue (paceMinute.toInt(): ${paceMinute.toInt()} paceSeconds: ${paceSeconds.toInt()})".logDebug(
                     this@RunSetViewModel
