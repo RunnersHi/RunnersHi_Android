@@ -54,7 +54,7 @@ class MatchProcActivity : AppCompatActivity() {
         work.putExtra(
             "token",
             token
-//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NyIsInBhc3N3b3JkIjoidGVzdHRlc3Q3IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDg5ODc0NiwiZXhwIjoxNTk0OTM0NzQ2fQ.LzMKe_o81YcxAN5akasZPXLfjM9S_t4lCInZr8JdKFE" //6
+//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3Q2IiwicGFzc3dvcmQiOiJ0ZXN0NiIsInRva2VuIjoidG9rZW4iLCJpYXQiOjE1OTUwMDkzNjEsImV4cCI6MTU5NTA0NTM2MX0.dVPFO2QxZF1JJ0C7RZeWeAn-mDrPY0LFwN6-sDIhEJ0"
 //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NiIsInBhc3N3b3JkIjoidGVzdHRlc3Q2IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDg5ODc2OSwiZXhwIjoxNTk0OTM0NzY5fQ.8eZnV47FRSjRj9eF_-L9x_CaiH1J2C82F2yU5NW01d0"
         ) //todo toekn 쉐어드 프리퍼런스에서 가지고 오는 걸로 바꾸
         work.putExtra("time", runtime)
