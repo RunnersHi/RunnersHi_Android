@@ -1,14 +1,16 @@
-package com.team.runnershi
+package com.team.runnershi.result
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.team.runnershi.PrefInit.Companion.prefs
+import com.team.runnershi.R
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
 import com.team.runnershi.network.RequestToServer
+import com.team.runnershi.recdetail.RecDetailActivity
+import com.team.runnershi.util.PrefInit.Companion.prefs
 import kotlinx.android.synthetic.main.activity_result.*
 
 class ResultActivity : AppCompatActivity() {
