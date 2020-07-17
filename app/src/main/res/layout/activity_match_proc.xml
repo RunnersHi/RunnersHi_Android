@@ -39,6 +39,7 @@
         android:layout_marginTop="60dp"
         android:gravity="center_horizontal"
         android:lineSpacingExtra="9sp"
+        android:fontFamily="@font/nanumsquarer"
         android:text="같은 레벨의 러너를\n
 5분 안에 찾아서 알림을 드릴게요\n
 러닝 전 준비운동을 해 주세요!"
@@ -56,6 +57,7 @@
         android:layout_marginBottom="50dp"
         android:background="@drawable/blue_btn_background"
         android:gravity="center_horizontal"
+        android:fontFamily="@font/nanumsquareb"
         android:lineSpacingExtra="9sp"
         android:paddingHorizontal="98dp"
         android:paddingVertical="16dp"
