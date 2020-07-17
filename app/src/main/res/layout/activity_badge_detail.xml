@@ -51,7 +51,7 @@
         android:id="@+id/tv_badge_detail_content_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="20dp"
         android:text="2020.01.01"
         android:textSize="16sp"
         android:textColor="@color/black"

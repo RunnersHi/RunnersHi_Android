@@ -38,8 +38,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="28dp">
 
             <TextView
                 android:id="@+id/tv_home_title"
@@ -48,7 +48,7 @@
                 android:fontFamily="@font/nanumsquareb"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="9sp"
-                android:text="상쾌한 오전,\n당신의 상대를\n찾아 함께 뛰어 보세요."
+                android:text="나른한 오후,\n당신의 상대를\n찾아 함께 뛰어 보세요."
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"

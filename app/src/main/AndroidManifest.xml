@@ -27,7 +27,13 @@
             android:exported="true" />
         <activity
             android:name=".splash.SplashActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <service
             android:name=".SocketService"
             android:exported="false"
@@ -59,15 +65,12 @@
             android:name=".signup.SignUpActivity"
             android:exported="true" />
         <activity android:name=".StartRunActivity" />
-        <activity android:name=".countdown.CountDownActivity" />
+        <activity android:name=".countdown.CountDownActivity"
+            android:exported="true"/>
         <activity
             android:name=".home.HomeActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
