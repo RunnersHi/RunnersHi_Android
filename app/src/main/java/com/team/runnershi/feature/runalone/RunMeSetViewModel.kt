@@ -1,4 +1,4 @@
-package com.team.runnershi
+package com.team.runnershi.feature.runalone
 import android.location.Location
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -92,7 +92,10 @@ class RunMeSetViewModel : ViewModel() {
                 )
                 ldRunProgress.postValue(leftTime)
             }
-        }, ONE_SECOND, ONE_SECOND)
+        },
+            ONE_SECOND,
+            ONE_SECOND
+        )
     }
     fun pathUpdate(currentLocation: Location) {
         path.add(LatLng(currentLocation))

@@ -1,7 +1,6 @@
-package com.team.runnershi
+package com.team.runnershi.feature.runalone
 
 import android.content.Context
-import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.util.Log
@@ -16,11 +15,12 @@ class RunMeBoundLocationManager {
             locationListener: LocationListener,
             context: Context
         ) {
-            runMeBoundLocationListener = RunMeBoundLocationListener(
-                lifecycleOwner,
-                locationListener,
-                context
-            )
+            runMeBoundLocationListener =
+                RunMeBoundLocationListener(
+                    lifecycleOwner,
+                    locationListener,
+                    context
+                )
         }
         class RunMeBoundLocationListener(
             private val lifecycleOwner: LifecycleOwner,

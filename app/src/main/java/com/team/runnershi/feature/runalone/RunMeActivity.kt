@@ -1,4 +1,4 @@
-package com.team.runnershi
+package com.team.runnershi.feature.runalone
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -25,13 +25,15 @@ import com.naver.maps.map.NaverMap
 import com.naver.maps.map.overlay.LocationOverlay
 import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.overlay.PathOverlay
+import com.team.runnershi.*
 import com.team.runnershi.data.CoordinateData
 import com.team.runnershi.data.RecordRunWithmeData
 import com.team.runnershi.data.RequestRecordRunPost
 import com.team.runnershi.extension.customEnqueue
 import com.team.runnershi.extension.logDebug
-import com.team.runnershi.finishrun.FinishRunActivity
 import com.team.runnershi.network.RequestToServer
+import com.team.runnershi.feature.run.GpsOnlyLocationSource
+import com.team.runnershi.feature.run.RunActivity
 import com.team.runnershi.util.PrefInit.Companion.prefs
 import kotlinx.android.synthetic.main.activity_run_me.*
 import java.text.SimpleDateFormat
@@ -75,14 +77,19 @@ class RunMeActivity : AppCompatActivity() {
     }
 
     private fun bindLocationAndService() {
-        RunMeBoundLocationManager.bindLocationListnerIn(this, locationListener, applicationContext)
+        RunMeBoundLocationManager.bindLocationListnerIn(
+            this,
+            locationListener,
+            applicationContext
+        )
     }
 
     @SuppressLint("MissingPermission")
     private fun initData() {
         finalCreatedTime =
             SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().time)
-        locationSource = GpsOnlyLocationSource(this)
+        locationSource =
+            GpsOnlyLocationSource(this)
         val currentLocation =
             RunMeBoundLocationManager.runMeBoundLocationListener.mLocationManager?.getLastKnownLocation(
                 LocationManager.GPS_PROVIDER
