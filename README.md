@@ -1,14 +1,13 @@
 
+
 <div align="center" style="display:flex;">
-       <img src="https://user-images.githubusercontent.com/57262833/86694398-8764df00-c046-11ea-8afb-5b8b7087dc1b.png" width="300"/>
+       <img src=https://user-images.githubusercontent.com/57262833/87799675-7c048580-c888-11ea-8bbb-ec6c4e5c769e.png alt="drawing" width="600"/> 
+       <img src="https://user-images.githubusercontent.com/57262833/87800520-73f91580-c889-11ea-9a2f-ef43cf60a361.png" width="300"/>
 </div>
 
-## 핵심기능 및 구현화면 정리
+#  러닝을 게임처럼, 러너스하이
 
-### 스플래쉬, 온보딩, 회원가입, 로그인 화면
-- 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
-- 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화\
-
+우리는 '함께' 뛸 때 더 많은 시너지를 만들어냅니다. 요즘 세대들은 러닝 크루에 소속되어 러닝을 즐기곤 하지만, Offline 러닝크루는 고정된 시간과 장소라는 한계점을 가지고 있습니다.  우리는 **같이 달리고 싶지만, 달릴 수 없는 순간들이 존재한다는 점**에 집중하고자 합니다.  우리의 서비스를 통해 시공간의 제약없이 다양한 사람들과 함께 달림으로써 건강한 라이프 스타일을 만들어나가길 바랍니다.
 
 ```
 ✨  기존 러닝 어플리케이션과의 확실한 차별화 요소를 적용했습니다.    
@@ -30,6 +29,39 @@
 
 </br>
 </br>
+
+
+## :pig: A-1. ConstraintLayout 사용한 화면 개발
+
+## :pig: Custom 확장 함수 
+:point_right: dpToPx.kt
+- xml코드와 달리 kotlin source code에서는 px단위를 사용, dp를 px로 변환해주는 확장함수
+```
+fun Int.dpToPx(resources: Resources): Int = TypedValue
+    .applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this.toFloat(), resources.displayMetrics).toInt()
+```
+</br>
+
+:point_right: logDebug.kt
+- Log 쉽게 볼 수 있도록 해주는 확장함수
+```
+fun String.logDebug(any: Any) {
+    Log.d(any::class.java.simpleName, this)
+}
+
+```
+:point_right: newStartActivity.kt
+- 액티비티 전환 확장함수
+```
+fun <T> Context.newStartActivity(toClass: Class<T>){
+    val intent = Intent(this, toClass)
+    startActivity(intent)
+}
+
+```
+
 
 ## A-1. ConstraintLayout 사용한 화면 개발
 
@@ -120,7 +152,7 @@
 ```
 
 
-## :pig: A-2. 코틀린으로 안드로이드 개발
+
 ### :running: Kotlin Collection 확장함수 사용
 - 서버와 위도, 경도 데이터를 소켓통신하기 위하여, 기존의 ArrayList를 JSONArray로 변환하는 함수
 ~~~
@@ -220,58 +252,31 @@
 | `splash` | SplashActivity | 스플래시 화면 |
 
 
-## 핵심기능 및 구현화면 정리
-
-### 스플래쉬, 온보딩, 회원가입, 로그인 화면
+### :running: 핵심기능 및 구현화면 정리
+#### 스플래쉬, 온보딩, 회원가입, 로그인 화면
 - 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
 - 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화\
 
-### 홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
+#### 홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
 
 - 홈화면에서 BottomSheetNavigation 사용
-- 매칭화면에서 Socket통신으로 사용자 매칭
-- 러닝화면에서 Socket통신
-- 러닝화면에서 NaverMap 사용으로 지도 기능 구현
+- 매칭화면에서 Socket.io를 이용한 실시간 통신으로 사용자와 매칭함
+- 러닝화면에서 Socket.io를 이용하여 서버로 러닝 기록 전송, 매칭 상대방의 러닝 기록 받음
+- 러닝화면에서 NaverMap API를 이용하여 사용자의 이동거리 기록
+- 러닝화면에서 실시간으로 이동시간, 러닝거리, 페이스 보여줌
 - 나와 경쟁하기 화면에서 TextToSpeeach와 Timer로 음성피드백 기능 구현
 
-### 기록화면, 기록 자세히보기 화면
+#### 기록화면, 기록 자세히보기 화면
 
+- 기록화면에서 매칭상대방과 러닝 기록 비교 가능 및 승패 여부 보여줌
 - 기록자세히 보기화면에서 NaverMap사용으로 러닝 경로 불러오기 
 
-### 뱃지화면, 마이페이지 화면
+#### 뱃지화면, 마이페이지 화면
 
 
 <br>
 <br>
 
 
-### A-2. custom 확장 함수
 
-:point_right: dpToPx.kt
-- xml코드와 달리 kotlin source code에서는 px단위를 사용, dp를 px로 변환해주는 확장함수
-```
-fun Int.dpToPx(resources: Resources): Int = TypedValue
-    .applyDimension(
-        TypedValue.COMPLEX_UNIT_DIP,
-        this.toFloat(), resources.displayMetrics).toInt()
-```
-</br>
-
-:point_right: logDebug.kt
-- Log 쉽게 볼 수 있도록 해주는 확장함수
-```
-fun String.logDebug(any: Any) {
-    Log.d(any::class.java.simpleName, this)
-}
-
-```
-:point_right: newStartActivity.kt
-- 액티비티 전환 확장함수
-```
-fun <T> Context.newStartActivity(toClass: Class<T>){
-    val intent = Intent(this, toClass)
-    startActivity(intent)
-}
-
-```
 
