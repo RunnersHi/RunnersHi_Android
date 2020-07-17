@@ -45,7 +45,9 @@ class RunSetViewModel : ViewModel() {
         ldIsKmPassed.value = (totalMeter / 1000 >= distStandard)
     }
 
-    fun incDistStandard() = distStandard.inc()
+    fun incDistStandard() {
+        distStandard += 1
+    }
 
     fun calPace(curLocation: Location) {
         if (prevLocation == null) {
