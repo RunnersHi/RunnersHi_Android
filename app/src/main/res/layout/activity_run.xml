@@ -39,12 +39,13 @@
                 app:layout_constraintStart_toStartOf="@id/gl_run_left"
                 app:layout_constraintEnd_toEndOf="@id/gl_run_right"
                 app:layout_constraintTop_toBottomOf="@id/btn_run_lock"
-                android:background="@drawable/bg_run_profile"
+                app:cardCornerRadius="12dp"
                 >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_run_profile">
 
                     <ImageView
                         android:id="@+id/imgv_run_pofile_bg"
@@ -68,11 +69,10 @@
                         style="@style/TextStyle10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="46dp"
                         android:layout_marginTop="3dp"
                         android:fontFamily="@font/ff_nanumsqare"
                         android:textFontWeight="400"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/imgv_run_profile"
                         app:layout_constraintEnd_toEndOf="@id/imgv_run_profile"
                         app:layout_constraintTop_toBottomOf="@id/imgv_run_profile"
                         android:text="성북천치타" />
