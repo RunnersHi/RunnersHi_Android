@@ -98,7 +98,7 @@ class RunSetViewModel : ViewModel() {
 
                 val strHour = if (hour == 0) "" else "$hour:"
                 val strMinutes = if (minutes >= 10) "$minutes:" else "0$minutes:"
-                val strSeconds = "$seconds"
+                val strSeconds = if(seconds >= 10) "$seconds" else "0$seconds"
                 ldRunLeftTime.postValue("$strHour$strMinutes$strSeconds")
                 "timer runLeftTime.postValue (hour: $hour) (minutes: $minutes) (seconds: $seconds)".logDebug(
                     this@RunSetViewModel
