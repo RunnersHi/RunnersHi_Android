@@ -55,6 +55,8 @@ class BoundLocationManager {
                 }
             }
 
+
+
             @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
             fun removeLocationListener() {
                 val i = if (mLocationManager == null) {
