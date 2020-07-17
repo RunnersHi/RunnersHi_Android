@@ -262,16 +262,16 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 - 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
 <br>
 <div>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809124-ccceab00-c895-11ea-8dd0-be8d5585c50b.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809129-cfc99b80-c895-11ea-9729-6ed4e04e29a5.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809139-d2c48c00-c895-11ea-805c-a96e082e3669.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809146-d48e4f80-c895-11ea-8a2d-4034611cdb98.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87809124-ccceab00-c895-11ea-8dd0-be8d5585c50b.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87809129-cfc99b80-c895-11ea-9729-6ed4e04e29a5.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87809139-d2c48c00-c895-11ea-805c-a96e082e3669.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87809146-d48e4f80-c895-11ea-8a2d-4034611cdb98.png>
 <div>
 <br>
 <br>
 <div>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809182-e7088900-c895-11ea-9e9c-278edffeedba.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87809182-e7088900-c895-11ea-9e9c-278edffeedba.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png>
 <div>
 <br>
 <br>
@@ -279,9 +279,9 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 <br>
 <br>
 <div>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87810040-529f2600-c897-11ea-9ede-dbfe3a1d0c84.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87810058-56cb4380-c897-11ea-87a0-1a096e193a6e.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87810066-592d9d80-c897-11ea-84e0-e3ccc2632f63.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87810040-529f2600-c897-11ea-9ede-dbfe3a1d0c84.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87810058-56cb4380-c897-11ea-87a0-1a096e193a6e.png>
+<img width="250" src=https://user-images.githubusercontent.com/63635840/87810066-592d9d80-c897-11ea-84e0-e3ccc2632f63.png>
 <div>
 
 
@@ -315,9 +315,9 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 #### :fire: 뱃지화면, 마이페이지 화면
 <br>
 <div>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
-<img width="200" src=https://user-images.githubusercontent.com/63635840/87811252-4fa53500-c899-11ea-81ec-a8c34b03112b.png>
+<img width="270" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
+<img width="270" src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
+<img width="270" src=https://user-images.githubusercontent.com/63635840/87811252-4fa53500-c899-11ea-81ec-a8c34b03112b.png>
 <div>
 
 <br>
