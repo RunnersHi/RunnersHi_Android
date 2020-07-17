@@ -315,9 +315,10 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 #### :fire: 나의 러닝 기록 화면, 뱃지화면
 <br>
 <div>
-<img width="270" src=https://user-images.githubusercontent.com/63635840/87827843-a836fb00-c8b6-11ea-9552-9eb459b5c2bc.png>
-<img width="270" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
-<img width="270" src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87827843-a836fb00-c8b6-11ea-9552-9eb459b5c2bc.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87811174-32706680-c899-11ea-94e8-4ee18e71154d.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87811182-343a2a00-c899-11ea-9bb7-9afbdf41b741.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87828264-85f1ad00-c8b7-11ea-96c1-dd42b9717c36.png>
 <div>
 <br>
       
@@ -326,13 +327,15 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
  - 러닝배지는 자신이 보유한 모든 배지를 볼 수 있으며, 배지 클릭시 배지 상세보기를 할 수 있다.
 
 <br>
- 
-
-
-https://user-images.githubusercontent.com/63635840/87827938-de747a80-c8b6-11ea-9dc8-a86c9fef7517.png - 랭킹 뷰
-
-
-https://user-images.githubusercontent.com/63635840/87827911-cac91400-c8b6-11ea-8d61-71cba39189bd.png - 마이 프로필
-
 <br>
+
+#### :fire: 랭킹, 마이 프로필 뷰
+<br>
+<div>
+<img width="270" src=https://user-images.githubusercontent.com/63635840/87827938-de747a80-c8b6-11ea-9dc8-a86c9fef7517.png>
+<img width="270" src=https://user-images.githubusercontent.com/63635840/87827911-cac91400-c8b6-11ea-8d61-71cba39189bd.png>
+<div>
+<br>
+ - 랭킹뷰에서 이달의 러너, 명예의 전당, 졌잘싸에 대한 상대방의 랭킹을 확인해볼 수 있으며, 마이 프로필에서 나의 레벨, 전적, 배지들을 확인할 수 있으며 아래로 스크롤하여 로그아웃 버튼을 통해 로그 아웃을 할 수 있다.
+       
 <br>
