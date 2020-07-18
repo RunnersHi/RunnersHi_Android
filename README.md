@@ -255,45 +255,46 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 
 ### :running: 핵심기능 및 구현화면 정리
 
-#### 스플래쉬, 온보딩, 회원가입, 로그인 화면
+#### :fire: 스플래쉬, 온보딩, 회원가입, 로그인 화면
+
+
+</br>
+<div>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87809124-ccceab00-c895-11ea-8dd0-be8d5585c50b.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87809129-cfc99b80-c895-11ea-9729-6ed4e04e29a5.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87809139-d2c48c00-c895-11ea-805c-a96e082e3669.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87809146-d48e4f80-c895-11ea-8a2d-4034611cdb98.png>
+<div>
+</br>
+</br>
+<div>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87809182-e7088900-c895-11ea-9e9c-278edffeedba.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png>
+<div>
+</br>
+</br>
+
+</br>
+</br>
+<div>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87810040-529f2600-c897-11ea-9ede-dbfe3a1d0c84.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87810058-56cb4380-c897-11ea-87a0-1a096e193a6e.png>
+<img width="150" src=https://user-images.githubusercontent.com/63635840/87810066-592d9d80-c897-11ea-84e0-e3ccc2632f63.png>
+<div>
 
 - 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
-</br>
-<div>
-<img width="230" src=https://user-images.githubusercontent.com/63635840/87809124-ccceab00-c895-11ea-8dd0-be8d5585c50b.png>
-<img width="230" src=https://user-images.githubusercontent.com/63635840/87809129-cfc99b80-c895-11ea-9729-6ed4e04e29a5.png>
-<img width="230" src=https://user-images.githubusercontent.com/63635840/87809139-d2c48c00-c895-11ea-805c-a96e082e3669.png>
-<img width="230" src=https://user-images.githubusercontent.com/63635840/87809146-d48e4f80-c895-11ea-8a2d-4034611cdb98.png>
-<div>
-</br>
-</br>
-<div>
-<img width="250" src=https://user-images.githubusercontent.com/63635840/87809182-e7088900-c895-11ea-9e9c-278edffeedba.png>
-<img width="250" src=https://user-images.githubusercontent.com/63635840/87809186-e96ae300-c895-11ea-8b69-d3af2fc3d15c.png>
-<div>
-</br>
-</br>
 - 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화
-</br>
-</br>
-<div>
-<img width="250" src=https://user-images.githubusercontent.com/63635840/87810040-529f2600-c897-11ea-9ede-dbfe3a1d0c84.png>
-<img width="250" src=https://user-images.githubusercontent.com/63635840/87810058-56cb4380-c897-11ea-87a0-1a096e193a6e.png>
-<img width="250" src=https://user-images.githubusercontent.com/63635840/87810066-592d9d80-c897-11ea-84e0-e3ccc2632f63.png>
-<div>
 
 
 
-
-
-#### :point_right:  홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
+#### :point_right:  :fire: 홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
 <div align="center" style="display:flex;">
        <img src=https://user-images.githubusercontent.com/57262833/87808693-1e2a6a80-c895-11ea-8534-65c65cad4e7b.png alt="drawing" width="150"/> 
        <img src="https://user-images.githubusercontent.com/57262833/87808723-2e424a00-c895-11ea-8bf8-b8035b5cc351.png" width="150"/>
               <img src="https://user-images.githubusercontent.com/57262833/87809035-ab6dbf00-c895-11ea-9072-77b27d10866f.png" width="150"/>
        <img src="https://user-images.githubusercontent.com/57262833/87809063-b1fc3680-c895-11ea-865b-6028a4af1a20.png" width="150"/>
               <img src="https://user-images.githubusercontent.com/57262833/87809193-f12a8780-c895-11ea-8080-2faf92af5aea.png" width="150"/>
-</div>
+<div>
 - 홈화면에서 BottomSheetNavigation 사용
 - 매칭화면에서 Socket.io를 이용한 실시간 통신으로 사용자와 매칭함
 - 러닝화면에서 Socket.io를 이용하여 서버로 러닝 기록 전송, 매칭 상대방의 러닝 기록 받음
@@ -301,13 +302,13 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 - 러닝화면에서 실시간으로 이동시간, 러닝거리, 페이스 보여줌
 - 나와 경쟁하기 화면에서 TextToSpeeach와 Timer로 음성피드백 기능 구현
 
-#### :point_right: 기록화면, 기록 자세히보기 화면
+#### :fire: 기록화면, 기록 자세히보기 화면
 <div align="center" style="display:flex;" >
        <img src=https://user-images.githubusercontent.com/57262833/87809342-35b62300-c896-11ea-9b03-4a22b25458f0.png alt="drawing" width="150"/> 
        <img src=https://user-images.githubusercontent.com/57262833/87809345-36e75000-c896-11ea-881e-13690eeb4895.png alt="drawing" width="150"/> 
        <img src=https://user-images.githubusercontent.com/57262833/87811322-72374e00-c899-11ea-8618-a510611fc2fe.png akt="drawing" width="150"/> 
        <img src=https://user-images.githubusercontent.com/57262833/87811327-76fc0200-c899-11ea-8bc7-48b9384c8e5d.png alt="drawing" width="150"/> 
-</div>
+<div>
 
 - 기록화면에서 매칭상대방과 러닝 기록 비교 가능 및 승패 여부 보여줌
 - 기록자세히 보기화면에서 NaverMap사용으로 러닝 경로 불러오기 
