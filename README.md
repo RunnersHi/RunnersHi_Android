@@ -284,7 +284,10 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 
 - 스플래쉬 화면에서 SharedPreferences으로 자동로그인 구현
 - 회원가입 화면에서 textWatcher으로 실시간으로 정규표현식 검사, 모든 조건 만족시에만 회원가입 버튼 활성화
-
+</br>
+</br>
+</br>
+</br>
 
 
 #### :point_right:  :fire: 홈화면, 매칭화면, 러닝화면- 다른사람과 경쟁, 나와 경쟁하기 :point_left: 핵심기능
@@ -295,6 +298,10 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
        <img src="https://user-images.githubusercontent.com/57262833/87809063-b1fc3680-c895-11ea-865b-6028a4af1a20.png" width="150"/>
               <img src="https://user-images.githubusercontent.com/57262833/87809193-f12a8780-c895-11ea-8080-2faf92af5aea.png" width="150"/>
 <div>
+       </br>
+</br>
+</br>
+</br>
 - 홈화면에서 BottomSheetNavigation 사용
 - 매칭화면에서 Socket.io를 이용한 실시간 통신으로 사용자와 매칭함
 - 러닝화면에서 Socket.io를 이용하여 서버로 러닝 기록 전송, 매칭 상대방의 러닝 기록 받음
@@ -312,6 +319,9 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
 
 - 기록화면에서 매칭상대방과 러닝 기록 비교 가능 및 승패 여부 보여줌
 - 기록자세히 보기화면에서 NaverMap사용으로 러닝 경로 불러오기 
+</br>
+</br></br>
+</br>
 
 #### :fire: 나의 러닝 기록 화면, 뱃지화면
 </br>
@@ -327,6 +337,8 @@ fun <T> Context.newStartActivity(toClass: Class<T>){
  - 나의 모든 기록과 승패, 기록을 볼 수 있으며 클릭시 기록 상세보기 뷰를 볼 수 있다.
  - 러닝배지는 자신이 보유한 모든 배지를 볼 수 있으며, 배지 클릭시 배지 상세보기를 할 수 있다.
 
+</br>
+</br>
 </br>
 </br>
 
